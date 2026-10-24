@@ -79,7 +79,9 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 <script>
-  $('#sidebar').load('https://raw.githubusercontent.com/Vigerslev-Skyttegard/Hjemmeside/refs/heads/main/sidebar.html')
+  $.get('sidebar.html', function (html) {
+    $('#sidebar').prepend(html);
+  });
 </script>
 	</body>
 </html>
