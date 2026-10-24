@@ -2297,3 +2297,15 @@ button,
   }
 }
 
+.onedrive-container--parking {
+  height: 700px;
+  overflow: hidden;
+}
+
+.onedrive-container--parking iframe {
+  width: 142.857%;
+  height: 142.857%;
+  transform: scale(0.7);
+  transform-origin: top left;
+}
+
