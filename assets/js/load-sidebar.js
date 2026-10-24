@@ -1,5 +1,5 @@
 
-fetch('sidebar.html')
+fetch('https://raw.githubusercontent.com/Vigerslev-Skyttegard/Hjemmeside/refs/heads/main/sidebar.html')
     .then(response => {
         if (!response.ok) {
             throw new Error('Kunne ikke indlæse sidebar.html');
