@@ -22,4 +22,6 @@ For at opdatere indhold (fx husorden eller nyheder), rediger den relevante `.htm
 Kan give nogle flere eksempler her
 
 ## Hosting
+midlertidigt 
+https://vigerslev-skyttegard.github.io/Hjemmeside/index.html
 www.skyttegårdvigerslev.dk
