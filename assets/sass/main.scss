@@ -60,3 +60,16 @@
 	@import 'layout/banner';
 	@import 'layout/footer';
 	@import 'layout/menu';
+
+// Preserve the reduced-scale layout of the embedded parking spreadsheet.
+.onedrive-container--parking {
+	height: 700px;
+	overflow: hidden;
+}
+
+.onedrive-container--parking iframe {
+	width: 142.857%;
+	height: 142.857%;
+	transform: scale(0.7);
+	transform-origin: top left;
+}

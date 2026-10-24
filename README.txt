@@ -1,27 +1,43 @@
-# Hjemmeside – Vigerslev Skyttegård
+# Hjemmeside – Ejerforeningen Skyttegård/Vigerslev
 
-Dette repository indeholder kildekoden til den offentlige hjemmeside for VigerslevSkyttegård.
+Dette repository indeholder den offentlige hjemmeside for ejerforeningen i
+Valby. Siden er bygget som statisk HTML, CSS og JavaScript uden framework,
+CMS eller buildproces.
 
-## Struktur
+## Sider
 
-- `index.html` - Forside
-- `husorden.html` - Husorden
-- `nyhed.html` - Nyheder og referater
-- `velkomstbrev.html` - Velkomstbrev til nye ejere
-- `sidebar.html` - Fælles sidebar/menu-element, der genbruges på tværs af siderne
-- `assets/` - CSS, script og andre statiske filer
-- `images/` - Billeder brugt på siderne
+- `index.html` – Forside
+- `velkomstbrev.html` – Information til nye ejere
+- `husorden&vedtægter.html` – Husorden og vedtægter
+- `nyhed.html` – Nyheder og referater
+- `parkering.html` – Parkeringsoplysninger
+- `eksempler.html` – Eksempelside til design- og komponentreferencer
+- `sidebar.html` – Fælles navigation og kontaktoplysninger
 
-## Om siden
+## Filer og redigering
 
-Siden er bygget som en simpel, statisk HTML-side uden brug af framework eller CMS. Der er ingen build-proces – filerne kan åbnes og redigeres direkte.
+- `assets/css/main.css` er sidens aktive stylesheet.
+- `assets/sass/` indeholder Sass-kildefilerne.
+- `assets/js/` indeholder sidens scripts og de nødvendige biblioteker.
+- `images/` indeholder billeder.
 
-## Redigering af indhold
+Redigér indholdet i den relevante HTML-fil. Navigation og kontaktoplysninger
+vedligeholdes ét sted i `sidebar.html`.
 
-For at opdatere indhold (fx husorden eller nyheder), rediger den relevante `.html`-fil direkte. Sidebaren (`sidebar.html`) styrer navigationen og bør opdateres ét sted, hvis der tilføjes eller fjernes sider.
-Kan give nogle flere eksempler her
+## Kør lokalt
+
+Start en statisk webserver fra projektmappen:
+
+```sh
+python3 -m http.server 5000 --bind 0.0.0.0
+```
+
+Åbn derefter `http://localhost:5000/`. På Replit bruges workflowet **Start
+application** og projektets Preview.
 
 ## Hosting
-midlertidigt 
-https://vigerslev-skyttegard.github.io/Hjemmeside/index.html
-www.skyttegårdvigerslev.dk
+
+Den midlertidige GitHub Pages-adresse er:
+https://vigerslev-skyttegard.github.io/Hjemmeside/
+
+Det ønskede domæne er www.skyttegårdvigerslev.dk.

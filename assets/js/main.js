@@ -25,11 +25,16 @@
 	// Stops animations/transitions until the page has ...
 
 		// ... loaded.
-			$window.on('load', function() {
+			var removePreloadState = function() {
 				window.setTimeout(function() {
 					$body.removeClass('is-preload');
 				}, 100);
-			});
+			};
+
+			if (document.readyState === 'complete')
+				removePreloadState();
+			else
+				$window.on('load', removePreloadState);
 
 		// ... stopped resizing.
 			var resizeTimeout;
