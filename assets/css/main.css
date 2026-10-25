@@ -1395,6 +1395,110 @@ ul.contact {
     ul.contact li a {
       color: inherit; }
 
+/* Sidebar contact cards */
+.sidebar-contact-intro {
+  margin-bottom: 1.15em;
+}
+
+ul.sidebar-contact-list {
+  display: grid;
+  gap: 0.7em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.sidebar-contact-list > li.sidebar-contact-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(210, 215, 217, 0.8);
+  border-left: 3px solid #f56a6a;
+  border-radius: 0.4em;
+  margin: 0;
+  min-width: 0;
+  padding: 0.8em 0.9em;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+ul.sidebar-contact-list > li.sidebar-contact-card:hover {
+  border-color: rgba(245, 106, 106, 0.55);
+  box-shadow: 0 0.25em 0.9em rgba(61, 68, 73, 0.07);
+}
+
+.sidebar-contact-card__title {
+  color: #3d4449;
+  font-size: 0.95em;
+  line-height: 1.4;
+  margin: 0 0 0.55em;
+}
+
+.sidebar-contact-card__actions {
+  display: grid;
+  gap: 0.55em;
+}
+
+a.sidebar-contact-link {
+  align-items: center;
+  border: 0;
+  color: inherit;
+  display: grid;
+  gap: 0.65em;
+  grid-template-columns: 1.15em minmax(0, 1fr);
+  min-width: 0;
+  text-decoration: none;
+}
+
+a.sidebar-contact-link:focus-visible {
+  border-radius: 0.2em;
+  outline: 2px solid #f56a6a;
+  outline-offset: 3px;
+}
+
+.sidebar-contact-link__icon {
+  color: #f56a6a;
+  font-size: 0.95em;
+  line-height: 1;
+  text-align: center;
+  width: 1.15em;
+}
+
+.sidebar-contact-link__copy {
+  display: grid;
+  gap: 0.08em;
+  min-width: 0;
+}
+
+.sidebar-contact-link__label {
+  color: #8b9297;
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.sidebar-contact-link__value {
+  color: #3d4449;
+  font-size: 0.85em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.sidebar-contact-link:hover .sidebar-contact-link__value {
+  color: #f56a6a;
+}
+
+@media screen and (max-width: 480px) {
+  ul.sidebar-contact-list {
+    gap: 0.55em;
+  }
+
+  ul.sidebar-contact-list > li.sidebar-contact-card {
+    padding: 0.75em 0.8em;
+  }
+}
+
 /* Pagination */
 ul.pagination {
   cursor: default;
