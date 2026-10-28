@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 0 * * 0' # ⏰ Runs once a week every Sunday at midnight UTC
 
+# Required permissions to allow GitHub Actions to commit files back to your repo
+permissions:
+  contents: write
+
 jobs:
   download-file:
     runs-on: ubuntu-latest
@@ -15,14 +19,10 @@ jobs:
 
       - name: Download Excel directly from OneDrive
         run: |
-          # 1. Define the raw link base (stripping the tracking parameters)
           RAW_LINK="https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?e=1ZeEZo"
-          
-          # 2. Append the forced download command string
           DIRECT_DOWNLOAD_URL="${RAW_LINK}?download=1"
           
           echo "Downloading file..."
-          # 3. Stream it safely into the workspace using the correct file name
           curl -L "$DIRECT_DOWNLOAD_URL" -o "Venteliste Parkering.xlsx"
 
       - name: Verify file content
@@ -35,9 +35,21 @@ jobs:
             exit 1
           fi
 
-      - name: Save file as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: parking-waiting-list
-          path: "Venteliste Parkering.xlsx"
-
+      # NEW STEP: Commit and push the file to your main repository branch
+      - name: Commit and push changes
+        run: |
+          # 1. Configure the native GitHub Actions bot identity
+          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 2. Stage the newly downloaded or updated Excel file
+          git add "Venteliste Parkering.xlsx"
+          
+          # 3. Only commit if the Excel sheet data has actually changed since last week
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes detected in the parking list. Skipping commit."
+          else
+            echo "Changes detected! Committing and pushing..."
+            git commit -m "Automated update: Venteliste Parkering.xlsx"
+            git push
+          fi
