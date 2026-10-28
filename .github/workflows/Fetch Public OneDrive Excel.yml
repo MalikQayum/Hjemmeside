@@ -13,15 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Convert link and download Excel
-        env:
-          ONEDRIVE_PUBLIC_LINK: "https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?e=1ZeEZo"
+      - name: Download Excel directly from OneDrive
         run: |
-          CLEANED_URL=$(echo "$ONEDRIVE_PUBLIC_LINK" | cut -d'?' -f1)
-          BASE64_URL=$(echo -n "$CLEANED_URL" | base64 | tr -d '\n' | tr -d '=' | tr '/' '_' | tr '+' '-')
-          DIRECT_DOWNLOAD_URL="https://onedrive.com{BASE64_URL}/root/content"
+          # 1. Define the raw link base (stripping the tracking parameters)
+          RAW_LINK="https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?e=1ZeEZo"
+          
+          # 2. Append the forced download command string
+          DIRECT_DOWNLOAD_URL="${RAW_LINK}?download=1"
           
           echo "Downloading file..."
+          # 3. Stream it safely into the workspace using the correct file name
           curl -L "$DIRECT_DOWNLOAD_URL" -o "Venteliste Parkering.xlsx"
 
       - name: Verify file content
@@ -39,3 +40,4 @@ jobs:
         with:
           name: parking-waiting-list
           path: "Venteliste Parkering.xlsx"
+
