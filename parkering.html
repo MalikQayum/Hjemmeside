@@ -18,6 +18,12 @@
             <a href="index.html" class="logo"><strong>Skyttegård/Vigerslev</strong></a>
           </header>
 
+          <section id="venteliste">
+            <h2>Venteliste til parkering</h2>
+            <p id="venteliste-status">Indlæser ventelisten...</p>
+            <div id="venteliste-tabel"></div>
+          </section>
+
           <section id="banner">
             <div class="content">
               <header>
@@ -28,6 +34,8 @@
               </header>
 
               <div class="onedrive-container onedrive-container--parking" style="height: 1010px; overflow: hidden;">
+                
+                <!--
                 <div id="dokument-husorden" align="center">
                     <progress></progress>
                 </div>
@@ -40,6 +48,7 @@
                     height="1000"
                     onload="document.getElementById('dokument-husorden').style.display='none'">
                 </object>
+                -->
 
                 <!--
                 <iframe
@@ -63,5 +72,79 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/load-sidebar.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <script>
+    (async function () {
+      const status = document.getElementById("venteliste-status");
+      const container = document.getElementById("venteliste-tabel");
+    
+      try {
+        const response = await fetch("./Venteliste%20Parkering.xlsx");
+    
+        if (!response.ok) {
+          throw new Error("Excel-filen kunne ikke findes.");
+        }
+    
+        const buffer = await response.arrayBuffer();
+        const workbook = XLSX.read(buffer, { type: "array" });
+    
+        // Use the first worksheet in the workbook
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(worksheet, {
+          header: 1,
+          defval: ""
+        });
+    
+        if (!rows.length) {
+          status.textContent = "Ventelisten er tom.";
+          return;
+        }
+    
+        const table = document.createElement("table");
+        table.style.width = "100%";
+        table.style.borderCollapse = "collapse";
+    
+        rows.forEach((row, rowIndex) => {
+          const tr = document.createElement("tr");
+    
+          row.forEach(value => {
+            const cell = document.createElement(
+              rowIndex === 0 ? "th" : "td"
+            );
+    
+            // Display values as text, not HTML
+            cell.textContent = value == null ? "" : String(value);
+            cell.style.padding = "10px";
+            cell.style.borderBottom = "1px solid #ddd";
+            cell.style.textAlign = "left";
+    
+            if (rowIndex === 0) {
+              cell.style.backgroundColor = "#f2f2f2";
+              cell.style.fontWeight = "bold";
+            }
+    
+            tr.appendChild(cell);
+          });
+    
+          table.appendChild(tr);
+        });
+    
+        container.replaceChildren(table);
+        status.textContent = "";
+    
+      } catch (error) {
+        console.error(error);
+        status.textContent =
+          "Ventelisten kunne ikke indlæses. Prøv igen senere.";
+      }
+    })();
+    </script>
+
+
+
+    
   </body>
 </html>
