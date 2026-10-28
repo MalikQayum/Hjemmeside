@@ -40,4 +40,8 @@ application** og projektets Preview.
 Den midlertidige GitHub Pages-adresse er:
 https://vigerslev-skyttegard.github.io/Hjemmeside/
 
-Det ønskede domæne er www.skyttegårdvigerslev.dk.
+De ønskede domæne er www.skyttegaardvej.dk og vigerslevvej.dk
+
+Skyttegaardvej.dk > Aktivt
+
+vigerslevvej.dk > ikke købt
