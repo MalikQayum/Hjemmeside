@@ -74,41 +74,82 @@
 
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script>
-    (async () => {
+    <script>
+    (async function () {
       const viewer = document.getElementById("excel-viewer");
     
       try {
         const response = await fetch("./Venteliste%20Parkering.xlsx");
-        if (!response.ok) throw new Error("Excel-filen kunne ikke hentes.");
+    
+        if (!response.ok) {
+          throw new Error("Excel-filen kunne ikke hentes.");
+        }
     
         const workbook = XLSX.read(await response.arrayBuffer(), {
-          type: "array",
-          cellStyles: true
+          type: "array"
         });
     
         const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     
-        viewer.innerHTML = XLSX.utils.sheet_to_html(worksheet, {
-          id: "venteliste-excel",
-          editable: false
+        if (!worksheet || !worksheet["!ref"]) {
+          throw new Error("Regnearket er tomt.");
+        }
+    
+        // Determine the used range and restrict it to columns A–C.
+        const range = XLSX.utils.decode_range(worksheet["!ref"]);
+        range.s.c = 0;
+        range.e.c = Math.min(range.e.c, 2);
+    
+        // Copy only cells from the first three columns.
+        const filteredSheet = {};
+    
+        for (let row = range.s.r; row <= range.e.r; row++) {
+          for (let col = 0; col <= range.e.c; col++) {
+            const cellAddress = XLSX.utils.encode_cell({
+              r: row,
+              c: col
+            });
+    
+            if (worksheet[cellAddress]) {
+              filteredSheet[cellAddress] = {
+                ...worksheet[cellAddress]
+              };
+            }
+          }
+        }
+    
+        filteredSheet["!ref"] = XLSX.utils.encode_range(range);
+    
+        // Render the filtered worksheet as HTML.
+        viewer.innerHTML = XLSX.utils.sheet_to_html(filteredSheet, {
+          id: "venteliste-excel"
         });
     
+        // Style the rendered table.
         const table = viewer.querySelector("table");
+    
         if (table) {
+          table.style.width = "100%";
           table.style.borderCollapse = "collapse";
-          table.style.width = "max-content";
-          table.style.minWidth = "100%";
           table.style.fontSize = "14px";
     
           table.querySelectorAll("td, th").forEach(cell => {
-            cell.style.padding = "6px 10px";
+            cell.style.padding = "8px 12px";
             cell.style.border = "1px solid #ddd";
-            cell.style.whiteSpace = "nowrap";
+            cell.style.textAlign = "left";
+            cell.style.whiteSpace = "normal";
+          });
+    
+          table.querySelectorAll("tr:first-child td").forEach(cell => {
+            cell.style.fontWeight = "bold";
+            cell.style.backgroundColor = "#f2f2f2";
           });
         }
+    
       } catch (error) {
-        console.error(error);
-        viewer.textContent = "Ventelisten kunne ikke indlæses.";
+        console.error("Fejl ved indlæsning af ventelisten:", error);
+        viewer.textContent =
+          "Ventelisten kunne ikke indlæses. Prøv igen senere.";
       }
     })();
     </script>
