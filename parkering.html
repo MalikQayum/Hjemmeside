@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="da">
   <head>
@@ -10,116 +9,43 @@
     />
     <title>Parkering | Ejerforeningen Skyttegård/Vigerslev</title>
     <link rel="stylesheet" href="assets/css/main.css" />
-
-    <style>
-      #excel-viewer {
-        width: 100%;
-        overflow-x: auto;
-        margin: 1.5rem 0;
-      }
-
-      #excel-viewer table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-
-      #excel-viewer td,
-      #excel-viewer th {
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid rgba(160, 160, 160, 0.3);
-        text-align: left;
-        vertical-align: top;
-      }
-
-      #excel-viewer tr:first-child td,
-      #excel-viewer tr:first-child th {
-        font-weight: 600;
-        background: rgba(160, 160, 160, 0.1);
-      }
-
-      #excel-viewer tr:nth-child(even) {
-        background: rgba(160, 160, 160, 0.04);
-      }
-
-      #excel-viewer tr:hover {
-        background: rgba(160, 160, 160, 0.12);
-      }
-
-      @media (max-width: 600px) {
-        #excel-viewer table {
-          font-size: 0.8rem;
-        }
-
-        #excel-viewer td,
-        #excel-viewer th {
-          padding: 0.6rem;
-        }
-      }
-    </style>
   </head>
-
   <body class="is-preload">
     <div id="wrapper">
       <main id="main">
         <div class="inner">
           <header id="header">
-            <a href="index.html" class="logo">
-              <strong>Skyttegård/Vigerslev</strong>
-            </a>
+            <a href="index.html" class="logo"><strong>Skyttegård/Vigerslev</strong></a>
           </header>
+
+          <div id="excel-viewer" style="width:100%; overflow-x:auto;">
+            Indlæser ventelisten...
+          </div>
 
           <section id="banner">
             <div class="content">
               <header>
                 <h1>Parkering</h1>
                 <p>Information om parkering i ejerforeningen.</p>
-
-                <p>
-                  Ejerforeningens parkeringspladser administreres af
-                  bestyrelsen. Ønsker du en parkeringsplads, eller vil du
-                  skrives på ventelisten, kan du kontakte bestyrelsen.
-                </p>
-
-                <p>
-                  <strong>Hvis nogen holder på din parkeringsplads</strong>,
-                  skal du kontakte DinParkering, som varetager
-                  parkeringskontrollen på området. Oplys gerne pladsnummer
-                  og bilens registreringsnummer.
-                </p>
+                <p>Ejerforeningens parkeringspladser administreres af bestyrelsen. Ønsker du en parkeringsplads, eller vil du skrives på ventelisten, kan du kontakte bestyrelsen.</p>
+                <p><strong>Hvis nogen holder på din parkeringsplads</strong>, skal du kontakte DinParkering, som varetager parkeringskontrollen på området. Oplys gerne pladsnummer og bilens registreringsnummer.</p>
               </header>
 
-              <section>
-                <header class="major">
-                  <h2>Venteliste til parkering</h2>
-                </header>
-
-                <p>
-                  Her kan du se ventelisten for biler og motorcykler.
-                </p>
-
-                <div id="excel-viewer" aria-live="polite">
-                  Indlæser ventelisten...
-                </div>
-              </section>
-
-              <div
-                class="onedrive-container onedrive-container--parking"
-                style="height: 1010px; overflow: hidden;"
-              >
+              <div class="onedrive-container onedrive-container--parking" style="height: 1010px; overflow: hidden;">
+                
                 <!--
                 <div id="dokument-husorden" align="center">
-                  <progress></progress>
+                    <progress></progress>
                 </div>
-
+                
                 <object
-                  data="https://onedrive.live.com/edit?cid=4560751afe576670&id=4560751AFE576670!812&resid=4560751AFE576670!812&ithint=file%2Cxlsx&embed=1&wdAllowInteractivity=False&ActiveCell=%27Ark1%27!A1&Item=%27Ark1%27!A1%3AU71&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdHideHeaders=True&wdHideSheetTabs=True&action=embedview&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy80NTYwNzUxYWZlNTc2NjcwL1VRUndabGYtR25WZ0lJQkZMQU1BQUFBQUFDZExrSDJBa0xIY2FBND93ZEFsbG93SW50ZXJhY3Rpdml0eT1GYWxzZSZBY3RpdmVDZWxsPSdBcmsxJyFBMSZJdGVtPSdBcmsxJyFBMTpVNzEmd2RIaWRlR3JpZGxpbmVzPVRydWUmd2REb3dubG9hZEJ1dHRvbj1UcnVlJndkSW5Db25maWd1cmF0b3I9VHJ1ZSZ3ZEhpZGVIZWFkZXJzPVRydWUmd2RIaWRlU2hlZXRUYWJzPVRydWUmYWN0aW9uPWVtYmVkdmlldw&wdo=2"
-                  type="text/html"
-                  aria-label="Ejerforeningens husorden"
-                  width="100%"
-                  height="1000"
-                  onload="document.getElementById('dokument-husorden').style.display='none'"
-                ></object>
+                    data="https://onedrive.live.com/edit?cid=4560751afe576670&id=4560751AFE576670!812&resid=4560751AFE576670!812&ithint=file%2Cxlsx&embed=1&wdAllowInteractivity=False&ActiveCell=%27Ark1%27!A1&Item=%27Ark1%27!A1%3AU71&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdHideHeaders=True&wdHideSheetTabs=True&action=embedview&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy80NTYwNzUxYWZlNTc2NjcwL1VRUndabGYtR25WZ0lJQkZMQU1BQUFBQUFDZExrSDJBa0xIY2FBND93ZEFsbG93SW50ZXJhY3Rpdml0eT1GYWxzZSZBY3RpdmVDZWxsPSdBcmsxJyFBMSZJdGVtPSdBcmsxJyFBMTpVNzEmd2RIaWRlR3JpZGxpbmVzPVRydWUmd2REb3dubG9hZEJ1dHRvbj1UcnVlJndkSW5Db25maWd1cmF0b3I9VHJ1ZSZ3ZEhpZGVIZWFkZXJzPVRydWUmd2RIaWRlU2hlZXRUYWJzPVRydWUmYWN0aW9uPWVtYmVkdmlldw&wdo=2"
+                    type="text/html"
+                    aria-label="Ejerforeningens husorden"
+                    width="100%"
+                    height="1000"
+                    onload="document.getElementById('dokument-husorden').style.display='none'">
+                </object>
                 -->
 
                 <!--
@@ -145,105 +71,50 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/load-sidebar.js"></script>
 
-    <!-- SheetJS: reads the Excel workbook in the browser -->
+
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-
     <script>
-      (async function () {
-        const viewer = document.getElementById("excel-viewer");
-
-        try {
-          const response = await fetch(
-            "./Venteliste%20Parkering.xlsx"
-          );
-
-          if (!response.ok) {
-            throw new Error(
-              "Excel-filen kunne ikke hentes. HTTP-status: " +
-                response.status
-            );
-          }
-
-          const workbook = XLSX.read(
-            await response.arrayBuffer(),
-            { type: "array" }
-          );
-
-          const worksheet =
-            workbook.Sheets[workbook.SheetNames[0]];
-
-          if (!worksheet || !worksheet["!ref"]) {
-            throw new Error("Regnearket er tomt.");
-          }
-
-          // Limit the displayed range to columns A, B and C.
-          const originalRange = XLSX.utils.decode_range(
-            worksheet["!ref"]
-          );
-
-          const range = {
-            s: { r: originalRange.s.r, c: 0 },
-            e: {
-              r: originalRange.e.r,
-              c: Math.min(originalRange.e.c, 2)
-            }
-          };
-
-          // Create a new worksheet containing only the first three columns.
-          const filteredSheet = {};
-
-          for (let row = range.s.r; row <= range.e.r; row++) {
-            for (let col = 0; col <= range.e.c; col++) {
-              const address = XLSX.utils.encode_cell({
-                r: row,
-                c: col
-              });
-
-              if (worksheet[address]) {
-                filteredSheet[address] = {
-                  ...worksheet[address]
-                };
-              }
-            }
-          }
-
-          filteredSheet["!ref"] =
-            XLSX.utils.encode_range(range);
-
-          // Preserve merged cells only when they fall entirely
-          // within columns A–C.
-          if (worksheet["!merges"]) {
-            filteredSheet["!merges"] =
-              worksheet["!merges"].filter(merge =>
-                merge.s.c >= 0 &&
-                merge.e.c <= 2
-              );
-          }
-
-          // Render the filtered worksheet as HTML.
-          viewer.innerHTML = XLSX.utils.sheet_to_html(
-            filteredSheet,
-            { id: "venteliste-excel" }
-          );
-
-          const table = viewer.querySelector("table");
-
-          if (table) {
-            table.setAttribute(
-              "aria-label",
-              "Venteliste til parkering"
-            );
-          }
-        } catch (error) {
-          console.error(
-            "Fejl ved indlæsning af ventelisten:",
-            error
-          );
-
-          viewer.textContent =
-            "Ventelisten kunne ikke indlæses. Prøv igen senere.";
+    (async () => {
+      const viewer = document.getElementById("excel-viewer");
+    
+      try {
+        const response = await fetch("./Venteliste%20Parkering.xlsx");
+        if (!response.ok) throw new Error("Excel-filen kunne ikke hentes.");
+    
+        const workbook = XLSX.read(await response.arrayBuffer(), {
+          type: "array",
+          cellStyles: true
+        });
+    
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+    
+        viewer.innerHTML = XLSX.utils.sheet_to_html(worksheet, {
+          id: "venteliste-excel",
+          editable: false
+        });
+    
+        const table = viewer.querySelector("table");
+        if (table) {
+          table.style.borderCollapse = "collapse";
+          table.style.width = "max-content";
+          table.style.minWidth = "100%";
+          table.style.fontSize = "14px";
+    
+          table.querySelectorAll("td, th").forEach(cell => {
+            cell.style.padding = "6px 10px";
+            cell.style.border = "1px solid #ddd";
+            cell.style.whiteSpace = "nowrap";
+          });
         }
-      })();
+      } catch (error) {
+        console.error(error);
+        viewer.textContent = "Ventelisten kunne ikke indlæses.";
+      }
+    })();
     </script>
+
+
+
+    
   </body>
 </html>
