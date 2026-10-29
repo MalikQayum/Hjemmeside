@@ -27,7 +27,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          RAW_LINK="https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?e=1ZeEZo"
+          RAW_LINK="https://onedrive.live.com/:x:/g/personal/4560751AFE576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?resid=4560751AFE576670!812&ithint=file%2Cxlsx&e=1ZeEZo&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy80NTYwNzUxYWZlNTc2NjcwL0lRQndabGYtR25WZ0lJQkZMQU1BQUFBQUFkQXV4dHhMOE5hTTUta1UtZHNUVXZBP2U9MVplRVpv"
           DIRECT_DOWNLOAD_URL="${RAW_LINK}&download=1"
           FILE="Venteliste Parkering.xlsx"
 
