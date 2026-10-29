@@ -1,55 +1,79 @@
-name: Fetch Public OneDrive Excel
+
+name: Sync Parking Excel from OneDrive
 
 on:
-  workflow_dispatch: # Allows manual trigger anytime
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0' # ⏰ Runs once a week every Sunday at midnight UTC
+    # Run every hour at minute 15 (UTC)
+    - cron: "0 3 * * *"
 
-# Required permissions to allow GitHub Actions to commit files back to your repo
 permissions:
   contents: write
 
+concurrency:
+  group: sync-onedrive-excel
+  cancel-in-progress: false
+
 jobs:
-  download-file:
+  download-and-commit:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Download Excel directly from OneDrive
+      - name: Download Excel file from OneDrive
+        shell: bash
+        env:
+          ONEDRIVE_URL: "https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAacgNjZehh4H7Nvmzuz5pZA?e=QnbqXO"
         run: |
-          RAW_LINK="https://1drv.ms/x/c/4560751afe576670/IQBwZlf-GnVgIIBFLAMAAAAAAdAuxtxL8NaM5-kU-dsTUvA?e=1ZeEZo"
-          DIRECT_DOWNLOAD_URL="${RAW_LINK}?download=1"
-          
-          echo "Downloading file..."
-          curl -L "$DIRECT_DOWNLOAD_URL" -o "Venteliste Parkering.xlsx"
+          set -euo pipefail
 
-      - name: Verify file content
-        run: |
-          if [ -s "Venteliste Parkering.xlsx" ]; then
-            echo "✅ Excel file downloaded successfully."
-            ls -lh "Venteliste Parkering.xlsx"
-          else
-            echo "❌ Download failed or file is empty."
+          mkdir -p data
+
+          # Convert the OneDrive sharing URL into a share ID.
+          SHARE_ID="$(
+            printf '%s' "$ONEDRIVE_URL" |
+            base64 -w 0 |
+            tr '+/' '-_' |
+            tr -d '='
+          )"
+
+          DOWNLOAD_URL="https://api.onedrive.com/v1.0/shares/u!${SHARE_ID}/root/content"
+
+          # Download the workbook.
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --location \
+            --retry 3 \
+            "$DOWNLOAD_URL" \
+            --output data/parkering.xlsx
+
+          # Verify that the downloaded file is an XLSX workbook.
+          if ! unzip -t data/parkering.xlsx >/dev/null 2>&1; then
+            echo "::error::The downloaded file is not a valid XLSX workbook."
             exit 1
           fi
 
-      # NEW STEP: Commit and push the file to your main repository branch
+          echo "Workbook downloaded and validated successfully."
+
       - name: Commit and push changes
+        shell: bash
         run: |
-          # 1. Configure the native GitHub Actions bot identity
-          git config --local user.email "github-actions[bot]@://github.com"
-          git config --local user.name "github-actions[bot]"
-          
-          # 2. Stage the newly downloaded or updated Excel file
-          git add "Venteliste Parkering.xlsx"
-          
-          # 3. Only commit if the Excel sheet data has actually changed since last week
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes detected in the parking list. Skipping commit."
-          else
-            echo "Changes detected! Committing and pushing..."
-            git commit -m "Automated update: Venteliste Parkering.xlsx"
-            git push
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/parkering.xlsx
+
+          if git diff --cached --quiet; then
+            echo "The workbook has not changed. No commit needed."
+            exit 0
           fi
+
+          git commit -m "Update parking Excel workbook"
+          git push
