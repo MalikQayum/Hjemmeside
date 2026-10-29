@@ -4,8 +4,8 @@ name: Sync Parking Excel from OneDrive
 on:
   workflow_dispatch:
   schedule:
-    # Run every hour at minute 15 (UTC)
-    - cron: "0 3 * * *"
+    # Once daily at 03:15 UTC
+    - cron: "15 3 * * *"
 
 permissions:
   contents: write
@@ -31,33 +31,30 @@ jobs:
 
           mkdir -p data
 
-          # Convert the OneDrive sharing URL into a share ID.
-          SHARE_ID="$(
-            printf '%s' "$ONEDRIVE_URL" |
-            base64 -w 0 |
-            tr '+/' '-_' |
-            tr -d '='
-          )"
+          # Request a direct download rather than the Excel preview.
+          DOWNLOAD_URL="${ONEDRIVE_URL}&download=1"
 
-          DOWNLOAD_URL="https://api.onedrive.com/v1.0/shares/u!${SHARE_ID}/root/content"
-
-          # Download the workbook.
           curl \
             --fail \
             --silent \
             --show-error \
             --location \
+            --max-redirs 10 \
             --retry 3 \
+            --retry-all-errors \
+            --connect-timeout 30 \
+            --max-time 180 \
             "$DOWNLOAD_URL" \
             --output data/parkering.xlsx
 
-          # Verify that the downloaded file is an XLSX workbook.
+          # Ensure the response is a valid XLSX file.
           if ! unzip -t data/parkering.xlsx >/dev/null 2>&1; then
-            echo "::error::The downloaded file is not a valid XLSX workbook."
+            echo "::error::Download did not produce a valid Excel workbook."
+            echo "Check the OneDrive sharing permissions and download link."
             exit 1
           fi
 
-          echo "Workbook downloaded and validated successfully."
+          echo "Excel workbook downloaded successfully."
 
       - name: Commit and push changes
         shell: bash
@@ -71,7 +68,7 @@ jobs:
           git add data/parkering.xlsx
 
           if git diff --cached --quiet; then
-            echo "The workbook has not changed. No commit needed."
+            echo "No changes detected. Skipping commit."
             exit 0
           fi
 
