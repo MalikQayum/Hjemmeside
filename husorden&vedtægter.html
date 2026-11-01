@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="da">
   <head>
@@ -8,42 +9,116 @@
       content="Læs ejerforeningens vedtægter og husorden."
     />
     <title>Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev</title>
+
     <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+      /* PDF document viewer */
+
+      .pdf-container {
+        width: 100%;
+        margin-bottom: 40px;
+        background: #f1f1f1;
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      .pdf-container iframe {
+        display: block;
+        width: 100%;
+        height: 1000px;
+        border: none;
+        background: #fff;
+      }
+
+      .pdf-heading {
+        margin-bottom: 15px;
+      }
+
+      .pdf-download {
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      @media screen and (max-width: 736px) {
+        .pdf-container {
+          padding: 5px;
+        }
+
+        .pdf-container iframe {
+          height: 750px;
+        }
+      }
+    </style>
   </head>
+
   <body class="is-preload">
     <div id="wrapper">
       <main id="main">
         <div class="inner">
+
           <header id="header">
-            <a href="index.html" class="logo"><strong>Skyttegård/Vigerslev</strong></a>
+            <a href="index.html" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
           </header>
 
           <section id="banner">
             <div class="content">
+
               <header>
                 <h1>Husorden og vedtægter</h1>
                 <p>Vigtige dokumenter for ejere og beboere.</p>
               </header>
 
-              <div class="onedrive-container">
-                <iframe
-                  src="https://1drv.ms/b/c/4560751afe576670/IQTQxdYiaI06R5aB9UaeVYlxAUXkHhbX1IYEsLpcJ3L5fek"
-                  title="Ejerforeningens husorden"
-                  width="100%"
-                  height="1000"
-                  loading="lazy"
-                ></iframe>
-              </div>
+              <!-- Husorden -->
+              <section>
+                <header class="pdf-heading">
+                  <h2>Husorden</h2>
+                  <p>Ejerforeningens gældende husorden.</p>
+                </header>
 
-              <div class="onedrive-container">
-                <iframe
-                  src="https://1drv.ms/b/c/4560751afe576670/IQTISNBbWd6bTqATWVtbVukgAV-zZ5geb-6bD6biYkA08ao"
-                  title="Ejerforeningens vedtægter"
-                  width="100%"
-                  height="1000"
-                  loading="lazy"
-                ></iframe>
-              </div>
+                <div class="pdf-container">
+                  <iframe
+                    src="Husorden.pdf#toolbar=1&navpanes=0&view=FitH"
+                    title="Ejerforeningens husorden"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+
+                <p>
+                  <a href="Husorden.pdf" download class="pdf-download">
+                    <span class="icon solid fa-download"></span>
+                    Download husorden (PDF)
+                  </a>
+                </p>
+              </section>
+
+              <hr />
+
+              <!-- Vedtægter -->
+              <section>
+                <header class="pdf-heading">
+                  <h2>Vedtægter</h2>
+                  <p>Ejerforeningens gældende vedtægter.</p>
+                </header>
+
+                <div class="pdf-container">
+                  <iframe
+                    src="Vedtægter.pdf#toolbar=1&navpanes=0&view=FitH"
+                    title="Ejerforeningens vedtægter"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+
+                <p>
+                  <a href="Vedtægter.pdf" download class="pdf-download">
+                    <span class="icon solid fa-download"></span>
+                    Download vedtægter (PDF)
+                  </a>
+                </p>
+              </section>
+
             </div>
           </section>
         </div>
@@ -52,10 +127,12 @@
       <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
     </div>
 
+    <!-- Existing website scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/load-sidebar.js"></script>
+
   </body>
 </html>
