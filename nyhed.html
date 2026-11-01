@@ -9,6 +9,24 @@
     />
     <title>Nyheder | Ejerforeningen Skyttegård/Vigerslev</title>
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      #docx-container {
+          width: 100%;
+          overflow-x: auto;
+          background: #f1f1f1;
+          padding: 20px 0;
+      }
+      
+      #docx-container .docx-wrapper {
+          background: #f1f1f1;
+          padding: 20px;
+      }
+      
+      #docx-container .docx {
+          margin: 0 auto;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      }
+      </style>
   </head>
   <body class="is-preload">
     <div id="wrapper">
@@ -26,6 +44,11 @@
               </header>
               <p>Her finder du nyhedsbreve fra bestyrelsen.</p>
 
+              <div id="docx-container">
+                  <p>Indlæser dokument...</p>
+              </div>
+
+              <!--
               <div class="onedrive-container">
                 <iframe
                   src="https://1drv.ms/w/c/4560751afe576670/IQR977YMhCSTTJTBAhlFQpncAaRRHvAanXQt2e04PxEKA5k"
@@ -35,6 +58,7 @@
                   loading="lazy"
                 ></iframe>
               </div>
+              -->
             </div>
           </section>
         </div>
@@ -48,5 +72,45 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/load-sidebar.js"></script>
+    <script src="https://unpkg.com/docx-preview@0.3.6/dist/docx-preview.js"></script>
+
+    <script>
+    async function renderDocx(fileUrl) {
+        const container = document.getElementById("docx-container");
+    
+        try {
+            container.innerHTML = "<p>Indlæser dokument...</p>";
+    
+            const response = await fetch(fileUrl);
+    
+            if (!response.ok) {
+                throw new Error("Kunne ikke hente dokumentet.");
+            }
+    
+            const blob = await response.blob();
+    
+            container.innerHTML = "";
+    
+            await docx.renderAsync(
+                blob,
+                container,
+                container,
+                {
+                    className: "docx",
+                    inWrapper: true,
+                    ignoreWidth: false,
+                    ignoreHeight: false,
+                    breakPages: true
+                }
+            );
+    
+        } catch (error) {
+            console.error(error);
+            container.innerHTML = "<p>Dokumentet kunne ikke indlæses.</p>";
+        }
+    }
+    
+    renderDocx("nyhedsbrev.docx");
+    </script>
   </body>
 </html>
