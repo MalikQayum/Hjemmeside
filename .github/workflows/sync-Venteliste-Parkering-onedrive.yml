@@ -1,0 +1,61 @@
+
+name: Sync Venteliste Parkering.xlsx from OneDrive
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onedrive-excel-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright and IMAP dependencies
+        run: |
+          npm init -y
+          npm pkg set type=module
+          npm install --no-save playwright imapflow mailparser
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Sign in and download workbook
+        run: node .github/scripts/sync-Venteliste-Parkering-onedrive.mjs
+        env:
+          ONEDRIVE_EMAIL: ${{ secrets.ONEDRIVE_EMAIL }}
+          ONEDRIVE_PASSWORD: ${{ secrets.ONEDRIVE_PASSWORD }}
+
+      - name: Commit updated workbook
+        run: |
+          git add -- "Venteliste Parkering.xlsx"
+
+          if git diff --cached --quiet; then
+            echo "Workbook unchanged. No commit needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "Update Venteliste Parkering.xlsx from OneDrive"
+          git push origin main
