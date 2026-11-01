@@ -13,21 +13,34 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-      /* PDF document viewer */
+      /* PDF viewer */
 
       .pdf-container {
         width: 100%;
         margin-bottom: 40px;
-        background: #f1f1f1;
         padding: 15px;
+        background: #f1f1f1;
+        overflow: hidden;
         border-radius: 4px;
       }
 
-      .pdf-container iframe {
+      .pdf-page {
         display: block;
         width: 100%;
-        height: 1000px;
-        border: none;
+        height: auto;
+        margin: 0 auto 20px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .pdf-loading {
+        text-align: center;
+        padding: 30px;
+      }
+
+      .pdf-error {
+        padding: 20px;
+        text-align: center;
         background: #fff;
       }
 
@@ -35,18 +48,13 @@
         margin-bottom: 15px;
       }
 
-      .pdf-download {
-        display: inline-block;
-        margin-top: 10px;
-      }
-
       @media screen and (max-width: 736px) {
         .pdf-container {
           padding: 5px;
         }
 
-        .pdf-container iframe {
-          height: 750px;
+        .pdf-page {
+          margin-bottom: 10px;
         }
       }
     </style>
@@ -78,16 +86,16 @@
                   <p>Ejerforeningens gældende husorden.</p>
                 </header>
 
-                <div class="pdf-container">
-                  <iframe
-                    src="Husorden.pdf#toolbar=1&navpanes=0&view=FitH"
-                    title="Ejerforeningens husorden"
-                    loading="lazy"
-                  ></iframe>
+                <div
+                  id="husorden-pdf"
+                  class="pdf-container"
+                  aria-live="polite"
+                >
+                  <p class="pdf-loading">Indlæser husorden...</p>
                 </div>
 
                 <p>
-                  <a href="Husorden.pdf" download class="pdf-download">
+                  <a href="Husorden.pdf" download>
                     <span class="icon solid fa-download"></span>
                     Download husorden (PDF)
                   </a>
@@ -103,16 +111,16 @@
                   <p>Ejerforeningens gældende vedtægter.</p>
                 </header>
 
-                <div class="pdf-container">
-                  <iframe
-                    src="Vedtægter.pdf#toolbar=1&navpanes=0&view=FitH"
-                    title="Ejerforeningens vedtægter"
-                    loading="lazy"
-                  ></iframe>
+                <div
+                  id="vedtaegter-pdf"
+                  class="pdf-container"
+                  aria-live="polite"
+                >
+                  <p class="pdf-loading">Indlæser vedtægter...</p>
                 </div>
 
                 <p>
-                  <a href="Vedtægter.pdf" download class="pdf-download">
+                  <a href="Vedtægter.pdf" download>
                     <span class="icon solid fa-download"></span>
                     Download vedtægter (PDF)
                   </a>
@@ -133,6 +141,93 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/load-sidebar.js"></script>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <script>
+      // Configure PDF.js worker
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+      /**
+       * Render a PDF document directly into the webpage.
+       *
+       * @param {string} file       PDF filename
+       * @param {string} containerId Target HTML element
+       */
+      async function renderPDF(file, containerId) {
+        const container = document.getElementById(containerId);
+
+        if (!container) return;
+
+        try {
+          container.innerHTML =
+            '<p class="pdf-loading">Indlæser dokument...</p>';
+
+          // Load PDF
+          const pdf = await pdfjsLib.getDocument(file).promise;
+
+          container.innerHTML = "";
+
+          // Render each page
+          for (
+            let pageNumber = 1;
+            pageNumber <= pdf.numPages;
+            pageNumber++
+          ) {
+            const page = await pdf.getPage(pageNumber);
+
+            // Calculate scale based on available width
+            const baseViewport = page.getViewport({ scale: 1 });
+
+            const containerWidth = container.clientWidth - 10;
+
+            const scale = containerWidth / baseViewport.width;
+
+            const viewport = page.getViewport({ scale });
+
+            // Create canvas
+            const canvas = document.createElement("canvas");
+
+            const context = canvas.getContext("2d");
+
+            canvas.width = Math.floor(viewport.width);
+            canvas.height = Math.floor(viewport.height);
+
+            canvas.className = "pdf-page";
+
+            container.appendChild(canvas);
+
+            // Render page
+            await page.render({
+              canvasContext: context,
+              viewport: viewport
+            }).promise;
+          }
+
+        } catch (error) {
+          console.error("PDF rendering error:", file, error);
+
+          container.innerHTML = `
+            <div class="pdf-error">
+              <p>Dokumentet kunne ikke indlæses.</p>
+              <a href="${file}" download>
+                Download dokumentet her
+              </a>
+            </div>
+          `;
+        }
+      }
+
+
+      // Load both documents when the page is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        renderPDF("Husorden.pdf", "husorden-pdf");
+        renderPDF("Vedtægter.pdf", "vedtaegter-pdf");
+      });
+    </script>
 
   </body>
 </html>
