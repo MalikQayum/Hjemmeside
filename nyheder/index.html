@@ -1,0 +1,127 @@
+
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="../" />
+    <meta name="description" content="Nyheder, nyhedsbreve og information fra bestyrelsen i Ejerforeningen Skyttegård/Vigerslev." />
+    <title>Nyheder | Ejerforeningen Skyttegård/Vigerslev</title>
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ejerforeningen Skyttegård/Vigerslev" />
+    <meta property="og:title" content="Nyheder | Ejerforeningen Skyttegård/Vigerslev" />
+    <meta property="og:description" content="Nyheder, nyhedsbreve og information fra bestyrelsen i Ejerforeningen Skyttegård/Vigerslev." />
+    <meta property="og:locale" content="da_DK" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="canonical" href="https://skyttegaardvej.dk/nyheder/" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- DOCX styling -->
+    <style>
+      #docx-container {
+        width: 100%;
+        overflow-x: auto;
+        background: #f1f1f1;
+        padding: 20px 0;
+      }
+
+      #docx-container .docx-wrapper {
+        background: #f1f1f1;
+        padding: 20px;
+      }
+
+      #docx-container .docx {
+        margin: 0 auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      #docx-container .docx-wrapper > section {
+        margin-bottom: 20px;
+      }
+
+      @media screen and (max-width: 736px) {
+        #docx-container {
+          padding: 10px 0;
+        }
+
+        #docx-container .docx-wrapper {
+          padding: 5px;
+        }
+      }
+
+      .docx-error {
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <a class="skip-link" href="#main">Spring til indhold</a>
+    <div id="wrapper">
+      <main id="main" tabindex="-1">
+        <div class="inner">
+
+          <header id="header">
+            <a href="index.html" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <section id="banner">
+            <div class="content">
+
+              <header>
+                <h1>Nyheder</h1>
+                <p>Velkommen til Skyttegård/Vigerslevs hjemmeside.</p>
+              </header>
+
+              <p>Her finder du nyhedsbreve fra bestyrelsen.</p>
+
+              <!-- DOCX document viewer -->
+              <div id="docx-container" data-docx-viewer="Nyhedsbrev.docx" aria-live="polite">
+                <p>Indlæser nyhedsbrev...</p>
+              </div>
+
+              <noscript>
+                <p>
+                  JavaScript skal være aktiveret for at vise nyhedsbrevet.
+                </p>
+              </noscript>
+
+              <p>
+                <a href="Nyhedsbrev.docx" download>
+                  <span class="icon solid fa-download"></span>
+                  Download nyhedsbrev (Word)
+                </a>
+              </p>
+
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <!-- Existing website scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/load-sidebar.js"></script>
+
+    <!-- DOCX dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://unpkg.com/docx-preview@0.3.6/dist/docx-preview.js"></script>
+    <script src="assets/js/viewer-docx.js"></script>
+
+  </body>
+</html>

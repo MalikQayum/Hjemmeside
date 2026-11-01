@@ -81,10 +81,12 @@
 		// Inactive by default on <= large.
 			breakpoints.on('<=large', function() {
 				$sidebar.addClass('inactive');
+				$sidebar.find('.toggle').attr('aria-expanded', 'false').attr('aria-label', 'Åbn navigation');
 			});
 
 			breakpoints.on('>large', function() {
 				$sidebar.removeClass('inactive');
+				$sidebar.find('.toggle').attr('aria-expanded', 'false').attr('aria-label', 'Åbn navigation');
 			});
 
 		// Hack: Workaround for Chrome/Android scrollbar position bug.
@@ -93,55 +95,44 @@
 				$('<style>#sidebar .inner::-webkit-scrollbar { display: none; }</style>')
 					.appendTo($head);
 
-		// Toggle.
-			$('<a href="#sidebar" class="toggle">Toggle</a>')
+		// Accessible toggle.
+			$('<button type="button" class="toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Åbn navigation"></button>')
 				.appendTo($sidebar)
 				.on('click', function(event) {
+					event.preventDefault();
+					event.stopPropagation();
 
-					// Prevent default.
-						event.preventDefault();
-						event.stopPropagation();
+					var isOpening = $sidebar.hasClass('inactive');
+					$sidebar.toggleClass('inactive', !isOpening);
+					$(this)
+						.attr('aria-expanded', isOpening ? 'true' : 'false')
+						.attr('aria-label', isOpening ? 'Luk navigation' : 'Åbn navigation');
 
-					// Toggle.
-						$sidebar.toggleClass('inactive');
-
+					if (isOpening)
+						$sidebar.find('nav a').first().trigger('focus');
 				});
+
+		// Escape closes the mobile navigation and returns focus to its toggle.
+			$body.on('keydown', function(event) {
+				if (event.key === 'Escape' && !breakpoints.active('>large') && !$sidebar.hasClass('inactive')) {
+					$sidebar.addClass('inactive');
+					$sidebar.find('.toggle')
+						.attr('aria-expanded', 'false')
+						.attr('aria-label', 'Åbn navigation')
+						.trigger('focus');
+				}
+			});
 
 		// Events.
 
-			// Link clicks.
-				$sidebar.on('click', 'a', function(event) {
-
-					// >large? Bail.
-						if (breakpoints.active('>large'))
-							return;
-
-					// Vars.
-						var $a = $(this),
-							href = $a.attr('href'),
-							target = $a.attr('target');
-
-					// Prevent default.
-						event.preventDefault();
-						event.stopPropagation();
-
-					// Check URL.
-						if (!href || href == '#' || href == '')
-							return;
-
-					// Hide sidebar.
+			// Close the mobile navigation when a normal navigation link is selected.
+				$sidebar.on('click', 'a', function() {
+					if (!breakpoints.active('>large')) {
 						$sidebar.addClass('inactive');
-
-					// Redirect to href.
-						setTimeout(function() {
-
-							if (target == '_blank')
-								window.open(href);
-							else
-								window.location.href = href;
-
-						}, 500);
-
+						$sidebar.find('.toggle')
+							.attr('aria-expanded', 'false')
+							.attr('aria-label', 'Åbn navigation');
+					}
 				});
 
 			// Prevent certain events inside the panel from bubbling.
@@ -165,6 +156,7 @@
 
 					// Deactivate.
 						$sidebar.addClass('inactive');
+					$sidebar.find('.toggle').attr('aria-expanded', 'false').attr('aria-label', 'Åbn navigation');
 
 				});
 

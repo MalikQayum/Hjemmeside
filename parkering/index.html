@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="../" />
+    <meta name="description" content="Information om parkeringspladser og venteliste i Ejerforeningen Skyttegård/Vigerslev." />
+    <title>Parkering | Ejerforeningen Skyttegård/Vigerslev</title>
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ejerforeningen Skyttegård/Vigerslev" />
+    <meta property="og:title" content="Parkering | Ejerforeningen Skyttegård/Vigerslev" />
+    <meta property="og:description" content="Information om parkeringspladser og venteliste i Ejerforeningen Skyttegård/Vigerslev." />
+    <meta property="og:locale" content="da_DK" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="canonical" href="https://skyttegaardvej.dk/parkering/" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+      #excel-viewer {
+        width: 100%;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      #excel-viewer table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+
+      #excel-viewer td,
+      #excel-viewer th {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(160, 160, 160, 0.3);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      #excel-viewer tr:first-child td,
+      #excel-viewer tr:first-child th {
+        font-weight: 600;
+        background: rgba(160, 160, 160, 0.1);
+      }
+
+      #excel-viewer tr:nth-child(even) {
+        background: rgba(160, 160, 160, 0.04);
+      }
+
+      #excel-viewer tr:hover {
+        background: rgba(160, 160, 160, 0.12);
+      }
+
+      @media (max-width: 600px) {
+        #excel-viewer table {
+          font-size: 0.8rem;
+        }
+
+        #excel-viewer td,
+        #excel-viewer th {
+          padding: 0.6rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <a class="skip-link" href="#main">Spring til indhold</a>
+    <div id="wrapper">
+      <main id="main" tabindex="-1">
+        <div class="inner">
+          <header id="header">
+            <a href="index.html" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <section id="banner">
+            <div class="content">
+              <header>
+                <h1>Parkering</h1>
+                <p>Information om parkering i ejerforeningen.</p>
+
+                <p>
+                  Ejerforeningens parkeringspladser administreres af
+                  bestyrelsen. Ønsker du en parkeringsplads, eller vil du
+                  skrives på ventelisten, kan du kontakte bestyrelsen.
+                </p>
+
+                <p>
+                  <strong>Hvis nogen holder på din parkeringsplads</strong>,
+                  skal du kontakte DinParkering, som varetager
+                  parkeringskontrollen på området. Oplys gerne pladsnummer
+                  og bilens registreringsnummer.
+                </p>
+              </header>
+
+              <section>
+                <header class="major">
+                  <h2>Venteliste til parkering</h2>
+                </header>
+
+                <p>
+                  Her kan du se ventelisten for biler og motorcykler.
+                </p>
+
+                <div id="excel-viewer" data-excel-viewer="Venteliste Parkering.xlsx" aria-live="polite">
+                  Indlæser ventelisten...
+                </div>
+              </section>
+
+                          </div>
+          </section>
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/load-sidebar.js"></script>
+
+    <!-- SheetJS: reads the Excel workbook in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="assets/js/viewer-excel.js"></script>
+
+  </body>
+</html>
