@@ -1,3 +1,7 @@
+---
+permalink: /nyhed/
+---
+
 
 <!doctype html>
 <html lang="da">
@@ -10,7 +14,7 @@
     />
     <title>Nyheder | Ejerforeningen Skyttegård/Vigerslev</title>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <!-- DOCX styling -->
     <style>
@@ -60,7 +64,7 @@
         <div class="inner">
 
           <header id="header">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
               <strong>Skyttegård/Vigerslev</strong>
             </a>
           </header>
@@ -85,14 +89,6 @@
                   JavaScript skal være aktiveret for at vise nyhedsbrevet.
                 </p>
               </noscript>
-
-              <p>
-                <a href="Nyhedsbrev.docx" download>
-                  <span class="icon solid fa-download"></span>
-                  Download nyhedsbrev (Word)
-                </a>
-              </p>
-
             </div>
           </section>
         </div>
@@ -102,11 +98,11 @@
     </div>
 
     <!-- Existing website scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
 
     <!-- DOCX dependencies: JSZip must load first -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -171,12 +167,7 @@
 
           container.innerHTML = `
             <div class="docx-error">
-              <p>Nyhedsbrevet kunne ikke indlæses.</p>
-              <p>
-                <a href="${fileUrl}" download>
-                  Download nyhedsbrevet her
-                </a>
-              </p>
+              <p>Nyhedsbrevet kunne ikke indlæses. Prøv igen senere.</p>
             </div>
           `;
         }
@@ -184,7 +175,7 @@
 
       // Load document when page is ready
       document.addEventListener("DOMContentLoaded", () => {
-        renderDocx("Nyhedsbrev.docx");
+        renderDocx("/Nyhedsbrev.docx");
       });
     </script>
 

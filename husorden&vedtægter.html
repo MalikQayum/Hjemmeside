@@ -1,3 +1,7 @@
+---
+permalink: /husorden-vedtaegter/
+---
+
 
 <!doctype html>
 <html lang="da">
@@ -10,7 +14,7 @@
     />
     <title>Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev</title>
 
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <style>
       /* PDF viewer */
@@ -66,7 +70,7 @@
         <div class="inner">
 
           <header id="header">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
               <strong>Skyttegård/Vigerslev</strong>
             </a>
           </header>
@@ -93,13 +97,6 @@
                 >
                   <p class="pdf-loading">Indlæser husorden...</p>
                 </div>
-
-                <p>
-                  <a href="Husorden.pdf" download>
-                    <span class="icon solid fa-download"></span>
-                    Download husorden (PDF)
-                  </a>
-                </p>
               </section>
 
               <hr />
@@ -118,15 +115,7 @@
                 >
                   <p class="pdf-loading">Indlæser vedtægter...</p>
                 </div>
-
-                <p>
-                  <a href="Vedtægter.pdf" download>
-                    <span class="icon solid fa-download"></span>
-                    Download vedtægter (PDF)
-                  </a>
-                </p>
               </section>
-
             </div>
           </section>
         </div>
@@ -136,11 +125,11 @@
     </div>
 
     <!-- Existing website scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
 
     <!-- PDF.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -212,10 +201,7 @@
 
           container.innerHTML = `
             <div class="pdf-error">
-              <p>Dokumentet kunne ikke indlæses.</p>
-              <a href="${file}" download>
-                Download dokumentet her
-              </a>
+              <p>Dokumentet kunne ikke indlæses. Prøv igen senere.</p>
             </div>
           `;
         }
@@ -224,8 +210,8 @@
 
       // Load both documents when the page is ready
       document.addEventListener("DOMContentLoaded", () => {
-        renderPDF("Husorden.pdf", "husorden-pdf");
-        renderPDF("Vedtægter.pdf", "vedtaegter-pdf");
+        renderPDF("/Husorden.pdf", "husorden-pdf");
+        renderPDF("/Vedtægter.pdf", "vedtaegter-pdf");
       });
     </script>
 
