@@ -1,3 +1,7 @@
+---
+permalink: /parkering/
+---
+
 
 <!doctype html>
 <html lang="da">
@@ -9,7 +13,7 @@
       content="Find ejerforeningens oplysninger om parkering."
     />
     <title>Parkering | Ejerforeningen Skyttegård/Vigerslev</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <style>
       #excel-viewer {
@@ -64,7 +68,7 @@
       <main id="main">
         <div class="inner">
           <header id="header">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
               <strong>Skyttegård/Vigerslev</strong>
             </a>
           </header>
@@ -139,11 +143,11 @@
       <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
 
     <!-- SheetJS: reads the Excel workbook in the browser -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -154,7 +158,7 @@
 
         try {
           const response = await fetch(
-            "./Venteliste%20Parkering.xlsx"
+            "/Venteliste%20Parkering.xlsx"
           );
 
           if (!response.ok) {
