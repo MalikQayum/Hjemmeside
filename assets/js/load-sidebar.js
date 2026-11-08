@@ -47,3 +47,5 @@
       console.error("Menuen kunne ikke indlæses:", error);
     });
 })();
+
+/* Sidst opdateret: 2026-11-08 11:43 */

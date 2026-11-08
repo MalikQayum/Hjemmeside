@@ -1,0 +1,6 @@
+{
+  "name": "Ejerforeningen Skyttegård/Vigerslev",
+  "description": "Praktisk information, husorden, vedtægter, nyheder og parkeringsventeliste for Ejerforeningen Skyttegård/Vigerslev i Valby.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -93,3 +93,5 @@
       "Ventelisten kunne ikke indlæses. Prøv igen senere.";
   }
 })();
+
+/* Sidst opdateret: 2026-11-08 11:43 */
