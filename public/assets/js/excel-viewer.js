@@ -93,3 +93,4 @@
       "Ventelisten kunne ikke indlæses. Prøv igen senere.";
   }
 })();
+
