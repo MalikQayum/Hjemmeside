@@ -26,7 +26,7 @@ permalink: /parkering/
             </a>
           </header>
 
-          <!-- Top Section: Information -->
+          <!-- Top Section: Information & Contact Form -->
           <section>
             <header class="main">
               <h1>Parkering</h1>
@@ -48,38 +48,16 @@ permalink: /parkering/
                 </li>
               </ul>
             </div>
-          </section>
 
-          <hr class="major" />
+            <!-- Contact Form Box right at the top -->
+            <div class="box" style="background: #ffffff; padding: 2.5em; margin-top: 2em;">
+              <header style="margin-bottom: 2em;">
+                <h3>Kontakt bestyrelsen vedrørende parkering</h3>
+                <p style="font-size: 0.95em; color: #7f888f; margin-top: 0.5em;">
+                  Udfyld formularen for at skrive dig på venteliste eller stille spørgsmål til bestyrelsen.
+                </p>
+              </header>
 
-          <!-- Middle Section: Venteliste -->
-          <section>
-            <header class="major">
-              <h2>Venteliste til parkering</h2>
-            </header>
-
-            <p>
-              Her kan du se den aktuelle venteliste for biler og motorcykler i ejerforeningen.
-            </p>
-
-            <div id="excel-viewer" aria-live="polite">
-              Indlæser ventelisten...
-            </div>
-          </section>
-
-          <hr class="major" />
-
-          <!-- Bottom Section: Contact Form -->
-          <section>
-            <header class="major">
-              <h2>Kontakt bestyrelsen vedrørende parkering</h2>
-            </header>
-
-            <p>
-              Udfyld formularen herunder for at henvende dig til bestyrelsen. Henvendelsen sendes direkte til bestyrelsen via din e-mail.
-            </p>
-
-            <div class="box" style="background: #ffffff; padding: 2.5em;">
               <form id="parking-contact-form" class="parking-contact-form">
                 <div class="row gtr-uniform">
                   <!-- Dropdown: Venteliste / Andre henvendelser -->
@@ -153,6 +131,23 @@ permalink: /parkering/
                 <!-- Status / Feedback Container -->
                 <div id="parking-form-status" class="parking-contact-status" aria-live="polite"></div>
               </form>
+            </div>
+          </section>
+
+          <hr class="major" />
+
+          <!-- Lower Section: Venteliste Table -->
+          <section>
+            <header class="major">
+              <h2>Venteliste til parkering</h2>
+            </header>
+
+            <p>
+              Her kan du se den aktuelle venteliste for biler og motorcykler i ejerforeningen.
+            </p>
+
+            <div id="excel-viewer" aria-live="polite">
+              Indlæser ventelisten...
             </div>
           </section>
 
