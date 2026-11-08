@@ -47,3 +47,4 @@
       console.error("Menuen kunne ikke indlæses:", error);
     });
 })();
+
