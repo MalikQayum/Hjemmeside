@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addressInput = document.getElementById("parking-address");
   const nameInput = document.getElementById("parking-name");
   const emailInput = document.getElementById("parking-email");
-  const phoneInput = document.getElementById("parking-phone");
   const messageInput = document.getElementById("parking-message");
   const statusContainer = document.getElementById("parking-form-status");
 
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const address = addressInput ? addressInput.value.trim() : "";
     const type = typeSelect ? typeSelect.value : "Venteliste";
     const email = emailInput ? emailInput.value.trim() : "";
-    const phone = phoneInput ? phoneInput.value.trim() : "";
     const message = messageInput ? messageInput.value.trim() : "";
 
     const recipient = "bestyrelse@skyttegaardvej.dk";
@@ -48,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
       `Navn: ${name}`,
       `Adresse: ${address}`,
       `E-mail: ${email}`,
-      phone ? `Telefon: ${phone}` : null,
       `Henvendelsestype: ${type}`,
       "",
       message ? `Besked / bemærkninger:\n${message}` : null,

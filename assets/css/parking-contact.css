@@ -1,18 +1,17 @@
 /* Styling for kontaktformularen på parkeringssiden */
 
-.parking-contact-section {
-  margin-top: 3em;
-  padding-top: 2em;
-  border-top: solid 2px rgba(210, 215, 217, 0.5);
-}
-
-.parking-contact-form {
+.parking-contact-card {
   background: #ffffff;
   border: solid 1px rgba(210, 215, 217, 0.75);
   border-radius: 0.375em;
-  padding: 2em;
-  margin-top: 1.5em;
-  margin-bottom: 2em;
+  padding: 1.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.parking-contact-card header h3 {
+  font-size: 1.25em;
+  margin: 0 0 0.25em 0;
+  color: #3d4449;
 }
 
 .parking-contact-form label {
@@ -21,7 +20,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #3d4449;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 .parking-contact-form input[readonly] {
