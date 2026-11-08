@@ -59,3 +59,5 @@ jobs:
 
           git commit -m "Update Venteliste Parkering.xlsx from OneDrive"
           git push origin main
+
+<!-- Sidst opdateret: 2026-11-08 11:43 -->

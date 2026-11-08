@@ -74,3 +74,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPDF("/Husorden.pdf", "husorden-pdf");
   renderPDF("/Vedtægter.pdf", "vedtaegter-pdf");
 });
+
+/* Sidst opdateret: 2026-11-08 11:43 */

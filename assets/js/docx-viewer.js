@@ -65,3 +65,5 @@ async function renderDocx(fileUrl) {
 document.addEventListener("DOMContentLoaded", () => {
   renderDocx("/Nyhedsbrev.docx");
 });
+
+/* Sidst opdateret: 2026-11-08 11:43 */
