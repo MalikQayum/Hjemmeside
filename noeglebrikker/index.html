@@ -1,0 +1,161 @@
+---
+permalink: /noeglebrikker/
+---
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Information om bestilling af nøglebrikker, udlevering, mistede brikker og henvendelse i Ejerforeningen Skyttegård/Vigerslev."
+    />
+    <title>Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/contact-form.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header">
+            <a href="/" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <!-- Main Section: Information & Contact Form -->
+          <section>
+            <header class="main">
+              <h1>Bestilling af nøglebrikker</h1>
+              <p>Information om bestilling, erstatning og udlevering af elektroniske nøglebrikker.</p>
+            </header>
+
+            <div class="row gtr-150 contact-equal-row">
+              <!-- Venstre kolonne: Information & Brikkodesystem -->
+              <div class="col-6 col-12-medium contact-col-equal">
+                <div class="contact-card-box">
+                  <div>
+                    <h3>Elektronisk adgangssystem</h3>
+                    <p>
+                      Adgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.
+                    </p>
+
+                    <hr style="margin: 1.5em 0;" />
+
+                    <h3>Bestilling &amp; Berettigelse</h3>
+                    <p>
+                      Nye eller ekstra nøglebrikker kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Oplys venligst din adresse og antal ønsker.
+                    </p>
+
+                    <hr style="margin: 1.5em 0;" />
+
+                    <h3>Mistet eller defekt nøglebrik</h3>
+                    <p>
+                      <strong>Har du mistet en nøglebrik?</strong> Oplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Højre kolonne: Kontaktformular -->
+              <div class="col-6 col-12-medium contact-col-equal">
+                <div class="contact-card-box">
+                  <header style="margin-bottom: 1.5em;">
+                    <h3>Bestil nøglebrikker</h3>
+                    <p style="font-size: 0.9em; color: #7f888f; margin-top: 0.25em;">
+                      Udfyld formularen for at sende en bestilling eller spærre en mistet brik.
+                    </p>
+                  </header>
+
+                  <form class="info-contact-form" data-subject-prefix="Nøglebrikker">
+                    <div class="row gtr-uniform">
+                      <div class="col-6 col-12-xsmall">
+                        <label for="noegle-type">Henvendelse *</label>
+                        <select name="type" id="noegle-type" required>
+                          <option value="Bestilling af ny nøglebrik" selected>Bestilling af ny brik</option>
+                          <option value="Mistet nøglebrik (Spærring & ny)">Mistet nøglebrik</option>
+                          <option value="Defekt nøglebrik">Defekt nøglebrik</option>
+                          <option value="Spørgsmål om nøglebrikker">Spørgsmål</option>
+                        </select>
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="noegle-address">Adresse *</label>
+                        <input
+                          type="text"
+                          name="adresse"
+                          id="noegle-address"
+                          placeholder="F.eks. Skyttegårdsvej 1, 4. th"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="noegle-name">Navn *</label>
+                        <input
+                          type="text"
+                          name="navn"
+                          id="noegle-name"
+                          placeholder="Dit navn"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="noegle-email">E-mail *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="noegle-email"
+                          placeholder="din@email.dk"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-12">
+                        <label for="noegle-message">Besked / Briknummer (valgfrit)</label>
+                        <textarea
+                          name="besked"
+                          id="noegle-message"
+                          rows="4"
+                          placeholder="Angiv gerne antal ønskede brikker eller briknummer ved mistet brik..."
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div style="margin-top: 1.5em;">
+                      <ul class="actions" style="margin-bottom: 0;">
+                        <li>
+                          <button type="submit" class="button primary fit icon solid fa-paper-plane">
+                            Send bestilling
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Status / Feedback Container -->
+                    <div class="info-contact-status" aria-live="polite"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/contact-form.js"></script>
+  </body>
+</html>
+
+<!-- Sidst opdateret: 2026-11-08 12:06 -->
