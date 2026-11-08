@@ -1,0 +1,195 @@
+---
+permalink: /parkering/
+---
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Find ejerforeningens oplysninger om parkering."
+    />
+    <title>Parkering | Ejerforeningen Skyttegård/Vigerslev</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <link rel="stylesheet" href="/assets/css/excel-viewer.css" />
+    <link rel="stylesheet" href="/assets/css/parking-contact.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header">
+            <a href="/" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <section>
+            <div class="row gtr-150">
+              <!-- Venstre kolonne: Information om parkering -->
+              <div class="col-6 col-12-medium">
+                <header class="main">
+                  <h1>Parkering</h1>
+                  <p>Information om parkering i ejerforeningen.</p>
+                </header>
+
+                <p>
+                  Ejerforeningens parkeringspladser administreres af
+                  bestyrelsen. Ønsker du en parkeringsplads, eller vil du
+                  skrives på ventelisten, kan du kontakte bestyrelsen.
+                </p>
+
+                <div class="box" style="margin-top: 2em;">
+                  <h4>Uretmæssig parkering</h4>
+                  <p>
+                    <strong>Hvis nogen holder på din parkeringsplads</strong>,
+                    skal du kontakte DinParkering, som varetager
+                    parkeringskontrollen på området. Oplys gerne pladsnummer
+                    og bilens registreringsnummer.
+                  </p>
+                  <ul class="actions">
+                    <li>
+                      <a href="tel:+4570208970" class="button small icon solid fa-phone">Ring til DinParkering</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Højre kolonne: Kontaktformular -->
+              <div class="col-6 col-12-medium">
+                <div class="parking-contact-card">
+                  <header>
+                    <h3>Kontakt bestyrelsen om parkering</h3>
+                    <p style="margin-bottom: 1.5em; font-size: 0.9em; color: #7f888f;">
+                      Udfyld formularen for at skrive dig på venteliste eller stille spørgsmål om parkering.
+                    </p>
+                  </header>
+
+                  <form id="parking-contact-form" class="parking-contact-form">
+                    <div class="row gtr-uniform">
+                      <!-- Forudfyldt Emne -->
+                      <div class="col-12">
+                        <label for="parking-subject">Emne</label>
+                        <input
+                          type="text"
+                          name="emne"
+                          id="parking-subject"
+                          value="Parkering - Venteliste"
+                          readonly
+                        />
+                      </div>
+
+                      <!-- Dropdown: Venteliste / Andre henvendelser -->
+                      <div class="col-12">
+                        <label for="parking-type">Vælg henvendelse *</label>
+                        <select name="type" id="parking-type" required>
+                          <option value="Venteliste" selected>Venteliste</option>
+                          <option value="Andre henvendelser">Andre henvendelser</option>
+                        </select>
+                      </div>
+
+                      <!-- Adresse -->
+                      <div class="col-12">
+                        <label for="parking-address">Adresse i ejerforeningen *</label>
+                        <input
+                          type="text"
+                          name="adresse"
+                          id="parking-address"
+                          placeholder="F.eks. Skyttegårdsvej 3, 2. th"
+                          required
+                        />
+                      </div>
+
+                      <!-- Navn -->
+                      <div class="col-6 col-12-xsmall">
+                        <label for="parking-name">Fulde navn *</label>
+                        <input
+                          type="text"
+                          name="navn"
+                          id="parking-name"
+                          placeholder="Dit for- og efternavn"
+                          required
+                        />
+                      </div>
+
+                      <!-- E-mail -->
+                      <div class="col-6 col-12-xsmall">
+                        <label for="parking-email">E-mailadresse *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="parking-email"
+                          placeholder="din@email.dk"
+                          required
+                        />
+                      </div>
+
+                      <!-- Besked (valgfrit) -->
+                      <div class="col-12">
+                        <label for="parking-message">Besked / Bemærkninger (valgfrit)</label>
+                        <textarea
+                          name="besked"
+                          id="parking-message"
+                          rows="3"
+                          placeholder="Eventuelle bemærkninger (f.eks. bil eller motorcykel, registreringsnummer osv.)..."
+                        ></textarea>
+                      </div>
+
+                      <!-- Send-knap -->
+                      <div class="col-12">
+                        <ul class="actions">
+                          <li>
+                            <button type="submit" class="button primary fit icon solid fa-paper-plane">
+                              Send henvendelse
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- Status / Feedback Container -->
+                    <div id="parking-form-status" class="parking-contact-status" aria-live="polite"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <hr class="major" />
+
+          <!-- Venteliste til parkering -->
+          <section>
+            <header class="major">
+              <h2>Venteliste til parkering</h2>
+            </header>
+
+            <p>
+              Her kan du se ventelisten for biler og motorcykler.
+            </p>
+
+            <div id="excel-viewer" aria-live="polite">
+              Indlæser ventelisten...
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
+
+    <!-- SheetJS: reads the Excel workbook in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <script src="/assets/js/excel-viewer.js"></script>
+    <script src="/assets/js/parking-contact.js"></script>
+  </body>
+</html>
