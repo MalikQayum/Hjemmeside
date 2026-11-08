@@ -65,3 +65,4 @@ async function renderDocx(fileUrl) {
 document.addEventListener("DOMContentLoaded", () => {
   renderDocx("/Nyhedsbrev.docx");
 });
+
