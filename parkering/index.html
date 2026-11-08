@@ -70,38 +70,25 @@ permalink: /parkering/
 
                   <form id="parking-contact-form" class="parking-contact-form">
                     <div class="row gtr-uniform">
-                      <!-- Forudfyldt Emne -->
-                      <div class="col-12">
-                        <label for="parking-subject">Emne</label>
-                        <input
-                          type="text"
-                          name="emne"
-                          id="parking-subject"
-                          value="Parkering - Venteliste"
-                          readonly
-                        />
-                      </div>
+                    <!-- Dropdown & Adresse i 2 kolonner -->
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-type">Vælg henvendelse *</label>
+                      <select name="type" id="parking-type" required>
+                        <option value="Venteliste" selected>Venteliste</option>
+                        <option value="Andre henvendelser">Andre henvendelser</option>
+                      </select>
+                    </div>
 
-                      <!-- Dropdown: Venteliste / Andre henvendelser -->
-                      <div class="col-12">
-                        <label for="parking-type">Vælg henvendelse *</label>
-                        <select name="type" id="parking-type" required>
-                          <option value="Venteliste" selected>Venteliste</option>
-                          <option value="Andre henvendelser">Andre henvendelser</option>
-                        </select>
-                      </div>
-
-                      <!-- Adresse -->
-                      <div class="col-12">
-                        <label for="parking-address">Adresse i ejerforeningen *</label>
-                        <input
-                          type="text"
-                          name="adresse"
-                          id="parking-address"
-                          placeholder="F.eks. Skyttegårdsvej 3, 2. th"
-                          required
-                        />
-                      </div>
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-address">Adresse i ejerforeningen *</label>
+                      <input
+                        type="text"
+                        name="adresse"
+                        id="parking-address"
+                        placeholder="F.eks. Skyttegårdsvej 3, 2. th"
+                        required
+                      />
+                    </div>
 
                       <!-- Navn -->
                       <div class="col-6 col-12-xsmall">

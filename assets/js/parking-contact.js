@@ -2,29 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("parking-contact-form");
   if (!form) return;
 
-  const subjectInput = document.getElementById("parking-subject");
   const typeSelect = document.getElementById("parking-type");
   const addressInput = document.getElementById("parking-address");
   const nameInput = document.getElementById("parking-name");
   const emailInput = document.getElementById("parking-email");
   const messageInput = document.getElementById("parking-message");
   const statusContainer = document.getElementById("parking-form-status");
-
-  // Keep subject preview updated based on dropdown and address
-  function updateSubject() {
-    const type = typeSelect ? typeSelect.value : "Venteliste";
-    const address = addressInput && addressInput.value.trim() ? ` - ${addressInput.value.trim()}` : "";
-    if (subjectInput) {
-      subjectInput.value = `Parkering - ${type}${address}`;
-    }
-  }
-
-  if (typeSelect) {
-    typeSelect.addEventListener("change", updateSubject);
-  }
-  if (addressInput) {
-    addressInput.addEventListener("input", updateSubject);
-  }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
