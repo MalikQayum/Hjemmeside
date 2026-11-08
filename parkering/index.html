@@ -14,6 +14,7 @@ permalink: /parkering/
     <link rel="stylesheet" href="/assets/css/main.css" />
 
     <link rel="stylesheet" href="/assets/css/excel-viewer.css" />
+    <link rel="stylesheet" href="/assets/css/parking-contact.css" />
   </head>
 
   <body class="is-preload">
@@ -60,34 +61,113 @@ permalink: /parkering/
                 </div>
               </section>
 
-              <div
-                class="onedrive-container onedrive-container--parking"
-                style="height: 1010px; overflow: hidden;"
-              >
-                <!--
-                <div id="dokument-husorden" align="center">
-                  <progress></progress>
-                </div>
+              <!-- Kontaktformular vedrørende parkering -->
+              <section class="parking-contact-section">
+                <header class="major">
+                  <h2>Kontakt vedrørende parkering</h2>
+                </header>
 
-                <object
-                  data="https://onedrive.live.com/edit?cid=4560751afe576670&id=4560751AFE576670!812&resid=4560751AFE576670!812&ithint=file%2Cxlsx&embed=1&wdAllowInteractivity=False&ActiveCell=%27Ark1%27!A1&Item=%27Ark1%27!A1%3AU71&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdHideHeaders=True&wdHideSheetTabs=True&action=embedview&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy80NTYwNzUxYWZlNTc2NjcwL1VRUndabGYtR25WZ0lJQkZMQU1BQUFBQUFDZExrSDJBa0xIY2FBND93ZEFsbG93SW50ZXJhY3Rpdml0eT1GYWxzZSZBY3RpdmVDZWxsPSdBcmsxJyFBMSZJdGVtPSdBcmsxJyFBMTpVNzEmd2RIaWRlR3JpZGxpbmVzPVRydWUmd2REb3dubG9hZEJ1dHRvbj1UcnVlJndkSW5Db25maWd1cmF0b3I9VHJ1ZSZ3ZEhpZGVIZWFkZXJzPVRydWUmd2RIaWRlU2hlZXRUYWJzPVRydWUmYWN0aW9uPWVtYmVkdmlldw&wdo=2"
-                  type="text/html"
-                  aria-label="Ejerforeningens husorden"
-                  width="100%"
-                  height="1000"
-                  onload="document.getElementById('dokument-husorden').style.display='none'"
-                ></object>
-                -->
+                <p>
+                  Brug formularen herunder til at henvende dig til bestyrelsen om opskrivning på venteliste eller andre spørgsmål om parkering.
+                </p>
 
-                <!--
-                <iframe
-                  src="https://1drv.ms/x/c/4560751afe576670/UQRwZlf-GnVgIIBFLAMAAAAAACdLkH2AkLHcaA4?wdAllowInteractivity=False&ActiveCell='Ark1'!A1&Item='Ark1'!A1%3AU71&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdHideHeaders=True&wdHideSheetTabs=True"
-                  title="Parkeringsoplysninger for ejerforeningen"
-                  width="100%"
-                  scrolling="no"
-                ></iframe>
-                -->
-              </div>
+                <form id="parking-contact-form" class="parking-contact-form">
+                  <div class="row gtr-uniform">
+                    <!-- Forudfyldt Emne -->
+                    <div class="col-12">
+                      <label for="parking-subject">Emne</label>
+                      <input
+                        type="text"
+                        name="emne"
+                        id="parking-subject"
+                        value="Parkering - Venteliste"
+                        readonly
+                      />
+                    </div>
+
+                    <!-- Dropdown: Venteliste / Andre henvendelser -->
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-type">Vælg henvendelse *</label>
+                      <select name="type" id="parking-type" required>
+                        <option value="Venteliste" selected>Venteliste</option>
+                        <option value="Andre henvendelser">Andre henvendelser</option>
+                      </select>
+                    </div>
+
+                    <!-- Adresse -->
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-address">Adresse i ejerforeningen *</label>
+                      <input
+                        type="text"
+                        name="adresse"
+                        id="parking-address"
+                        placeholder="F.eks. Skyttegårdsvej 3, 2. th"
+                        required
+                      />
+                    </div>
+
+                    <!-- Navn -->
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-name">Fulde navn *</label>
+                      <input
+                        type="text"
+                        name="navn"
+                        id="parking-name"
+                        placeholder="Dit for- og efternavn"
+                        required
+                      />
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="col-6 col-12-xsmall">
+                      <label for="parking-email">E-mailadresse *</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="parking-email"
+                        placeholder="din@email.dk"
+                        required
+                      />
+                    </div>
+
+                    <!-- Telefon (valgfrit) -->
+                    <div class="col-12">
+                      <label for="parking-phone">Telefonnummer (valgfrit)</label>
+                      <input
+                        type="tel"
+                        name="telefon"
+                        id="parking-phone"
+                        placeholder="F.eks. 12 34 56 78"
+                      />
+                    </div>
+
+                    <!-- Besked -->
+                    <div class="col-12">
+                      <label for="parking-message">Besked / Bemærkninger (valgfrit)</label>
+                      <textarea
+                        name="besked"
+                        id="parking-message"
+                        rows="4"
+                        placeholder="Oplys gerne hvis det drejer sig om bil eller motorcykel, eventuelt registreringsnummer eller andre detaljer..."
+                      ></textarea>
+                    </div>
+
+                    <!-- Send-knap -->
+                    <div class="col-12">
+                      <ul class="actions">
+                        <li>
+                          <button type="submit" class="button primary icon solid fa-paper-plane">
+                            Send henvendelse
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Status / Feedback Container -->
+                  <div id="parking-form-status" class="parking-contact-status" aria-live="polite"></div>
+                </form>
+              </section>
             </div>
           </section>
         </div>
@@ -106,5 +186,6 @@ permalink: /parkering/
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
     <script src="/assets/js/excel-viewer.js"></script>
+    <script src="/assets/js/parking-contact.js"></script>
   </body>
 </html>
