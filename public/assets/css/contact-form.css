@@ -1,0 +1,75 @@
+/* Genanvendelig styling for kontaktformularer på informationssider (Parkering, Kælderrum, Nøglebrikker) */
+
+.contact-equal-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-col-equal {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card-box {
+  background: #ffffff;
+  border: solid 1px rgba(210, 215, 217, 0.75);
+  border-radius: 0.375em;
+  padding: 2.25em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.info-contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-contact-form label {
+  font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #3d4449;
+  margin-bottom: 0.4em;
+}
+
+.info-contact-status {
+  display: none;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 0.375em;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.info-contact-status.is-visible {
+  display: block;
+}
+
+.info-contact-status h4 {
+  color: #166534;
+  margin: 0 0 0.5em 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.info-contact-status p {
+  margin: 0 0 1em 0;
+  font-size: 0.9em;
+  color: #15803d;
+}
+
+.info-contact-status .status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+/* Sidst opdateret: 2026-11-08 12:06 */

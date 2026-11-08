@@ -1,0 +1,163 @@
+---
+permalink: /kaelderrum/
+---
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Information om leje af kælderrum, priser, lejevilkår og henvendelse i Ejerforeningen Skyttegård/Vigerslev."
+    />
+    <title>Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/contact-form.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header">
+            <a href="/" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <!-- Main Section: Information & Contact Form -->
+          <section>
+            <header class="main">
+              <h1>Leje af kælderrum</h1>
+              <p>Information om mulighederne for at leje ekstra kælderrum i ejerforeningen.</p>
+            </header>
+
+            <div class="row gtr-150 contact-equal-row">
+              <!-- Venstre kolonne: Information & Lejevilkår -->
+              <div class="col-6 col-12-medium contact-col-equal">
+                <div class="contact-card-box">
+                  <div>
+                    <h3>Generel information</h3>
+                    <p>
+                      Ejerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.
+                    </p>
+
+                    <hr style="margin: 1.5em 0;" />
+
+                    <h3>Ledige kælderrum &amp; Venteliste</h3>
+                    <p>
+                      Da efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.
+                    </p>
+
+                    <hr style="margin: 1.5em 0;" />
+
+                    <h3>Lejevilkår &amp; Priser</h3>
+                    <ul>
+                      <li><strong>Månedlig leje:</strong> Lejen opkræves månedligt sammen med fællesudgifterne via DEAS.</li>
+                      <li><strong>Brugsret:</strong> Kælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.</li>
+                      <li><strong>Sikkerhed:</strong> Kælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Højre kolonne: Kontaktformular -->
+              <div class="col-6 col-12-medium contact-col-equal">
+                <div class="contact-card-box">
+                  <header style="margin-bottom: 1.5em;">
+                    <h3>Henvendelse om kælderrum</h3>
+                    <p style="font-size: 0.9em; color: #7f888f; margin-top: 0.25em;">
+                      Udfyld formularen for at henvende dig om leje eller opskrivning til venteliste.
+                    </p>
+                  </header>
+
+                  <form class="info-contact-form" data-subject-prefix="Leje af kælderrum">
+                    <div class="row gtr-uniform">
+                      <div class="col-6 col-12-xsmall">
+                        <label for="kaelder-type">Henvendelse *</label>
+                        <select name="type" id="kaelder-type" required>
+                          <option value="Opskrivning til venteliste" selected>Venteliste</option>
+                          <option value="Spørgsmål om lejevilkår">Spørgsmål om lejevilkår</option>
+                          <option value="Opsigelse af kælderrum">Opsigelse af rum</option>
+                          <option value="Andre henvendelser">Andre henvendelser</option>
+                        </select>
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="kaelder-address">Adresse *</label>
+                        <input
+                          type="text"
+                          name="adresse"
+                          id="kaelder-address"
+                          placeholder="F.eks. Skyttegårdsvej 1, 4. th"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="kaelder-name">Navn *</label>
+                        <input
+                          type="text"
+                          name="navn"
+                          id="kaelder-name"
+                          placeholder="Dit navn"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-6 col-12-xsmall">
+                        <label for="kaelder-email">E-mail *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="kaelder-email"
+                          placeholder="din@email.dk"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-12">
+                        <label for="kaelder-message">Besked / Ønsker (valgfrit)</label>
+                        <textarea
+                          name="besked"
+                          id="kaelder-message"
+                          rows="4"
+                          placeholder="Beskriv gerne dine ønsker til rumstørrelse eller placering..."
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div style="margin-top: 1.5em;">
+                      <ul class="actions" style="margin-bottom: 0;">
+                        <li>
+                          <button type="submit" class="button primary fit icon solid fa-paper-plane">
+                            Send henvendelse
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Status / Feedback Container -->
+                    <div class="info-contact-status" aria-live="polite"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/contact-form.js"></script>
+  </body>
+</html>
+
+<!-- Sidst opdateret: 2026-11-08 12:06 -->

@@ -21,6 +21,8 @@ export default defineConfig(() => {
           velkomstbrev: path.resolve(__dirname, 'velkomstbrev/index.html'),
           eksempler: path.resolve(__dirname, 'eksempler/index.html'),
           kontakt: path.resolve(__dirname, 'kontakt/index.html'),
+          kaelderrum: path.resolve(__dirname, 'kaelderrum/index.html'),
+          noeglebrikker: path.resolve(__dirname, 'noeglebrikker/index.html'),
         },
       },
     },
@@ -34,5 +36,4 @@ export default defineConfig(() => {
   };
 });
 
-/* Sidst opdateret: 2026-11-08 11:43 */
-
+/* Sidst opdateret: 2026-11-08 12:06 */

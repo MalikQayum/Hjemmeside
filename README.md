@@ -38,7 +38,15 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
   - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen `f.eks. Skyttegårdsvej 1, 4. th`, navn, e-mail og bemærkninger).
 - **Nederst:** Live visning af ejerforeningens opdaterede parkeringsventeliste (via Excel/SheetJS integration).
 
-### 6. Kontakt (`/kontakt/`)
+### 6. Leje af kælderrum (`/kaelderrum/`)
+- **Sti:** `kaelderrum/index.html`
+- **Oversigt:** Information om leje af kælderrum, lejevilkår, opkrævning og venteliste samt integreret kontaktformular direkte til bestyrelsen (forudfyldt med emnet "Leje af kælderrum").
+
+### 7. Bestilling af nøglebrikker (`/noeglebrikker/`)
+- **Sti:** `noeglebrikker/index.html`
+- **Oversigt:** Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
+
+### 8. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
 - Overskuelig kontaktside med moderne kort-layout (cards) for:
   - **Bestyrelsen** (`bestyrelse@skyttegaardvej.dk`)
@@ -48,7 +56,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
   - **Finn L. & Davidsen A/S** (Fast håndværker & døgnvagt)
   - **DinParkering** (Parkeringskontrol)
 
-### 7. Design- & Komponentreferencer (`/eksempler/`)
+### 9. Design- & Komponentreferencer (`/eksempler/`)
 - **Sti:** `eksempler/index.html`
 - Eksempelside med HTML5 UP Editorial skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
 
