@@ -156,3 +156,11 @@
     min-height: 340px;
   }
 }
+
+.home-map-error {
+  display: grid;
+  place-items: center;
+  padding: 2em;
+  color: #7f888f;
+  text-align: center;
+}
