@@ -19,15 +19,15 @@
     center: { label: "Centrum", emoji: "📍", color: "#b23b3b" }
   };
 
-  // Start med et udsnit på cirka 500 m omkring Vigerslevvej 144.
-  // Den fulde radiuscirkel på 1,5 km er stadig med i kortet og kan ses ved at zoome ud.
+  // Start med en mellemzoom: cirka 500 m på kortets målestok.
+  // Den fulde radiuscirkel på 1,5 km og alle markører er stadig med.
   const map = L.map(mapElement, {
     scrollWheelZoom: false,
     zoomControl: true,
-    zoomSnap: 0.5,
+    zoomSnap: 0.1,
     preferCanvas: true
   });
-  map.setView(center, 15.5);
+  map.setView(center, 13.2);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
