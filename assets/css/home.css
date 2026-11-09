@@ -1,0 +1,51 @@
+/* =========================================================
+   Homepage – Ejerforeningen Skyttegård/Vigerslev
+   ========================================================= */
+
+.home-columns {
+  align-items: flex-start;
+}
+
+/* Introduction */
+.home-intro {
+  min-width: 0;
+}
+
+/* 3D video section */
+.home-video-section {
+  min-width: 0;
+}
+
+.home-video-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.4em;
+  background: #222;
+  line-height: 0;
+}
+
+.home-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 0;
+  outline: none;
+}
+
+.home-video-caption {
+  margin-top: 0.75em;
+  color: #7f888f;
+  font-size: 0.85em;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 980px) {
+  .home-columns {
+    align-items: stretch;
+  }
+
+  .home-video-section {
+    margin-top: 1em;
+  }
+}
