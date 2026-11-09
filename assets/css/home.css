@@ -49,3 +49,110 @@
     margin-top: 1em;
   }
 }
+
+
+/* =========================================================
+   Homepage – nederste række: områdekort og information
+   Den øverste velkomst/video-række er uændret.
+   ========================================================= */
+.home-lower-section {
+  margin-top: 2.5em;
+}
+
+.home-lower-columns {
+  align-items: stretch;
+}
+
+.home-lower-columns > .col-6 {
+  display: flex;
+}
+
+.home-map-panel,
+.home-info-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.home-area-map {
+  width: 100%;
+  height: 570px;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid rgba(127, 136, 143, 0.3);
+  border-radius: 0.35em;
+  background: #eef1f3;
+  z-index: 1;
+}
+
+.home-map-note {
+  margin-top: 0.9em;
+  color: #7f888f;
+  font-size: 0.82em;
+}
+
+.home-area-map .leaflet-popup-content {
+  line-height: 1.5;
+  margin: 12px 14px;
+  max-width: 260px;
+}
+
+.home-area-map .map-popup-title {
+  display: block;
+  margin-bottom: 0.35em;
+  color: #3d4449;
+  font-weight: 700;
+}
+
+.home-area-map .map-popup-description {
+  color: #555f66;
+  font-size: 0.92em;
+  white-space: normal;
+}
+
+.home-map-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0,0,0,.35);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.home-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.85em;
+  margin: 0 0 1em;
+  color: #626b72;
+  font-size: 0.82em;
+}
+
+.home-map-legend span {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 980px) {
+  .home-lower-columns > .col-6 {
+    display: block;
+  }
+
+  .home-area-map {
+    height: 460px;
+    min-height: 360px;
+  }
+
+  .home-info-column {
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-area-map {
+    height: 400px;
+    min-height: 340px;
+  }
+}
