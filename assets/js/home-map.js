@@ -19,11 +19,15 @@
     center: { label: "Centrum", emoji: "📍", color: "#b23b3b" }
   };
 
+  // Start med et udsnit på cirka 500 m omkring Vigerslevvej 144.
+  // Den fulde radiuscirkel på 1,5 km er stadig med i kortet og kan ses ved at zoome ud.
   const map = L.map(mapElement, {
     scrollWheelZoom: false,
     zoomControl: true,
+    zoomSnap: 0.5,
     preferCanvas: true
   });
+  map.setView(center, 15.5);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -80,7 +84,7 @@
         fillOpacity: 0.08
       }
     }).addTo(map);
-    map.fitBounds(layer.getBounds(), { padding: [14, 14] });
+    // Behold radiuslaget, men lad det ikke bestemme startzoom.
   }
 
   fetch("/assets/data/ejerforeningen-omraadekort.geojson", { cache: "no-cache" })
