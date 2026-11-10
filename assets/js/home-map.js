@@ -21,12 +21,12 @@
 
   const map = L.map(mapElement, {
     scrollWheelZoom: false,
-    zoomControl: true,
+    zoomControl: false,
     preferCanvas: true
   });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
+    maxZoom: 29,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
