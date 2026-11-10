@@ -1,5 +1,5 @@
-/* Interactive circular area map for Ejerforeningen Skyttegård/Vigerslev.
-   The full 1.5 km radius circle is fitted to the circular map viewport on load. */
+/* Interactive area map for Ejerforeningen Skyttegård/Vigerslev.
+   Data is converted from the association's KML and stored locally as GeoJSON. */
 (function () {
   "use strict";
 
@@ -21,18 +21,14 @@
 
   const map = L.map(mapElement, {
     scrollWheelZoom: false,
-    zoomControl: false,
-    zoomSnap: 0.1,
+    zoomControl: true,
     preferCanvas: true
-  }).setView(center, 12);
+  });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
-
-  // Place controls along the midline so they remain visible inside the circular crop.
-  L.control.zoom({ position: "topleft" }).addTo(map);
 
   const overlays = {};
   const layerGroups = {};
@@ -70,9 +66,7 @@
       iconAnchor: [15, 15],
       popupAnchor: [0, -14]
     });
-    L.marker(latLng, { icon })
-      .bindPopup(popupContent(properties))
-      .addTo(layerGroups[category] || layerGroups.center);
+    L.marker(latLng, { icon }).bindPopup(popupContent(properties)).addTo(layerGroups[category] || layerGroups.center);
   }
 
   function addRadius(feature) {
@@ -80,13 +74,13 @@
       style: {
         color: "#2676b8",
         weight: 2,
-        opacity: 0.95,
+        opacity: 0.9,
         dashArray: "7 6",
         fillColor: "#5aa3d6",
-        fillOpacity: 0.07
+        fillOpacity: 0.08
       }
     }).addTo(map);
-    return layer.getBounds();
+    map.fitBounds(layer.getBounds(), { padding: [14, 14] });
   }
 
   fetch("/assets/data/ejerforeningen-omraadekort.geojson", { cache: "no-cache" })
@@ -95,36 +89,18 @@
       return response.json();
     })
     .then((data) => {
-      let radiusBounds = null;
-
       data.features.forEach((feature) => {
         const geometryType = feature.geometry && feature.geometry.type;
         const category = feature.properties && feature.properties.category;
         if (category === "radiusCircle" && geometryType === "Polygon") {
-          radiusBounds = addRadius(feature);
+          addRadius(feature);
         } else if (geometryType === "Point") {
           addPoint(feature);
         }
       });
-
-      L.control.layers(null, overlays, {
-        collapsed: true,
-        position: "topright"
-      }).addTo(map);
-
-      // Wait until the square map element has its final dimensions, then fit
-      // the entire 1.5 km circle into the circular map viewport.
-      window.setTimeout(() => {
-        map.invalidateSize({ pan: false });
-        if (radiusBounds && radiusBounds.isValid()) {
-          map.fitBounds(radiusBounds, {
-            padding: [18, 18],
-            animate: false
-          });
-        } else {
-          map.setView(center, 13);
-        }
-      }, 180);
+      L.control.layers(null, overlays, { collapsed: true, position: "topright" }).addTo(map);
+      L.control.scale({ imperial: false, position: "bottomleft" }).addTo(map);
+      window.setTimeout(() => map.invalidateSize(), 150);
     })
     .catch((error) => {
       console.error("Områdekort:", error);
