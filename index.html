@@ -7,13 +7,11 @@ permalink: /
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Praktisk information til ejere og beboere i Ejerforeningen Skyttegård/Vigerslev i Valby."
-    />
+    <meta name="description" content="Praktisk information til ejere og beboere i Ejerforeningen Skyttegård/Vigerslev i Valby." />
     <title>Forside | Ejerforeningen Skyttegård/Vigerslev</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
 
   <body class="is-preload">
@@ -21,67 +19,31 @@ permalink: /
       <main id="main">
         <div class="inner">
           <header id="header">
-            <a href="/" class="logo">
-              <strong>Forside</strong>
-            </a>
+            <a href="/" class="logo"><strong>Forside</strong></a>
           </header>
 
+          <!-- Øverste række: velkomsttekst og eksisterende MP4-video -->
           <section class="home-section">
             <div class="row gtr-150 home-columns">
-              <!-- Venstre kolonne: Velkomst og information -->
               <div class="col-6 col-12-medium">
                 <div class="home-intro">
                   <h1>Velkommen til Ejerforeningen</h1>
-
                   <p>
                     Ejerforeningen omfatter ejendommene på Skyttegårdsvej 1-11
                     og Vigerslevvej 144-148 i Valby. Ejendommene ligger i et
                     attraktivt og veletableret boligområde med kort afstand til
                     indkøb, offentlig transport og grønne områder.
                   </p>
-
                   <p>
                     Foreningen danner rammen om et rart og velfungerende bomiljø,
                     hvor der lægges vægt på godt naboskab, fælles ansvar og omsorg
                     for ejendommene og deres fællesarealer.
                   </p>
-
-                  <h2>Gode forbindelser og faciliteter</h2>
-
-                  <p>
-                    Området har gode transportmuligheder med busforbindelser og
-                    adgang til S-tog fra blandt andet Valby Station, Danshøj
-                    Station og Hvidovre Station. Der er desuden gode muligheder
-                    for daglige indkøb i nærliggende supermarkeder og butikker.
-                  </p>
-
-                  <p>
-                    For familier ligger der skoler og daginstitutioner i
-                    lokalområdet, og de nærliggende grønne områder, herunder
-                    Vigerslevparken, giver gode muligheder for gåture, motion
-                    og afslapning.
-                  </p>
-
-                  <h2>Information til beboere og ejere</h2>
-
-                  <p>
-                    På denne hjemmeside kan beboere og ejere finde praktiske
-                    oplysninger, relevante dokumenter, nyheder fra bestyrelsen
-                    og information om livet i ejerforeningen.
-                  </p>
                 </div>
               </div>
 
-              <!-- Højre kolonne: 3D-video -->
               <div class="col-6 col-12-medium">
                 <div class="home-video-section">
-                  <h2>Oplev ejerforeningen</h2>
-
-                  <p>
-                    Tag en virtuel rundtur over og omkring vores ejendomme
-                    på Skyttegårdsvej og Vigerslevvej.
-                  </p>
-
                   <div class="home-video-container">
                     <video
                       class="home-video"
@@ -92,16 +54,50 @@ permalink: /
                       preload="metadata"
                       aria-label="3D-luftvisning af Ejerforeningen Skyttegård/Vigerslev"
                     >
-                      <source
-                        src="/assets/video/ejerforeningen-3d.mp4"
-                        type="video/mp4"
-                      />
+                      <source src="/assets/video/ejerforeningen-3d.mp4" type="video/mp4" />
                       Din browser understøtter ikke videoafspilning.
                     </video>
                   </div>
+                  <h2>Information til beboere og ejere</h2>
+                  <p>
+                    På denne hjemmeside kan beboere og ejere finde praktiske
+                    oplysninger, relevante dokumenter, nyheder fra bestyrelsen
+                    og information om livet i ejerforeningen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-                  <p class="home-video-caption">
-                    Virtuel 360° rundtur over ejerforeningens ejendomme.
+          <!-- Nederste række: interaktivt områdekort og information -->
+          <section class="home-lower-section">
+            <div class="row gtr-150 home-lower-columns">
+              <div class="col-6 col-12-medium home-map-column">
+                <div class="home-map-panel">
+                  <div
+                    id="home-area-map"
+                    class="home-area-map"
+                    role="region"
+                    aria-label="Interaktivt områdekort med steder inden for 1,5 km"
+                    tabindex="0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="col-6 col-12-medium home-info-column">
+                <div class="home-info-panel">
+                  <h2>Gode forbindelser og faciliteter</h2>
+                  <p>
+                    Området har gode transportmuligheder med busforbindelser og
+                    adgang til S-tog fra blandt andet Valby Station, Danshøj
+                    Station og Hvidovre Station. Der er desuden gode muligheder
+                    for daglige indkøb i nærliggende supermarkeder og butikker.
+                  </p>
+                  <p>
+                    For familier ligger der skoler og daginstitutioner i
+                    lokalområdet, og de nærliggende grønne områder, herunder
+                    Vigerslevparken, giver gode muligheder for gåture, motion
+                    og afslapning.
                   </p>
                 </div>
               </div>
@@ -118,6 +114,8 @@ permalink: /
     <script src="/assets/js/breakpoints.min.js"></script>
     <script src="/assets/js/util.js"></script>
     <script src="/assets/js/load-sidebar.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/assets/js/home-map.js"></script>
   </body>
 </html>
 
