@@ -1,3 +1,4 @@
+
 /* Interactive circular area map for Ejerforeningen Skyttegård/Vigerslev.
    The full 1.5 km radius circle is fitted to the circular map viewport on load. */
 (function () {
@@ -7,6 +8,7 @@
   if (!mapElement || typeof L === "undefined") return;
 
   const center = [55.6617458, 12.4828321];
+
   const categoryConfig = {
     association: { label: "Ejerforeningen", emoji: "🏠", color: "#b23b3b" },
     grocery: { label: "Dagligvarebutikker", emoji: "🛒", color: "#238b57" },
@@ -19,23 +21,29 @@
     center: { label: "Centrum", emoji: "📍", color: "#b23b3b" }
   };
 
+  // Initialize the map without navigation or attribution controls.
   const map = L.map(mapElement, {
     scrollWheelZoom: false,
     zoomControl: false,
+    attributionControl: false,
+    dragging: false,
+    touchZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
     zoomSnap: 0.1,
     preferCanvas: true
   }).setView(center, 12);
 
+  // OpenStreetMap tiles.
+  // Attribution is displayed separately below the map in the HTML.
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    maxZoom: 19
   }).addTo(map);
-
-  // Place controls along the midline so they remain visible inside the circular crop.
-  L.control.zoom({ position: "topleft" }).addTo(map);
 
   const overlays = {};
   const layerGroups = {};
+
   Object.keys(categoryConfig).forEach((key) => {
     layerGroups[key] = L.layerGroup().addTo(map);
     overlays[categoryConfig[key].label] = layerGroups[key];
@@ -43,6 +51,7 @@
 
   function popupContent(properties) {
     const wrapper = document.createElement("div");
+
     const title = document.createElement("strong");
     title.className = "map-popup-title";
     title.textContent = properties.name || "Sted";
@@ -54,22 +63,35 @@
       description.textContent = properties.description;
       wrapper.appendChild(description);
     }
+
     return wrapper;
   }
 
   function addPoint(feature) {
     const properties = feature.properties || {};
     const category = properties.category;
-    const config = categoryConfig[category] || { emoji: "📍", color: "#536878" };
+
+    const config = categoryConfig[category] || {
+      emoji: "📍",
+      color: "#536878"
+    };
+
     const coordinates = feature.geometry.coordinates;
     const latLng = [coordinates[1], coordinates[0]];
+
     const icon = L.divIcon({
       className: "home-map-marker-wrapper",
-      html: '<span class="home-map-emoji" style="background:' + config.color + '">' + config.emoji + '</span>',
+      html:
+        '<span class="home-map-emoji" style="background:' +
+        config.color +
+        '">' +
+        config.emoji +
+        "</span>",
       iconSize: [30, 30],
       iconAnchor: [15, 15],
       popupAnchor: [0, -14]
     });
+
     L.marker(latLng, { icon })
       .bindPopup(popupContent(properties))
       .addTo(layerGroups[category] || layerGroups.center);
@@ -90,9 +112,16 @@
     }).addTo(map);
   }
 
-  fetch("/assets/data/ejerforeningen-omraadekort.geojson", { cache: "no-cache" })
+  fetch("/assets/data/ejerforeningen-omraadekort.geojson", {
+    cache: "no-cache"
+  })
     .then((response) => {
-      if (!response.ok) throw new Error("Kortdata kunne ikke indlæses (" + response.status + ").");
+      if (!response.ok) {
+        throw new Error(
+          "Kortdata kunne ikke indlæses (" + response.status + ")."
+        );
+      }
+
       return response.json();
     })
     .then((data) => {
@@ -101,6 +130,7 @@
       data.features.forEach((feature) => {
         const geometryType = feature.geometry && feature.geometry.type;
         const category = feature.properties && feature.properties.category;
+
         if (category === "radiusCircle" && geometryType === "Polygon") {
           radiusLayer = addRadius(feature);
         } else if (geometryType === "Point") {
@@ -108,18 +138,19 @@
         }
       });
 
+      // Category filters.
       L.control.layers(null, overlays, {
         collapsed: true,
         position: "topright"
       }).addTo(map);
 
-      // Wait until the circular map container has its final dimensions.
-      // Fit to the actual 1.5 km radius polygon with zero padding so the
-      // circle fills the circular viewport as closely as possible.
+      // Fit the actual 1.5 km radius polygon to the circular viewport.
       const fitRadiusToViewport = () => {
         map.invalidateSize({ pan: false });
+
         if (radiusLayer) {
           const radiusBounds = radiusLayer.getBounds();
+
           if (radiusBounds.isValid()) {
             map.fitBounds(radiusBounds, {
               padding: [0, 0],
@@ -128,18 +159,21 @@
             return;
           }
         }
+
         map.setView(center, 13);
       };
 
-      // Two animation frames ensure CSS layout and the round viewport size
-      // have been applied before Leaflet calculates its initial zoom.
+      // Wait for the circular map container to finish rendering.
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(fitRadiusToViewport);
       });
     })
     .catch((error) => {
       console.error("Områdekort:", error);
-      mapElement.textContent = "Kortet kunne ikke indlæses. Kontrollér, at kortdatafilen ligger i assets/data/.";
+
+      mapElement.textContent =
+        "Kortet kunne ikke indlæses. Kontrollér, at kortdatafilen ligger i assets/data/.";
+
       mapElement.classList.add("home-map-error");
     });
 })();
