@@ -80,7 +80,7 @@
         fillOpacity: 0.08
       }
     }).addTo(map);
-    map.fitBounds(layer.getBounds(), { padding: [14, 14] });
+    map.fitBounds(layer.getBounds(), { padding: [2, 2] });
   }
 
   fetch("/assets/data/ejerforeningen-omraadekort.geojson", { cache: "no-cache" })
