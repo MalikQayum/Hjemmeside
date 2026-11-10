@@ -74,18 +74,13 @@
 }
 
 .home-area-map {
-  /* Square Leaflet viewport clipped to a true circle. */
-  width: min(100%, 570px);
-  height: auto;
-  aspect-ratio: 1 / 1;
-  min-height: 0;
-  margin: 0 auto;
+  width: 100%;
+  height: 570px;
+  min-height: 420px;
   overflow: hidden;
-  border: 3px solid #fff;
-  border-radius: 50%;
+  border: 1px solid rgba(127, 136, 143, 0.3);
+  border-radius: 0.35em;
   background: #eef1f3;
-  box-shadow: 0 0 0 1px rgba(90, 105, 116, 0.22),
-              0 8px 24px rgba(30, 45, 55, 0.15);
   z-index: 1;
 }
 
@@ -146,10 +141,8 @@
   }
 
   .home-area-map {
-    width: min(100%, 500px);
-    height: auto;
-    aspect-ratio: 1 / 1;
-    min-height: 0;
+    height: 460px;
+    min-height: 360px;
   }
 
   .home-info-column {
@@ -159,36 +152,15 @@
 
 @media screen and (max-width: 480px) {
   .home-area-map {
-    width: min(100%, 390px);
-    height: auto;
-    aspect-ratio: 1 / 1;
+    height: 400px;
+    min-height: 340px;
   }
 }
 
-/* Keep Leaflet controls and attribution inside the round map crop. */
-.home-area-map .leaflet-top.leaflet-left {
-  top: 50%;
-  left: 10px;
-  margin-top: 0;
-  transform: translateY(-50%);
-}
-
-.home-area-map .leaflet-top.leaflet-right {
-  top: 50%;
-  right: 22%;
-  margin-top: 0;
-  transform: translateY(-50%);
-}
-
-.home-area-map .leaflet-bottom.leaflet-right {
-  right: 50%;
-  bottom: 7%;
-  transform: translateX(50%);
-  white-space: nowrap;
-}
-
-.home-area-map .leaflet-control-attribution {
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.82);
-  font-size: 9px;
+.home-map-error {
+  display: grid;
+  place-items: center;
+  padding: 2em;
+  color: #7f888f;
+  text-align: center;
 }
