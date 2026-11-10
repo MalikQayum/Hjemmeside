@@ -8,7 +8,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 
 ## 🌐 Domæne & Hosting
 - **Aktivt domæne:** [www.skyttegaardvej.dk](https://www.skyttegaardvej.dk)
-- **GitHub Pages:** Integreret med automatisk CNAME opsætning (`skyttegaardvej.dk`).
+- **GitHub Pages:** Integreret med automatisk CNAME-opsætning (`skyttegaardvej.dk`).
 - **Ikke købt domæne:** `www.vigerslevvej.dk`
 
 ---
@@ -18,6 +18,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 ### 1. Forside (`/`)
 - **Sti:** `index.html`
 - Introduktion og genveje til ejerforeningens vigtigste informationer.
+- Interaktivt områdekort med relevante faciliteter og lokationer i nærområdet.
 
 ### 2. Velkomstbrev (`/velkomstbrev/`)
 - **Sti:** `velkomstbrev/index.html`
@@ -29,26 +30,28 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 
 ### 4. Nyheder (`/nyhed/`)
 - **Sti:** `nyhed/index.html`
-- Seneste nyheder, meddelelser og referater. Viser automatisk foreningens nyhedsbrev direkte fra Word-format (`.docx`).
+- Seneste nyheder, meddelelser og referater.
+- Viser automatisk foreningens nyhedsbrev direkte fra Word-format (`.docx`).
 
 ### 5. Parkering (`/parkering/`)
 - **Sti:** `parkering/index.html`
 - **Øverst (2-kolonne layout):**
   - **Venstre kolonne:** Information om parkering i foreningen samt oplysninger om uretmæssig parkering (DinParkering døgnvagt).
-  - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen `f.eks. Skyttegårdsvej 1, 4. th`, navn, e-mail og bemærkninger).
-- **Nederst:** Live visning af ejerforeningens opdaterede parkeringsventeliste (via Excel/SheetJS integration).
+  - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen, navn, e-mail og bemærkninger).
+- **Nederst:** Livevisning af ejerforeningens opdaterede parkeringsventeliste via Excel/SheetJS-integration.
 
 ### 6. Leje af kælderrum (`/kaelderrum/`)
 - **Sti:** `kaelderrum/index.html`
-- **Oversigt:** Information om leje af kælderrum, lejevilkår, opkrævning og venteliste samt integreret kontaktformular direkte til bestyrelsen (forudfyldt med emnet "Leje af kælderrum").
+- Information om leje af kælderrum, lejevilkår, opkrævning og venteliste.
+- Integreret kontaktformular direkte til bestyrelsen, forudfyldt med emnet "Leje af kælderrum".
 
 ### 7. Bestilling af nøglebrikker (`/noeglebrikker/`)
 - **Sti:** `noeglebrikker/index.html`
-- **Oversigt:** Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
+- Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
 
 ### 8. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
-- Overskuelig kontaktside med moderne kort-layout (cards) for:
+- Kontaktside med moderne kort-layout (cards) for:
   - **Bestyrelsen** (`bestyrelse@skyttegaardvej.dk`)
   - **DEAS A/S** (Ejendomsadministration)
   - **ISTA Danmark A/S** (Forbrugs- og varmeregnskab)
@@ -58,7 +61,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 
 ### 9. Design- & Komponentreferencer (`/eksempler/`)
 - **Sti:** `eksempler/index.html`
-- Eksempelside med HTML5 UP Editorial skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
+- Eksempelside med HTML5 UP Editorial-skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
 
 ---
 
@@ -71,15 +74,17 @@ Kortet er bygget med **Leaflet** og **OpenStreetMap** og anvender en GeoJSON-fil
 ### Datafil
 - **Sti:** `assets/data/ejerforeningen-omraadekort.geojson`
 - Indeholder kortets geografiske punkter, herunder skoler, dagligvarebutikker, busstoppesteder, togstationer og parkeringsmuligheder.
-- Indeholder også polygonen for ejerforeningens 1,5 km radius.
+- Indeholder også polygonen for ejerforeningens 1,5 km-radius.
 
-### Tilføj et nyt sted
+### Tilføj eller fjern lokationer
 
-For at tilføje eksempelvis en skole skal du som udgangspunkt kun redigere:
+Alle lokationer vedligeholdes i:
 
 `assets/data/ejerforeningen-omraadekort.geojson`
 
-Tilføj et nyt `Feature`-objekt under filens `features`-array:
+For at tilføje et nyt sted skal der oprettes et nyt `Feature`-objekt under filens `features`-array.
+
+Eksempel på en skole:
 
 ```json
 {
@@ -99,15 +104,14 @@ Tilføj et nyt `Feature`-objekt under filens `features`-array:
 }
 ```
 
-**Vigtigt om koordinater:**
+**Koordinater:**
 - Første koordinat er længdegrad (longitude).
 - Andet koordinat er breddegrad (latitude).
-- Koordinaterne skal angives i decimalgrader.
-- Brug stedets præcise geografiske placering.
+- Koordinater angives i decimalgrader.
+
+For at fjerne en lokation slettes det tilhørende `Feature`-objekt fra GeoJSON-filen.
 
 ### Eksisterende kategorier
-
-JavaScript-filen indeholder allerede følgende kategorier:
 
 | Kategori i GeoJSON | Visningsnavn |
 |---|---|
@@ -122,44 +126,68 @@ JavaScript-filen indeholder allerede følgende kategorier:
 | `center` | Centrum |
 | `radiusCircle` | Afgrænsning af 1,5 km radius |
 
-### Hvad sker der automatisk?
+### Automatisk visning
 
-Når et nyt punkt tilføjes med en eksisterende kategori:
+Når en lokation tilføjes med en eksisterende kategori:
 - JavaScript placerer automatisk punktet på kortet.
-- Det korrekte kategoriikon og den tilhørende farve anvendes automatisk.
+- Det korrekte ikon og den tilhørende farve anvendes.
 - Punktet vises under den relevante kategori i kortets filter.
 - Besøgende kan klikke på punktet for at se navn og beskrivelse.
 
-**Du behøver ikke ændre JavaScript eller CSS**, når du tilføjer et sted under en allerede eksisterende kategori.
+**Der kræves ingen ændringer i JavaScript eller CSS**, når der tilføjes eller fjernes lokationer under eksisterende kategorier.
 
-### Oprettelse af nye kategorier
-
-Hvis der skal oprettes en helt ny kategori, kræver det også en ændring i JavaScript-filen, hvor `categoryConfig` er defineret.
-
-Her skal du tilføje:
-- Kategoriens interne navn.
-- Visningsnavn.
-- Emoji/ikon.
-- Farve.
-
-GeoJSON-punktet skal derefter anvende det samme interne kategorinavn.
+Hvis der oprettes en helt ny kategori, skal `categoryConfig` i JavaScript-filen også opdateres med kategoriens interne navn, visningsnavn, ikon og farve.
 
 ### Kortets funktioner
-
 - Fastlåst kortvisning uden mulighed for at trække eller panorere kortet.
 - Ingen zoomknapper, scroll-zoom eller touch-zoom.
-- Automatisk tilpasning til 1,5 km radius ved indlæsning.
+- Automatisk tilpasning til 1,5 km-radius ved indlæsning.
 - Klikbare markører med navn og beskrivelse.
 - Kategorifiltre, så besøgende kan vælge, hvilke steder der vises.
 - OpenStreetMap anvendes som kortbaggrund med påkrævet kreditering.
 
 ---
 
+## ⚙️ GitHub Actions – Automatisk synkronisering fra OneDrive
+
+Hjemmesiden anvender **GitHub Actions** til automatisk at hente og opdatere udvalgte dokumenter fra Microsoft OneDrive.
+
+Formålet er at holde hjemmesidens dokumenter opdaterede uden manuel download og upload til GitHub.
+
+### Funktionalitet
+- Automatisk kørsel efter workflowets fastsatte tidsplan.
+- Mulighed for manuel igangsættelse via GitHub Actions (`workflow_dispatch`), hvis workflowet understøtter det.
+- Henter de nyeste versioner af de konfigurerede dokumenter fra OneDrive.
+- Kontrollerer, om filerne er ændret.
+- Opretter automatisk et commit til repositoryet, når der registreres ændringer.
+- Undgår unødvendige commits, hvis filerne er uændrede.
+
+### Vedligeholdelse
+Hvis filer flyttes eller omdøbes i OneDrive, skal de tilsvarende referencer i synkroniseringsworkflowet opdateres.
+
+Hvis nye dokumenter skal synkroniseres, skal de tilføjes til workflowets konfiguration.
+
+### Godkendelse og sikkerhed
+- Adgang til OneDrive håndteres gennem GitHub Secrets.
+- Følsomme godkendelsesoplysninger må aldrig indsættes direkte i workflow-filer eller scripts.
+- Repositoryets rettigheder skal tillade automatiske commits.
+
+### Administration
+GitHub Actions findes under repositoryets **Actions**-fane på GitHub.
+
+Her kan man:
+- Se tidligere kørsler og deres status.
+- Kontrollere eventuelle fejl.
+- Se hvilke filer der er blevet opdateret.
+- Starte workflows manuelt, hvis denne funktion er aktiveret.
+
+---
+
 ## 📝 Redigering af Indhold
 
 - **Menupunkter og sidebar:** Navigationen vedligeholdes ét centralt sted i `sidebar.html`, som automatisk indlæses på alle undersider via `/assets/js/load-sidebar.js`.
-- **Dokumenter:** Nyhedsbreve (`Nyhedsbrev.docx`), vedtægter (`Vedtægter.pdf`), husorden (`Husorden.pdf`) og parkeringsventeliste (`Venteliste Parkering.xlsx`) kan udskiftes direkte i projektmappen.
-- **Områdekort:** Nye steder tilføjes i `assets/data/ejerforeningen-omraadekort.geojson`. Eksisterende kategorier kræver ingen ændringer i JavaScript.
+- **Dokumenter:** Nyhedsbreve (`Nyhedsbrev.docx`), vedtægter (`Vedtægter.pdf`), husorden (`Husorden.pdf`) og parkeringsventeliste (`Venteliste Parkering.xlsx`) kan udskiftes direkte i projektmappen eller opdateres via den automatiske OneDrive-synkronisering, hvor det er konfigureret.
+- **Områdekort:** Nye og eksisterende lokationer vedligeholdes i `assets/data/ejerforeningen-omraadekort.geojson`.
 
 ---
 
