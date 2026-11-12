@@ -1,0 +1,835 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4828321,
+          55.6617458
+        ]
+      },
+      "properties": {
+        "name": "Centrum: Vigerslevvej 144",
+        "description": "Centrum for radiuscirklen. 55.6617458, 12.4828321.",
+        "category": "center",
+        "categoryLabel": "Centrum",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.4828321,
+              55.67523561
+            ],
+            [
+              12.48439674,
+              55.67520671
+            ],
+            [
+              12.48595468,
+              55.67512016
+            ],
+            [
+              12.48749923,
+              55.67497631
+            ],
+            [
+              12.48902377,
+              55.6747758
+            ],
+            [
+              12.49052177,
+              55.67451946
+            ],
+            [
+              12.49198682,
+              55.67420841
+            ],
+            [
+              12.49341262,
+              55.67384398
+            ],
+            [
+              12.49479307,
+              55.67342773
+            ],
+            [
+              12.49612226,
+              55.67296145
+            ],
+            [
+              12.4973945,
+              55.67244712
+            ],
+            [
+              12.49860432,
+              55.67188696
+            ],
+            [
+              12.49974655,
+              55.67128337
+            ],
+            [
+              12.50081629,
+              55.67063893
+            ],
+            [
+              12.50180898,
+              55.66995641
+            ],
+            [
+              12.50272035,
+              55.66923873
+            ],
+            [
+              12.5035465,
+              55.66848896
+            ],
+            [
+              12.50428391,
+              55.66771032
+            ],
+            [
+              12.50492942,
+              55.66690614
+            ],
+            [
+              12.50548026,
+              55.66607987
+            ],
+            [
+              12.50593409,
+              55.66523505
+            ],
+            [
+              12.50628897,
+              55.66437529
+            ],
+            [
+              12.50654338,
+              55.66350429
+            ],
+            [
+              12.50669624,
+              55.66262576
+            ],
+            [
+              12.50674691,
+              55.66174348
+            ],
+            [
+              12.50669517,
+              55.66086121
+            ],
+            [
+              12.50654125,
+              55.65998274
+            ],
+            [
+              12.50628582,
+              55.65911183
+            ],
+            [
+              12.50592997,
+              55.65825221
+            ],
+            [
+              12.50547524,
+              55.65740756
+            ],
+            [
+              12.50492359,
+              55.65658149
+            ],
+            [
+              12.50427737,
+              55.65577754
+            ],
+            [
+              12.50353936,
+              55.65499915
+            ],
+            [
+              12.50271273,
+              55.65424966
+            ],
+            [
+              12.50180101,
+              55.65353226
+            ],
+            [
+              12.50080812,
+              55.65285004
+            ],
+            [
+              12.4997383,
+              55.65220591
+            ],
+            [
+              12.49859614,
+              55.65160262
+            ],
+            [
+              12.49738653,
+              55.65104276
+            ],
+            [
+              12.49611465,
+              55.65052872
+            ],
+            [
+              12.49478594,
+              55.6500627
+            ],
+            [
+              12.49340608,
+              55.64964671
+            ],
+            [
+              12.49198099,
+              55.6492825
+            ],
+            [
+              12.49051676,
+              55.64897166
+            ],
+            [
+              12.48901965,
+              55.64871549
+            ],
+            [
+              12.48749607,
+              55.64851511
+            ],
+            [
+              12.48595254,
+              55.64837136
+            ],
+            [
+              12.48439567,
+              55.64828487
+            ],
+            [
+              12.4828321,
+              55.64825599
+            ],
+            [
+              12.48126853,
+              55.64828487
+            ],
+            [
+              12.47971166,
+              55.64837136
+            ],
+            [
+              12.47816813,
+              55.64851511
+            ],
+            [
+              12.47664455,
+              55.64871549
+            ],
+            [
+              12.47514744,
+              55.64897166
+            ],
+            [
+              12.47368321,
+              55.6492825
+            ],
+            [
+              12.47225812,
+              55.64964671
+            ],
+            [
+              12.47087826,
+              55.6500627
+            ],
+            [
+              12.46954955,
+              55.65052872
+            ],
+            [
+              12.46827767,
+              55.65104276
+            ],
+            [
+              12.46706806,
+              55.65160262
+            ],
+            [
+              12.4659259,
+              55.65220591
+            ],
+            [
+              12.46485608,
+              55.65285004
+            ],
+            [
+              12.46386319,
+              55.65353226
+            ],
+            [
+              12.46295147,
+              55.65424966
+            ],
+            [
+              12.46212484,
+              55.65499915
+            ],
+            [
+              12.46138683,
+              55.65577754
+            ],
+            [
+              12.46074061,
+              55.65658149
+            ],
+            [
+              12.46018896,
+              55.65740756
+            ],
+            [
+              12.45973423,
+              55.65825221
+            ],
+            [
+              12.45937838,
+              55.65911183
+            ],
+            [
+              12.45912295,
+              55.65998274
+            ],
+            [
+              12.45896903,
+              55.66086121
+            ],
+            [
+              12.45891729,
+              55.66174348
+            ],
+            [
+              12.45896796,
+              55.66262576
+            ],
+            [
+              12.45912082,
+              55.66350429
+            ],
+            [
+              12.45937523,
+              55.66437529
+            ],
+            [
+              12.45973011,
+              55.66523505
+            ],
+            [
+              12.46018394,
+              55.66607987
+            ],
+            [
+              12.46073478,
+              55.66690614
+            ],
+            [
+              12.46138029,
+              55.66771032
+            ],
+            [
+              12.4621177,
+              55.66848896
+            ],
+            [
+              12.46294385,
+              55.66923873
+            ],
+            [
+              12.46385522,
+              55.66995641
+            ],
+            [
+              12.46484791,
+              55.67063893
+            ],
+            [
+              12.46591765,
+              55.67128337
+            ],
+            [
+              12.46705988,
+              55.67188696
+            ],
+            [
+              12.4682697,
+              55.67244712
+            ],
+            [
+              12.46954194,
+              55.67296145
+            ],
+            [
+              12.47087113,
+              55.67342773
+            ],
+            [
+              12.47225158,
+              55.67384398
+            ],
+            [
+              12.47367738,
+              55.67420841
+            ],
+            [
+              12.47514243,
+              55.67451946
+            ],
+            [
+              12.47664043,
+              55.6747758
+            ],
+            [
+              12.47816497,
+              55.67497631
+            ],
+            [
+              12.47970952,
+              55.67512016
+            ],
+            [
+              12.48126746,
+              55.67520671
+            ],
+            [
+              12.4828321,
+              55.67523561
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Radius 1,5 km – luftlinje",
+        "description": "Cirklen har en radius på 1.500 meter fra Vigerslevvej 144. Afstande er målt i luftlinje; gang- og køreafstande kan være længere.",
+        "category": "radiusCircle",
+        "categoryLabel": "Afstandscirkel",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48187652,
+          55.66168212
+        ]
+      },
+      "properties": {
+        "name": "Skyttegårdsvej 1-11 (60 m)",
+        "description": "Adresse: Skyttegårdsvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdsvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
+        "category": "association",
+        "categoryLabel": "Ejerforeningen",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48287147,
+          55.66165206
+        ]
+      },
+      "properties": {
+        "name": "Vigerslevvej 144-148 (11 m)",
+        "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
+        "category": "association",
+        "categoryLabel": "Ejerforeningen",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.483481,
+          55.661835
+        ]
+      },
+      "properties": {
+        "name": "Dagli'Brugsen Skyttegården (42 m)",
+        "description": "Adresse: Vigerslevvej 125, 2500 Valby\nDagligvarebutik tæt på ejerforeningen.\nAfstand fra Vigerslevvej 144: ca. 42 m i luftlinje.\nKilde: https://www.homiie.dk/boliger/vigerslevvej-146-4295a750-9186-45dd-9c9b-3caed09025cb",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4854155,
+          55.6560995
+        ]
+      },
+      "properties": {
+        "name": "Netto Vigerslevvej (648 m)",
+        "description": "Adresse: Vigerslevvej 216, 2500 Valby\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 648 m i luftlinje.\nKilde: https://netto.dk/butikker/valby/vigerslevvej-216/4f24647264344ec19150ba88270efb1b/",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.473798,
+          55.66124
+        ]
+      },
+      "properties": {
+        "name": "føtex Hvidovrevej (569 m)",
+        "description": "Adresse: Hvidovrevej 75-81, 2650 Hvidovre\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 569 m i luftlinje.\nKilde: https://openhours.dk/spots/fotex-hvidovre-hvidovrevej-531796386e",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48741,
+          55.65406
+        ]
+      },
+      "properties": {
+        "name": "Lidl Centerparken (902 m)",
+        "description": "Adresse: Centerparken 34, 2500 Valby\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 902 m i luftlinje.\nKilde: https://openhours.dk/spots/lidl-kbh-valby-centerparken-5e794ae514",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.50420642,
+          55.66112889
+        ]
+      },
+      "properties": {
+        "name": "365discount Vigerslev Allé (1342 m)",
+        "description": "Adresse: Vigerslev Allé 126-128, 2500 Valby\nDagligvarebutik. Butiksadresse bekræftet af Coop; placering fra adressekoordinater.\nAfstand fra Vigerslevvej 144: ca. 1342 m i luftlinje.\nKilde: https://coop.dk/brugsforening-soegeside/",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48666546,
+          55.67278098
+        ]
+      },
+      "properties": {
+        "name": "Netto Roskildevej 158-162 (1250 m)",
+        "description": "Adresse: Roskildevej 158-162, 2500 Valby\nDagligvarebutik ved Ålholm/Damhussøen. Butikkens adresse er bekræftet på Nettos officielle butiksside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.250 m i luftlinje.\nKilder: https://netto.dk/butikker/valby/roskildevej-158-162/f8b5d90b0d954d4ea56ffffd5c7e7ff3/ og https://openhours.dk/spots/netto-valby-roskildevej-545c044cbd",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48367,
+          55.67279
+        ]
+      },
+      "properties": {
+        "name": "Lidl Roskildevej 168 (1229 m)",
+        "description": "Adresse: Roskildevej 168, 2500 Valby\nDagligvarebutik ved Ålholm/Damhussøen. Butikkens adresse er bekræftet på Lidls officielle butiksside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.229 m i luftlinje.\nKilder: https://www.lidl.dk/s/da-DK/findbutik/valby/roskildevej-168/ og https://openhours.dk/spots/lidl-kbh-valby-roskildevej-5574b6805c",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.473868,
+          55.65319
+        ]
+      },
+      "properties": {
+        "name": "Kvickly Hvidovre (1105 m)",
+        "description": "Adresse: Hvidovrevej 178, 2650 Hvidovre\nDagligvarebutik. Adressen er bekræftet på Kvickly Hvidovres officielle hjemmeside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.105 m i luftlinje.\nKilder: https://kvicklyhvidovre.dk/kontakt og https://openhours.dk/spots/kvickly-hvidovre-hvidovrevej-a973d1898b",
+        "category": "grocery",
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48474,
+          55.65986
+        ]
+      },
+      "properties": {
+        "name": "Lykkebo Skole (241 m)",
+        "description": "Adresse: Vigerslevvej 141, 2500 Valby\nFolkeskole i nærområdet.\nAfstand fra Vigerslevvej 144: ca. 241 m i luftlinje.\nKilde: https://www.boligsiden.dk/adresse/vigerslevvej-144-0-th-2500-valby",
+        "category": "school",
+        "categoryLabel": "Skoler",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48627,
+          55.66618
+        ]
+      },
+      "properties": {
+        "name": "Hanssted Skole (538 m)",
+        "description": "Adresse: Rødbyvej 6, 2500 Valby\nFolkeskole i nærområdet.\nAfstand fra Vigerslevvej 144: ca. 538 m i luftlinje.\nKilde: https://www.boligsiden.dk/adresse/vigerslevvej-144-0-th-2500-valby",
+        "category": "school",
+        "categoryLabel": "Skoler",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.49505643,
+          55.67008776
+        ]
+      },
+      "properties": {
+        "name": "Ålholm Skole (1203 m)",
+        "description": "Adresse: Vibeholmen 1, 2500 Valby\nFolkeskole. Adresse og koordinater fra DinGeo/GeoFa.\nAfstand fra Vigerslevvej 144: ca. 1203 m i luftlinje.\nKilde: https://dingeo.dk/adresse/2500-valby/vibeholmen-1/",
+        "category": "school",
+        "categoryLabel": "Skoler",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48345,
+          55.66129
+        ]
+      },
+      "properties": {
+        "name": "Landlystvej – bus 10 (64 m)",
+        "description": "Adresse: Landlystvej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10. Placering fra OpenStreetMap.\nAfstand fra Vigerslevvej 144: ca. 64 m i luftlinje.\nKilde: https://mapcarta.com/N7022561215",
+        "category": "bus",
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48432,
+          55.6589
+        ]
+      },
+      "properties": {
+        "name": "Lykkebovej – bus 10 (330 m)",
+        "description": "Adresse: Lykkebovej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10.\nAfstand fra Vigerslevvej 144: ca. 330 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7147-lykkebovej-vigerslevvej",
+        "category": "bus",
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4905,
+          55.67029
+        ]
+      },
+      "properties": {
+        "name": "Vigerslevvej (Valby Langgade) – bus (1065 m)",
+        "description": "Adresse: Vigerslevvej ved Valby Langgade, 2500 Valby\nBusstoppested ved Valby Langgade. Stoppestedets linjer og position fremgår af Rejseplanen/stopdata.\nAfstand fra Vigerslevvej 144: ca. 1065 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/1438-vigerslevvej-valby-langgade",
+        "category": "bus",
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48985,
+          55.66975
+        ]
+      },
+      "properties": {
+        "name": "Valby Langgade (Vigerslevvej) – bus (993 m)",
+        "description": "Adresse: Valby Langgade ved Vigerslevvej, 2500 Valby\nBusstoppested for bl.a. linje 10.\nAfstand fra Vigerslevvej 144: ca. 993 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7143-valby-langgade-vigerslevvej",
+        "category": "bus",
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48874,
+          55.67258
+        ]
+      },
+      "properties": {
+        "name": "Ålholm Plads (Roskildevej) – bus (1260 m)",
+        "description": "Adresse: Ålholm Plads ved Roskildevej, 2500 Valby\nBusstoppested. Flere buslinjer betjener Ålholm Plads.\nAfstand fra Vigerslevvej 144: ca. 1260 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/4491-aalholm-plads-roskildevej",
+        "category": "bus",
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.493734,
+          55.664237
+        ]
+      },
+      "properties": {
+        "name": "Danshøj Station (738 m)",
+        "description": "Adresse: Ansgars Allé 20, 2500 Valby\nS-togsstation. Linje B, Bx og F.\nAfstand fra Vigerslevvej 144: ca. 738 m i luftlinje.\nKilde: https://www.dsb.dk/trafikinformation/stationer/danshoj/",
+        "category": "train",
+        "categoryLabel": "Togstationer",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.474832,
+          55.664493
+        ]
+      },
+      "properties": {
+        "name": "Hvidovre Station (587 m)",
+        "description": "Adresse: Hvidovrevej 55, 2650 Hvidovre\nS-togsstation. Linje B.\nAfstand fra Vigerslevvej 144: ca. 587 m i luftlinje.\nKilde: https://danskejernbaner.dk/vis.station.php?FORLOEB_ID=937",
+        "category": "train",
+        "categoryLabel": "Togstationer",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.493023,
+          55.672235
+        ]
+      },
+      "properties": {
+        "name": "Ålholm Station (1330 m)",
+        "description": "Adresse: Roskildevej 131, 2500 Valby\nS-togsstation. Linje F.\nAfstand fra Vigerslevvej 144: ca. 1330 m i luftlinje.\nKilde: https://danskejernbaner.dk/vis.station.php?FORLOEB_ID=1166",
+        "category": "train",
+        "categoryLabel": "Togstationer",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48195,
+          55.66158
+        ]
+      },
+      "properties": {
+        "name": "Offentlig gadeparkering ved Skyttegårdsvej (58 m)",
+        "description": "Adresse: Skyttegårdsvej, 2500 Valby\nVejledende område for offentlig gadeparkering. De kontrollerede kommunale zoneoversigter viste ikke Skyttegårdsvej som betalings- eller tidsbegrænset zone. Dette er ikke en garanti for ledige pladser. Følg altid lokal skiltning og afmærkning.\nAfstand fra Vigerslevvej 144: ca. 58 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
+        "category": "parkingFree",
+        "categoryLabel": "Offentlig gadeparkering",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48288,
+          55.6616
+        ]
+      },
+      "properties": {
+        "name": "Vigerslevvej – delvist i Ålholm-zonen (16 m)",
+        "description": "Adresse: Vigerslevvej, 2500 Valby\nVigerslevvej er delvist omfattet af Ålholm-zonen. I tidsbegrænsede dele er parkering gratis i op til 3 timer på hverdage kl. 08-22 med p-skive. Det gælder ikke nødvendigvis hele vejen eller denne side af vejen – følg altid skiltningen på stedet.\nAfstand fra Vigerslevvej 144: ca. 16 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
+        "category": "parkingLimited",
+        "categoryLabel": "Tidsbegrænset parkering",
+        "source": "manual"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.48187652,
+          55.66168212
+        ]
+      },
+      "properties": {
+        "name": "Privat parkering – Skyttegårdsvej 7 (60 m)",
+        "description": "Adresse: Skyttegårdsvej 7, 2500 Valby\nPrivat parkering med adgangsbegrænsning. Dette er ikke en offentlig parkeringsplads og må ikke betragtes som gæsteparkering uden tilladelse.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.dingeo.dk/",
+        "category": "parkingPrivate",
+        "categoryLabel": "Privat parkering",
+        "source": "manual"
+      }
+    }
+  ]
+}
