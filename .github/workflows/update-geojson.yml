@@ -1,0 +1,51 @@
+name: Opdater områdekortets GeoJSON
+
+on:
+  schedule:
+    # Første dag i hver måned kl. 06:15 UTC.
+    - cron: "15 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-area-map-geojson
+  cancel-in-progress: false
+
+jobs:
+  update-geojson:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Hent repository
+        uses: actions/checkout@v4
+
+      - name: Opsæt Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Opdater GeoJSON fra manuelle data og OpenStreetMap
+        run: python scripts/update-geojson.py
+
+      - name: Kontrollér ændringer
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/data/ejerforeningen-omraadekort.geojson; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "GeoJSON er allerede opdateret."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit og push opdateret GeoJSON
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/ejerforeningen-omraadekort.geojson
+          git commit -m "chore: opdater områdekortets GeoJSON"
+          git push

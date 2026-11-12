@@ -14,7 +14,8 @@
         "name": "Centrum: Vigerslevvej 144",
         "description": "Centrum for radiuscirklen. 55.6617458, 12.4828321.",
         "category": "center",
-        "categoryLabel": "Centrum"
+        "categoryLabel": "Centrum",
+        "source": "manual"
       }
     },
     {
@@ -418,7 +419,8 @@
         "name": "Radius 1,5 km – luftlinje",
         "description": "Cirklen har en radius på 1.500 meter fra Vigerslevvej 144. Afstande er målt i luftlinje; gang- og køreafstande kan være længere.",
         "category": "radiusCircle",
-        "categoryLabel": "Afstandscirkel"
+        "categoryLabel": "Afstandscirkel",
+        "source": "manual"
       }
     },
     {
@@ -434,7 +436,8 @@
         "name": "Skyttegårdsvej 1-11 (60 m)",
         "description": "Adresse: Skyttegårdsvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdsvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
         "category": "association",
-        "categoryLabel": "Ejerforeningen"
+        "categoryLabel": "Ejerforeningen",
+        "source": "manual"
       }
     },
     {
@@ -450,7 +453,8 @@
         "name": "Vigerslevvej 144-148 (11 m)",
         "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
         "category": "association",
-        "categoryLabel": "Ejerforeningen"
+        "categoryLabel": "Ejerforeningen",
+        "source": "manual"
       }
     },
     {
@@ -466,7 +470,8 @@
         "name": "Dagli'Brugsen Skyttegården (42 m)",
         "description": "Adresse: Vigerslevvej 125, 2500 Valby\nDagligvarebutik tæt på ejerforeningen.\nAfstand fra Vigerslevvej 144: ca. 42 m i luftlinje.\nKilde: https://www.homiie.dk/boliger/vigerslevvej-146-4295a750-9186-45dd-9c9b-3caed09025cb",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -482,7 +487,8 @@
         "name": "Netto Vigerslevvej (648 m)",
         "description": "Adresse: Vigerslevvej 216, 2500 Valby\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 648 m i luftlinje.\nKilde: https://netto.dk/butikker/valby/vigerslevvej-216/4f24647264344ec19150ba88270efb1b/",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -498,7 +504,8 @@
         "name": "føtex Hvidovrevej (569 m)",
         "description": "Adresse: Hvidovrevej 75-81, 2650 Hvidovre\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 569 m i luftlinje.\nKilde: https://openhours.dk/spots/fotex-hvidovre-hvidovrevej-531796386e",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -514,7 +521,8 @@
         "name": "Lidl Centerparken (902 m)",
         "description": "Adresse: Centerparken 34, 2500 Valby\nDagligvarebutik. Adresse og koordinater fra butiksliste.\nAfstand fra Vigerslevvej 144: ca. 902 m i luftlinje.\nKilde: https://openhours.dk/spots/lidl-kbh-valby-centerparken-5e794ae514",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -530,7 +538,8 @@
         "name": "365discount Vigerslev Allé (1342 m)",
         "description": "Adresse: Vigerslev Allé 126-128, 2500 Valby\nDagligvarebutik. Butiksadresse bekræftet af Coop; placering fra adressekoordinater.\nAfstand fra Vigerslevvej 144: ca. 1342 m i luftlinje.\nKilde: https://coop.dk/brugsforening-soegeside/",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -546,7 +555,8 @@
         "name": "Netto Roskildevej 158-162 (1250 m)",
         "description": "Adresse: Roskildevej 158-162, 2500 Valby\nDagligvarebutik ved Ålholm/Damhussøen. Butikkens adresse er bekræftet på Nettos officielle butiksside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.250 m i luftlinje.\nKilder: https://netto.dk/butikker/valby/roskildevej-158-162/f8b5d90b0d954d4ea56ffffd5c7e7ff3/ og https://openhours.dk/spots/netto-valby-roskildevej-545c044cbd",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -562,7 +572,8 @@
         "name": "Lidl Roskildevej 168 (1229 m)",
         "description": "Adresse: Roskildevej 168, 2500 Valby\nDagligvarebutik ved Ålholm/Damhussøen. Butikkens adresse er bekræftet på Lidls officielle butiksside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.229 m i luftlinje.\nKilder: https://www.lidl.dk/s/da-DK/findbutik/valby/roskildevej-168/ og https://openhours.dk/spots/lidl-kbh-valby-roskildevej-5574b6805c",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -578,7 +589,8 @@
         "name": "Kvickly Hvidovre (1105 m)",
         "description": "Adresse: Hvidovrevej 178, 2650 Hvidovre\nDagligvarebutik. Adressen er bekræftet på Kvickly Hvidovres officielle hjemmeside; koordinater fra OpenHours.\nAfstand fra Vigerslevvej 144: ca. 1.105 m i luftlinje.\nKilder: https://kvicklyhvidovre.dk/kontakt og https://openhours.dk/spots/kvickly-hvidovre-hvidovrevej-a973d1898b",
         "category": "grocery",
-        "categoryLabel": "Dagligvarebutikker"
+        "categoryLabel": "Dagligvarebutikker",
+        "source": "manual"
       }
     },
     {
@@ -594,7 +606,8 @@
         "name": "Lykkebo Skole (241 m)",
         "description": "Adresse: Vigerslevvej 141, 2500 Valby\nFolkeskole i nærområdet.\nAfstand fra Vigerslevvej 144: ca. 241 m i luftlinje.\nKilde: https://www.boligsiden.dk/adresse/vigerslevvej-144-0-th-2500-valby",
         "category": "school",
-        "categoryLabel": "Skoler"
+        "categoryLabel": "Skoler",
+        "source": "manual"
       }
     },
     {
@@ -610,7 +623,8 @@
         "name": "Hanssted Skole (538 m)",
         "description": "Adresse: Rødbyvej 6, 2500 Valby\nFolkeskole i nærområdet.\nAfstand fra Vigerslevvej 144: ca. 538 m i luftlinje.\nKilde: https://www.boligsiden.dk/adresse/vigerslevvej-144-0-th-2500-valby",
         "category": "school",
-        "categoryLabel": "Skoler"
+        "categoryLabel": "Skoler",
+        "source": "manual"
       }
     },
     {
@@ -626,7 +640,8 @@
         "name": "Ålholm Skole (1203 m)",
         "description": "Adresse: Vibeholmen 1, 2500 Valby\nFolkeskole. Adresse og koordinater fra DinGeo/GeoFa.\nAfstand fra Vigerslevvej 144: ca. 1203 m i luftlinje.\nKilde: https://dingeo.dk/adresse/2500-valby/vibeholmen-1/",
         "category": "school",
-        "categoryLabel": "Skoler"
+        "categoryLabel": "Skoler",
+        "source": "manual"
       }
     },
     {
@@ -642,7 +657,8 @@
         "name": "Landlystvej – bus 10 (64 m)",
         "description": "Adresse: Landlystvej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10. Placering fra OpenStreetMap.\nAfstand fra Vigerslevvej 144: ca. 64 m i luftlinje.\nKilde: https://mapcarta.com/N7022561215",
         "category": "bus",
-        "categoryLabel": "Busstoppesteder"
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
       }
     },
     {
@@ -658,7 +674,8 @@
         "name": "Lykkebovej – bus 10 (330 m)",
         "description": "Adresse: Lykkebovej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10.\nAfstand fra Vigerslevvej 144: ca. 330 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7147-lykkebovej-vigerslevvej",
         "category": "bus",
-        "categoryLabel": "Busstoppesteder"
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
       }
     },
     {
@@ -674,7 +691,8 @@
         "name": "Vigerslevvej (Valby Langgade) – bus (1065 m)",
         "description": "Adresse: Vigerslevvej ved Valby Langgade, 2500 Valby\nBusstoppested ved Valby Langgade. Stoppestedets linjer og position fremgår af Rejseplanen/stopdata.\nAfstand fra Vigerslevvej 144: ca. 1065 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/1438-vigerslevvej-valby-langgade",
         "category": "bus",
-        "categoryLabel": "Busstoppesteder"
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
       }
     },
     {
@@ -690,7 +708,8 @@
         "name": "Valby Langgade (Vigerslevvej) – bus (993 m)",
         "description": "Adresse: Valby Langgade ved Vigerslevvej, 2500 Valby\nBusstoppested for bl.a. linje 10.\nAfstand fra Vigerslevvej 144: ca. 993 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7143-valby-langgade-vigerslevvej",
         "category": "bus",
-        "categoryLabel": "Busstoppesteder"
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
       }
     },
     {
@@ -706,7 +725,8 @@
         "name": "Ålholm Plads (Roskildevej) – bus (1260 m)",
         "description": "Adresse: Ålholm Plads ved Roskildevej, 2500 Valby\nBusstoppested. Flere buslinjer betjener Ålholm Plads.\nAfstand fra Vigerslevvej 144: ca. 1260 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/4491-aalholm-plads-roskildevej",
         "category": "bus",
-        "categoryLabel": "Busstoppesteder"
+        "categoryLabel": "Busstoppesteder",
+        "source": "manual"
       }
     },
     {
@@ -722,7 +742,8 @@
         "name": "Danshøj Station (738 m)",
         "description": "Adresse: Ansgars Allé 20, 2500 Valby\nS-togsstation. Linje B, Bx og F.\nAfstand fra Vigerslevvej 144: ca. 738 m i luftlinje.\nKilde: https://www.dsb.dk/trafikinformation/stationer/danshoj/",
         "category": "train",
-        "categoryLabel": "Togstationer"
+        "categoryLabel": "Togstationer",
+        "source": "manual"
       }
     },
     {
@@ -738,7 +759,8 @@
         "name": "Hvidovre Station (587 m)",
         "description": "Adresse: Hvidovrevej 55, 2650 Hvidovre\nS-togsstation. Linje B.\nAfstand fra Vigerslevvej 144: ca. 587 m i luftlinje.\nKilde: https://danskejernbaner.dk/vis.station.php?FORLOEB_ID=937",
         "category": "train",
-        "categoryLabel": "Togstationer"
+        "categoryLabel": "Togstationer",
+        "source": "manual"
       }
     },
     {
@@ -754,7 +776,8 @@
         "name": "Ålholm Station (1330 m)",
         "description": "Adresse: Roskildevej 131, 2500 Valby\nS-togsstation. Linje F.\nAfstand fra Vigerslevvej 144: ca. 1330 m i luftlinje.\nKilde: https://danskejernbaner.dk/vis.station.php?FORLOEB_ID=1166",
         "category": "train",
-        "categoryLabel": "Togstationer"
+        "categoryLabel": "Togstationer",
+        "source": "manual"
       }
     },
     {
@@ -770,7 +793,8 @@
         "name": "Offentlig gadeparkering ved Skyttegårdsvej (58 m)",
         "description": "Adresse: Skyttegårdsvej, 2500 Valby\nVejledende område for offentlig gadeparkering. De kontrollerede kommunale zoneoversigter viste ikke Skyttegårdsvej som betalings- eller tidsbegrænset zone. Dette er ikke en garanti for ledige pladser. Følg altid lokal skiltning og afmærkning.\nAfstand fra Vigerslevvej 144: ca. 58 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
         "category": "parkingFree",
-        "categoryLabel": "Offentlig gadeparkering"
+        "categoryLabel": "Offentlig gadeparkering",
+        "source": "manual"
       }
     },
     {
@@ -786,7 +810,8 @@
         "name": "Vigerslevvej – delvist i Ålholm-zonen (16 m)",
         "description": "Adresse: Vigerslevvej, 2500 Valby\nVigerslevvej er delvist omfattet af Ålholm-zonen. I tidsbegrænsede dele er parkering gratis i op til 3 timer på hverdage kl. 08-22 med p-skive. Det gælder ikke nødvendigvis hele vejen eller denne side af vejen – følg altid skiltningen på stedet.\nAfstand fra Vigerslevvej 144: ca. 16 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
         "category": "parkingLimited",
-        "categoryLabel": "Tidsbegrænset parkering"
+        "categoryLabel": "Tidsbegrænset parkering",
+        "source": "manual"
       }
     },
     {
@@ -802,7 +827,8 @@
         "name": "Privat parkering – Skyttegårdsvej 7 (60 m)",
         "description": "Adresse: Skyttegårdsvej 7, 2500 Valby\nPrivat parkering med adgangsbegrænsning. Dette er ikke en offentlig parkeringsplads og må ikke betragtes som gæsteparkering uden tilladelse.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.dingeo.dk/",
         "category": "parkingPrivate",
-        "categoryLabel": "Privat parkering"
+        "categoryLabel": "Privat parkering",
+        "source": "manual"
       }
     }
   ]
