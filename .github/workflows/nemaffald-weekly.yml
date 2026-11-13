@@ -1,0 +1,136 @@
+name: NemAffald weekly Haveaffald
+
+env:
+  NEMAFFALD_DIR: .github/nemaffald
+
+on:
+  schedule:
+    - cron: "0 4 * * 5"
+      timezone: "Europe/Copenhagen"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Test the browser route without submitting, or run a real order"
+        required: true
+        default: test
+        type: choice
+        options:
+          - test
+          - production
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: nemaffald-weekly-haveaffald
+  cancel-in-progress: false
+
+jobs:
+  weekly-order:
+    name: NemAffald weekly order
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: "true"
+      TZ: Europe/Copenhagen
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      NEMAFFALD_ENABLE_SUBMISSION: ${{ vars.NEMAFFALD_ENABLE_SUBMISSION }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install npm dependencies
+        working-directory: .github/nemaffald
+        run: npm ci
+
+      - name: Install Playwright Chromium and Linux dependencies
+        working-directory: .github/nemaffald
+        run: npx playwright install --with-deps chromium
+
+      - name: Restore previous non-sensitive workflow state
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$NEMAFFALD_DIR/artifacts" .github-state-restore
+          printf 'NemAffald GitHub state artifact marker\n' > "$NEMAFFALD_DIR/artifacts/github-state-marker.txt"
+
+          PREVIOUS_RUN_ID="$(gh run list \
+            --workflow nemaffald-weekly.yml \
+            --status completed \
+            --branch "$DEFAULT_BRANCH" \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId // empty')"
+
+          if [[ -z "$PREVIOUS_RUN_ID" ]]; then
+            echo "No previous completed NemAffald workflow run; starting with empty state."
+          else
+            echo "Checking for a non-expired state artifact in completed run $PREVIOUS_RUN_ID."
+            ARTIFACT_ID="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${PREVIOUS_RUN_ID}/artifacts" \
+              --jq '[.artifacts[]? | select(.name == "nemaffald-state" and .expired == false)][0].id // empty')"
+
+            if [[ -z "$ARTIFACT_ID" ]]; then
+              echo "No nemaffald-state artifact exists in the previous run; starting with empty state."
+            else
+              echo "Found state artifact $ARTIFACT_ID; downloading it."
+              if ! gh run download "$PREVIOUS_RUN_ID" \
+                --name nemaffald-state \
+                --dir .github-state-restore; then
+                echo "::error::The previous run has a state artifact, but it could not be downloaded. Refusing to continue without duplicate/readiness state."
+                exit 1
+              fi
+
+              for file in weekly-state.json weekly-route-ready.json; do
+                if [[ -f ".github-state-restore/$file" ]]; then
+                  cp ".github-state-restore/$file" "$NEMAFFALD_DIR/artifacts/$file"
+                fi
+              done
+            fi
+          fi
+
+      - name: Prepare settings and private contact profile
+        working-directory: .github/nemaffald
+        env:
+          NEMAFFALD_CONTACT_JSON: ${{ secrets.NEMAFFALD_CONTACT_JSON }}
+        run: node scripts/prepare-github-config.js
+
+      - name: Run safe hosted test (no order submission)
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'test'
+        working-directory: .github/nemaffald
+        run: npm run weekly:test
+
+      - name: Require explicit live-order opt-in
+        if: github.event_name == 'schedule' || inputs.mode == 'production'
+        shell: bash
+        run: |
+          if [[ "$NEMAFFALD_ENABLE_SUBMISSION" != "true" ]]; then
+            echo "::error::Live ordering is disabled. First complete a successful manual test, disable the Windows scheduled task, then set the repository variable NEMAFFALD_ENABLE_SUBMISSION=true."
+            exit 1
+          fi
+
+      - name: Run weekly production order
+        if: github.event_name == 'schedule' || inputs.mode == 'production'
+        working-directory: .github/nemaffald
+        run: npm run weekly
+
+      - name: Persist readiness and duplicate-protection state
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: nemaffald-state
+          path: |
+            .github/nemaffald/artifacts/github-state-marker.txt
+            .github/nemaffald/artifacts/weekly-state.json
+            .github/nemaffald/artifacts/weekly-route-ready.json
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,30 @@
+{
+  "portalUrl": "https://nemaffaldsservice.kk.dk/",
+  "property": {
+    "lookupType": "address",
+    "lookupValue": "Vigerslevvej 148"
+  },
+  "order": {
+    "expectedHeading": "Haveaffald - Tømning af materiel",
+    "expectedSite": "VIGERSLEVVEJ 148",
+    "expectedBasketText": "Haveaffald",
+    "expectedServiceDescription": "Tømning af materiel",
+    "expectedEquipment": "240 l Havebeholder",
+    "expectedTotal": "DKK 0,00",
+    "message": ""
+  },
+  "submission": {
+    "enabled": false,
+    "buttonText": "GODKEND",
+    "confirmationPhrase": "Din henvendelse er nu registreret hos Københavns Kommune."
+  },
+  "weekly": {
+    "timezone": "Europe/Copenhagen",
+    "scheduleDay": "Friday",
+    "scheduleTime": "04:00",
+    "dateOffsetDays": 7,
+    "message": "",
+    "expectedBasketItemCount": 1,
+    "skipRequestedDates": []
+  }
+}

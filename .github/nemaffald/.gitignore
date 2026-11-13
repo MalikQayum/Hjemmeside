@@ -1,0 +1,7 @@
+node_modules/
+.nemaffald-profile/
+config/settings.json
+config/contact.json
+artifacts/*
+!artifacts/.gitkeep
+.github-state-restore/
