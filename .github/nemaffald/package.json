@@ -1,0 +1,21 @@
+{
+  "name": "nemaffald-order-automation",
+  "version": "0.8.0",
+  "private": true,
+  "type": "module",
+  "description": "Route-driven weekly Haveaffald ordering automation for Nem Affaldsservice.",
+  "scripts": {
+    "inspect": "node src/inspect-form.js",
+    "draft": "node src/draft-order.js",
+    "prepare-order": "node src/draft-order.js",
+    "approve": "node src/approve-order.js",
+    "weekly:test": "node src/weekly-order.js --test",
+    "weekly": "node src/weekly-order.js --scheduled",
+    "inspect-route": "node src/inspect-route.js",
+    "inspect-orders": "node src/inspect-orders.js",
+    "setup-contact": "node src/setup-contact.js"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}
