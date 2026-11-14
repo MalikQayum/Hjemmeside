@@ -61,5 +61,3 @@ jobs:
           git commit -m "Sync files from OneDrive"
           git push origin main
 
-<!-- Sidst opdateret: 2026-11-08 11:43 -->
-
