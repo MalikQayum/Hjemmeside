@@ -1,5 +1,7 @@
+
 /* =========================================================
    Parkeringsventeliste – visuel markering af celler
+
    - Nummerplader: grøn
    - Gyldige datoer: blå
    - 1/0/00 og "blank": vises som tomme celler
@@ -24,51 +26,52 @@
     return text === "" || text === "blank" || text === "1/0/00";
   }
 
-  // Danske nummerplader: typisk to bogstaver efterfulgt af fem cifre.
-  // Mellemrum og bindestreg accepteres også.
   function isDanishRegistration(value) {
     const text = String(value ?? "").trim().toUpperCase();
     return /^[A-ZÆØÅ]{2}\s?-?\s?\d{5}$/.test(text);
   }
-  
+
   function isValidDate(value) {
-  const text = String(value ?? "").trim();
+    const text = String(value ?? "").trim();
 
-  // Genkend datoformater fra Excel/HTML:
-  // DD/MM/YY, MM/DD/YY, DD.MM.YYYY og DD-MM-YYYY.
-  const match = text.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2}|\d{4})$/);
-  if (!match) return false;
+    const match = text.match(
+      /^(\d{1,2})[./-](\d{1,2})[./-](\d{2}|\d{4})$/
+    );
 
-  const first = Number(match[1]);
-  const second = Number(match[2]);
-  let year = Number(match[3]);
+    if (!match) return false;
 
-  // Den særlige Excel-fejlværdi håndteres separat.
-  if (first === 1 && second === 0 && year === 0) return false;
+    const first = Number(match[1]);
+    const second = Number(match[2]);
+    let year = Number(match[3]);
 
-  if (year < 100) year += year >= 50 ? 1900 : 2000;
+    if (first === 1 && second === 0 && year === 0) return false;
 
-  function isRealDate(day, month) {
-    if (day < 1 || day > 31 || month < 1 || month > 12) {
-      return false;
+    if (year < 100) {
+      year += year >= 50 ? 1900 : 2000;
     }
 
-    const date = new Date(year, month - 1, day);
+    function isRealDate(day, month) {
+      if (day < 1 || day > 31 || month < 1 || month > 12) {
+        return false;
+      }
 
-    return date.getFullYear() === year &&
-      date.getMonth() === month - 1 &&
-      date.getDate() === day;
+      const date = new Date(year, month - 1, day);
+
+      return date.getFullYear() === year &&
+        date.getMonth() === month - 1 &&
+        date.getDate() === day;
+    }
+
+    return isRealDate(first, second) ||
+      isRealDate(second, first);
   }
-
-  // Prøv både DD/MM/YY og MM/DD/YY.
-  return isRealDate(first, second) || isRealDate(second, first);
-}
 
   function addStyles() {
     if (document.getElementById("parking-waitlist-styles")) return;
 
     const style = document.createElement("style");
     style.id = "parking-waitlist-styles";
+
     style.textContent = `
       #${CONTAINER_ID} td.parking-cell-registration {
         background-color: #d1fae5 !important;
@@ -80,6 +83,7 @@
         color: #1e40af !important;
       }
     `;
+
     document.head.appendChild(style);
   }
 
@@ -90,9 +94,11 @@
     const originalText = cell.textContent.trim();
 
     if (isEmptyPlaceholder(originalText)) {
-      // Fjern kun placeholder-teksten – behold selve cellen.
       cell.textContent = "";
-      cell.classList.remove("parking-cell-registration", "parking-cell-date");
+      cell.classList.remove(
+        "parking-cell-registration",
+        "parking-cell-date"
+      );
       cell.setAttribute(PROCESSED_ATTRIBUTE, "true");
       return;
     }
@@ -120,9 +126,8 @@
     const container = document.getElementById(CONTAINER_ID);
     if (!container) return;
 
-    // Excel-viewer.js indlæser tabellen asynkront. Observer derfor
-    // containeren, så nye tabeller/celler også bliver behandlet.
     const observer = new MutationObserver(() => processTables());
+
     observer.observe(container, {
       childList: true,
       subtree: true,
@@ -131,7 +136,9 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initialize, { once: true });
+    document.addEventListener("DOMContentLoaded", initialize, {
+      once: true
+    });
   } else {
     initialize();
   }
