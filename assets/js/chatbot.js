@@ -9,7 +9,7 @@
       title: "Spørg ejerforeningen", subtitle: "Dansk / English",
       intro: "Hej! Jeg kan hjælpe med at finde information på ejerforeningens hjemmeside. Vælg et emne herunder, eller skriv dit spørgsmål direkte – du kan altid spørge på tværs af emnerne.",
       topicsHeading: "Hvad drejer dit spørgsmål sig om?", topicPrompt: "Typiske spørgsmål om", backTopics: "Vis alle emner",
-      placeholder: "Skriv dit spørgsmål…", send: "Send", open: "Åbn chat med ejerforeningen",
+      placeholder: "Skriv dit spørgsmål…", send: "Send", open: "Spørg os", close: "Luk chatten",
       noMatch: "Jeg kunne ikke finde et sikkert svar i hjemmesidens nuværende information. Prøv at omformulere spørgsmålet, eller kontakt bestyrelsen.",
       sources: "Kilder", loading: "Indlæser foreningens viden…", error: "Vidensdatabasen kunne ikke indlæses lige nu.",
       disclaimer: "Jeg er en automatisk informationsassistent og kan ikke træffe beslutninger på bestyrelsens vegne."
@@ -18,7 +18,7 @@
       title: "Ask the association", subtitle: "Danish / English",
       intro: "Hello! I can help you find information on the association website. Choose a topic below or type your question. You can always ask about something outside the selected topic.",
       topicsHeading: "What is your question about?", topicPrompt: "Common questions about", backTopics: "Show all topics",
-      placeholder: "Type your question…", send: "Send", open: "Open association chat",
+      placeholder: "Type your question…", send: "Send", open: "Ask us", close: "Close chat",
       noMatch: "I could not find a reliable answer in the website's current information. Try rephrasing your question or contact the board.",
       sources: "Sources", loading: "Loading the association's information…", error: "The knowledge file could not be loaded right now.",
       disclaimer: "I am an automated information assistant and cannot make decisions on behalf of the board."
@@ -263,7 +263,6 @@
         <div><strong class="acb-title"></strong><small class="acb-subtitle"></small></div>
         <div class="acb-header-actions">
           <button class="acb-language" type="button" aria-label="Switch language">EN</button>
-          <button class="acb-close" type="button" aria-label="Close chat">×</button>
         </div>
       </header>
       <div class="acb-messages" aria-live="polite" aria-relevant="additions"></div>
@@ -290,7 +289,7 @@
     root.querySelector(".acb-send").textContent = t.send;
     root.querySelector(".acb-disclaimer").textContent = t.disclaimer;
     input.placeholder = t.placeholder;
-    launcher.setAttribute("aria-label", t.open);
+    launcher.setAttribute("aria-label", panel.hidden ? t.open : t.close);
     panel.setAttribute("aria-label", t.title);
   }
   function addMessage(kind, text, results = []) {
@@ -409,6 +408,7 @@
   launcher.addEventListener("click", async () => {
     panel.hidden = !panel.hidden;
     launcher.setAttribute("aria-expanded", String(!panel.hidden));
+    launcher.setAttribute("aria-label", panel.hidden ? TEXT[language].open : TEXT[language].close);
     if (!panel.hidden) {
       updateLanguage(); await loadKnowledge();
       if (!messages.children.length) {
@@ -417,9 +417,6 @@
       }
       input.focus();
     }
-  });
-  root.querySelector(".acb-close").addEventListener("click", () => {
-    panel.hidden = true; launcher.setAttribute("aria-expanded", "false"); launcher.focus();
   });
   root.querySelector(".acb-language").addEventListener("click", () => {
     language = language === "da" ? "en" : "da"; updateLanguage();

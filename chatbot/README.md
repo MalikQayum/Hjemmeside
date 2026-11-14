@@ -24,6 +24,7 @@ Læs denne README og undermappernes README før ændringer. Chatbotten må gengi
 - Parkeringssiden opdeles i overblik, venteliste og uretmæssig parkering. Kontaktformularens felter indekseres ikke som viden.
 - Chatbotten viser et kort, kildebaseret svar og den mest relevante kilde. PDF-links åbner på den registrerede side.
 - Chatbotten bruger hjemmesidens røde accentfarve (`#f56a6a`) sammen med hvid og neutral grå – ikke grønne farver.
+- Emne- og spørgsmåls-knapper bruger kompakt tekstombrydning, så teksten bliver inden for knapperne. Chatten lukkes og åbnes igen via den samme faste “Spørg os”-knap; der vises ingen separat luk-knap i chatvinduet.
 - Synonymer og emnegenkendelse er kun søgehjælp. De giver ikke chatbotten ret til at udlede nye regler. Selve ordlyden kommer fra kilden.
 - Hvis der ikke findes et tilstrækkeligt relevant afsnit, svarer chatbotten, at den ikke kan finde et sikkert svar, og henviser til bestyrelsen.
 - Regressionstest af de vigtigste spørgsmål kan køres fra repository-roden med `node scripts/chatbot/test-chatbot.js`.
