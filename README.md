@@ -191,4 +191,43 @@ Her kan man:
 
 ---
 
+---
+
+## 🗂️ Mappestruktur og lokal dokumentation
+
+De vigtigste mapper har deres egen `README.md`, så formål, indhold og vedligeholdelse kan findes dér, hvor arbejdet foregår. Root-README'en giver det samlede overblik; de lokale README-filer beskriver den enkelte mappe.
+
+| Mappe | Formål |
+|---|---|
+| `.github/` | GitHub Actions, automatisering og NemAffald-delprojektet. |
+| `assets/` | CSS, JavaScript, kortdata, Sass, video og webfonts. |
+| `chatbot/` | Chatbotkonfiguration og genereret vidensdatabase. |
+| `scripts/` | Scripts til dataopdatering og chatbot. |
+| `images/` | Billedressourcer. |
+| `velkomstbrev/`, `kontakt/`, `parkering/`, `kaelderrum/`, `noeglebrikker/`, `nyhed/`, `husorden-vedtaegter/` | Hjemmesidens indholdssider. |
+| `eksempler/` | Design- og komponentreferencer. |
+
+Undermapper med selvstændigt indhold har også lokale README-filer. De beskriver mappernes faktiske funktion og relevante vedligeholdelsespunkter. README-filerne er dokumentation og ikke officielle regler for foreningen.
+
+
 *Sidst opdateret: 2026-11-10*
+
+
+---
+
+## 🤖 Chatbot – automatisk vidensdatabase
+
+Repositoryet indeholder en gratis, statisk informationsassistent til hjemmesiden. Chatbotten søger i en automatisk genereret `chatbot/data/knowledge.json` og viser relevante tekstuddrag med links til kilderne. Første version bruger **ikke** en generativ AI-model eller eksterne API'er.
+
+### Automatisk opdatering
+- Workflow: `.github/workflows/update-chatbot-knowledge.yml`.
+- Generator: `scripts/chatbot/build-knowledge.py`.
+- Kildekonfiguration: `chatbot/config/knowledge-config.json`.
+- Genereret vidensfil: `chatbot/data/knowledge.json` (må ikke redigeres manuelt).
+- Chatfunktion: `assets/js/chatbot.js` og `assets/css/chatbot.css`.
+- Chatten indlæses centralt via `assets/js/load-sidebar.js` og vises på hjemmesidens sider.
+
+Workflowet kører ved relevante ændringer, ugentligt og manuelt via GitHub Actions. Kun filer, der står på den eksplicitte `include`-liste i `knowledge-config.json`, bliver indekseret. Parkeringsventelisten, NemAffald-mappen, interne scripts, konfigurationer og øvrige ikke-godkendte filer holdes udenfor.
+
+### Vedligeholdelse
+Se `chatbot/README.md` for lokal test, tilføjelse af kilder, sikkerhedsregler og kendte begrænsninger. Scannede PDF'er uden tekstlag kræver OCR, før deres indhold kan indekseres.

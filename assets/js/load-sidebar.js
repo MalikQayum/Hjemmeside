@@ -13,6 +13,15 @@
       console.error("Menuen blev indlæst, men sidens funktioner kunne ikke startes.");
     };
     document.body.appendChild(script);
+
+    // Indlæs ejerforeningens chatbot som et selvstændigt modul på alle sider.
+    const chatbotScript = document.createElement("script");
+    chatbotScript.src = new URL("/assets/js/chatbot.js", document.baseURI).href;
+    chatbotScript.defer = true;
+    chatbotScript.onerror = () => {
+      console.error("Chatbotten kunne ikke indlæses.");
+    };
+    document.body.appendChild(chatbotScript);
   };
 
   fetch(new URL("/sidebar.html", document.baseURI))
