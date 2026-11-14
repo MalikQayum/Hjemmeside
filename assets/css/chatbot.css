@@ -88,33 +88,51 @@
   font-weight: 700;
 }
 #association-chatbot .acb-header button:hover { background: #f4f4f4; }
-#association-chatbot .acb-topic-message { max-width: 100%; }
+#association-chatbot .acb-topic-message {
+  width: 100%;
+  max-width: 100%;
+}
 #association-chatbot .acb-topic-heading {
   display: block;
   margin-bottom: 9px;
   font-size: 12px;
+  line-height: 1.4;
   color: var(--acb-text);
 }
 #association-chatbot .acb-topic-grid,
 #association-chatbot .acb-question-grid {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 7px;
 }
+#association-chatbot .acb-topic-grid > *,
+#association-chatbot .acb-question-grid > * { min-width: 0; }
 #association-chatbot .acb-topic-button,
 #association-chatbot .acb-question-button {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #e7b2b2;
   border-radius: 8px;
-  padding: 9px 8px;
+  padding: 8px 7px;
   background: #fff;
+  color: #000 !important;
   font: inherit;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  line-height: 1.35;
-  text-align: left;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
   cursor: pointer;
-  overflow-wrap: anywhere;
   transition: background-color .15s ease, border-color .15s ease;
 }
 #association-chatbot .acb-topic-button:hover,
@@ -133,6 +151,7 @@
   border: 0;
   padding: 5px 0 0;
   background: transparent;
+  color: #000 !important;
   font: inherit;
   font-size: 11px;
   font-weight: 600;
@@ -141,5 +160,7 @@
 }
 @media (max-width: 360px) {
   #association-chatbot .acb-topic-grid,
-  #association-chatbot .acb-question-grid { grid-template-columns: 1fr; }
+  #association-chatbot .acb-question-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  #association-chatbot .acb-topic-button,
+  #association-chatbot .acb-question-button { padding: 7px 5px; font-size: 10px; }
 }

@@ -7,6 +7,7 @@ const vm = require("node:vm");
 const ROOT = path.resolve(__dirname, "../..");
 const jsPath = path.join(ROOT, "assets/js/chatbot.js");
 const dataPath = path.join(ROOT, "chatbot/data/knowledge.json");
+const cssPath = path.join(ROOT, "assets/css/chatbot.css");
 let source = fs.readFileSync(jsPath, "utf8");
 const insertionPoint = '  const style = document.createElement("link");';
 if (!source.includes(insertionPoint)) throw new Error("Could not locate chatbot test hook");
@@ -20,6 +21,18 @@ const context = {
 };
 context.globalThis = context;
 vm.runInNewContext(source, context, { filename: jsPath });
+const css = fs.readFileSync(cssPath, "utf8");
+if (source.includes('class="acb-close"') || source.includes('querySelector(".acb-close")')) {
+  throw new Error("Den separate luk-knap skal være fjernet");
+}
+if (!source.includes('launcher.addEventListener("click"') || !source.includes('launcher.setAttribute("aria-expanded", String(!panel.hidden))')) {
+  throw new Error("Spørg os-knappen skal åbne og lukke chatten");
+}
+if (!css.includes("grid-template-columns: repeat(2, minmax(0, 1fr))") || !css.includes("overflow-wrap: break-word")) {
+  throw new Error("Emneknappernes kompakte layout mangler");
+}
+console.log("OK: Kompakte emneknapper og lukning via Spørg os-knappen");
+
 const api = context.__chatbotTest;
 api.setKnowledge(JSON.parse(fs.readFileSync(dataPath, "utf8")));
 
