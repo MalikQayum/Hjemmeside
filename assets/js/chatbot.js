@@ -6,7 +6,7 @@
   const KNOWLEDGE_URL = new URL("chatbot/data/knowledge.json", BASE).href;
   const TEXT = {
     da: {
-      title: "Spørg ejerforeningen", subtitle: "Informationsassistent · Dansk og English",
+      title: "Spørg ejerforeningen", subtitle: "Dansk / English",
       intro: "Hej! Jeg kan hjælpe med at finde information på ejerforeningens hjemmeside. Hvad vil du gerne vide?",
       placeholder: "Skriv dit spørgsmål…", send: "Send", open: "Åbn chat med ejerforeningen",
       noMatch: "Jeg kunne ikke finde et sikkert svar i hjemmesidens nuværende information. Prøv at omformulere spørgsmålet, eller kontakt bestyrelsen.",
@@ -14,7 +14,7 @@
       disclaimer: "Jeg er en automatisk informationsassistent og kan ikke træffe beslutninger på bestyrelsens vegne."
     },
     en: {
-      title: "Ask the association", subtitle: "Information assistant · Dansk og English",
+      title: "Ask the association", subtitle: "Danish / English",
       intro: "Hello! I can help you find information on the association website. What would you like to know?",
       placeholder: "Type your question…", send: "Send", open: "Open association chat",
       noMatch: "I could not find a reliable answer in the website's current information. Try rephrasing your question or contact the board.",
@@ -39,7 +39,8 @@
   const intents = [
     { id: "husdyr", terms: ["husdyr", "dyr", "hund", "hunde", "kat", "katte", "kæledyr", "pet", "pets", "dog", "cat"], category: "husorden", section: 6 },
     { id: "fodring", terms: ["fodre", "fodring", "fugle", "katte", "fodres"], category: "husorden", section: 9 },
-    { id: "stoej", terms: ["støj", "larm", "musik", "radio", "fjernsyn", "nattero", "højlydt"], category: "husorden", section: 7 }
+    { id: "stoej", terms: ["støj", "larm", "musik", "radio", "fjernsyn", "nattero", "højlydt"], category: "husorden", section: 7 },
+    { id: "parkering", terms: ["parkering", "parkeringsplads", "parkeringspladser", "p-plads", "venteliste", "dinparkering", "parkeringskontrol", "pladsnummer", "uvedkommende", "holder på min plads", "forkert parkeret", "parking", "parking space"], category: "parkering" }
   ];
 
   let language = detectLanguage(navigator.language || "da");
@@ -86,7 +87,13 @@
       score += Math.min(occurrences, 4) * 1.2;
     }
     if (intent && doc.category === intent.category) score += 5;
-    if (intent && Number(doc.section) === intent.section) score += 24;
+    if (intent && intent.section !== undefined && Number(doc.section) === intent.section) score += 24;
+    if (intent?.id === "parkering") {
+      const q = normalize(query);
+      if (doc.topic === "enforcement" && /holder|uvedkommende|pladsnummer|forkert parkeret|dinparkering/.test(q)) score += 30;
+      else if (doc.topic === "waitlist" && /venteliste|skrevet op|ledig plads/.test(q)) score += 30;
+      else if (doc.topic === "overview") score += 8;
+    }
     const normalizedQuery = normalize(query);
     if (normalizedQuery.length > 4 && normalize(doc.content || "").includes(normalizedQuery)) score += 10;
     return score;
@@ -99,22 +106,34 @@
       .sort((a, b) => b.score - a.score);
     // Ved kendte emner prioriteres det præcise husordenspunkt; undgå at blande andre punkter ind.
     if (intent) {
-      const exact = ranked.filter(item => item.doc.category === intent.category && Number(item.doc.section) === intent.section);
-      if (exact.length) return exact.slice(0, 2);
+      const exact = intent.section !== undefined
+        ? ranked.filter(item => item.doc.category === intent.category && Number(item.doc.section) === intent.section)
+        : ranked.filter(item => item.doc.category === intent.category);
+      if (exact.length) return exact.slice(0, 1);
     }
-    return ranked.slice(0, 3);
+    return ranked.slice(0, 1);
   }
   function formatAnswer(matches, question) {
     const primary = matches[0].doc;
     const intent = detectIntent(question);
     if (language === "da" && intent?.id === "husdyr" && primary.category === "husorden" && Number(primary.section) === 6) {
-      return "Husordenens punkt 6 siger, at det ikke er tilladt at holde husdyr.\n\n“Det er ikke tilladt at holde husdyr.”";
+      return "Nej. Husordenens punkt 6 siger: “Det er ikke tilladt at holde husdyr.”";
     }
     if (language === "da" && intent?.id === "fodring" && primary.category === "husorden" && Number(primary.section) === 9) {
-      return "Husordenens punkt 9 siger, at det ikke er tilladt at fodre fugle, katte og andre dyr på området.\n\n“Det er IKKE tilladt at fodre fugle, katte og andre dyr på området.”";
+      return "Husordenens punkt 9 siger: “Det er IKKE tilladt at fodre fugle, katte og andre dyr på området.”";
     }
     if (language === "da" && intent?.id === "stoej" && primary.category === "husorden" && Number(primary.section) === 7) {
-      return "Husordenens punkt 7 handler om støj og hensyn til naboerne. Her står der, at radio, fjernsyn, musik og instrumenter skal benyttes med fornøden hensyntagen til naboerne.";
+      return "Husordenens punkt 7 siger, at man i de sene aftentimer skal vise særligt hensyn til naboerne og dæmpe radio, fjernsyn, musik og instrumenter, så naboernes ønske om nattero ikke forstyrres. Der står ikke et bestemt klokkeslæt.";
+    }
+    if (language === "da" && intent?.id === "parkering" && primary.category === "parkering") {
+      const query = normalize(question);
+      if (primary.topic === "enforcement" || /holder.*(plads|parkering)|uvedkommende|forkert parkeret/.test(query)) {
+        return "Hvis nogen holder på din parkeringsplads, skal du kontakte DinParkering, som står for parkeringskontrollen. Oplys gerne pladsnummer og bilens registreringsnummer.";
+      }
+      if (primary.topic === "waitlist" || /venteliste|skrevet op|ledig plads/.test(query)) {
+        return "Ejerforeningens parkeringspladser administreres af bestyrelsen. Ønsker du en plads, kan du skrive dig på ventelisten via kontaktformularen på parkeringssiden.";
+      }
+      return "Ejerforeningens parkeringspladser administreres af bestyrelsen. Du kan skrive dig på ventelisten via kontaktformularen på parkeringssiden. Hvis nogen holder på din plads, skal du kontakte DinParkering.";
     }
     const excerpt = primary.content.trim();
     return language === "en"
@@ -181,8 +200,11 @@
         const sourceUrl = new URL(doc.source.url, BASE);
         if (doc.page && /\.pdf$/i.test(doc.source.url)) sourceUrl.hash = `page=${doc.page}`;
         a.href = sourceUrl.href;
-        const location = doc.section ? ` – punkt ${doc.section}` : (doc.page ? ` – side ${doc.page}` : "");
-        a.textContent = (doc.title || doc.source.file) + location; a.target = "_self";
+        const title = doc.title || doc.source.file;
+        const location = doc.section && !new RegExp(`punkt\\s*${doc.section}`, "i").test(title)
+          ? ` – punkt ${doc.section}`
+          : (!doc.section && doc.page && !new RegExp(`side\\s*${doc.page}`, "i").test(title) ? ` – side ${doc.page}` : "");
+        a.textContent = title + location; a.target = "_self";
         li.appendChild(a); list.appendChild(li);
       });
       item.appendChild(list);
@@ -228,7 +250,7 @@
       return;
     }
     // Svarene bygges kun af fundne kilder. Ingen ekstern AI og ingen regel-fortolkning.
-    addMessage("bot", formatAnswer(matches, question), matches.slice(0, 2));
+    addMessage("bot", formatAnswer(matches, question), matches.slice(0, 1));
   });
 
   updateLanguage();

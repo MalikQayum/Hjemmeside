@@ -11,7 +11,7 @@ CONFIG = ROOT / "chatbot/config/knowledge-config.json"
 OUTPUT = ROOT / "chatbot/data/knowledge.json"
 
 class TextExtractor(HTMLParser):
-    SKIP = {"script", "style", "noscript", "svg", "nav", "footer"}
+    SKIP = {"script", "style", "noscript", "svg", "nav", "footer", "form", "button", "select", "textarea", "option"}
     def __init__(self):
         super().__init__(); self.skip = 0; self.parts = []
     def handle_starttag(self, tag, attrs):
@@ -115,6 +115,7 @@ def main():
             }
             if part.get("section") is not None: entry["section"] = part["section"]
             if part.get("page") is not None: entry["page"] = part["page"]
+            if part.get("topic") is not None: entry["topic"] = part["topic"]
             entries.append(entry)
     payload = {
         "schema_version": 1,
@@ -130,7 +131,55 @@ def main():
     for warning in warnings: print(f"ADVARSEL: {warning}")
 
 def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
-    """Bevar nummererede husordenspunkter som selvstændige, søgbare kilder."""
+    """Bevar meningsfulde afsnit som selvstændige, søgbare kilder."""
+    if Path(rel).as_posix() == "parkering/index.html":
+        lines = [line.strip() for line in text.splitlines()]
+
+        def section_text(heading: str, stop_headings: set[str]) -> str:
+            collected = []
+            active = False
+            for line in lines:
+                if not active:
+                    if line.casefold() == heading.casefold():
+                        active = True
+                    continue
+                if line.casefold() in {item.casefold() for item in stop_headings}:
+                    break
+                if line:
+                    collected.append(line)
+            return re.sub(r"\s+", " ", " ".join(collected)).strip()
+
+        general = section_text("Generel information", {"Uretmæssig parkering", "Venteliste til parkering"})
+        wrongful = section_text("Uretmæssig parkering", {"Ring til DinParkering", "Kontakt bestyrelsen", "Venteliste til parkering"})
+        result = []
+        if general:
+            result.append({
+                "title": "Parkering – venteliste og generel information",
+                "content": general,
+                "keywords": ["parkering", "parkeringsplads", "venteliste", "skrive op", "bestyrelsen"],
+                "topic": "waitlist"
+            })
+        if wrongful:
+            result.append({
+                "title": "Parkering – uretmæssig parkering",
+                "content": wrongful,
+                "keywords": ["parkering", "parkeringsplads", "uvedkommende", "dinparkering", "pladsnummer", "registreringsnummer"],
+                "topic": "enforcement"
+            })
+        if general or wrongful:
+            summary_parts = []
+            if general:
+                summary_parts.append(general)
+            if wrongful:
+                summary_parts.append(wrongful)
+            result.insert(0, {
+                "title": "Parkering – overblik",
+                "content": " ".join(summary_parts),
+                "keywords": ["parkering", "parkeringspladser", "venteliste", "dinparkering", "bestyrelsen"],
+                "topic": "overview"
+            })
+            return result
+
     if Path(rel).name.lower() == "husorden.pdf":
         page = 1
         sections = []

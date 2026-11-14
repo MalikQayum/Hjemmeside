@@ -15,6 +15,16 @@ husdyr = [item for item in data["documents"] if item.get("source", {}).get("file
 assert len(husdyr) == 1, "Husordenens punkt 6 mangler eller findes flere gange"
 assert husdyr[0].get("page") == 1, "Husordenens punkt 6 skal pege på side 1"
 assert husdyr[0].get("content", "").strip() == "6. Det er ikke tilladt at holde husdyr.", "Husordenens punkt 6 er ikke isoleret korrekt"
-print(f"Vidensdatabase OK: {len(ids)} afsnit. Husordenens punkt 6 er kontrolleret.")
+# Nattero skal findes i husordenens punkt 7, så svaret ikke overser den sene aften.
+stoej = [item for item in data["documents"] if item.get("source", {}).get("file") == "Husorden.pdf" and item.get("section") == 7]
+assert len(stoej) == 1 and "nattero" in stoej[0].get("content", "").lower(), "Husordenens punkt 7 mangler omtalen af nattero"
+# Parkeringssiden skal opdeles i korte emner uden kontaktformularens felter.
+parking = [item for item in data["documents"] if item.get("source", {}).get("file") == "parkering/index.html"]
+parking_topics = {item.get("topic") for item in parking}
+assert {"overview", "waitlist", "enforcement"}.issubset(parking_topics), "Parkeringssiden mangler emneopdelte afsnit"
+for item in parking:
+    content = item.get("content", "").lower()
+    assert not any(noise in content for noise in ["adresse *", "e-mail *", "besked (valgfrit)", "send henvendelse"]), "Kontaktformular blev indekseret som chatbotviden"
+print(f"Vidensdatabase OK: {len(ids)} afsnit. Husdyr, nattero og parkering er kontrolleret.")
 if data.get("warnings"):
     print(f"Advarsler: {len(data['warnings'])}")

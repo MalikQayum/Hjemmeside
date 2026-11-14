@@ -16,10 +16,13 @@ Læs denne README og undermappernes README før ændringer. Chatbotten må gengi
 
 - Vidensdatabasen bygges fra kilderne i `config/knowledge-config.json`.
 - Husordenens nummererede punkter gemmes hver for sig med punktnummer og PDF-side. Det forhindrer, at punkt 6 om husdyr blandes sammen med fx punkt 9 om fodring af dyr.
-- Frontenden bruger danske synonymer og emnegenkendelse til at finde relevante afsnit. Kendte emner som husdyr, fodring og støj prioriterer det relevante husordenspunkt.
-- Chatbotten viser et kort, kildebaseret svar og højst to kilder. PDF-links åbner på den registrerede side.
+- Frontenden bruger danske synonymer og emnegenkendelse til at finde relevante afsnit. Kendte emner som husdyr, fodring, støj/nattero og parkering prioriterer det relevante kildeafsnit.
+- Parkeringssiden opdeles i overblik, venteliste og uretmæssig parkering. Kontaktformularens felter indekseres ikke som viden.
+- Chatbotten viser et kort, kildebaseret svar og den mest relevante kilde. PDF-links åbner på den registrerede side.
+- Chatbotten bruger hjemmesidens røde accentfarve (`#f56a6a`) sammen med hvid og neutral grå – ikke grønne farver.
 - Synonymer og emnegenkendelse er kun søgehjælp. De giver ikke chatbotten ret til at udlede nye regler. Selve ordlyden kommer fra kilden.
 - Hvis der ikke findes et tilstrækkeligt relevant afsnit, svarer chatbotten, at den ikke kan finde et sikkert svar, og henviser til bestyrelsen.
+- Regressionstest af de vigtigste spørgsmål kan køres fra repository-roden med `node scripts/chatbot/test-chatbot.js`.
 
 ## Vigtigt ved ændringer
 
