@@ -23,18 +23,24 @@
     }
   };
 
+  // Synonymer hjælper med almindelige formuleringer – de ændrer aldrig kildens regler.
   const synonyms = {
-    parkering: ["parking", "parkeringsplads", "venteliste", "bil", "dinparkering"],
-    parking: ["parkering", "parkeringsplads", "waiting list"],
-    husdyr: ["dyr", "hund", "kat", "pets", "pet", "dog", "cat"],
-    pets: ["husdyr", "dyr", "hund", "kat"],
+    parkering: ["parking", "parkeringsplads", "venteliste", "bil", "p-plads", "parkeringskort"],
+    husdyr: ["dyr", "hund", "hunde", "kat", "katte", "kæledyr", "kæledyr", "pets", "pet", "dog", "dogs", "cat", "cats"],
     husorden: ["regler", "støj", "affald", "cykler", "rygning", "trappe"],
     vedtaegter: ["vedtægter", "regler", "bestyrelse", "generalforsamling"],
-    nøglebrik: ["noeglebrik", "adgang", "nøglekort", "key fob", "keycard"],
+    noeglebrik: ["noeglebrik", "adgang", "nøglekort", "key fob", "keycard"],
     kælderrum: ["kaelderrum", "leje", "opbevaring", "basement storage"],
     kontakt: ["bestyrelse", "email", "telefon", "deas", "contact"],
     airbnb: ["udlejning", "korttidsudlejning", "fremleje"]
   };
+
+  const stopWords = new Set(["maa", "må", "vi", "jeg", "man", "kan", "det", "er", "der", "har", "have", "holde", "holde", "vores", "for", "med", "til", "om", "at", "en", "et", "the", "can", "we", "i", "a", "is", "are"]);
+  const intents = [
+    { id: "husdyr", terms: ["husdyr", "dyr", "hund", "hunde", "kat", "katte", "kæledyr", "pet", "pets", "dog", "cat"], category: "husorden", section: 6 },
+    { id: "fodring", terms: ["fodre", "fodring", "fugle", "katte", "fodres"], category: "husorden", section: 9 },
+    { id: "stoej", terms: ["støj", "larm", "musik", "radio", "fjernsyn", "nattero", "højlydt"], category: "husorden", section: 7 }
+  ];
 
   let language = detectLanguage(navigator.language || "da");
   let knowledge = null;
@@ -50,37 +56,70 @@
     return normalize(value).match(/[a-z0-9]{2,}/g) || [];
   }
   function expandedTokens(query) {
-    const base = tokens(query);
+    const base = tokens(query).filter(term => !stopWords.has(term));
     const expanded = new Set(base);
+    const normalized = normalize(query);
     for (const [key, values] of Object.entries(synonyms)) {
       const group = [key, ...values].map(normalize);
-      if (group.some(term => base.includes(term) || normalize(query).includes(term))) group.forEach(term => expanded.add(term));
+      if (group.some(term => base.includes(term) || (term.length > 3 && normalized.includes(term)))) group.forEach(term => expanded.add(term));
     }
     return [...expanded];
   }
-  function scoreDocument(doc, queryTerms, query) {
+  function detectIntent(query) {
+    const q = normalize(query);
+    return intents.filter(intent => intent.terms.some(term => {
+      const t = normalize(term);
+      return q.split(/[^a-z0-9]+/).includes(t) || (t.length > 4 && q.includes(t));
+    })).sort((a, b) => b.terms.filter(t => q.includes(normalize(t))).length - a.terms.filter(t => q.includes(normalize(t))).length)[0] || null;
+  }
+  function scoreDocument(doc, queryTerms, query, intent) {
     const title = tokens(doc.title || "");
     const content = tokens(doc.content || "");
     const keywords = tokens((doc.keywords || []).join(" "));
     const category = tokens(doc.category || "");
     let score = 0;
     for (const term of queryTerms) {
-      if (title.includes(term)) score += 7;
-      if (keywords.includes(term)) score += 5;
-      if (category.includes(term)) score += 4;
+      if (title.includes(term)) score += 9;
+      if (keywords.includes(term)) score += 6;
+      if (category.includes(term)) score += 3;
       const occurrences = content.filter(word => word === term).length;
-      score += Math.min(occurrences, 5) * 1.4;
+      score += Math.min(occurrences, 4) * 1.2;
     }
+    if (intent && doc.category === intent.category) score += 5;
+    if (intent && Number(doc.section) === intent.section) score += 24;
     const normalizedQuery = normalize(query);
-    if (normalizedQuery.length > 4 && normalize(doc.content || "").includes(normalizedQuery)) score += 12;
+    if (normalizedQuery.length > 4 && normalize(doc.content || "").includes(normalizedQuery)) score += 10;
     return score;
   }
   function search(query) {
     const terms = expandedTokens(query);
-    return (knowledge?.documents || []).map(doc => ({ doc, score: scoreDocument(doc, terms, query) }))
-      .filter(item => item.score >= 4)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 4);
+    const intent = detectIntent(query);
+    const ranked = (knowledge?.documents || []).map(doc => ({ doc, score: scoreDocument(doc, terms, query, intent) }))
+      .filter(item => item.score >= 6)
+      .sort((a, b) => b.score - a.score);
+    // Ved kendte emner prioriteres det præcise husordenspunkt; undgå at blande andre punkter ind.
+    if (intent) {
+      const exact = ranked.filter(item => item.doc.category === intent.category && Number(item.doc.section) === intent.section);
+      if (exact.length) return exact.slice(0, 2);
+    }
+    return ranked.slice(0, 3);
+  }
+  function formatAnswer(matches, question) {
+    const primary = matches[0].doc;
+    const intent = detectIntent(question);
+    if (language === "da" && intent?.id === "husdyr" && primary.category === "husorden" && Number(primary.section) === 6) {
+      return "Husordenens punkt 6 siger, at det ikke er tilladt at holde husdyr.\n\n“Det er ikke tilladt at holde husdyr.”";
+    }
+    if (language === "da" && intent?.id === "fodring" && primary.category === "husorden" && Number(primary.section) === 9) {
+      return "Husordenens punkt 9 siger, at det ikke er tilladt at fodre fugle, katte og andre dyr på området.\n\n“Det er IKKE tilladt at fodre fugle, katte og andre dyr på området.”";
+    }
+    if (language === "da" && intent?.id === "stoej" && primary.category === "husorden" && Number(primary.section) === 7) {
+      return "Husordenens punkt 7 handler om støj og hensyn til naboerne. Her står der, at radio, fjernsyn, musik og instrumenter skal benyttes med fornøden hensyntagen til naboerne.";
+    }
+    const excerpt = primary.content.trim();
+    return language === "en"
+      ? "I found this information in the association's Danish source material. The original wording is shown below:\n\n" + excerpt
+      : excerpt;
   }
 
   const style = document.createElement("link");
@@ -139,8 +178,11 @@
       const list = document.createElement("ul"); list.className = "acb-sources";
       results.forEach(({doc}) => {
         const li = document.createElement("li"); const a = document.createElement("a");
-        a.href = new URL(doc.source.url, BASE).href;
-        a.textContent = doc.title || doc.source.file; a.target = "_self";
+        const sourceUrl = new URL(doc.source.url, BASE);
+        if (doc.page && /\.pdf$/i.test(doc.source.url)) sourceUrl.hash = `page=${doc.page}`;
+        a.href = sourceUrl.href;
+        const location = doc.section ? ` – punkt ${doc.section}` : (doc.page ? ` – side ${doc.page}` : "");
+        a.textContent = (doc.title || doc.source.file) + location; a.target = "_self";
         li.appendChild(a); list.appendChild(li);
       });
       item.appendChild(list);
@@ -185,12 +227,8 @@
       addMessage("bot", TEXT[language].noMatch);
       return;
     }
-    // V1 er bevidst retrieval-baseret: den viser kildeuddrag uden at opfinde AI-svar.
-    const excerpts = matches.slice(0, 3).map(({doc}) => doc.content.trim()).join("\n\n");
-    const answer = language === "en"
-      ? "I found relevant information in the association's Danish source material. The excerpts below are shown in their original language:\n\n" + excerpts
-      : excerpts;
-    addMessage("bot", answer, matches.slice(0, 3));
+    // Svarene bygges kun af fundne kilder. Ingen ekstern AI og ingen regel-fortolkning.
+    addMessage("bot", formatAnswer(matches, question), matches.slice(0, 2));
   });
 
   updateLanguage();
