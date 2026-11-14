@@ -101,17 +101,21 @@ def main():
             warnings.append(f"Kunne ikke læse {rel}: {exc}"); continue
         warnings.extend(f"{rel}: {w}" for w in file_warnings)
         if not text: continue
-        for index, chunk in enumerate(chunks(text, config["chunk_chars"], config["overlap_chars"]), 1):
+        for index, part in enumerate(chunks_with_metadata(rel, text, config["chunk_chars"], config["overlap_chars"]), 1):
+            chunk = part["content"]
             digest = hashlib.sha256(f"{rel}\0{index}\0{chunk}".encode()).hexdigest()[:16]
-            entries.append({
+            entry = {
                 "id": digest,
-                "title": title_for(rel, chunk),
+                "title": part.get("title") or title_for(rel, chunk),
                 "content": chunk,
                 "source": {"file": rel, "url": url_for(rel)},
                 "language": "da",
                 "category": category_for(rel),
-                "keywords": keywords_for(rel, chunk)
-            })
+                "keywords": sorted(set(keywords_for(rel, chunk) + part.get("keywords", [])))
+            }
+            if part.get("section") is not None: entry["section"] = part["section"]
+            if part.get("page") is not None: entry["page"] = part["page"]
+            entries.append(entry)
     payload = {
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -124,6 +128,30 @@ def main():
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Genereret {OUTPUT.relative_to(ROOT)} med {len(entries)} vidensafsnit.")
     for warning in warnings: print(f"ADVARSEL: {warning}")
+
+def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
+    """Bevar nummererede husordenspunkter som selvstændige, søgbare kilder."""
+    if Path(rel).name.lower() == "husorden.pdf":
+        page = 1
+        sections = []
+        current = None
+        for line in text.splitlines():
+            page_match = re.match(r"\s*Side\s+(\d+)", line, re.I)
+            if page_match:
+                page = int(page_match.group(1))
+                continue
+            section_match = re.match(r"\s*(\d{1,2})\.\s+(.+)", line)
+            if section_match:
+                if current is not None: sections.append(current)
+                number = int(section_match.group(1))
+                current = {"section": number, "page": page, "title": f"Husorden – punkt {number}", "content": line.strip(), "keywords": ["husorden", f"punkt {number}"]}
+            elif current is not None and line.strip():
+                current["content"] += "\n" + line.strip()
+        if current is not None: sections.append(current)
+        if sections:
+            # Første dokumenttitel/indledning uden for et nummereret punkt udelades; hvert punkt står rent.
+            return [x for x in sections if len(x["content"]) >= 20]
+    return [{"content": x} for x in chunks(text, size, overlap)]
 
 def title_for(rel, chunk):
     first = next((line.strip(" #") for line in chunk.splitlines() if line.strip()), Path(rel).stem)
