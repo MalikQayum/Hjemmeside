@@ -111,8 +111,6 @@
     section.setAttribute("aria-label", "Parkeringsstatus");
 
     section.innerHTML = `
-      <h3>Parkeringsstatus</h3>
-
       <div class="parking-status-grid">
 
         <div class="parking-status-card">
