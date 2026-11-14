@@ -30,28 +30,39 @@
     const text = String(value ?? "").trim().toUpperCase();
     return /^[A-ZÆØÅ]{2}\s?-?\s?\d{5}$/.test(text);
   }
-
+  
   function isValidDate(value) {
-    const text = String(value ?? "").trim();
+  const text = String(value ?? "").trim();
 
-    // Genkend almindelige datoformater fra Excel/HTML.
-    const match = text.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2}|\d{4})$/);
-    if (!match) return false;
+  // Genkend datoformater fra Excel/HTML:
+  // DD/MM/YY, MM/DD/YY, DD.MM.YYYY og DD-MM-YYYY.
+  const match = text.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2}|\d{4})$/);
+  if (!match) return false;
 
-    const day = Number(match[1]);
-    const month = Number(match[2]);
-    let year = Number(match[3]);
+  const first = Number(match[1]);
+  const second = Number(match[2]);
+  let year = Number(match[3]);
 
-    // Den særlige Excel-fejlværdi håndteres separat.
-    if (day === 1 && month === 0 && year === 0) return false;
+  // Den særlige Excel-fejlværdi håndteres separat.
+  if (first === 1 && second === 0 && year === 0) return false;
 
-    if (year < 100) year += year >= 50 ? 1900 : 2000;
+  if (year < 100) year += year >= 50 ? 1900 : 2000;
+
+  function isRealDate(day, month) {
+    if (day < 1 || day > 31 || month < 1 || month > 12) {
+      return false;
+    }
 
     const date = new Date(year, month - 1, day);
+
     return date.getFullYear() === year &&
       date.getMonth() === month - 1 &&
       date.getDate() === day;
   }
+
+  // Prøv både DD/MM/YY og MM/DD/YY.
+  return isRealDate(first, second) || isRealDate(second, first);
+}
 
   function addStyles() {
     if (document.getElementById("parking-waitlist-styles")) return;
