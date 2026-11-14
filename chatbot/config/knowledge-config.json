@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "description": "Allowlist over offentligt indhold, som må indgå i ejerforeningens chatbot.",
+  "include": [
+    "index.html",
+    "sidebar.html",
+    "velkomstbrev/index.html",
+    "husorden-vedtaegter/index.html",
+    "nyhed/index.html",
+    "parkering/index.html",
+    "kaelderrum/index.html",
+    "noeglebrikker/index.html",
+    "kontakt/index.html",
+    "Husorden.pdf",
+    "Vedtægter.pdf",
+    "Nyhedsbrev.docx"
+  ],
+  "exclude": [
+    "Venteliste Parkering.xlsx",
+    ".github/",
+    "assets/",
+    "scripts/",
+    "images/",
+    "chatbot/data/",
+    "README.md"
+  ],
+  "chunk_chars": 1200,
+  "overlap_chars": 160
+}

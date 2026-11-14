@@ -1,0 +1,70 @@
+name: Opdater chatbotens vidensdatabase
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "sidebar.html"
+      - "velkomstbrev/**"
+      - "husorden-vedtaegter/**"
+      - "nyhed/**"
+      - "parkering/**"
+      - "kaelderrum/**"
+      - "noeglebrikker/**"
+      - "kontakt/**"
+      - "Husorden.pdf"
+      - "Vedtægter.pdf"
+      - "Nyhedsbrev.docx"
+      - "chatbot/config/**"
+      - "scripts/chatbot/**"
+      - ".github/workflows/update-chatbot-knowledge.yml"
+  schedule:
+    # Ugentlig kontrol søndag kl. 05:20 UTC.
+    - cron: "20 5 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-chatbot-knowledge
+  cancel-in-progress: false
+
+jobs:
+  build-knowledge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Hent repository
+        uses: actions/checkout@v4
+
+      - name: Opsæt Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer OCR og dokumentbiblioteker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils tesseract-ocr tesseract-ocr-dan
+          python -m pip install --disable-pip-version-check pypdf python-docx
+
+      - name: Generer vidensdatabase
+        run: python scripts/chatbot/build-knowledge.py
+
+      - name: Kontrollér vidensdatabase
+        run: python scripts/chatbot/validate-knowledge.py
+
+      - name: Commit ændringer
+        shell: bash
+        run: |
+          if git diff --quiet -- chatbot/data/knowledge.json; then
+            echo "Vidensdatabasen er allerede opdateret."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add chatbot/data/knowledge.json
+          git commit -m "chore: opdater chatbotens vidensdatabase"
+          git push
