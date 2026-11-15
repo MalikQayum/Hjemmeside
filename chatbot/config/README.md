@@ -1,4 +1,18 @@
-# Chatbot – kildekonfiguration
+# Chatbot – konfiguration
+
+Mappen indeholder to konfigurationsfiler:
+
+## `config.json` – vis chatbotten på hjemmesiden
+
+```json
+{
+  "enabled": true
+}
+```
+
+Sæt `enabled` til `true` for at vise "Spørg os" og indlæse chatbotten. Sæt den til `false` for at skjule knappen og helt undlade at indlæse chatbotten. Ændringen træder i kraft efter publicering og næste sideindlæsning.
+
+## `knowledge-config.json` – kilder til vidensdatabasen
 
 `knowledge-config.json` styrer, hvilke repository-filer der må læses af generatoren og indgå i den offentligt tilgængelige vidensdatabase.
 

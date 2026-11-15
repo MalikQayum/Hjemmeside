@@ -3,7 +3,8 @@
 Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Den første version søger i en automatisk genereret vidensdatabase og viser kildebaserede tekstuddrag. Den bruger ikke en betalt AI-API eller en ekstern backend.
 
 ## Struktur
-- `config/`: styring af hvilke kilder der må indgå.
+- `config/config.json`: central til/fra-indstilling for chatbotten på hjemmesiden.
+- `config/knowledge-config.json`: styring af hvilke kilder der må indgå.
 - `data/`: genereret vidensdatabase.
 - `../assets/js/chatbot.js` og `../assets/css/chatbot.css`: brugergrænseflade og styling.
 - `../scripts/chatbot/`: generator og validering.
@@ -11,6 +12,21 @@ Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub 
 
 Læs denne README og undermappernes README før ændringer. Chatbotten må gengive kilder, men må ikke selv fortolke, ændre eller opfinde foreningens regler. Ved uklare eller modstridende kilder skal den tydeligt gøre opmærksom på usikkerheden og henvise til bestyrelsen.
 
+
+## Slå chatbotten til eller fra
+
+Chatbottens synlige "Spørg os"-knap styres af `config/config.json`:
+
+```json
+{
+  "enabled": true
+}
+```
+
+- `true`: Chatbotten indlæses, og "Spørg os" vises på hjemmesidens sider.
+- `false`: Chatbotten indlæses ikke, og knappen vises ikke.
+
+Ret kun værdien til `true` eller `false`, og publicér ændringen på GitHub. Indstillingen hentes ved hver sideindlæsning uden almindelig browsercache, så det er ikke nødvendigt at ændre HTML eller JavaScript. Hvis filen midlertidigt ikke kan hentes, indlæses chatbotten som standard aktiv, så en netværksfejl ikke utilsigtet skjuler funktionen.
 
 ## Sådan finder chatbotten svar
 

@@ -224,7 +224,7 @@ Repositoryet indeholder en gratis, statisk informationsassistent til hjemmesiden
 - Generator: `scripts/chatbot/build-knowledge.py`.
 - Kildekonfiguration: `chatbot/config/knowledge-config.json`.
 - Genereret vidensfil: `chatbot/data/knowledge.json` (må ikke redigeres manuelt).
-- Chatfunktion: `assets/js/chatbot.js` og `assets/css/chatbot.css`.
+- Chatfunktion: `assets/js/chatbot.js` og `assets/css/chatbot.css`. Chatbotten kan slås til/fra via `chatbot/config/config.json` (`enabled: true/false`).
 - Chatten indlæses centralt via `assets/js/load-sidebar.js` og vises på hjemmesidens sider.
 
 Workflowet kører ved relevante ændringer, ugentligt og manuelt via GitHub Actions. Kun filer, der står på den eksplicitte `include`-liste i `knowledge-config.json`, bliver indekseret. Parkeringsventelisten, NemAffald-mappen, interne scripts, konfigurationer og øvrige ikke-godkendte filer holdes udenfor.

@@ -8,6 +8,8 @@ const ROOT = path.resolve(__dirname, "../..");
 const jsPath = path.join(ROOT, "assets/js/chatbot.js");
 const dataPath = path.join(ROOT, "chatbot/data/knowledge.json");
 const cssPath = path.join(ROOT, "assets/css/chatbot.css");
+const loaderPath = path.join(ROOT, "assets/js/load-sidebar.js");
+const configPath = path.join(ROOT, "chatbot/config/config.json");
 let source = fs.readFileSync(jsPath, "utf8");
 const insertionPoint = '  const style = document.createElement("link");';
 if (!source.includes(insertionPoint)) throw new Error("Could not locate chatbot test hook");
@@ -22,6 +24,18 @@ const context = {
 context.globalThis = context;
 vm.runInNewContext(source, context, { filename: jsPath });
 const css = fs.readFileSync(cssPath, "utf8");
+const loader = fs.readFileSync(loaderPath, "utf8");
+const chatbotConfig = JSON.parse(fs.readFileSync(configPath, "utf8"));
+if (typeof chatbotConfig.enabled !== "boolean") {
+  throw new Error('chatbot/config/config.json skal have en boolesk "enabled"-værdi');
+}
+if (!loader.includes('/chatbot/config/config.json') || !loader.includes('config.enabled === false')) {
+  throw new Error('load-sidebar.js skal styre chatbotindlæsning via config.json');
+}
+if (!loader.includes('cache: "no-store"') || !loader.includes('configUrl.searchParams.set')) {
+  throw new Error('Chatbot-konfigurationen skal hentes uden at fastholde en gammel cacheværdi');
+}
+console.log(`OK: Chatbotten er som standard ${chatbotConfig.enabled ? "aktiveret" : "deaktiveret"} via config.json`);
 if (source.includes('class="acb-close"') || source.includes('querySelector(".acb-close")')) {
   throw new Error("Den separate luk-knap skal være fjernet");
 }
