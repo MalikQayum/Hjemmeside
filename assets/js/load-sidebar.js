@@ -6,6 +6,35 @@
     return;
   }
 
+  // Chatbotten kan slås til og fra centralt i chatbot/config/config.json.
+  const loadChatbot = async () => {
+    const configUrl = new URL("/chatbot/config/config.json", document.baseURI);
+    // Undgå, at browserens cache fastholder en tidligere til/fra-indstilling.
+    configUrl.searchParams.set("_", Date.now().toString());
+
+    try {
+      const response = await fetch(configUrl, { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      const config = await response.json();
+      if (config.enabled === false) {
+        console.info("Chatbotten er deaktiveret i chatbot/config/config.json.");
+        return;
+      }
+    } catch (error) {
+      // Hvis konfigurationen midlertidigt ikke kan læses, bevares standarden: aktiv.
+      console.warn("Chatbot-konfigurationen kunne ikke læses. Chatbotten indlæses som standard aktiv.", error);
+    }
+
+    const chatbotScript = document.createElement("script");
+    chatbotScript.src = new URL("/assets/js/chatbot.js", document.baseURI).href;
+    chatbotScript.defer = true;
+    chatbotScript.onerror = () => {
+      console.error("Chatbotten kunne ikke indlæses.");
+    };
+    document.body.appendChild(chatbotScript);
+  };
+
   const loadMainScript = () => {
     const script = document.createElement("script");
     script.src = new URL("/assets/js/main.js", document.baseURI).href;
@@ -14,14 +43,8 @@
     };
     document.body.appendChild(script);
 
-    // Indlæs ejerforeningens chatbot som et selvstændigt modul på alle sider.
-    const chatbotScript = document.createElement("script");
-    chatbotScript.src = new URL("/assets/js/chatbot.js", document.baseURI).href;
-    chatbotScript.defer = true;
-    chatbotScript.onerror = () => {
-      console.error("Chatbotten kunne ikke indlæses.");
-    };
-    document.body.appendChild(chatbotScript);
+    // Chatbotten indlæses kun, hvis config.json tillader det.
+    loadChatbot();
   };
 
   fetch(new URL("/sidebar.html", document.baseURI))

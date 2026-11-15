@@ -6,6 +6,7 @@ Indeholder scripts, der kører i besøgendes browser. Eksempler er navigation/si
 - `load-sidebar.js`: indlæser den fælles sidebar og tilhørende funktioner.
 - `home-map.js`: områdekortet.
 - `chatbot.js`: chatbotgrænseflade og søgning i vidensdatabasen.
+- `load-sidebar.js` indlæser kun chatbotten, hvis `chatbot/config/config.json` har `"enabled": true` (eller konfigurationsfilen ikke kan hentes).
 - `parking-waitlist.js`: visning/behandling af parkeringsventelisten.
 - `pdf-viewer.js`, `docx-viewer.js`, `excel-viewer.js`: dokumentvisere.
 - `contact-form.js`, `parking-contact.js`: kontaktformularer.
