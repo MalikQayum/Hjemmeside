@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T22:11:57.073Z",
-  "generated": 50,
-  "approved": 44,
-  "rejected": 6,
-  "total_unique_attempted": 250,
+  "tested_at": "2026-11-16T22:36:45.209Z",
+  "generated": 8,
+  "approved": 8,
+  "rejected": 0,
+  "total_unique_attempted": 258,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -255,90 +255,25 @@
     "Hvad gælder om ejerlejligheder, samt til almindeligt gældende?",
     "Hvor kan jeg læse om ejerlejligheder, samt til almindeligt gældende?",
     "Hvad skal jeg vide om ejerlejligheder, samt til almindeligt gældende?",
-    "Hvordan er reglerne for ejerlejligheder, samt til almindeligt gældende?"
+    "Hvordan er reglerne for ejerlejligheder, samt til almindeligt gældende?",
+    "Hvad siger informationen om ejerlejligheder, samt til almindeligt gældende?",
+    "Kan du fortælle om ejerlejligheder, samt til almindeligt gældende?",
+    "Hvad gælder om Nyhedsbrev nr.8?",
+    "Hvor kan jeg læse om Nyhedsbrev nr.8?",
+    "Hvad skal jeg vide om Nyhedsbrev nr.8?",
+    "Hvordan er reglerne for Nyhedsbrev nr.8?",
+    "Hvad siger informationen om Nyhedsbrev nr.8?",
+    "Kan du fortælle om Nyhedsbrev nr.8?"
   ],
   "approved_questions": [
-    "Hvad skal jeg vide om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
-    "Hvordan er reglerne for ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
-    "Hvad siger informationen om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
-    "Kan du fortælle om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
-    "Hvad gælder om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Hvor kan jeg læse om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Hvad skal jeg vide om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Hvordan er reglerne for l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Hvad siger informationen om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Kan du fortælle om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
-    "Hvad gælder om re generalforsamling?",
-    "Hvor kan jeg læse om re generalforsamling?",
-    "Hvad skal jeg vide om re generalforsamling?",
-    "Hvordan er reglerne for re generalforsamling?",
-    "Hvad siger informationen om re generalforsamling?",
-    "Kan du fortælle om re generalforsamling?",
-    "Hvad gælder om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Hvor kan jeg læse om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Hvad skal jeg vide om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Hvordan er reglerne for uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Hvad siger informationen om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Kan du fortælle om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
-    "Hvad gælder om ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Hvor kan jeg læse om ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Hvad skal jeg vide om ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Hvordan er reglerne for ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Hvad siger informationen om ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Kan du fortælle om ligger forslag til vedtægtsændringer eller foreningens ophør?",
-    "Hvad gælder om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Hvor kan jeg læse om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Hvad skal jeg vide om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Hvordan er reglerne for på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Hvad siger informationen om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Kan du fortælle om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
-    "Hvad gælder om lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Hvor kan jeg læse om lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Hvad skal jeg vide om lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Hvordan er reglerne for lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Hvad siger informationen om lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Kan du fortælle om lser kan gå i arv og være retsforfølgningsgrundlag?",
-    "Hvad gælder om ejerlejligheder, samt til almindeligt gældende?",
-    "Hvor kan jeg læse om ejerlejligheder, samt til almindeligt gældende?",
-    "Hvad skal jeg vide om ejerlejligheder, samt til almindeligt gældende?",
-    "Hvordan er reglerne for ejerlejligheder, samt til almindeligt gældende?"
+    "Hvad siger informationen om ejerlejligheder, samt til almindeligt gældende?",
+    "Kan du fortælle om ejerlejligheder, samt til almindeligt gældende?",
+    "Hvad gælder om Nyhedsbrev nr.8?",
+    "Hvor kan jeg læse om Nyhedsbrev nr.8?",
+    "Hvad skal jeg vide om Nyhedsbrev nr.8?",
+    "Hvordan er reglerne for Nyhedsbrev nr.8?",
+    "Hvad siger informationen om Nyhedsbrev nr.8?",
+    "Kan du fortælle om Nyhedsbrev nr.8?"
   ],
-  "rejected_questions": [
-    {
-      "question": "Hvad gælder om r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvor kan jeg læse om r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvad skal jeg vide om r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvordan er reglerne for r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvad siger informationen om r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Kan du fortælle om r automatisk en suppleants indtræden. Såfremt bestyrelsens?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "Kontakt | Ejerforeningen Skyttegård/Vigerslev"
-    }
-  ]
+  "rejected_questions": []
 }
