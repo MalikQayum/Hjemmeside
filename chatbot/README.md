@@ -1,10 +1,11 @@
 # Chatbot – vidensbaseret informationsassistent
 
-Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Den første version søger i en automatisk genereret vidensdatabase og viser kildebaserede tekstuddrag. Den bruger ikke en betalt AI-API eller en ekstern backend.
+Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Selve besøgendes chat og søgning kører lokalt i browseren og bruger ikke en AI-API. Et separat GitHub Actions-workflow kan bruge en AI-API til at generere og teste nye træningsspørgsmål.
 
 ## Struktur
 - `config/config.json`: central til/fra-indstilling for chatbotten på hjemmesiden.
 - `config/knowledge-config.json`: styring af hvilke kilder der må indgå.
+- `config/response-rules.json`: automatisk godkendte spørgsmål, der peger på kildeafsnit.
 - `data/`: genereret vidensdatabase.
 - `../assets/js/chatbot.js` og `../assets/css/chatbot.css`: brugergrænseflade og styling.
 - `../scripts/chatbot/`: generator og validering.
@@ -48,3 +49,28 @@ Ret kun værdien til `true` eller `false`, og publicér ændringen på GitHub. I
 ## Vigtigt ved ændringer
 
 Når husordenen eller andre kilder ændres, skal vidensdatabasen bygges igen via workflowet. Kontroller altid, at hvert svar linker til det rigtige dokument og punkt. Chatbotten må aldrig ændre de officielle dokumenter eller selv godkende foreslåede regelændringer.
+
+
+## Automatisk spørgsmålstræning
+
+Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye, danske spørgsmål ud fra de aktuelle afsnit i `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**.
+
+### Første opsætning
+
+1. Opret en API-nøgle hos OpenAI.
+2. Tilføj den i repository'ets **Settings → Secrets and variables → Actions** med navnet `OPENAI_API_KEY`.
+3. Kør workflowet manuelt første gang.
+
+API-nøglen bruges kun af GitHub Actions og må aldrig placeres i JavaScript, HTML eller `config.json`. AI-generering medfører API-forbrug og dermed eventuelle omkostninger. Modellen kan ændres i workflowets `OPENAI_MODEL`.
+
+### Sådan bliver spørgsmål godkendt
+
+- AI'en må kun generere spørgsmål ud fra de eksisterende kildeafsnit og skal angive det præcise `document_id`.
+- `train-generated-questions.js` tester hvert spørgsmål mod chatbotens faktiske søge- og svarfunktion.
+- Spørgsmålet godkendes kun, hvis søgemotoren finder det angivne kildeafsnit som bedste resultat, kilden har indhold og URL, og svaret er højst 45 ord.
+- Godkendte spørgsmål gemmes i `config/response-rules.json`. Reglen peger kun på et eksisterende kildeafsnit; den indeholder ikke nye foreningsregler eller selvstændige fakta.
+- Chatbotten indlæser reglerne og bruger dem til at finde det rigtige kildeafsnit ved præcis samme spørgsmål.
+- Afviste spørgsmål gemmes i `data/learning-results.json`, så træningen kan følges og forbedres.
+- Nye spørgsmål bliver ikke automatisk til officielle svar. Det er stadig `knowledge.json` og hjemmesidens kilder, der bestemmer indholdet.
+
+Workflowet kører dagligt kl. 06:15 UTC og kan startes manuelt. Det bruger GitHub Actions til at committe ændringerne. Det ændrer aldrig husorden, vedtægter eller andre officielle kilder.

@@ -1,0 +1,78 @@
+name: Træn chatbot med nye spørgsmål
+
+on:
+  schedule:
+    # Daglig træning kl. 06:15 UTC.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      question_batch_size:
+        description: "Antal nye spørgsmål (standard 50)"
+        required: false
+        default: "50"
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - "chatbot/data/knowledge.json"
+      - "scripts/chatbot/generate-questions.py"
+      - "scripts/chatbot/train-generated-questions.js"
+      - ".github/workflows/train-chatbot.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chatbot-question-training
+  cancel-in-progress: false
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Hent repository
+        uses: actions/checkout@v4
+
+      - name: Opsæt Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Opsæt Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Kontrollér eksisterende chatbot
+        run: |
+          python scripts/chatbot/validate-knowledge.py
+          node scripts/chatbot/test-chatbot.js
+
+      - name: Generér nye spørgsmål med AI
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
+          QUESTION_BATCH_SIZE: ${{ inputs.question_batch_size || '50' }}
+        run: python scripts/chatbot/generate-questions.py
+
+      - name: Test svar og godkend beståede spørgsmål
+        run: node scripts/chatbot/train-generated-questions.js
+
+      - name: Kontrollér chatbot efter træning
+        run: |
+          python scripts/chatbot/validate-knowledge.py
+          node scripts/chatbot/test-chatbot.js
+
+      - name: Gem godkendt læring
+        shell: bash
+        run: |
+          if git diff --quiet -- chatbot/config/response-rules.json chatbot/data/learning-results.json; then
+            echo "Ingen nye spørgsmål bestod testen."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add chatbot/config/response-rules.json chatbot/data/learning-results.json
+          git commit -m "chore(chatbot): tilføj automatisk testede spørgsmål"
+          git push
