@@ -1,5 +1,330 @@
 {
   "schema_version": 1,
   "description": "Automatisk godkendte spørgsmål, der peger på verificerede kildeafsnit. Regler indeholder ikke selvstændige foreningsfakta.",
-  "rules": []
+  "rules": [
+    {
+      "question": "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b1be8ed78d2fa28c",
+      "source_file": "index.html",
+      "source_url": "/",
+      "answer_word_count": 37,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b1be8ed78d2fa28c",
+      "source_file": "index.html",
+      "source_url": "/",
+      "answer_word_count": 37,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b1be8ed78d2fa28c",
+      "source_file": "index.html",
+      "source_url": "/",
+      "answer_word_count": 37,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b1be8ed78d2fa28c",
+      "source_file": "index.html",
+      "source_url": "/",
+      "answer_word_count": 37,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b1be8ed78d2fa28c",
+      "source_file": "index.html",
+      "source_url": "/",
+      "answer_word_count": 37,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "994ee587827fc5f9",
+      "source_file": "velkomstbrev/index.html",
+      "source_url": "/velkomstbrev/",
+      "answer_word_count": 34,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "994ee587827fc5f9",
+      "source_file": "velkomstbrev/index.html",
+      "source_url": "/velkomstbrev/",
+      "answer_word_count": 34,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "994ee587827fc5f9",
+      "source_file": "velkomstbrev/index.html",
+      "source_url": "/velkomstbrev/",
+      "answer_word_count": 34,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "994ee587827fc5f9",
+      "source_file": "velkomstbrev/index.html",
+      "source_url": "/velkomstbrev/",
+      "answer_word_count": 34,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "994ee587827fc5f9",
+      "source_file": "velkomstbrev/index.html",
+      "source_url": "/velkomstbrev/",
+      "answer_word_count": 34,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "05828b615a57a42f",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 16,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Parkering – overblik?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Parkering – venteliste og generel information?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad siger informationen om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Kan du fortælle om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad gælder om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:36:51.572Z"
+    }
+  ]
 }

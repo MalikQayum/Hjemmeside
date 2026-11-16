@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "tested_at": "2026-11-16T21:36:51.572Z",
+  "generated": 50,
+  "approved": 36,
+  "rejected": 14,
+  "total_unique_attempted": 50,
+  "attempted_questions": [
+    "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Parkering – overblik?",
+    "Hvor kan jeg læse om Parkering – overblik?",
+    "Hvad skal jeg vide om Parkering – overblik?",
+    "Hvordan er reglerne for Parkering – overblik?",
+    "Hvad siger informationen om Parkering – overblik?",
+    "Kan du fortælle om Parkering – overblik?",
+    "Hvad gælder om Parkering – venteliste og generel information?",
+    "Hvor kan jeg læse om Parkering – venteliste og generel information?",
+    "Hvad skal jeg vide om Parkering – venteliste og generel information?",
+    "Hvordan er reglerne for Parkering – venteliste og generel information?",
+    "Hvad siger informationen om Parkering – venteliste og generel information?",
+    "Kan du fortælle om Parkering – venteliste og generel information?",
+    "Hvad gælder om Parkering – uretmæssig parkering?",
+    "Hvor kan jeg læse om Parkering – uretmæssig parkering?",
+    "Hvad skal jeg vide om Parkering – uretmæssig parkering?",
+    "Hvordan er reglerne for Parkering – uretmæssig parkering?",
+    "Hvad siger informationen om Parkering – uretmæssig parkering?",
+    "Kan du fortælle om Parkering – uretmæssig parkering?",
+    "Hvad gælder om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?"
+  ],
+  "approved_questions": [
+    "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Forside | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Nyheder | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Parkering – overblik?",
+    "Hvor kan jeg læse om Parkering – overblik?",
+    "Hvad skal jeg vide om Parkering – overblik?",
+    "Hvordan er reglerne for Parkering – overblik?",
+    "Hvad siger informationen om Parkering – overblik?",
+    "Kan du fortælle om Parkering – overblik?",
+    "Hvad gælder om Parkering – venteliste og generel information?",
+    "Hvor kan jeg læse om Parkering – venteliste og generel information?",
+    "Hvad skal jeg vide om Parkering – venteliste og generel information?",
+    "Hvordan er reglerne for Parkering – venteliste og generel information?",
+    "Hvad siger informationen om Parkering – venteliste og generel information?",
+    "Kan du fortælle om Parkering – venteliste og generel information?",
+    "Hvad gælder om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad skal jeg vide om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvordan er reglerne for Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad siger informationen om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Kan du fortælle om Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvad gælder om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+    "Hvor kan jeg læse om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?"
+  ],
+  "rejected_questions": [
+    {
+      "question": "Hvordan er reglerne for Forside | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Forside | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvordan er reglerne for Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Velkomstbrev | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvad gælder om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Hvad siger informationen om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Kan du fortælle om Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev",
+      "actual": "re generalforsamling."
+    },
+    {
+      "question": "Hvad gælder om Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    },
+    {
+      "question": "Hvor kan jeg læse om Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    },
+    {
+      "question": "Hvad skal jeg vide om Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    },
+    {
+      "question": "Hvordan er reglerne for Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    },
+    {
+      "question": "Hvad siger informationen om Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    },
+    {
+      "question": "Kan du fortælle om Parkering – uretmæssig parkering?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering – uretmæssig parkering",
+      "actual": "Parkering – overblik"
+    }
+  ]
+}
