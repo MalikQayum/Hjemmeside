@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T22:53:44.000Z",
-  "generated": 5,
+  "tested_at": "2026-11-16T22:57:45.728Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 5,
+  "rejected": 0,
   "total_unique_attempted": 273,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -281,32 +281,5 @@
     "Hvilken e-mailadresse skal benyttes ved bestilling af ekstra nøglekort og brikker?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvor meget koster det at tilkøbe ekstra nøglekort og brikker?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvilke datoer udskiftes låsene på dørene til opgangene i forbindelse med det nye nøglesystem?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvordan skal nøglekort eller brik holdes på tastaturet for at aktivere låsen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvor lang tid skal man holde nøglekortet på tastaturet ved det nye nøglesystem?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvilken e-mailadresse skal benyttes ved bestilling af ekstra nøglekort og brikker?",
-      "reason": "low_question_quality"
-    }
-  ]
+  "rejected_questions": []
 }
