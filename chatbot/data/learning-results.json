@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T22:39:13.994Z",
-  "generated": 0,
-  "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 258,
+  "tested_at": "2026-11-16T22:52:10.888Z",
+  "generated": 10,
+  "approved": 8,
+  "rejected": 2,
+  "total_unique_attempted": 268,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -263,8 +263,40 @@
     "Hvad skal jeg vide om Nyhedsbrev nr.8?",
     "Hvordan er reglerne for Nyhedsbrev nr.8?",
     "Hvad siger informationen om Nyhedsbrev nr.8?",
-    "Kan du fortælle om Nyhedsbrev nr.8?"
+    "Kan du fortælle om Nyhedsbrev nr.8?",
+    "Hvem administrerer ejerforeningens parkeringspladser?",
+    "Hvem varetager parkeringskontrollen på området?",
+    "Hvem skal jeg kontakte, hvis nogen holder på din parkeringsplads?",
+    "Skal kælderrum holdes aflåst?",
+    "Hvem varetager den overordnede drift af ejerforeningen?",
+    "Må jeg opsætte udvendige antenner og loftantenner?",
+    "Skal kælderdøre ved kælderskakte og trappeopgange holdes aflåst?",
+    "Hvor må cykler, knallerter og barnevogne stilles?",
+    "Må jeg holde husdyr?",
+    "Må ejerlejlighederne og kælderrum anvendes til erhvervsaktiviteter?"
   ],
-  "approved_questions": [],
-  "rejected_questions": []
+  "approved_questions": [
+    "Hvem administrerer ejerforeningens parkeringspladser?",
+    "Hvem varetager parkeringskontrollen på området?",
+    "Hvem skal jeg kontakte, hvis nogen holder på din parkeringsplads?",
+    "Skal kælderrum holdes aflåst?",
+    "Hvem varetager den overordnede drift af ejerforeningen?",
+    "Må jeg opsætte udvendige antenner og loftantenner?",
+    "Hvor må cykler, knallerter og barnevogne stilles?",
+    "Må jeg holde husdyr?"
+  ],
+  "rejected_questions": [
+    {
+      "question": "Skal kælderdøre ved kælderskakte og trappeopgange holdes aflåst?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Husorden – punkt 3",
+      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Må ejerlejlighederne og kælderrum anvendes til erhvervsaktiviteter?",
+      "reason": "wrong_or_missing_source",
+      "expected": "lser kan gå i arv og være retsforfølgningsgrundlag.",
+      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
+    }
+  ]
 }

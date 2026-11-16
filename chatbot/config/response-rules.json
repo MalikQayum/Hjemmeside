@@ -73,6 +73,78 @@
       "answer_word_count": 13,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T22:36:45.209Z"
+    },
+    {
+      "question": "Hvem administrerer ejerforeningens parkeringspladser?",
+      "document_id": "2ed69c63e8412778",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Hvem varetager parkeringskontrollen på området?",
+      "document_id": "8a1c8ccb790860f6",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Hvem skal jeg kontakte, hvis nogen holder på din parkeringsplads?",
+      "document_id": "8a1c8ccb790860f6",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Skal kælderrum holdes aflåst?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Hvem varetager den overordnede drift af ejerforeningen?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Må jeg opsætte udvendige antenner og loftantenner?",
+      "document_id": "04f17b59d499bf79",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Hvor må cykler, knallerter og barnevogne stilles?",
+      "document_id": "692314bd890445e2",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Må jeg holde husdyr?",
+      "document_id": "7cf05b95e8d5a01a",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 12,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:52:10.888Z"
     }
   ]
 }
