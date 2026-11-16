@@ -145,6 +145,168 @@
       "answer_word_count": 12,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T22:52:10.888Z"
+    },
+    {
+      "question": "Hvem skal man kontakte vedrørende målerudstyr samt aflæsning af varme og vand?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvad er telefonnummeret til foreningens forsyningsselskab HOFOR?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvilket firma varetager den daglige ejendomsadministrations opgaver for ejerforeningen?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvordan opkræves den månedlige leje for et kælderrum?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvordan fordeles kælderrum, hvis der ikke er nogen ledige med det samme?",
+      "document_id": "b00f28b9a08680d1",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvem kan bestille nye eller ekstra nøglebrikker hos ejerforeningen?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvad skal man gøre, hvis man har mistet en nøglebrik?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvordan kan man få ombyttet en defekt nøglebrik?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvordan skal alt affald pakkes ind af hygiejniske grunde?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvor skal man placere storaffald som møbler og tæpper?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvor må cykler, knallerter og barnevogne ikke stilles?",
+      "document_id": "692314bd890445e2",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvem skal sørge for omgående rengøring, hvis man forurener anlæg, trapper eller gange?",
+      "document_id": "aa52f171567fa526",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvordan skal man tilrettelægge brugen af musikinstrumenter og fjernsyn for at tage hensyn til naboerne?",
+      "document_id": "f857c24a7e2fd061",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 36,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvad kræves der, hvis man ønsker at anvende sin lejlighed til andet end beboelse?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvilke konsekvenser kan det få, hvis man foretager hærværk eller ødelæggelse af ejendom og anlæg?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvor er det forbudt at ryge på indendørs fællesarealer?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvilke udendørs bygningsdele og fællesarealer har foreningen ansvaret for at vedligeholde?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
+    },
+    {
+      "question": "Hvilke krav stilles der ved salg af en ejerlejlighed for at den kan ske frit?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T23:00:10.964Z"
     }
   ]
 }
