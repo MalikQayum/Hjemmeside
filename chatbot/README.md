@@ -53,24 +53,30 @@ Når husordenen eller andre kilder ændres, skal vidensdatabasen bygges igen via
 
 ## Automatisk spørgsmålstræning
 
-Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye, danske spørgsmål ud fra de aktuelle afsnit i `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**.
+Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye danske spørgsmål ud fra `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**.
 
-### Første opsætning
+### Gemini-opsætning
 
-1. Opret en API-nøgle hos OpenAI.
-2. Tilføj den i repository'ets **Settings → Secrets and variables → Actions** med navnet `OPENAI_API_KEY`.
+1. Opret en API-nøgle i [Google AI Studio](https://aistudio.google.com/apikey).
+2. Tilføj den i repositoryets **Settings → Secrets and variables → Actions** med navnet `GEMINI_API_KEY`.
 3. Kør workflowet manuelt første gang.
 
-API-nøglen bruges kun af GitHub Actions og må aldrig placeres i JavaScript, HTML eller `config.json`. AI-generering medfører API-forbrug og dermed eventuelle omkostninger. Modellen kan ændres i workflowets `OPENAI_MODEL`.
+Workflowet bruger som standard `gemini-2.5-flash-lite`. Det er konfigureret til Gemini Developer API's gratis kvote, hvor den er tilgængelig. Gratis adgang har model- og hastighedsbegrænsninger, som Google kan ændre. Der er ingen garanti for ubegrænset gratis brug. Vi bruger ikke betalte funktioner eller Google Search-grounding.
+
+API-nøglen bruges kun af GitHub Actions og må aldrig placeres i JavaScript, HTML eller `config.json`.
+
+### Hvis Gemini ikke er tilgængelig
+
+Hvis `GEMINI_API_KEY` mangler, eller Gemini returnerer en fejl/kvotegrænse, falder scriptet automatisk tilbage til en lokal Python-generator uden API-kald. Den lokale generator laver spørgsmålsvarianter ud fra eksisterende kildeoverskrifter. Disse spørgsmål skal stadig bestå den samme JavaScript-test, før de godkendes.
 
 ### Sådan bliver spørgsmål godkendt
 
-- AI'en må kun generere spørgsmål ud fra de eksisterende kildeafsnit og skal angive det præcise `document_id`.
+- Gemini må kun generere spørgsmål ud fra de eksisterende kildeafsnit og skal angive det præcise `document_id`.
 - `train-generated-questions.js` tester hvert spørgsmål mod chatbotens faktiske søge- og svarfunktion.
 - Spørgsmålet godkendes kun, hvis søgemotoren finder det angivne kildeafsnit som bedste resultat, kilden har indhold og URL, og svaret er højst 45 ord.
 - Godkendte spørgsmål gemmes i `config/response-rules.json`. Reglen peger kun på et eksisterende kildeafsnit; den indeholder ikke nye foreningsregler eller selvstændige fakta.
 - Chatbotten indlæser reglerne og bruger dem til at finde det rigtige kildeafsnit ved præcis samme spørgsmål.
-- Afviste spørgsmål gemmes i `data/learning-results.json`, så træningen kan følges og forbedres.
+- Afviste spørgsmål gemmes i `data/learning-results.json`.
 - Nye spørgsmål bliver ikke automatisk til officielle svar. Det er stadig `knowledge.json` og hjemmesidens kilder, der bestemmer indholdet.
 
-Workflowet kører dagligt kl. 06:15 UTC og kan startes manuelt. Det bruger GitHub Actions til at committe ændringerne. Det ændrer aldrig husorden, vedtægter eller andre officielle kilder.
+Workflowet kører dagligt kl. 06:15 UTC og kan startes manuelt. Det ændrer aldrig husorden, vedtægter eller andre officielle kilder.
