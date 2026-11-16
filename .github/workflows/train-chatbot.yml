@@ -1,9 +1,11 @@
+
 name: Træn chatbot med nye spørgsmål
 
 on:
   schedule:
     # Daglig træning kl. 06:15 UTC.
     - cron: "15 6 * * *"
+
   workflow_dispatch:
     inputs:
       question_batch_size:
@@ -11,6 +13,7 @@ on:
         required: false
         default: "50"
         type: string
+
   push:
     branches: [main]
     paths:
@@ -30,6 +33,7 @@ jobs:
   train:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
     steps:
       - name: Hent repository
         uses: actions/checkout@v4
@@ -52,11 +56,7 @@ jobs:
       - name: Generér nye spørgsmål med Gemini (gratis kvote)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-<<<<<<< Updated upstream
-          GEMINI_MODEL: gemini-2.5-flash-lite
-=======
           GEMINI_MODEL: gemini-3.5-flash-lite
->>>>>>> Stashed changes
           QUESTION_BATCH_SIZE: ${{ inputs.question_batch_size || '50' }}
         run: python scripts/chatbot/generate-questions.py
 
@@ -75,8 +75,10 @@ jobs:
             echo "Ingen nye spørgsmål bestod testen."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add chatbot/config/response-rules.json chatbot/data/learning-results.json
           git commit -m "chore(chatbot): tilføj automatisk testede spørgsmål"
           git push
