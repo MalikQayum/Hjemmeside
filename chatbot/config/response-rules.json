@@ -325,6 +325,195 @@
       "answer_word_count": 32,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T21:36:51.572Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad siger informationen om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Kan du fortælle om Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "846de9af27355119",
+      "source_file": "noeglebrikker/index.html",
+      "source_url": "/noeglebrikker/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad gælder om Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad siger informationen om Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Kan du fortælle om Kontakt | Ejerforeningen Skyttegård/Vigerslev?",
+      "document_id": "0156d4e41a37fe39",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad gælder om fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvordan er reglerne for fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad siger informationen om fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Kan du fortælle om fjernvarme samt drifter spildevands- og forsyningsnettet?",
+      "document_id": "dea8450bf6127c0c",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 1?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 1?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 1?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 1?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 1?",
+      "document_id": "c79d8adf5bb57666",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:40:09.207Z"
     }
   ]
 }
