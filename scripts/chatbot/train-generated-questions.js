@@ -40,6 +40,14 @@ function normalize(value) {
     .replace(/æ/g, "ae").replace(/ø/g, "o").replace(/å/g, "a")
     .replace(/[.!?]+$/g, "").trim().replace(/\s+/g, " ");
 }
+function isNaturalQuestion(question) {
+  const words = question.match(/[A-Za-zÆØÅæøå0-9]+/g) || [];
+  if (!question.endsWith("?") || question.length < 12 || question.length > 160 || words.length < 4) return false;
+  if (words.some(word => word.length === 1)) return false;
+  if (/^(hvad gælder om|hvad gælder for|hvad skal jeg vide om|hvor kan jeg læse om)\b/i.test(question)) return false;
+  if (/^(må jeg ikke|må jeg anvende til|skal sikkerhed:|hvad gælder for hvis)\b/i.test(question)) return false;
+  return true;
+}
 const existing = new Set((rules.rules || []).map(rule => normalize(rule.question)));
 const docs = new Map(knowledge.documents.map(doc => [doc.id, doc]));
 const accepted = [];
@@ -48,6 +56,10 @@ const rejected = [];
 for (const candidate of candidates.questions || []) {
   const question = String(candidate.question || "").trim();
   const expected = docs.get(candidate.document_id);
+  if (!isNaturalQuestion(question)) {
+    rejected.push({ question, reason: "low_question_quality" });
+    continue;
+  }
   if (!question || !expected || existing.has(normalize(question))) {
     rejected.push({ question, reason: !expected ? "unknown_source" : "duplicate_or_empty" });
     continue;
