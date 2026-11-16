@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T22:36:45.209Z",
-  "generated": 8,
-  "approved": 8,
+  "tested_at": "2026-11-16T22:39:13.994Z",
+  "generated": 0,
+  "approved": 0,
   "rejected": 0,
   "total_unique_attempted": 258,
   "attempted_questions": [
@@ -265,15 +265,6 @@
     "Hvad siger informationen om Nyhedsbrev nr.8?",
     "Kan du fortælle om Nyhedsbrev nr.8?"
   ],
-  "approved_questions": [
-    "Hvad siger informationen om ejerlejligheder, samt til almindeligt gældende?",
-    "Kan du fortælle om ejerlejligheder, samt til almindeligt gældende?",
-    "Hvad gælder om Nyhedsbrev nr.8?",
-    "Hvor kan jeg læse om Nyhedsbrev nr.8?",
-    "Hvad skal jeg vide om Nyhedsbrev nr.8?",
-    "Hvordan er reglerne for Nyhedsbrev nr.8?",
-    "Hvad siger informationen om Nyhedsbrev nr.8?",
-    "Kan du fortælle om Nyhedsbrev nr.8?"
-  ],
+  "approved_questions": [],
   "rejected_questions": []
 }
