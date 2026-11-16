@@ -514,6 +514,276 @@
       "answer_word_count": 14,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T21:40:09.207Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 10?",
+      "document_id": "596b2731594780e7",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 11?",
+      "document_id": "d9a38e916a0c69fe",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 12?",
+      "document_id": "ef35ddde3dbc04e1",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 13?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad gælder om Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad siger informationen om Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Kan du fortælle om Husorden – punkt 14?",
+      "document_id": "bb44a213bbce7439",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 10,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:42:42.045Z"
     }
   ]
 }
