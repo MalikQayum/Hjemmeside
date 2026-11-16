@@ -49,10 +49,10 @@ jobs:
           python scripts/chatbot/validate-knowledge.py
           node scripts/chatbot/test-chatbot.js
 
-      - name: Generér nye spørgsmål med AI
+      - name: Generér nye spørgsmål med Gemini (gratis kvote)
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: gpt-4.1-mini
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash-lite
           QUESTION_BATCH_SIZE: ${{ inputs.question_batch_size || '50' }}
         run: python scripts/chatbot/generate-questions.py
 
