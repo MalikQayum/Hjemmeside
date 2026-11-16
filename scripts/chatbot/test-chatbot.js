@@ -14,7 +14,7 @@ let source = fs.readFileSync(jsPath, "utf8");
 const insertionPoint = '  const style = document.createElement("link");';
 if (!source.includes(insertionPoint)) throw new Error("Could not locate chatbot test hook");
 source = source.replace(insertionPoint,
-  '  globalThis.__chatbotTest = { setKnowledge(v) { knowledge = v; }, search, formatAnswer, predefinedAnswer, topics: TOPICS }; return;\n' + insertionPoint);
+  '  globalThis.__chatbotTest = { setKnowledge(v) { knowledge = v; }, setRules(v) { responseRules = v; }, search, formatAnswer, predefinedAnswer, topics: TOPICS }; return;\n' + insertionPoint);
 
 const context = {
   navigator: { language: "da" },
@@ -49,6 +49,12 @@ console.log("OK: Kompakte emneknapper og lukning via Spørg os-knappen");
 
 const api = context.__chatbotTest;
 api.setKnowledge(JSON.parse(fs.readFileSync(dataPath, "utf8")));
+const responseRulesPath = path.join(ROOT, "chatbot/config/response-rules.json");
+const responseRules = JSON.parse(fs.readFileSync(responseRulesPath, "utf8"));
+if (responseRules.schema_version !== 1 || !Array.isArray(responseRules.rules)) {
+  throw new Error("response-rules.json har forkert struktur");
+}
+api.setRules({ schema_version: 1, rules: [] });
 
 const tests = [
   ["må vi have hund", doc => doc.section === 6, "Det er ikke tilladt at holde husdyr"],
@@ -67,6 +73,15 @@ for (const [question, expectedDocument, expectedAnswer] of tests) {
   if (!answer.includes(expectedAnswer)) throw new Error(`Forkert svar for '${question}': ${answer}`);
   console.log(`OK: ${question} → ${results[0].doc.title}`);
 }
+
+const husdyrDoc = api.search("må vi have hund")[0].doc;
+api.setRules({ schema_version: 1, rules: [{ question: "må jeg have en lille hund?", document_id: husdyrDoc.id }] });
+const learnedMatch = api.search("må jeg have en lille hund?");
+if (!learnedMatch.length || learnedMatch[0].doc.id !== husdyrDoc.id) {
+  throw new Error("En godkendt læringsregel pegede ikke på det rigtige kildeafsnit");
+}
+api.setRules({ schema_version: 1, rules: [] });
+console.log("OK: Godkendte læringsregler kan pege på et verificeret kildeafsnit");
 
 const expectedTopics = ["parkering", "vedtaegter", "husorden", "kontakt", "kaelderrum", "noeglebrikker", "nyheder", "generelt"];
 for (const topic of expectedTopics) {

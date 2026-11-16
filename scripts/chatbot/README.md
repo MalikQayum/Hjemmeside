@@ -15,3 +15,12 @@ node scripts/chatbot/test-chatbot.js
 ```
 
 GitHub Actions-workflowet installerer desuden OCR-værktøjer. Ret ikke `knowledge.json` manuelt; generér den på ny.
+
+
+## Automatisk spørgsmålstræning
+
+- `generate-questions.py`: bruger OpenAI API i GitHub Actions til at generere op til 50 nye spørgsmål ud fra `chatbot/data/knowledge.json`. Kræver Actions-secret `OPENAI_API_KEY`.
+- `train-generated-questions.js`: tester hvert spørgsmål med chatbotens faktiske JavaScript-søgemotor og svarformatering. Kun spørgsmål, der finder det angivne kildeafsnit og giver et svar på højst 45 ord, tilføjes til `chatbot/config/response-rules.json`.
+- `.github/workflows/train-chatbot.yml`: kører dagligt eller manuelt. Resultatet gemmes i `chatbot/data/learning-results.json`.
+
+Træningen lærer chatbotten at genkende spørgsmål og vælge den rigtige kilde. Den ændrer ikke kildetekster eller regler. AI-generering bruger API-forbrug; API-nøglen skal kun ligge som GitHub Actions secret.

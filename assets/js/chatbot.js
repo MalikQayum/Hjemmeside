@@ -1,9 +1,10 @@
-/* Ejerforeningens lokale, vidensbaserede chatbot – ingen ekstern AI/API. */
+/* Lokal, kildebaseret chatbot. AI bruges kun i den separate GitHub Actions-træning. */
 (() => {
   if (document.getElementById("association-chatbot")) return;
 
   const BASE = new URL("/", document.baseURI);
   const KNOWLEDGE_URL = new URL("chatbot/data/knowledge.json", BASE).href;
+  const RESPONSE_RULES_URL = new URL("chatbot/config/response-rules.json", BASE).href;
   const TEXT = {
     da: {
       title: "Spørg ejerforeningen", subtitle: "Dansk / English",
@@ -146,6 +147,7 @@
 
   let language = detectLanguage(navigator.language || "da");
   let knowledge = null;
+  let responseRules = { schema_version: 1, rules: [] };
   let loading = false;
 
   function detectLanguage(value) { return String(value).toLowerCase().startsWith("en") ? "en" : "da"; }
@@ -200,6 +202,16 @@
     return score;
   }
   function search(query) {
+    // Godkendte træningsspørgsmål peger på et konkret kildeafsnit.
+    // Reglen vælger kun kilde; svaret formuleres stadig af den almindelige svarmotor.
+    const normalizedQuestion = normalize(query).trim().replace(/[.!?]+$/g, "");
+    const learnedRule = (responseRules.rules || []).find(rule =>
+      normalize(rule.question || "").trim().replace(/[.!?]+$/g, "") === normalizedQuestion
+    );
+    if (learnedRule && knowledge?.documents) {
+      const learnedDoc = knowledge.documents.find(doc => doc.id === learnedRule.document_id);
+      if (learnedDoc) return [{ doc: learnedDoc, score: 1000, learned: true }];
+    }
     const terms = expandedTokens(query);
     const intent = detectIntent(query);
     const ranked = (knowledge?.documents || []).map(doc => ({ doc, score: scoreDocument(doc, terms, query, intent) }))
@@ -243,9 +255,14 @@
       return "Ejerforeningens parkeringspladser administreres af bestyrelsen. Du kan skrive dig på ventelisten via kontaktformularen på parkeringssiden. Hvis nogen holder på din plads, skal du kontakte DinParkering.";
     }
     const excerpt = primary.content.trim();
+    // Hold standardsvaret kort: højst to sætninger og 45 ord.
+    const sentences = excerpt.split(/(?<=[.!?])\s+/).filter(Boolean).slice(0, 2);
+    let concise = sentences.join(" ");
+    const words = concise.split(/\s+/);
+    if (words.length > 45) concise = words.slice(0, 45).join(" ").replace(/[,:;]$/, "") + "…";
     return language === "en"
-      ? "I found this information in the association's Danish source material. The original wording is shown below:\n\n" + excerpt
-      : excerpt;
+      ? "The association's Danish source says: " + concise
+      : concise;
   }
 
   const style = document.createElement("link");
@@ -396,9 +413,16 @@
     if (knowledge || loading) return;
     loading = true;
     try {
-      const response = await fetch(KNOWLEDGE_URL, { cache: "no-cache" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      knowledge = await response.json();
+      const [knowledgeResponse, rulesResponse] = await Promise.all([
+        fetch(KNOWLEDGE_URL, { cache: "no-cache" }),
+        fetch(RESPONSE_RULES_URL, { cache: "no-cache" }).catch(() => null)
+      ]);
+      if (!knowledgeResponse.ok) throw new Error(`HTTP ${knowledgeResponse.status}`);
+      knowledge = await knowledgeResponse.json();
+      if (rulesResponse?.ok) {
+        const loadedRules = await rulesResponse.json();
+        if (loadedRules && Array.isArray(loadedRules.rules)) responseRules = loadedRules;
+      }
     } catch (error) {
       console.error("Chatbot knowledge load failed:", error);
       addMessage("bot", TEXT[language].error);

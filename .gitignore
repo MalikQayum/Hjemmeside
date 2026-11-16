@@ -4,3 +4,6 @@ package.json
 package-lock.json
 playwright/.auth/
 
+
+# Midlertidige AI-genererede spørgsmål under chatbottræning
+chatbot/data/generated-questions.json

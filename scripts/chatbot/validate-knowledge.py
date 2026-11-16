@@ -28,3 +28,21 @@ for item in parking:
 print(f"Vidensdatabase OK: {len(ids)} afsnit. Husdyr, nattero og parkering er kontrolleret.")
 if data.get("warnings"):
     print(f"Advarsler: {len(data['warnings'])}")
+
+# Automatisk læring må kun pege på eksisterende, officielle kildeafsnit.
+rules_path = p.resolve().parents[1] / "config/response-rules.json"
+rules = json.loads(rules_path.read_text(encoding="utf-8"))
+assert rules.get("schema_version") == 1
+assert isinstance(rules.get("rules"), list)
+known_ids = {item.get("id") for item in data["documents"]}
+seen_questions = set()
+for rule in rules["rules"]:
+    question = rule.get("question", "").strip()
+    assert question, "Tomt spørgsmål i response-rules.json"
+    normalized = " ".join(question.lower().split())
+    assert normalized not in seen_questions, f"Duplicate response rule: {question}"
+    seen_questions.add(normalized)
+    assert rule.get("document_id") in known_ids, f"Ukendt kilde i response rule: {question}"
+    assert rule.get("source_url"), f"Mangler kilde-URL i response rule: {question}"
+    assert int(rule.get("answer_word_count", 0)) <= 45, f"For langt godkendt svar: {question}"
+print(f"Automatiske svarregler OK: {len(rules['rules'])} godkendte spørgsmål.")

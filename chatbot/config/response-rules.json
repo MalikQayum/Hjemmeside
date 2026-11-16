@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Automatisk godkendte spørgsmål, der peger på verificerede kildeafsnit. Regler indeholder ikke selvstændige foreningsfakta.",
+  "rules": []
+}
