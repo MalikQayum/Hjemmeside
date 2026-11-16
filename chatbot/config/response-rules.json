@@ -784,6 +784,456 @@
       "answer_word_count": 10,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T21:42:42.045Z"
+    },
+    {
+      "question": "Hvad gælder om Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om Side 1 (OCR)?",
+      "document_id": "0e9e7dd159f2af37",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om r for disse i fællesanliggender vedrørende ejendommen?",
+      "document_id": "64e9ff578fd07f96",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om lgers skøde er tinglyst uden?",
+      "document_id": "19aa838821728465",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 18,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel?",
+      "document_id": "4fd5e2d34b31f415",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om st mulige lån af overformynder?",
+      "document_id": "51fe1cd47e75e5c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og?",
+      "document_id": "3bd759338e7fcd6f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 21,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om dvendig maling af ejendommens vinduer finder sted, er lejlighedsejeren pligtig samtidig?",
+      "document_id": "863b435a175e94c5",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 23,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvordan er reglerne for ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad siger informationen om ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Kan du fortælle om ntuelt dennes lejer?",
+      "document_id": "2867390d44c0555d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad gælder om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T21:53:48.980Z"
     }
   ]
 }
