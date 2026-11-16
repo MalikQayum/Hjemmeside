@@ -1234,6 +1234,402 @@
       "answer_word_count": 45,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T21:53:48.980Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om ling af ham påhvilende økonomiske ydelser til foreningen, ved?",
+      "document_id": "a416d7c790345093",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 45,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om l en voldgift. Sag anlægges ved underret i den retskreds, hvori?",
+      "document_id": "15fad6c9f42b2f9f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 14,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om re generalforsamling?",
+      "document_id": "be47333d442403d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 3,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om uelle forslag skal udsendes sammen med indkaldelsen. Medlemmernes forslag skal være?",
+      "document_id": "7a565725986fecba",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om ligger forslag til vedtægtsændringer eller foreningens ophør?",
+      "document_id": "860f6513696121aa",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 8,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om på denne kan da forslag, som har opnået tilslutning fra 2/3 afde?",
+      "document_id": "bb44c921627c33d2",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad siger informationen om lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Kan du fortælle om lser kan gå i arv og være retsforfølgningsgrundlag?",
+      "document_id": "48540c54e2c56fff",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 9,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad gælder om ejerlejligheder, samt til almindeligt gældende?",
+      "document_id": "7f0efc24d520d30f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvor kan jeg læse om ejerlejligheder, samt til almindeligt gældende?",
+      "document_id": "7f0efc24d520d30f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvad skal jeg vide om ejerlejligheder, samt til almindeligt gældende?",
+      "document_id": "7f0efc24d520d30f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
+    },
+    {
+      "question": "Hvordan er reglerne for ejerlejligheder, samt til almindeligt gældende?",
+      "document_id": "7f0efc24d520d30f",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 15,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-16T22:11:57.073Z"
     }
   ]
 }
