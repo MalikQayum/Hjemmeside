@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "description": "Automatisk godkendte spørgsmål, der peger på verificerede kildeafsnit. Regler indeholder ikke selvstændige foreningsfakta.",
+<<<<<<< Updated upstream
   "rules": [
     {
       "question": "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -1632,4 +1633,7 @@
       "approved_at": "2026-11-16T22:11:57.073Z"
     }
   ]
+=======
+  "rules": []
+>>>>>>> Stashed changes
 }

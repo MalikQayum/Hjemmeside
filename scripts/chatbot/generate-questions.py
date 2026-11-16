@@ -13,7 +13,11 @@ ROOT = Path(__file__).resolve().parents[2]
 KNOWLEDGE = ROOT / "chatbot/data/knowledge.json"
 RULES = ROOT / "chatbot/config/response-rules.json"
 OUTPUT = ROOT / "chatbot/data/generated-questions.json"
+<<<<<<< Updated upstream
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite")
+=======
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
+>>>>>>> Stashed changes
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 COUNT = max(1, min(100, int(os.environ.get("QUESTION_BATCH_SIZE", "50"))))
 

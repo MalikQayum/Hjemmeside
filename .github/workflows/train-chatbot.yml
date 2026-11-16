@@ -52,7 +52,11 @@ jobs:
       - name: Generér nye spørgsmål med Gemini (gratis kvote)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+<<<<<<< Updated upstream
           GEMINI_MODEL: gemini-2.5-flash-lite
+=======
+          GEMINI_MODEL: gemini-3.5-flash-lite
+>>>>>>> Stashed changes
           QUESTION_BATCH_SIZE: ${{ inputs.question_batch_size || '50' }}
         run: python scripts/chatbot/generate-questions.py
 
