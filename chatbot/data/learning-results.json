@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T22:52:10.888Z",
-  "generated": 10,
-  "approved": 8,
-  "rejected": 2,
-  "total_unique_attempted": 268,
+  "tested_at": "2026-11-16T22:53:44.000Z",
+  "generated": 5,
+  "approved": 0,
+  "rejected": 5,
+  "total_unique_attempted": 273,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -273,30 +273,40 @@
     "Skal kælderdøre ved kælderskakte og trappeopgange holdes aflåst?",
     "Hvor må cykler, knallerter og barnevogne stilles?",
     "Må jeg holde husdyr?",
-    "Må ejerlejlighederne og kælderrum anvendes til erhvervsaktiviteter?"
+    "Må ejerlejlighederne og kælderrum anvendes til erhvervsaktiviteter?",
+    "Hvor meget koster det at tilkøbe ekstra nøglekort og brikker?",
+    "Hvilke datoer udskiftes låsene på dørene til opgangene i forbindelse med det nye nøglesystem?",
+    "Hvordan skal nøglekort eller brik holdes på tastaturet for at aktivere låsen?",
+    "Hvor lang tid skal man holde nøglekortet på tastaturet ved det nye nøglesystem?",
+    "Hvilken e-mailadresse skal benyttes ved bestilling af ekstra nøglekort og brikker?"
   ],
-  "approved_questions": [
-    "Hvem administrerer ejerforeningens parkeringspladser?",
-    "Hvem varetager parkeringskontrollen på området?",
-    "Hvem skal jeg kontakte, hvis nogen holder på din parkeringsplads?",
-    "Skal kælderrum holdes aflåst?",
-    "Hvem varetager den overordnede drift af ejerforeningen?",
-    "Må jeg opsætte udvendige antenner og loftantenner?",
-    "Hvor må cykler, knallerter og barnevogne stilles?",
-    "Må jeg holde husdyr?"
-  ],
+  "approved_questions": [],
   "rejected_questions": [
     {
-      "question": "Skal kælderdøre ved kælderskakte og trappeopgange holdes aflåst?",
+      "question": "Hvor meget koster det at tilkøbe ekstra nøglekort og brikker?",
       "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 3",
-      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
     },
     {
-      "question": "Må ejerlejlighederne og kælderrum anvendes til erhvervsaktiviteter?",
+      "question": "Hvilke datoer udskiftes låsene på dørene til opgangene i forbindelse med det nye nøglesystem?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvordan skal nøglekort eller brik holdes på tastaturet for at aktivere låsen?",
       "reason": "wrong_or_missing_source",
-      "expected": "lser kan gå i arv og være retsforfølgningsgrundlag.",
-      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvor lang tid skal man holde nøglekortet på tastaturet ved det nye nøglesystem?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvilken e-mailadresse skal benyttes ved bestilling af ekstra nøglekort og brikker?",
+      "reason": "low_question_quality"
     }
   ]
 }
