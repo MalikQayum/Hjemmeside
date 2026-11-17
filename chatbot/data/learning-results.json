@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-16T23:00:10.964Z",
-  "generated": 49,
-  "approved": 18,
-  "rejected": 31,
-  "total_unique_attempted": 322,
+  "tested_at": "2026-11-17T04:34:54.919Z",
+  "generated": 5,
+  "approved": 0,
+  "rejected": 5,
+  "total_unique_attempted": 327,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -327,190 +327,36 @@
     "Hvem betaler for istandsættelse af en ejerlejlighed, hvis der opstår en uforskyldt vandskade?",
     "Hvad er en ejerlejlighed af grænser ifølge vedtægterne?",
     "Hvilke krav stilles der ved salg af en ejerlejlighed for at den kan ske frit?",
-    "Er det tilladt at drive erhvervsaktiviteter fra ejerlejlighederne eller kælderrummene?"
+    "Er det tilladt at drive erhvervsaktiviteter fra ejerlejlighederne eller kælderrummene?",
+    "Hvornår udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+    "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen i det nye system?",
+    "Hvad koster det at tilkøbe ekstra nøglekort og brikker?",
+    "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglekort og brikker?",
+    "Hvornår udskiftes låsene på dørene i opgang 3, 9 og 146 i forbindelse med det nye nøglesystem?"
   ],
-  "approved_questions": [
-    "Hvem skal man kontakte vedrørende målerudstyr samt aflæsning af varme og vand?",
-    "Hvad er telefonnummeret til foreningens forsyningsselskab HOFOR?",
-    "Hvilket firma varetager den daglige ejendomsadministrations opgaver for ejerforeningen?",
-    "Hvordan opkræves den månedlige leje for et kælderrum?",
-    "Hvordan fordeles kælderrum, hvis der ikke er nogen ledige med det samme?",
-    "Hvem kan bestille nye eller ekstra nøglebrikker hos ejerforeningen?",
-    "Hvad skal man gøre, hvis man har mistet en nøglebrik?",
-    "Hvordan kan man få ombyttet en defekt nøglebrik?",
-    "Hvordan skal alt affald pakkes ind af hygiejniske grunde?",
-    "Hvor skal man placere storaffald som møbler og tæpper?",
-    "Hvor må cykler, knallerter og barnevogne ikke stilles?",
-    "Hvem skal sørge for omgående rengøring, hvis man forurener anlæg, trapper eller gange?",
-    "Hvordan skal man tilrettelægge brugen af musikinstrumenter og fjernsyn for at tage hensyn til naboerne?",
-    "Hvad kræves der, hvis man ønsker at anvende sin lejlighed til andet end beboelse?",
-    "Hvilke konsekvenser kan det få, hvis man foretager hærværk eller ødelæggelse af ejendom og anlæg?",
-    "Hvor er det forbudt at ryge på indendørs fællesarealer?",
-    "Hvilke udendørs bygningsdele og fællesarealer har foreningen ansvaret for at vedligeholde?",
-    "Hvilke krav stilles der ved salg af en ejerlejlighed for at den kan ske frit?"
-  ],
+  "approved_questions": [],
   "rejected_questions": [
     {
-      "question": "Hvordan skal man forholde sig, hvis man vil have udleveret ekstra nøglekort eller brikker?",
+      "question": "Hvornår udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen i det nye system?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvad koster det at tilkøbe ekstra nøglekort og brikker?",
       "reason": "wrong_or_missing_source",
       "expected": "Nyhedsbrev nr.8",
       "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
     },
     {
-      "question": "Hvilke datoer i juni 2026 udskiftes låsene på gadedørene til det nye nøglesystem?",
+      "question": "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglekort og brikker?",
       "reason": "low_question_quality"
     },
     {
-      "question": "Hvor længe skal nøglekortet eller brikken holdes på tastaturet for at aktivere låsen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvilken e-mailadresse skal benyttes til bestilling af nøglekort og brikker?",
+      "question": "Hvornår udskiftes låsene på dørene i opgang 3, 9 og 146 i forbindelse med det nye nøglesystem?",
       "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvilken e-mailadresse skal man bruge, hvis man vil kontakte foreningens administration hos DEAS?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvem leverer drikkevand og fjernvarme til ejendommen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Kontakt | Ejerforeningen Skyttegård/Vigerslev",
-      "actual": "fjernvarme samt drifter spildevands- og forsyningsnettet."
-    },
-    {
-      "question": "Hvilket telefonnummer har den faste håndværker og døgnvagt Finn L. & Davidsen A/S?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvem skal man kontakte, hvis en uvedkommende bil holder på ens parkeringsplads?",
-      "reason": "wrong_or_missing_source",
-      "expected": "fjernvarme samt drifter spildevands- og forsyningsnettet.",
-      "actual": "Parkering – uretmæssig parkering"
-    },
-    {
-      "question": "Hvilken e-mailadresse skal benyttes ved henvendelse til Finn L. & Davidsen A/S?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvad er telefonnummeret til parkeringskontrollen DinParkering?",
-      "reason": "wrong_or_missing_source",
-      "expected": "fjernvarme samt drifter spildevands- og forsyningsnettet.",
-      "actual": "Parkering – uretmæssig parkering"
-    },
-    {
-      "question": "Hvilke oplysninger skal man give til parkeringskontrollen, hvis der holder en fremmed bil på ens plads?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Parkering – overblik",
-      "actual": "Parkering – uretmæssig parkering"
-    },
-    {
-      "question": "Hvordan bliver man skrevet op på ventelisten til en parkeringsplads?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Parkering – overblik",
-      "actual": "Parkering – venteliste og generel information"
-    },
-    {
-      "question": "Hvem kan leje de ekstra kælderrum i ejendommens kældre?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvilken forsikring dækker opbevaring i kælderrummet?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvor må man anbringe altankasser ifølge husordenen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 2",
-      "actual": "Husorden – punkt 4"
-    },
-    {
-      "question": "Hvilke døre skal altid holdes aflåst ved kælderskakte og trappeopgange?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 3",
-      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Er det tilladt at køre på cykel eller knallert på gangstier og gårdarealer?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 4",
-      "actual": "ligger forslag til vedtægtsændringer eller foreningens ophør."
-    },
-    {
-      "question": "Er det tilladt at holde husdyr i ejerforeningen?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvor lang tid og hvor ofte bør man lufte ud i lejligheden for at undgå fugtdannelse?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Er det tilladt at fodre fugle, katte og andre dyr på området?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 9",
-      "actual": "Husorden – punkt 6"
-    },
-    {
-      "question": "Hvad må man aldrig kaste i toiletkummen for at undgå tilstopning af afløb?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvad er formålet med ejerforeningens husorden?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Husorden – punkt 14",
-      "actual": "Husorden og vedtægter | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvornår indtræder pligten til at være medlem af ejerforeningen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r for disse i fællesanliggender vedrørende ejendommen.",
-      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
-    },
-    {
-      "question": "Hvornår ophører medlemspligten for et udtrædende medlem?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r for disse i fællesanliggender vedrørende ejendommen.",
-      "actual": "lgers skøde er tinglyst uden"
-    },
-    {
-      "question": "Hvem skal underrette ejerforeningens bestyrelse om ændringer i ejerforholdet?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvordan fastsættes størrelsen på den almindelige ydelse til foreningens udgifter?",
-      "reason": "wrong_or_missing_source",
-      "expected": "lgers skøde er tinglyst uden",
-      "actual": "godkendes af generalforsamlingen. I tilfælde af store uforudsete uopsættelige udgifter skal bestyrel"
-    },
-    {
-      "question": "Hvem kan opkræve en ekstraordinær ydelse i tilfælde af store uforudsete udgifter?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvilke indvendte bygningsdele og installationer påhviler det de enkelte ejere at vedligeholde?",
-      "reason": "wrong_or_missing_source",
-      "expected": "st mulige lån af overformynder",
-      "actual": "vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og"
-    },
-    {
-      "question": "Hvem betaler for istandsættelse af en ejerlejlighed, hvis der opstår en uforskyldt vandskade?",
-      "reason": "wrong_or_missing_source",
-      "expected": "vinduer indvendigt, el-ledninger og andre el-installationer, tolletter, vaske, vand- og",
-      "actual": "lser kan gå i arv og være retsforfølgningsgrundlag."
-    },
-    {
-      "question": "Hvad er en ejerlejlighed af grænser ifølge vedtægterne?",
-      "reason": "wrong_or_missing_source",
-      "expected": "r automatisk en suppleants indtræden. Såfremt bestyrelsens",
-      "actual": "re generalforsamling."
-    },
-    {
-      "question": "Er det tilladt at drive erhvervsaktiviteter fra ejerlejlighederne eller kælderrummene?",
-      "reason": "wrong_or_missing_source",
-      "expected": "lser kan gå i arv og være retsforfølgningsgrundlag.",
-      "actual": "Leje af kælderrum | Ejerforeningen Skyttegård/Vigerslev"
     }
   ]
 }
