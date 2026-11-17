@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-17T07:30:29.975Z",
-  "generated": 0,
+  "tested_at": "2026-11-17T13:05:36.914Z",
+  "generated": 1,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 327,
+  "rejected": 1,
+  "total_unique_attempted": 328,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -332,8 +332,16 @@
     "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen i det nye system?",
     "Hvad koster det at tilkøbe ekstra nøglekort og brikker?",
     "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglekort og brikker?",
-    "Hvornår udskiftes låsene på dørene i opgang 3, 9 og 146 i forbindelse med det nye nøglesystem?"
+    "Hvornår udskiftes låsene på dørene i opgang 3, 9 og 146 i forbindelse med det nye nøglesystem?",
+    "Hvor meget koster ekstra nøglekort og brikker?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvor meget koster ekstra nøglekort og brikker?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
+    }
+  ]
 }
