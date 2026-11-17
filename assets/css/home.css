@@ -164,3 +164,36 @@
   color: #7f888f;
   text-align: center;
 }
+
+/* Videoer i afsnittet Affald og storskrald */
+.waste-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.waste-video-item {
+  min-width: 0;
+}
+
+.waste-video-item video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.35rem;
+  background: #222;
+}
+
+.waste-video-item h4 {
+  margin: 0.65rem 0 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .waste-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
