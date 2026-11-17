@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-17T13:05:36.914Z",
-  "generated": 1,
+  "tested_at": "2026-11-17T15:56:25.301Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 1,
+  "rejected": 0,
   "total_unique_attempted": 328,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -336,12 +336,5 @@
     "Hvor meget koster ekstra nøglekort og brikker?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvor meget koster ekstra nøglekort og brikker?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
-    }
-  ]
+  "rejected_questions": []
 }
