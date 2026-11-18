@@ -191,12 +191,29 @@
   margin: 1rem 0 0.5rem;
 }
 
-.waste-info-col .box ul {
+.waste-info-col .box ul.waste-rules-list {
+  list-style: none;
+  padding-left: 0;
   margin-bottom: 0;
 }
 
-.waste-info-col .box li + li {
-  margin-top: 0.45rem;
+.waste-info-col .box ul.waste-rules-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-left: 0;
+}
+
+.waste-info-col .box ul.waste-rules-list li + li {
+  margin-top: 0.75rem;
+}
+
+.waste-rule-icon {
+  color: #f56a6a;
+  width: 1.25rem;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
 }
 
 .waste-media-col {
@@ -293,5 +310,22 @@
   .waste-videos-row {
     grid-template-columns: 1fr;
   }
+}
+
+.home-practical-cards > div {
+  display: flex;
+}
+
+.home-practical-cards .box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.home-practical-cards .box .actions {
+  margin-top: auto;
+  padding-top: 0.75em;
+  margin-bottom: 0;
 }
 

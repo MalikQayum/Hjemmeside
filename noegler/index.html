@@ -7,7 +7,7 @@
       name="description"
       content="Information om bestilling af nøglebrikker, udlevering, mistede brikker og henvendelse i Ejerforeningen Skyttegård/Vigerslev."
     />
-    <title>Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev</title>
+    <title>Nøglekort &amp; nøglebrikker | Ejerforeningen Skyttegård/Vigerslev</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/contact-form.css" />
   </head>
@@ -25,7 +25,7 @@
           <!-- Main Section: Information & Contact Form -->
           <section>
             <header class="main">
-              <h1>Bestilling af nøglebrikker</h1>
+              <h1>Bestilling af nøglekort &amp; nøglebrikker</h1>
               <p>Information om bestilling, erstatning og udlevering af elektroniske nøglebrikker.</p>
             </header>
 
@@ -43,7 +43,7 @@
 
                     <h3>Bestilling &amp; Berettigelse</h3>
                     <p>
-                      Nye eller ekstra nøglebrikker kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Oplys venligst din adresse og antal ønsker.
+                      Nye eller ekstra nøglebrikker kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt. 100 kr. pr. stk.
                     </p>
 
                     <hr style="margin: 1.5em 0;" />
@@ -60,19 +60,19 @@
               <div class="col-6 col-12-medium contact-col-equal">
                 <div class="contact-card-box">
                   <header style="margin-bottom: 1.5em;">
-                    <h3>Bestil nøglebrikker</h3>
+                    <h3>Bestil nøglekort &amp; nøglebrikker</h3>
                     <p style="font-size: 0.9em; color: #7f888f; margin-top: 0.25em;">
                       Udfyld formularen for at sende en bestilling eller spærre en mistet brik.
                     </p>
                   </header>
 
-                  <form class="info-contact-form" data-subject-prefix="Nøglebrikker">
+                  <form class="info-contact-form" data-subject-prefix="Nøglekort &amp; nøglebrikker">
                     <div class="row gtr-uniform">
                       <div class="col-6 col-12-xsmall">
                         <label for="noegle-type">Henvendelse *</label>
                         <select name="type" id="noegle-type" required>
-                          <option value="Bestilling af ny nøglebrik" selected>Bestilling af ny brik</option>
-                          <option value="Mistet nøglebrik (Spærring & ny)">Mistet nøglebrik</option>
+                          <option value="Bestilling af nøglebrik / nøglekort" selected>Bestilling</option>
+                          <option value="Mistet nøglebrik (Spærring)">Mistet nøglebrik</option>
                           <option value="Defekt nøglebrik">Defekt nøglebrik</option>
                           <option value="Spørgsmål om nøglebrikker">Spørgsmål</option>
                         </select>
@@ -111,13 +111,71 @@
                         />
                       </div>
 
-                      <div class="col-12">
+                      <div class="col-12 js-order-fields">
+                        <div class="row gtr-uniform">
+                          <div class="col-6 col-12-xsmall">
+                            <label for="noegle-brik-qty">Antal nøglebrikker (100 kr./stk.)</label>
+                            <select name="antal_brikker" id="noegle-brik-qty" data-unit-price="100">
+                              <option value="0" selected>0 stk.</option>
+                              <option value="1">1 stk.</option>
+                              <option value="2">2 stk.</option>
+                              <option value="3">3 stk.</option>
+                              <option value="4">4 stk.</option>
+                              <option value="5">5 stk.</option>
+                              <option value="6">6 stk.</option>
+                              <option value="7">7 stk.</option>
+                              <option value="8">8 stk.</option>
+                              <option value="9">9 stk.</option>
+                              <option value="10">10 stk.</option>
+                            </select>
+                          </div>
+
+                          <div class="col-6 col-12-xsmall">
+                            <label for="noegle-kort-qty">Antal nøglekort (100 kr./stk.)</label>
+                            <select name="antal_kort" id="noegle-kort-qty" data-unit-price="100">
+                              <option value="0" selected>0 stk.</option>
+                              <option value="1">1 stk.</option>
+                              <option value="2">2 stk.</option>
+                              <option value="3">3 stk.</option>
+                              <option value="4">4 stk.</option>
+                              <option value="5">5 stk.</option>
+                              <option value="6">6 stk.</option>
+                              <option value="7">7 stk.</option>
+                              <option value="8">8 stk.</option>
+                              <option value="9">9 stk.</option>
+                              <option value="10">10 stk.</option>
+                            </select>
+                          </div>
+
+                          <div class="col-12">
+                            <label>Samlet pris</label>
+                            <div class="info-contact-price-box" aria-live="polite">
+                              <span class="info-contact-price-amount js-total-price">0 kr.</span>
+                              <span class="info-contact-price-unit js-price-breakdown">(0 stk. × 100 kr.)</span>
+                            </div>
+                          </div>
+
+                          <div class="col-12 info-contact-checkbox-row">
+                            <input
+                              type="checkbox"
+                              id="noegle-mailbox-consent"
+                              name="postkasse_godkendelse"
+                              required
+                            />
+                            <label for="noegle-mailbox-consent" class="info-contact-checkbox-label">
+                              Jeg giver samtykke til og godkendelse af, at bestyrelsen må aflevere nøglebrikker/nøglekort i min postkasse. *
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 js-message-field" hidden>
                         <label for="noegle-message">Besked / Briknummer (valgfrit)</label>
                         <textarea
                           name="besked"
                           id="noegle-message"
                           rows="4"
-                          placeholder="Angiv gerne antal ønskede brikker eller briknummer ved mistet brik..."
+                          placeholder="Angiv gerne eventuelle bemærkninger eller briknummer ved mistet brik..."
                         ></textarea>
                       </div>
                     </div>
