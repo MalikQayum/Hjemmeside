@@ -433,8 +433,8 @@
         ]
       },
       "properties": {
-        "name": "Skyttegårdsvej 1-11 (60 m)",
-        "description": "Adresse: Skyttegårdsvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdsvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
+        "name": "Skyttegårdvej 1-11 (60 m)",
+        "description": "Adresse: Skyttegårdvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
         "category": "association",
         "categoryLabel": "Ejerforeningen",
         "source": "manual"
@@ -790,8 +790,8 @@
         ]
       },
       "properties": {
-        "name": "Offentlig gadeparkering ved Skyttegårdsvej (58 m)",
-        "description": "Adresse: Skyttegårdsvej, 2500 Valby\nVejledende område for offentlig gadeparkering. De kontrollerede kommunale zoneoversigter viste ikke Skyttegårdsvej som betalings- eller tidsbegrænset zone. Dette er ikke en garanti for ledige pladser. Følg altid lokal skiltning og afmærkning.\nAfstand fra Vigerslevvej 144: ca. 58 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
+        "name": "Offentlig gadeparkering ved Skyttegårdvej (58 m)",
+        "description": "Adresse: Skyttegårdvej, 2500 Valby\nVejledende område for offentlig gadeparkering. De kontrollerede kommunale zoneoversigter viste ikke Skyttegårdvej som betalings- eller tidsbegrænset zone. Dette er ikke en garanti for ledige pladser. Følg altid lokal skiltning og afmærkning.\nAfstand fra Vigerslevvej 144: ca. 58 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
         "category": "parkingFree",
         "categoryLabel": "Offentlig gadeparkering",
         "source": "manual"
@@ -824,8 +824,8 @@
         ]
       },
       "properties": {
-        "name": "Privat parkering – Skyttegårdsvej 7 (60 m)",
-        "description": "Adresse: Skyttegårdsvej 7, 2500 Valby\nPrivat parkering med adgangsbegrænsning. Dette er ikke en offentlig parkeringsplads og må ikke betragtes som gæsteparkering uden tilladelse.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.dingeo.dk/",
+        "name": "Privat parkering – Skyttegårdvej 7 (60 m)",
+        "description": "Adresse: Skyttegårdvej 7, 2500 Valby\nPrivat parkering med adgangsbegrænsning. Dette er ikke en offentlig parkeringsplads og må ikke betragtes som gæsteparkering uden tilladelse.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.dingeo.dk/",
         "category": "parkingPrivate",
         "categoryLabel": "Privat parkering",
         "source": "manual"

@@ -165,30 +165,103 @@
   text-align: center;
 }
 
-/* Videoer i afsnittet Affald og storskrald */
-.waste-video-grid {
+/* Layout for Affald og storskrald: venstre kolonne (40%) til tekstboks, højre kolonne (60%) til billede (40%) over 2 videoer (30% + 30%) */
+.waste-layout {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
+  grid-template-columns: 2fr 3fr;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
+.waste-info-col {
+  display: flex;
+  min-width: 0;
+}
+
+.waste-info-col .box {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.waste-info-col .box p {
+  margin-bottom: 0.9rem;
+}
+
+.waste-info-col .box h4 {
+  margin: 1rem 0 0.5rem;
+}
+
+.waste-info-col .box ul {
+  margin-bottom: 0;
+}
+
+.waste-info-col .box li + li {
+  margin-top: 0.45rem;
+}
+
+.waste-media-col {
+  display: grid;
+  grid-template-rows: auto 2fr 3fr;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.waste-media-col > .box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+.waste-videos-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.waste-videos-row > .box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+.waste-image-item,
 .waste-video-item {
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: 0;
   overflow: hidden;
   border-radius: 0.35rem;
 }
 
+.waste-image-item img,
 .waste-video-item video {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
   object-fit: cover;
   border-radius: 0.35rem;
   background: #222;
 }
 
+.waste-image-item img {
+  aspect-ratio: 1729 / 663;
+}
+
+.waste-video-item video {
+  aspect-ratio: 1 / 1;
+}
+
+.waste-image-item h4,
 .waste-video-item h4 {
   position: absolute;
   top: 12px;
@@ -204,36 +277,21 @@
   z-index: 2;
 }
 
-@media screen and (max-width: 480px) {
-  .waste-video-grid {
+@media screen and (max-width: 980px) {
+  .waste-layout {
     grid-template-columns: 1fr;
+  }
+  .waste-media-col {
+    grid-template-rows: auto auto auto;
+  }
+  .waste-video-item video {
+    aspect-ratio: 4 / 3;
   }
 }
 
-/* Lige store bokse i første række (affald + 2 videoer) */
-@media screen and (min-width: 768px) {
-  .home-practical-section .row:first-of-type {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .home-practical-section .row:first-of-type > div {
-    display: flex;
-  }
-  .home-practical-section .row:first-of-type > div > .box {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  .home-practical-section .row:first-of-type > div > .box .waste-video-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .home-practical-section .row:first-of-type > div > .box .waste-video-item video {
-    flex: 1;
-    height: 100%;
-    object-fit: cover;
+@media screen and (max-width: 480px) {
+  .waste-videos-row {
+    grid-template-columns: 1fr;
   }
 }
 
