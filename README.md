@@ -1,6 +1,6 @@
 # Hjemmeside – Ejerforeningen Skyttegård/Vigerslev
 
-Velkommen til det officielle kildekode-repository for **Ejerforeningen Skyttegård/Vigerslev** (Skyttegårdsvej 1-11 og Vigerslevvej 144-148 i Valby).
+Velkommen til det officielle kildekode-repository for **Ejerforeningen Skyttegård/Vigerslev** (Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby).
 
 Hjemmesiden fungerer som den primære informationsportal for nuværende og nye ejere samt beboere i foreningen.
 
