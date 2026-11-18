@@ -174,7 +174,10 @@
 }
 
 .waste-video-item {
+  position: relative;
   min-width: 0;
+  overflow: hidden;
+  border-radius: 0.35rem;
 }
 
 .waste-video-item video {
@@ -187,13 +190,50 @@
 }
 
 .waste-video-item h4 {
-  margin: 0.65rem 0 0;
-  text-align: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  z-index: 2;
 }
 
 @media screen and (max-width: 480px) {
   .waste-video-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Lige store bokse i første række (affald + 2 videoer) */
+@media screen and (min-width: 768px) {
+  .home-practical-section .row:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .home-practical-section .row:first-of-type > div {
+    display: flex;
+  }
+  .home-practical-section .row:first-of-type > div > .box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .home-practical-section .row:first-of-type > div > .box .waste-video-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .home-practical-section .row:first-of-type > div > .box .waste-video-item video {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
