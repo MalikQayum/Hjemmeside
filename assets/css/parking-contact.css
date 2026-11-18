@@ -8,6 +8,7 @@
 .parking-col-equal {
   display: flex;
   flex-direction: column;
+  gap: 1.5em;
 }
 
 .parking-card-box {
@@ -20,6 +21,15 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.parking-card-box--compact {
+  height: auto;
+}
+
+.parking-card-box--fill {
+  height: auto;
+  flex: 1;
 }
 
 .parking-contact-form {

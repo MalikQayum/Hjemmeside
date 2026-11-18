@@ -72,4 +72,46 @@
   gap: 0.5em;
 }
 
-/* Sidst opdateret: 2026-11-08 12:06 */
+.info-contact-price-box {
+  height: 2.75em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+  border-radius: 0.375em;
+  border: solid 1px rgba(210, 215, 217, 0.75);
+  background: #f8fafc;
+  color: #3d4449;
+}
+
+.info-contact-price-amount {
+  font-weight: 700;
+  color: #3d4449;
+}
+
+.info-contact-price-unit {
+  font-size: 0.85em;
+  color: #7f888f;
+}
+
+.js-order-fields[hidden],
+.js-message-field[hidden] {
+  display: none;
+}
+
+.info-contact-checkbox-row {
+  margin-top: 0.25em;
+}
+
+.info-contact-form input[type="checkbox"] + label.info-contact-checkbox-label {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #3d4449;
+  margin-bottom: 0;
+  padding-top: 0.1em;
+}
+
+/* Sidst opdateret: 2026-11-18 */

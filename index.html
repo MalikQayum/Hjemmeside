@@ -45,10 +45,10 @@
                       muted
                       loop
                       playsinline
-                      preload="metadata"
+                      preload="auto"
                       aria-label="3D-luftvisning af Ejerforeningen Skyttegård/Vigerslev"
                     >
-                      <source src="/assets/video/ejerforeningen-3d.mp4" type="video/mp4" />
+                      <source src="/assets/video/ejerforeningen-3d.mp4?v=4" type="video/mp4" />
                       Din browser understøtter ikke videoafspilning.
                     </video>
                   </div>
@@ -57,102 +57,6 @@
                     På denne hjemmeside kan beboere og ejere finde praktiske
                     oplysninger, relevante dokumenter, nyheder fra bestyrelsen
                     og information om livet i ejerforeningen.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Praktiske oplysninger til beboernes hverdag -->
-          <section class="home-practical-section">
-            <header class="major">
-              <h2>Praktisk information i hverdagen</h2>
-            </header>
-            <div class="waste-layout">
-              <!-- Venstre kolonne: Affald og storskrald i sin egen boks -->
-              <div class="waste-info-col">
-                <div class="box">
-                  <h3><span class="icon solid fa-trash-alt"></span> Affald og storskrald</h3>
-                  <p>
-                    Skralderummene er placeret på siden af <strong>Vigerslevvej 148</strong> samt mellem <strong>Skyttegårdvej 5 og 7</strong>. De åbnes med den samme brik, som du bruger til opgangen.
-                  </p>
-                  <p>
-                    Storskraldsrummet ligger ved <strong>Skyttegårdvej 5</strong> (ved kældernedgangen fra haven) og er markeret med en <strong>rød firkant</strong> på billedet.
-                  </p>
-                  <h4>Regler for affaldshåndtering</h4>
-                  <ul>
-                    <li><strong>Sortering &amp; miljøskab:</strong> Affaldssorteringen følger Københavns Kommunes ordning. Miljøskabet findes i skraldeburet på <strong>Skyttegårdvej</strong> (mellem nr. 5 og 7), hvor farligt affald (fx maling, batterier, kemikalier og småt elektronik) skal afleveres.</li>
-                    <li><strong>Genbrugsplads:</strong> Større mængder affald, byggeaffald og materialer, der ikke hører til i foreningens containere eller storskraldsrum, skal afleveres på genbrugspladsen.</li>
-                    <li><strong>Undgå rotter og fugle:</strong> Overfyldte containere og åbne låg giver adgang for rotter og fugle. Sørg derfor altid for, at låget kan lukkes helt.</li>
-                    <li><strong>Gebyr og opkrævning:</strong> Det er ikke tilladt at efterlade affald uden for containerne. Der kan pålægges gebyr og opkrævninger, hvis man henstiller affald eller storskrald forkert.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Højre kolonne: 3 rækker (Rengøring -> Billede -> 2 Videoer) -->
-              <div class="waste-media-col">
-                <div class="box">
-                  <h3><span class="icon solid fa-broom"></span> Rengøring og udenomsarealer</h3>
-                  <p>
-                    Foreningen har ikke en vicevært, men benytter Hebsoe
-                    Rengøring, som typisk kommer én gang om ugen. De står blandt
-                    andet for rengøring af opgangene, græsslåning og mindre
-                    opgaver på fællesarealerne.
-                  </p>
-                  <p>
-                    Hebsoe Rengøring har udelukkende kontakt med bestyrelsen.
-                    Hvis noget trænger til opmærksomhed, eller en opgave ikke er
-                    blevet udført, er du velkommen til at
-                    <a href="/kontakt/">kontakte bestyrelsen</a>.
-                  </p>
-                </div>
-
-                <div class="box">
-                  <div class="waste-image-item">
-                    <img src="/images/Storskraldrum.png" alt="Storskraldsrum" />
-                    <h4>Storskraldsrum</h4>
-                  </div>
-                </div>
-
-                <div class="waste-videos-row">
-                  <div class="box">
-                    <div class="waste-video-item">
-                      <video
-                      autoplay
-                      muted
-                      playsinline
-                      preload="metadata">
-                        <source src="/assets/video/vigerslevvej.mp4" type="video/mp4" />
-                        Din browser understøtter ikke videoafspilning.
-                      </video>
-                      <h4>Vigerslevvej</h4>
-                    </div>
-                  </div>
-
-                  <div class="box">
-                    <div class="waste-video-item">
-                      <video
-                      autoplay
-                      muted
-                      playsinline
-                      preload="metadata">
-                        <source src="/assets/video/skyttegaardvej.mp4" type="video/mp4" />
-                        Din browser understøtter ikke videoafspilning.
-                      </video>
-                      <h4>Skyttegårdvej</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row gtr-50" style="margin-top: 1.5rem;">
-              <div class="col-12">
-                <div class="box">
-                  <h3><span class="icon solid fa-bicycle"></span> Cykelparkering</h3>
-                  <p>
-                    Det er gratis at parkere cykler. Der er både et cykelrum i
-                    kælderen og cykelstativer udendørs.
                   </p>
                 </div>
               </div>
@@ -204,6 +108,28 @@
     <script src="/assets/js/load-sidebar.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="/assets/js/home-map.js"></script>
+    <script>
+      (function () {
+        var v = document.querySelector(".home-video");
+        if (!v) return;
+        v.defaultMuted = true;
+        v.muted = true;
+        v.playsInline = true;
+        var tryPlay = function () {
+          if (v.paused) {
+            var p = v.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+          }
+        };
+        if (v.readyState >= 1) tryPlay();
+        v.addEventListener("loadedmetadata", tryPlay);
+        v.addEventListener("loadeddata", tryPlay);
+        v.addEventListener("canplay", tryPlay);
+        document.addEventListener("visibilitychange", function () {
+          if (document.visibilityState === "visible") tryPlay();
+        });
+      })();
+    </script>
   </body>
 </html>
 <!-- Sidst opdateret: 2026-11-17 -->
