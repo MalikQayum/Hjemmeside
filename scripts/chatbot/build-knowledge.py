@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "chatbot/config/knowledge-config.json"
 OUTPUT = ROOT / "chatbot/data/knowledge.json"
+RULES = ROOT / "chatbot/config/response-rules.json"
 
 class TextExtractor(HTMLParser):
     SKIP = {"script", "style", "noscript", "svg", "nav", "footer", "form", "button", "select", "textarea", "option"}
@@ -117,6 +118,7 @@ def main():
             if part.get("page") is not None: entry["page"] = part["page"]
             if part.get("topic") is not None: entry["topic"] = part["topic"]
             entries.append(entry)
+    prune_stale_response_rules(entries)
     payload = {
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -129,6 +131,27 @@ def main():
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Genereret {OUTPUT.relative_to(ROOT)} med {len(entries)} vidensafsnit.")
     for warning in warnings: print(f"ADVARSEL: {warning}")
+
+def prune_stale_response_rules(entries: list[dict[str, Any]]) -> None:
+    if not RULES.is_file():
+        return
+    data = json.loads(RULES.read_text(encoding="utf-8"))
+    rules = data.get("rules")
+    if not isinstance(rules, list):
+        raise RuntimeError("response-rules.json skal indeholde en rules-liste.")
+
+    documents = {entry["id"]: entry for entry in entries}
+    retained = [
+        rule for rule in rules
+        if (document := documents.get(rule.get("document_id")))
+        and rule.get("source_file") == document["source"]["file"]
+        and rule.get("source_url") == document["source"]["url"]
+    ]
+    removed = len(rules) - len(retained)
+    if removed:
+        data["rules"] = retained
+        RULES.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"Fjernede {removed} forældede chatbot-svarregler uden gyldig kilde.")
 
 def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
     """Bevar meningsfulde afsnit som selvstændige, søgbare kilder."""
@@ -220,7 +243,7 @@ def category_for(rel):
         (("husorden",), "husorden"),
         (("vedtaegter", "vedtægter"), "vedtaegter"),
         (("kaelderrum", "kælderrum"), "kaelderrum"),
-        (("noeglebrikker", "nøglebrikker"), "noeglebrikker"),
+        (("noegler", "noeglebrikker", "nøglebrikker"), "noeglebrikker"),
         (("kontakt",), "kontakt"),
         (("velkomstbrev",), "velkomst"),
         (("nyhed",), "nyheder")

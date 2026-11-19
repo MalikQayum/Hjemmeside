@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T07:33:51.559522+00:00",
-  "source_count": 12,
+  "generated_at": "2026-11-19T18:24:54.813700+00:00",
+  "source_count": 11,
   "chunk_count": 43,
   "documents": [
     {
-      "id": "b1be8ed78d2fa28c",
+      "id": "56032ba25498f22a",
       "title": "Forside | E/F Skyttegårdvej/Vigerslevvej",
       "content": "Forside | E/F Skyttegårdvej/Vigerslevvej\nForside\nVelkommen til Ejerforeningen\nEjerforeningen omfatter ejendommene på Skyttegårdvej 1-11\nog Vigerslevvej 144-148 i Valby. Ejendommene ligger i et\nattraktivt og veletableret boligområde med kort afstand til\nindkøb, offentlig transport og grønne områder.\nForeningen danner rammen om et rart og velfungerende bomiljø,\nhvor der lægges vægt på godt naboskab, fælles ansvar og omsorg\nfor ejendommene og deres fællesarealer.\nDin browser understøtter ikke videoafspilning.\nInformation til beboere og ejere\nPå denne hjemmeside kan beboere og ejere finde praktiske\noplysninger, relevante dokumenter, nyheder fra bestyrelsen\nog information om livet i ejerforeningen.\nGode forbindelser og faciliteter\nOmrådet har gode transportmuligheder med busforbindelser og\nadgang til S-tog fra blandt andet Valby Station, Danshøj\nStation og Hvidovre Station. Der er desuden gode muligheder\nfor daglige indkøb i nærliggende supermarkeder og butikker.\nFor familier ligger der skoler og daginstitutioner i\nlokalområdet, og de nærliggende grønne områder, herunder\nVigerslevparken, giver gode muligheder for gåture, motion\nog afslapning.",
       "source": {
@@ -17,6 +17,7 @@
       "keywords": [
         "144",
         "148",
+        "afstand",
         "attraktivt",
         "boligområde",
         "ejendommene",
@@ -24,50 +25,18 @@
         "forside",
         "html",
         "index",
+        "kort",
         "ligger",
         "omfatter",
-        "skyttegård",
         "skyttegårdvej",
         "valby",
         "veletableret",
         "velkommen",
-        "vigerslev",
         "vigerslevvej"
       ]
     },
     {
-      "id": "994ee587827fc5f9",
-      "title": "Velkomstbrev | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Velkomstbrev | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nVelkommen som ny ejer\nVelkommen til ejerforeningen på Skyttegårdvej 1-11 og\nVigerslevvej 144-148 i Valby.\nHer på hjemmesiden finder du praktiske oplysninger om\nejerforeningen, herunder husorden, vedtægter og parkering.\nKontaktoplysninger til bestyrelsen finder du i menuen.",
-      "source": {
-        "file": "velkomstbrev/index.html",
-        "url": "/velkomstbrev/"
-      },
-      "language": "da",
-      "category": "velkomst",
-      "keywords": [
-        "144",
-        "148",
-        "ejer",
-        "ejerforeningen",
-        "finder",
-        "her",
-        "hjemmesiden",
-        "html",
-        "index",
-        "oplysninger",
-        "praktiske",
-        "skyttegård",
-        "skyttegårdvej",
-        "valby",
-        "velkommen",
-        "velkomstbrev",
-        "vigerslev",
-        "vigerslevvej"
-      ]
-    },
-    {
-      "id": "169d169f6e19bed7",
+      "id": "bb46a0195c0b7537",
       "title": "Husorden og vedtægter | E/F Skyttegårdvej/Vigerslevvej",
       "content": "Husorden og vedtægter | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nHusorden og vedtægter\nVigtige dokumenter for ejere og beboere.\nHusorden\nEjerforeningens gældende husorden.\nIndlæser husorden...\nVedtægter\nEjerforeningens gældende vedtægter.\nIndlæser vedtægter...",
       "source": {
@@ -80,22 +49,21 @@
         "beboere",
         "dokumenter",
         "ejere",
-        "ejerforeningen",
         "ejerforeningens",
         "gældende",
         "html",
         "husorden",
         "index",
         "indlæser",
-        "skyttegård",
+        "skyttegårdvej",
         "vedtaegter",
         "vedtægter",
-        "vigerslev",
+        "vigerslevvej",
         "vigtige"
       ]
     },
     {
-      "id": "05828b615a57a42f",
+      "id": "8e001c44928ab247",
       "title": "Nyheder | E/F Skyttegårdvej/Vigerslevvej",
       "content": "Nyheder | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nNyheder\nVelkommen til E/F Skyttegårdvej/Vigerslevvejs hjemmeside.\nHer finder du nyhedsbreve fra bestyrelsen.\nIndlæser nyhedsbrev...",
       "source": {
@@ -106,7 +74,6 @@
       "category": "nyheder",
       "keywords": [
         "bestyrelsen",
-        "ejerforeningen",
         "finder",
         "her",
         "hjemmeside",
@@ -117,10 +84,10 @@
         "nyheder",
         "nyhedsbrev",
         "nyhedsbreve",
-        "skyttegård",
+        "skyttegårdvej",
         "velkommen",
-        "vigerslev",
-        "vigerslevs"
+        "vigerslevvej",
+        "vigerslevvejs"
       ]
     },
     {
@@ -224,7 +191,7 @@
       "topic": "enforcement"
     },
     {
-      "id": "b00f28b9a08680d1",
+      "id": "4b0c2257dce9c7fb",
       "title": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej",
       "content": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nLeje af kælderrum\nInformation om mulighederne for at leje ekstra kælderrum i ejerforeningen.\nGenerel information\nEjerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.\nLedige kælderrum & Venteliste\nDa efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.\nLejevilkår & Priser\nMånedlig leje:\nLejen opkræves månedligt sammen med fællesudgifterne via DEAS.\nBrugsret:\nKælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.",
       "source": {
@@ -250,17 +217,17 @@
         "lejes",
         "mulighederne",
         "råder",
-        "skyttegård",
-        "vigerslev"
+        "skyttegårdvej",
+        "vigerslevvej"
       ]
     },
     {
-      "id": "846de9af27355119",
-      "title": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Oplys venligst din adresse og antal ønsker.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
+      "id": "9a3e62342cfc5850",
+      "title": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej",
+      "content": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglekort & nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt. 100 kr. pr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglekort & nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
       "source": {
-        "file": "noeglebrikker/index.html",
-        "url": "/noeglebrikker/"
+        "file": "noegler/index.html",
+        "url": "/noegler/"
       },
       "language": "da",
       "category": "noeglebrikker",
@@ -276,19 +243,19 @@
         "html",
         "index",
         "information",
-        "noeglebrikker",
+        "noegler",
         "nøglebrikker",
+        "nøglekort",
         "opgange",
-        "sker",
-        "skyttegård",
+        "skyttegårdvej",
         "udlevering",
-        "vigerslev"
+        "vigerslevvej"
       ]
     },
     {
-      "id": "0156d4e41a37fe39",
+      "id": "c506dee042af8378",
       "title": "Kontakt | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Kontakt | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nKontakt\nOversigt over bestyrelsen og foreningens faste samarbejdspartnere.\nHar du spørgsmål til foreningen, drift af ejendommen eller administrative henvendelser, finder du herunder de relevante kontaktpersoner og samarbejdspartnere.\nEjerforening\nBestyrelsen\nVaretager den overordnede drift af ejerforeningen, generalforsamling, fællesarealer, husorden og venteliste til parkering.\nbestyrelse@skyttegaardvej.dk\nSend e-mail\nAdministration\nDEAS\nVaretager den daglige ejendomsadministration, opkrævning af fællesudgifter, ejerskifte og administrative spørgsmål.\nSANW@deas.dk\n+45 70 30 20 20\nSend e-mail\nRing op\nMålere & Forbrug\nISTA Danmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail\nRing op\nForsyning\nHOFOR\nHovedstadsområdets Forsyningsselskab - leverer drikkevand og fjernvarme samt drifter spildevands- og forsyningsnettet.\nkundeservice@hofor.dk\n+45 33 95 33 95\nSend e-mail\nRing op\nHåndværker / Døgnvagt\nFinn L. & Davidsen A/S",
+      "content": "Kontakt | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nKontakt\nOversigt over bestyrelsen og foreningens faste samarbejdspartnere.\nHar du spørgsmål til foreningen, drift af ejendommen eller\nadministrative henvendelser, finder du herunder de relevante\nkontaktpersoner og samarbejdspartnere. Bemærk, at enkelte\nsamarbejdspartnere udelukkende har kontakt med bestyrelsen.\nEjerforening\nBestyrelsen\nVaretager den overordnede drift af ejerforeningen, generalforsamling, fællesarealer, husorden og venteliste til parkering.\nbestyrelse@skyttegaardvej.dk\nSend e-mail\nAdministration\nDEAS\nVaretager den daglige ejendomsadministration, opkrævning af fællesudgifter, ejerskifte og administrative spørgsmål.\nSANW@deas.dk\n+45 70 30 20 20\nSend e-mail\nRing op\nBygningsforsikring\nProtector Forsikring\nProtector Forsikring håndterer foreningens bygningsforsikring i samarbejde med DEAS. Ved spørgsmål om foreningens forsikring skal beboere kontakte bestyrelsen eller DEAS.\nprotectorforsikring.dk\nBesøg hjemmeside\nMålere & Forbrug\nISTA Danmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail",
       "source": {
         "file": "kontakt/index.html",
         "url": "/kontakt/"
@@ -300,26 +267,26 @@
         "bestyrelsen",
         "drift",
         "ejendommen",
-        "ejerforeningen",
         "faste",
         "finder",
         "foreningen",
         "foreningens",
         "henvendelser",
+        "herunder",
         "html",
         "index",
         "kontakt",
         "oversigt",
         "samarbejdspartnere",
-        "skyttegård",
+        "skyttegårdvej",
         "spørgsmål",
-        "vigerslev"
+        "vigerslevvej"
       ]
     },
     {
-      "id": "dea8450bf6127c0c",
-      "title": "fjernvarme samt drifter spildevands- og forsyningsnettet.",
-      "content": "fjernvarme samt drifter spildevands- og forsyningsnettet.\nkundeservice@hofor.dk\n+45 33 95 33 95\nSend e-mail\nRing op\nHåndværker / Døgnvagt\nFinn L. & Davidsen A/S\nForeningens faste samarbejdspartner til autoriseret el-, VVS- og teknisk vedligeholdelse samt akutte VVS- og el-opgaver.\nsalg@fld.dk\n+45 70 12 20 20\nSend e-mail\nRing op\nParkeringskontrol\nDinParkering\nVaretager parkeringskontrol på foreningens område. Kontakt DinParkering hvis en uvedkommende bil holder på din p-plads.\n+45 70 20 89 70\nRing op",
+      "id": "54520cf42d873774",
+      "title": "anmark A/S",
+      "content": "anmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail\nRing op\nForsyning\nHOFOR\nHovedstadsområdets Forsyningsselskab, som leverer drikkevand og fjernvarme samt drifter spildevands- og forsyningsnettet.\nkundeservice@hofor.dk\n+45 33 95 33 95\nSend e-mail\nRing op\nHåndværker / Døgnvagt\nFinn L. & Davidsen A/S\nForeningens faste samarbejdspartner til autoriseret el-, VVS- og teknisk vedligeholdelse samt akutte VVS- og el-opgaver.\nSe retningslinjer for vandlukning og rør på siden for\nGenerel vedligeholdelse\n.\nsalg@fld.dk\n+45 70 12 20 20\nSend e-mail\nRing op\nSelvstændig forening\nAndelsvaskeriforeningen FIVA\nFIVA driver og administrerer andelsvaskeriet i kælderen på\nSkyttegårdvej 9. Foreningen er selvstændig og administrerer\nselv medlemskab, andele og vaskeriets drift.\nHenvendelser vedrørende vaskeriet skal derfor rettes direkte\ntil FIVA og ikke til ejerforeningens bestyrelse.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby\nCVR-nr.: 41670754\nSend e-mail\nDownload vedtægter\nRengøring & ejendomsservice\nHebsoe Rengøring",
       "source": {
         "file": "kontakt/index.html",
         "url": "/kontakt/"
@@ -327,24 +294,55 @@
       "language": "da",
       "category": "kontakt",
       "keywords": [
-        "davidsen",
-        "drifter",
-        "døgnvagt",
-        "faste",
-        "finn",
-        "fjernvarme",
-        "foreningens",
-        "forsyningsnettet",
-        "hofor",
+        "aflæsning",
+        "anmark",
+        "forbrugs",
+        "forsyning",
         "html",
-        "håndværker",
         "index",
+        "ista",
         "kontakt",
-        "kundeservice",
         "mail",
+        "målerudstyr",
         "ring",
         "send",
-        "spildevands"
+        "står",
+        "udarbejdelse",
+        "vand",
+        "varme",
+        "varmeregnskab",
+        "årlige"
+      ]
+    },
+    {
+      "id": "64b794c73f07f315",
+      "title": "e.",
+      "content": "e.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby\nCVR-nr.: 41670754\nSend e-mail\nDownload vedtægter\nRengøring & ejendomsservice\nHebsoe Rengøring\nHebsoe Rengøring varetager rengøring og ejendomsservice for foreningen. Virksomheden har udelukkende kontakt med bestyrelsen. Beboere skal derfor kontakte bestyrelsen ved spørgsmål, bemærkninger eller ønsker til rengøringen og fællesarealerne.\nhebsoe.dk\nLæs om virksomheden\nParkeringskontrol\nDinParkering\nVaretager parkeringskontrol på foreningens område. Kontakt DinParkering hvis en uvedkommende bil holder på din p-plads.\n+45 70 20 89 70\nRing op",
+      "source": {
+        "file": "kontakt/index.html",
+        "url": "/kontakt/"
+      },
+      "language": "da",
+      "category": "kontakt",
+      "keywords": [
+        "2500",
+        "41670754",
+        "cvr",
+        "download",
+        "ejendomsservice",
+        "hebsoe",
+        "html",
+        "index",
+        "kontakt",
+        "kælderen",
+        "mail",
+        "rengøring",
+        "send",
+        "skyttegaardvej",
+        "skyttegårdvej",
+        "valby",
+        "vaskeri",
+        "vedtægter"
       ]
     },
     {
@@ -528,7 +526,7 @@
     {
       "id": "f857c24a7e2fd061",
       "title": "Husorden - punkt 7",
-      "content": "7. Benyttelse af radio, fjernsyn, grammofon, båndoptager og musikinstrumenter skal\nske med fornøden hensyntagen til naboerne.\nI de sene aftentimer bør De vise særligt hensyn til Deres naboer ved at dæmpe ned,\nså De ikke forstyrrer de andre beboeres ønske om nattero. Ved brug af stereoanlæg\nog lignende - vær opmærksom på den gennemtrængende baslyd.",
+      "content": "7. Benyttelse af radio, fjernsyn, grammofon, båndoptager og musikinstrumenter skal\nske med fornøden hensyntagen til naboerne.\nI de sene aftentimer bør De vise særligt hensyn til Deres naboer ved at dæmpe ned,\nså De ikke forstyrrer de andre beboeres ønske om nattero. Ved brug af stereoanlæg\nog lignende – vær opmærksom på den gennemtrængende baslyd.",
       "source": {
         "file": "Husorden.pdf",
         "url": "/Husorden.pdf"
@@ -562,7 +560,7 @@
     {
       "id": "265961b8d0027ed3",
       "title": "Husorden - punkt 8",
-      "content": "8. Der skal - for at undgå fugtdannelse og dermed følgende ødelæggelse af træværk,\ntapet og maling - foretages en effektiv udluftning af lejligheden. Helst flere gange\ndagligt blot 5 til 10 minutter ad gangen.",
+      "content": "8. Der skal – for at undgå fugtdannelse og dermed følgende ødelæggelse af træværk,\ntapet og maling – foretages en effektiv udluftning af lejligheden. Helst flere gange\ndagligt blot 5 til 10 minutter ad gangen.",
       "source": {
         "file": "Husorden.pdf",
         "url": "/Husorden.pdf"
@@ -786,7 +784,7 @@
     {
       "id": "0e9e7dd159f2af37",
       "title": "Side 1 (OCR)",
-      "content": "Side 1 (OCR)\nVedtægter for Ejerforeningen Vigerslevvej 144-148/Skyttegårdvej 1-11\n$1\nForeningens navn er Ejerforeningen Vigerslevvej 144 - 148, Skyttegårdvej 1-11.\nStk. 2. Dens virke omfatter ejendommen matr. 2677 og 29 Vigerslev, beliggende Vigerslewvej 144 -148 og\nSkyttegårdvej 1-11, 2500 Valby.\nStk. 3. Ejerforeningens hjemsted er Københavns Kommune.\nStk. 4. Ejerforeningens værneting er Københavns retskreds for alle tvister i ejerlejlighedsanliggender, såvel\nmellem medlemmerne indbyrdes som mellem ejerforeningen og medlemmerne, samt mellem\nejerforeningen og tidligere medlemmer. Ejerforeningen er, ved dennes formand, som sådan rette\nprocespart for alle fælles rettigheder og forpligtelser i ejerforeningens anliggender.\n82\nForeningens formå! er at administrere nævnte ejendom, at varetage medlemmernes fællesinteresser\noverfor tredjemand, regulere forholdet mellem medlemmerne og sørge for, at ejendommens\nvedligeholdelsestilstand altid er forsvarlig, og idet hele taget repræsentere medlemmerne og tage\nbeslutninger for disse i fællesanliggender vedrørende ejendommen.\nStk. 2. Foreningen kan optage aktiviteter i tilknytning til administration af ejendommen. Beslutninger om",
+      "content": "Side 1 (OCR)\nVedtægter for Ejerforeningen Vigerslevvej 144-148/Skyttegårdsvej 1-11\n$1\nForeningens navn er Ejerforeningen Vigerslevvej 144 — 148, Skyttegårdsvej 1—11.\nStk. 2. Dens virke omfatter ejendommen matr. 2677 og 29 Vigerslev, beliggende Vigerslewvej 144 —148 og\nSkyttegårdsvej 1—11, 2500 Valby.\nStk. 3. Ejerforeningens hjemsted er Københavns Kommune.\nStk. 4. Ejerforeningens værneting er Københavns retskreds for alle tvister i ejerlejlighedsanliggender, såvel\nmellem medlemmerne indbyrdes som mellem ejerforeningen og medlemmerne, samt mellem\nejerforeningen og tidligere medlemmer. Ejerforeningen er, ved dennes formand, som sådan rette\nprocespart for alle fælles rettigheder og forpligtelser i ejerforeningens anliggender.\n82\nForeningens formå! er at administrere nævnte ejendom, at varetage medlemmernes fællesinteresser\noverfor tredjemand, regulere forholdet mellem medlemmerne og sørge for, at ejendommens\nvedligeholdelsestilstand altid er forsvarlig, og idet hele taget repræsentere medlemmerne og tage\nbeslutninger for disse i fællesanliggender vedrørende ejendommen.\nStk. 2. Foreningen kan optage aktiviteter i tilknytning til administration af ejendommen. Beslutninger om",
       "source": {
         "file": "Vedtægter.pdf",
         "url": "/Vedtægter.pdf"
@@ -807,7 +805,7 @@
         "omfatter",
         "pdf",
         "side",
-        "skyttegårdvej",
+        "skyttegårdsvej",
         "stk",
         "vedtægter",
         "vigerslevvej",
@@ -1034,7 +1032,7 @@
     {
       "id": "a416d7c790345093",
       "title": "ling af ham påhvilende økonomiske ydelser til foreningen, ved",
-      "content": "ling af ham påhvilende økonomiske ydelser til foreningen, ved\nikke at efterkomme lovligt påbud, som bestyrelsen eller generalforsamlingen pålægger ham eller ved\ngentagne krænkelse af husordenen eller hensynsløs adfærd overfor medejere, kan bestyrelsens forlange, at\nden pågældende lejlighedsejer - eventuelt lejeren - fraflytter sin lejlighed med 3 måneders varsel til den 1.\nven måned eller i grove tilfælde uden varsel.\nStk. 4. Bestyrelsen skal i så fald godkende køberen eller den lejer, som lejligheden eventuelt måtte udlejes\ntil.\nStk. 5. Såfremt en lejer misligholder sine forpligtelser, har dette for ejeren samme virkning, som det var\nejeren selv.\nStk. 6. Om fornødent kan ejeren eller dennes lejer udsættes ved fogeden.\n811\nBestyrelsens beslutninger kan af et medlem indankes for førstkommende ordinære eller ekstraordinære.\ngeneralforsamling.\nStk. 2, Bestyrelsens og generalforsamlingens beslutninger kan prøves ved de ordinære domstole, dog ikke i\nde tilfælde, hvor afgørelsen er henlagt til en voldgift. Sag anlægges ved underret i den retskreds, hvori\nejendommen er beliggende. Indbringelse for domstol har opsættende virkning, hvis indbringelse er",
+      "content": "ling af ham påhvilende økonomiske ydelser til foreningen, ved\nikke at efterkomme lovligt påbud, som bestyrelsen eller generalforsamlingen pålægger ham eller ved\ngentagne krænkelse af husordenen eller hensynsløs adfærd overfor medejere, kan bestyrelsens forlange, at\nden pågældende lejlighedsejer — eventuelt lejeren — fraflytter sin lejlighed med 3 måneders varsel til den 1.\nven måned eller i grove tilfælde uden varsel.\nStk. 4. Bestyrelsen skal i så fald godkende køberen eller den lejer, som lejligheden eventuelt måtte udlejes\ntil.\nStk. 5. Såfremt en lejer misligholder sine forpligtelser, har dette for ejeren samme virkning, som det var\nejeren selv.\nStk. 6. Om fornødent kan ejeren eller dennes lejer udsættes ved fogeden.\n811\nBestyrelsens beslutninger kan af et medlem indankes for førstkommende ordinære eller ekstraordinære.\ngeneralforsamling.\nStk. 2, Bestyrelsens og generalforsamlingens beslutninger kan prøves ved de ordinære domstole, dog ikke i\nde tilfælde, hvor afgørelsen er henlagt til en voldgift. Sag anlægges ved underret i den retskreds, hvori\nejendommen er beliggende. Indbringelse for domstol har opsættende virkning, hvis indbringelse er",
       "source": {
         "file": "Vedtægter.pdf",
         "url": "/Vedtægter.pdf"
@@ -1065,7 +1063,7 @@
     {
       "id": "15fad6c9f42b2f9f",
       "title": "l en voldgift. Sag anlægges ved underret i den retskreds, hvori",
-      "content": "l en voldgift. Sag anlægges ved underret i den retskreds, hvori\nejendommen er beliggende. Indbringelse for domstol har opsættende virkning, hvis indbringelse er\nforetaget senest 14 dage efter generalforsamlingens beslutning, eller bestyrelsens meddelelse af sin\nbeslutning.\nSide 5 (OCR)\n812\nBestyrelsen kan antage en administrator til bistand ved varetagelse af ejendommens daglige drift, herunder\nind- og udbetalinger, samt regnskabsføring efter generalforsamlingens beslutning herom.\nStk. 2. Administrator er befuldmægtiget til at handle på foreningens vegne i alle forhold vedrørende den\ndaglige drift.\n813\nForeningens regnskabsår løber fra den 1. januar til 31. december med omlægningsperiode 1. november\n2009-31. december 2010.\nStk. 2. Foreningen antager en revisor til at udfærdige og revidere foreningens regnskab. Det reviderede\nregnskab, forsynet med revisors påtegning, skal være fremsendt til medlemmerne senest 3 uger inden den\nordinære generalforsamling.\nStk. 3. Det enhver lejlighedsejers eventuelt påhvilende restbidrag skal indbetales senest 14 dage efter\ngeneralforsamlingens afholdelse\n54",
+      "content": "l en voldgift. Sag anlægges ved underret i den retskreds, hvori\nejendommen er beliggende. Indbringelse for domstol har opsættende virkning, hvis indbringelse er\nforetaget senest 14 dage efter generalforsamlingens beslutning, eller bestyrelsens meddelelse af sin\nbeslutning.\nSide 5 (OCR)\n812\nBestyrelsen kan antage en administrator til bistand ved varetagelse af ejendommens daglige drift, herunder\nind- og udbetalinger, samt regnskabsføring efter generalforsamlingens beslutning herom.\nStk. 2. Administrator er befuldmægtiget til at handle på foreningens vegne i alle forhold vedrørende den\ndaglige drift.\n813\nForeningens regnskabsår løber fra den 1. januar til 31. december med omlægningsperiode 1. november\n2009—31. december 2010.\nStk. 2. Foreningen antager en revisor til at udfærdige og revidere foreningens regnskab. Det reviderede\nregnskab, forsynet med revisors påtegning, skal være fremsendt til medlemmerne senest 3 uger inden den\nordinære generalforsamling.\nStk. 3. Det enhver lejlighedsejers eventuelt påhvilende restbidrag skal indbetales senest 14 dage efter\ngeneralforsamlingens afholdelse\n54",
       "source": {
         "file": "Vedtægter.pdf",
         "url": "/Vedtægter.pdf"
@@ -1251,7 +1249,7 @@
     {
       "id": "48540c54e2c56fff",
       "title": "lser kan gå i arv og være retsforfølgningsgrundlag.",
-      "content": "lser kan gå i arv og være retsforfølgningsgrundlag.\nStk. 3. Salg af ejerlejlighed kan frit kun ske til køber, hvis der ikke flytter flere voksne personer indien\nejerlejlighed, end der er værelser i denne.\nStk. 4, Udleje eller udlån må ikke finde sted uden bestyrelsens tilladelse, dog kan lejlighedsejeren frit\nfremleje enkelte værelser, når han fortsat selv bebor mindst ét værelse og det samlede antal beboere -\nherunder medregnet børn - i lejligheden ikke derved kommer til at overstige antallet af værelser.\nStk. 5. Ejerlejlighederne og kælderrum må ikke anvendes til erhvervsaktiviteter. Konstateres det, at.der\ndrives erhvervsaktiviteter fra ejerlejligheder eller kælderrum, kan bestyrelsen anvende den i $ 10 hjemlede\nret tilat udsætte ejeren - eller eventuelle lejer.\nSide 8 (OCR)\n521\nPåtaleberettiget er ejerforeningen ved dennes bestyrelse og enhver lejlighedsejer under ejerforeningen.\nfremgår af nærværende vedtægter, henvises til Økonomi- og Erhvervsministeriets til\nenhver tid gældende normalvedtægt for ejerforeninger og ejerlejligheder, samt til almindeligt gældende\nretsregler.\n523\nDenne vedtægt begæres tinglyst servitutstiftende på Ejendommen matr.nr. 2677 og 29, Vigerslev.\n%",
+      "content": "lser kan gå i arv og være retsforfølgningsgrundlag.\nStk. 3. Salg af ejerlejlighed kan frit kun ske til køber, hvis der ikke flytter flere voksne personer indien\nejerlejlighed, end der er værelser i denne.\nStk. 4, Udleje eller udlån må ikke finde sted uden bestyrelsens tilladelse, dog kan lejlighedsejeren frit\nfremleje enkelte værelser, når han fortsat selv bebor mindst ét værelse og det samlede antal beboere —\nherunder medregnet børn — i lejligheden ikke derved kommer til at overstige antallet af værelser.\nStk. 5. Ejerlejlighederne og kælderrum må ikke anvendes til erhvervsaktiviteter. Konstateres det, at.der\ndrives erhvervsaktiviteter fra ejerlejligheder eller kælderrum, kan bestyrelsen anvende den i $ 10 hjemlede\nret tilat udsætte ejeren — eller eventuelle lejer.\nSide 8 (OCR)\n521\nPåtaleberettiget er ejerforeningen ved dennes bestyrelse og enhver lejlighedsejer under ejerforeningen.\nfremgår af nærværende vedtægter, henvises til Økonomi- og Erhvervsministeriets til\nenhver tid gældende normalvedtægt for ejerforeninger og ejerlejligheder, samt til almindeligt gældende\nretsregler.\n523\nDenne vedtægt begæres tinglyst servitutstiftende på Ejendommen matr.nr. 2677 og 29, Vigerslev.\n%",
       "source": {
         "file": "Vedtægter.pdf",
         "url": "/Vedtægter.pdf"
@@ -1282,7 +1280,7 @@
     {
       "id": "7f0efc24d520d30f",
       "title": "ejerlejligheder, samt til almindeligt gældende",
-      "content": "ejerlejligheder, samt til almindeligt gældende\nretsregler.\n523\nDenne vedtægt begæres tinglyst servitutstiftende på Ejendommen matr.nr. 2677 og 29, Vigerslev.\n%\nValby, den /4 2010\nFor ejerforeningen\nAb din AÅLAN VESTEGGND\nTil vitterlighed om underskriverens myndighed, underskriftens ægthed og dateringens rigtighed:\nro: fg + le vat: 29/4 lo\nnam: Pewi Elm navn: ÅlanTh øladers -\nStiling: stiting: Prgjrammer\nManes: Vinurobevve UC n sanne: Stores vej F ST ME\nmen) mg undertrt: 2/77 7f1dna-",
+      "content": "ejerlejligheder, samt til almindeligt gældende\nretsregler.\n523\nDenne vedtægt begæres tinglyst servitutstiftende på Ejendommen matr.nr. 2677 og 29, Vigerslev.\n%\nValby, den /4 2010\nFor ejerforeningen\nAb din AÅLAN VESTEGGND\nTil vitterlighed om underskriverens myndighed, underskriftens ægthed og dateringens rigtighed:\nro: fg + le vat: 29/4 lo\nnam: Pewi Elm navn: ÅlanTh øladers —\nStiling: stiting: Prgjrammer\nManes: Vinurobevve UC n sanne: Stores vej F ST ME\nmen) mg undertrt: 2/77 7f1dna—",
       "source": {
         "file": "Vedtægter.pdf",
         "url": "/Vedtægter.pdf"
@@ -1339,97 +1337,6 @@
         "overgangen",
         "sidste",
         "udsendes"
-      ]
-    },
-    {
-      "id": "vedligeholdelse-generel",
-      "title": "Generel vedligeholdelse og vandlukning | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Generel vedligeholdelse, ansvarsfordeling og relevante kontakter:\nIndvendig vedligeholdelse (Ejerens ansvar): Ejeren har ansvaret for alt det indvendige i lejligheden, herunder indvendig maling af vinduer og karme, indvendige døre, gulve, vægge, lofter og alle elinstallationer (ledninger, kontakter, afbrydere og gruppetavle). Til autoriseret el og VVS kan foreningens faste samarbejdspartner Finn L. & Davidsen A/S (FLD) benyttes på tlf. 70 12 20 20 eller salg@fld.dk. Alle forgreninger på rør (vand og afløb) samt sanitet (toiletter, håndvaske, radiatorer) påhviler ejeren. Vedr. radiatortermostater og varmemålere kontaktes ISTA Danmark på tlf. 77 32 33 34.\nFælles vedligeholdelse (Ejerforeningens ansvar): Ejerforeningen vedligeholder bygningens klimaskærm (murværk, facader, tag, sokkel), yderdøre, opgangsdøre og udvendig maling af vinduer. Lodrette rør, stigstrenge og faldstammer samt fællesarealer og opgange (renholdelse varetages af Hebsoe Rengøring) er ligeledes foreningens fælles ansvar.\nProcedure for lukning af vand: Ved planlagt VVS-arbejde skal vandlukning koordineres med autoriseret VVS / FLD (tlf. 70 12 20 20). Der skal ophænges varslingssedler i opgangen i god tid (min. 3-5 dage før) med dato, tidsrum og kontaktoplysninger. Ved akutte rørbrud lukkes afspærringshanen omgående, og FLD døgnvagt kontaktes.",
-      "source": {
-        "file": "vedligeholdelse/index.html",
-        "url": "/vedligeholdelse/"
-      },
-      "language": "da",
-      "category": "vedligeholdelse",
-      "keywords": [
-        "vedligeholdelse",
-        "vandlukning",
-        "lukning af vand",
-        "vand",
-        "fld",
-        "finn l & davidsen",
-        "rør",
-        "faldstamme",
-        "faldstammer",
-        "stigstrenge",
-        "forgreninger",
-        "vinduer",
-        "gulve",
-        "vægge",
-        "el",
-        "elinstallationer",
-        "toilet",
-        "varsling",
-        "sedler",
-        "opgange",
-        "vvs"
-      ]
-    },
-    {
-      "id": "generalforsamling-oversigt",
-      "title": "Generalforsamling, indkaldelser, referat, regnskab, budget og prisblad | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Generalforsamling i E/F Skyttegårdvej/Vigerslevvej:\nGeneralforsamlingen er foreningens øverste besluttende myndighed. Den ordinære generalforsamling afholdes hvert år inden den 1. juni med mindst 3 ugers skriftligt varsel til medlemmerne. Forslag fra medlemmerne skal være bestyrelsen i hænde senest 14 dage før mødet.\nDagsorden følger de 9 faste punkter ifølge vedtægterne: 1. Valg af dirigent og referent, 2. Formandens beretning, 3. Godkendelse af regnskab, 4. Behandling af forslag, 5. Godkendelse af budget, 6. Valg af formand og bestyrelsesmedlemmer, 7. Valg af administrator (DEAS), 8. Valg af revisor, 9. Eventuelt.\nReferat: Referater underskrives af dirigent og bestyrelse og kan rekvireres ved henvendelse til bestyrelsen eller DEAS.\nRegnskab & Budget: Regnskabsåret følger kalenderåret (1. jan - 31. dec). Årsregnskabet revideres med revisorpåtegning forud for generalforsamlingen. Driftsbudgettet fastsætter de månedlige fællesudgifter efter lejlighedernes tinglyste fordelingstal.\nPrisblad 2026: Gældende takster og gebyrer: Køb af nøglebrik/nøglekort kr. 100,-; Leje af parkeringsplads til bil kr. 100,-/md.; Leje af p-plads til motorcykel kr. 50,-/md.; Nye navneskilte ved udlejning kr. 500,-; Fjernelse af klistermærker kr. 500,-; Bortskaffelse af ureglementeret affald kr. 500,-; Selvrisiko ved selvforskyldt forsikringsskade kr. 5.000,-. Prisblad 2026 kan downloades i PDF på siden.",
-      "source": {
-        "file": "generalforsamling/index.html",
-        "url": "/generalforsamling/"
-      },
-      "language": "da",
-      "category": "generalforsamling",
-      "keywords": [
-        "generalforsamling",
-        "indkaldelse",
-        "indkaldelser",
-        "dagsorden",
-        "referat",
-        "referater",
-        "regnskab",
-        "årsregnskab",
-        "budget",
-        "driftsbudget",
-        "prisblad",
-        "prisblad 2026",
-        "gebyrer",
-        "takster",
-        "priser",
-        "fællesudgifter",
-        "fuldmagt",
-        "stemmeret"
-      ]
-    },
-    {
-      "id": "udlejning-procedure",
-      "title": "Udlejning, Airbnb og korttidsudlejning | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Procedure og regler for udlejning i E/F Skyttegårdvej/Vigerslevvej (§ 30 og § 24):\nTilladelse & Udlejningsblanket: Udleje eller udlån af hele lejligheden må ikke finde sted uden bestyrelsens tilladelse. Ejeren skal udfylde og underskrive foreningens officielle Udlejningsblanket (kan hentes som PDF og Word på /udlejning/) og sende den til bestyrelse@skyttegaardvej.dk senest samtidig med lejeforholdets begyndelse.\nKorttidsudlejning / Airbnb (Hvad man ikke må): Korttidsudlejning (f.eks. Airbnb) er begrænset til maksimalt 4 separate udlejninger og højst 30 dage sammenlagt pr. kalenderår. Ved hver korttidsudlejning skal bestyrelsen underrettes senest samtidig med start om lejerens navn, kontaktoplysninger og lejeperiodens længde. Korttidsudlejning ud over 4 gange / 30 dage om året er forbudt. Erhvervsmæssig drift samt separat fremleje af kælderrum eller parkeringsplads er ligeledes forbudt. Tilsidesættelse betragtes som grov pligtforsømmelse og kan medføre bod eller eksklusion.\nBetingelser og navneskilte: Lejer skal have læst og overholde vedtægter og husorden samt instrueres i affaldssortering. Al kommunikation med DEAS og bestyrelsen foregår skriftligt via ejeren. Nye autoriserede navneskilte på dørtelefon og postkasse ved udlejning koster kr. 500,- (egne klistermærker er ikke tilladt). Enkeltværelser kan fremlejes frit, hvis ejeren selv bebor mindst ét værelse og antallet af beboere ikke overstiger antallet af værelser.",
-      "source": {
-        "file": "udlejning/index.html",
-        "url": "/udlejning/"
-      },
-      "language": "da",
-      "category": "udlejning",
-      "keywords": [
-        "udlejning",
-        "udleje",
-        "fremleje",
-        "airbnb",
-        "korttidsudlejning",
-        "udlejningsblanket",
-        "blanket",
-        "lejer",
-        "navneskilte",
-        "erhverv",
-        "forbud",
-        "tilladelse",
-        "30 dage"
       ]
     }
   ],
