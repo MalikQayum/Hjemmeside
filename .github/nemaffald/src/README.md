@@ -1,4 +1,4 @@
-# NemAffald – kildekode
+# NemAffald - kildekode
 
 Her ligger NemAffald-projektets JavaScript-moduler. Modulerne håndterer blandt andet browseradgang, formularinspektion, ordrekladder, godkendelse og ugentlig bestilling.
 

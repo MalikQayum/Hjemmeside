@@ -1,6 +1,6 @@
 
 /* =========================================================
-   Parkeringsventeliste – Excel-visning og parkeringsstatus
+   Parkeringsventeliste - Excel-visning og parkeringsstatus
 
    Kolonne A: Adresse
    Kolonne B: Bil

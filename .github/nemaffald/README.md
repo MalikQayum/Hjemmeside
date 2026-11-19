@@ -1,4 +1,4 @@
-# NemAffald – GitHub-projekt
+# NemAffald - GitHub-projekt
 
 Denne mappe indeholder NemAffald-automatiseringen, som er placeret i hjemmeside-repository'et, men fungerer som et selvstændigt delprojekt. Den har sin egen `package.json`, kildekode, konfiguration og dokumentation.
 

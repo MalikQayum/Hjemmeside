@@ -10,7 +10,7 @@ const target = path.join(root, 'config', 'contact.json');
 const rl = readline.createInterface({ input, output });
 
 try {
-  console.log('NemAffald – local waste-responsible contact setup');
+  console.log('NemAffald - local waste-responsible contact setup');
   console.log('Your details are saved locally in config/contact.json and are not included in the project ZIP.');
   const firstName = (await rl.question('First name: ')).trim();
   const lastName = (await rl.question('Last name: ')).trim();

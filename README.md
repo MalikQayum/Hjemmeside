@@ -1,6 +1,6 @@
-# Hjemmeside – Ejerforeningen Skyttegård/Vigerslev
+# Hjemmeside - E/F Skyttegårdvej/Vigerslevvej
 
-Velkommen til det officielle kildekode-repository for **Ejerforeningen Skyttegård/Vigerslev** (Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby).
+Velkommen til det officielle kildekode-repository for **E/F Skyttegårdvej/Vigerslevvej** (Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby).
 
 Hjemmesiden fungerer som den primære informationsportal for nuværende og nye ejere samt beboere i foreningen.
 
@@ -148,7 +148,7 @@ Hvis der oprettes en helt ny kategori, skal `categoryConfig` i JavaScript-filen 
 
 ---
 
-## ⚙️ GitHub Actions – Automatisk synkronisering fra OneDrive
+## ⚙️ GitHub Actions - Automatisk synkronisering fra OneDrive
 
 Hjemmesiden anvender **GitHub Actions** til automatisk at hente og opdatere udvalgte dokumenter fra Microsoft OneDrive.
 
@@ -202,20 +202,21 @@ De vigtigste mapper har deres egen `README.md`, så formål, indhold og vedligeh
 | `.github/` | GitHub Actions, automatisering og NemAffald-delprojektet. |
 | `assets/` | CSS, JavaScript, kortdata, Sass, video og webfonts. |
 | `chatbot/` | Chatbotkonfiguration og genereret vidensdatabase. |
+| `dokumenter/` | Samlet arkiv for PDF/Word-dokumenter (`generalforsamling/`, `udlejning/`, `forening/`). |
 | `scripts/` | Scripts til dataopdatering og chatbot. |
 | `images/` | Billedressourcer. |
-| `velkomstbrev/`, `kontakt/`, `parkering/`, `kaelderrum/`, `noeglebrikker/`, `nyhed/`, `husorden-vedtaegter/` | Hjemmesidens indholdssider. |
+| `affald-storskrald/`, `generalforsamling/`, `husorden-vedtaegter/`, `kaelderrum/`, `kontakt/`, `noegler/`, `nyhed/`, `parkering/`, `udlejning/`, `vedligeholdelse/` | Hjemmesidens indholdssider. |
 | `eksempler/` | Design- og komponentreferencer. |
 
 Undermapper med selvstændigt indhold har også lokale README-filer. De beskriver mappernes faktiske funktion og relevante vedligeholdelsespunkter. README-filerne er dokumentation og ikke officielle regler for foreningen.
 
 
-*Sidst opdateret: 2026-11-10*
+*Sidst opdateret: 2026-11-19*
 
 
 ---
 
-## 🤖 Chatbot – automatisk vidensdatabase
+## 🤖 Chatbot - automatisk vidensdatabase
 
 Repositoryet indeholder en gratis, statisk informationsassistent til hjemmesiden. Chatbotten søger i en automatisk genereret `chatbot/data/knowledge.json` og viser relevante tekstuddrag med links til kilderne. Første version bruger **ikke** en generativ AI-model eller eksterne API'er.
 

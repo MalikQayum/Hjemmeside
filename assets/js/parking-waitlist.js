@@ -1,6 +1,6 @@
 
 /* =========================================================
-   Parkeringsventeliste – visuel markering af celler
+   Parkeringsventeliste - visuel markering af celler
 
    - Nummerplader: grøn
    - Gyldige datoer: blå

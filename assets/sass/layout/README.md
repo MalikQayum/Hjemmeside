@@ -1,4 +1,4 @@
-# Sass – layout
+# Sass - layout
 
 Overordnede layoutdele for hjemmesiden: wrapper, header, sidebar, menu, main-indhold, banner og footer.
 

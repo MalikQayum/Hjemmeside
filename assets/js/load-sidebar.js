@@ -60,12 +60,15 @@
 
       const getPageKey = (pathname) => {
         const segments = pathname.split("/").filter(Boolean);
+        if (segments.length && segments[segments.length - 1].toLowerCase() === "index.html") {
+          segments.pop();
+        }
         return segments.length ? segments[segments.length - 1] : "index";
       };
 
       const currentPage = getPageKey(window.location.pathname);
 
-      sidebar.querySelectorAll("a[href]").forEach((link) => {
+      sidebar.querySelectorAll("#menu a[href]").forEach((link) => {
         const linkedPage = getPageKey(new URL(link.href).pathname);
 
         if (linkedPage === currentPage) {

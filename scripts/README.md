@@ -1,4 +1,4 @@
-# Scripts – vedligeholdelse og databehandling
+# Scripts - vedligeholdelse og databehandling
 
 Denne mappe indeholder scripts, der bruges til at vedligeholde hjemmesidens data og automatiseringer.
 

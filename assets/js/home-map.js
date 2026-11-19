@@ -1,5 +1,5 @@
 
-/* Interactive circular area map for Ejerforeningen Skyttegård/Vigerslev.
+/* Interactive circular area map for E/F Skyttegårdvej/Vigerslevvej.
    The full 1.5 km radius circle is fitted to the circular map viewport on load. */
 (function () {
   "use strict";
