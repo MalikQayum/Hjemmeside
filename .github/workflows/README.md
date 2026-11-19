@@ -4,11 +4,12 @@ Her ligger YAML-filerne, der bestemmer, hvornår automatiseringerne kører, og h
 
 ## Workflows
 - `update-chatbot-knowledge.yml`: bygger og validerer chatbotens vidensdatabase.
-- `train-chatbot.yml`: genererer dagligt op til 50 AI-spørgsmål, tester dem mod chatbotens faktiske søge- og svarmotor og gemmer kun beståede spørgsmål i `chatbot/config/response-rules.json`. Kræver repository-secret `OPENAI_API_KEY`.
-- `sync-onedrive-to-github.yml`: synkroniserer konfigurerede OneDrive-filer.
-- `sync-Venteliste-Parkering-onedrive.yml`: synkroniserer parkeringsventelisten.
-- `nemaffald-weekly.yml`: ugentlig NemAffald-automatisering.
-- `update-geojson.yml`: opdaterer områdekortets GeoJSON-data.
+- `train-chatbot.yml`: genererer dagligt op til 50 spørgsmål, tester dem mod chatbotens søge- og svarmotor og gemmer beståede spørgsmål. Gemini kræver repository-secret `GEMINI_API_KEY`; uden nøglen bruges den lokale generator.
+- `sync-onedrive-to-github.yml`: henter dokumenter fra OneDrive dagligt eller ved manuel start. Kræver `ONEDRIVE_EMAIL` og `ONEDRIVE_PASSWORD`.
+- `nemaffald-weekly.yml`: ugentlig bestilling af haveaffald. Manuel test indsender ikke en bestilling; livebestilling kræver særskilt opt-in via repository-variablen `NEMAFFALD_ENABLE_SUBMISSION`.
+- `update-geojson.yml`: opdaterer områdekortets GeoJSON månedligt eller ved manuel start.
 
 ## Vedligeholdelse
-Kontrollér `on`, `permissions`, `concurrency`, secrets/variabler og de kaldte scripts, før et workflow ændres. Start workflows manuelt fra repositoryets **Actions**-fane, når `workflow_dispatch` er aktiveret.
+Kontrollér udløser, tilladelser, samtidighed, secrets/variabler og kaldte scripts, før et workflow ændres. Start workflows manuelt fra repositoryets **Actions**-fane, når de understøtter manuel kørsel.
+
+[Tilbage til repositoryoversigten](../../README.md)

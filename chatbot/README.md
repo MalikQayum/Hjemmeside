@@ -1,6 +1,6 @@
 # Chatbot - vidensbaseret informationsassistent
 
-Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Selve besøgendes chat og søgning kører lokalt i browseren og bruger ikke en AI-API. Et separat GitHub Actions-workflow kan bruge en AI-API til at generere og teste nye træningsspørgsmål.
+Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Besøgendes spørgsmål søges i browseren mod en genereret vidensdatabase; chatten sender ikke spørgsmål til en AI-API. Et separat GitHub Actions-workflow kan bruge Gemini til at foreslå nye spørgsmål og tester dem mod chatbotten, før de gemmes.
 
 ## Struktur
 - `config/config.json`: central til/fra-indstilling for chatbotten på hjemmesiden.
@@ -9,7 +9,8 @@ Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub 
 - `data/`: genereret vidensdatabase.
 - `../assets/js/chatbot.js` og `../assets/css/chatbot.css`: brugergrænseflade og styling.
 - `../scripts/chatbot/`: generator og validering.
-- `../.github/workflows/update-chatbot-knowledge.yml`: automatisk opdatering.
+- `../.github/workflows/update-chatbot-knowledge.yml`: bygger og validerer vidensdatabasen.
+- `../.github/workflows/train-chatbot.yml`: foreslår og tester spørgsmål.
 
 Læs denne README og undermappernes README før ændringer. Chatbotten må gengive kilder, men må ikke selv fortolke, ændre eller opfinde foreningens regler. Ved uklare eller modstridende kilder skal den tydeligt gøre opmærksom på usikkerheden og henvise til bestyrelsen.
 
@@ -32,16 +33,12 @@ Ret kun værdien til `true` eller `false`, og publicér ændringen på GitHub. I
 ## Sådan finder chatbotten svar
 
 - Vidensdatabasen bygges fra kilderne i `config/knowledge-config.json`.
-- Husordenens nummererede punkter gemmes hver for sig med punktnummer og PDF-side. Det forhindrer, at punkt 6 om husdyr blandes sammen med fx punkt 9 om fodring af dyr.
+- Husordenens nummererede punkter gemmes hver for sig med punktnummer og PDF-side, så svar kan linke til det relevante sted i dokumentet.
 - Frontenden bruger danske synonymer og emnegenkendelse til at finde relevante afsnit. Kendte emner som husdyr, fodring, støj/nattero og parkering prioriterer det relevante kildeafsnit.
-- Ved første åbning vises en emnemenu med parkering, vedtægter, husorden, kontakt, kælderrum, nøglebrikker, nyheder og generelle spørgsmål. Hvert emne har forslag til typiske spørgsmål. Forslagene er genveje - et valgt emne begrænser aldrig den efterfølgende søgning.
+- Ved første åbning vises emner og forslag til typiske spørgsmål. Forslagene er genveje; et valgt emne begrænser ikke den efterfølgende søgning.
 - De generelle spørgsmål om chatbotten har korte, prædefinerede svar i `PREDEFINED_ANSWERS` i `assets/js/chatbot.js`. Spørgsmål om foreningens forhold bruger fortsat den almindelige kildebaserede søgning.
 - Emnenavne og forslag vedligeholdes i `TOPICS` i `assets/js/chatbot.js`. Tilføj kun spørgsmål, som kan besvares ud fra de inkluderede kilder.
-- Knappernes tekstfarve er sort for at sikre kontrast på de røde og hvide knapper.
-- Parkeringssiden opdeles i overblik, venteliste og uretmæssig parkering. Kontaktformularens felter indekseres ikke som viden.
 - Chatbotten viser et kort, kildebaseret svar og den mest relevante kilde. PDF-links åbner på den registrerede side.
-- Chatbotten bruger hjemmesidens røde accentfarve (`#f56a6a`) sammen med hvid og neutral grå - ikke grønne farver.
-- Emne- og spørgsmåls-knapper bruger kompakt tekstombrydning, så teksten bliver inden for knapperne. Chatten lukkes og åbnes igen via den samme faste “Spørg os”-knap; der vises ingen separat luk-knap i chatvinduet.
 - Synonymer og emnegenkendelse er kun søgehjælp. De giver ikke chatbotten ret til at udlede nye regler. Selve ordlyden kommer fra kilden.
 - Hvis der ikke findes et tilstrækkeligt relevant afsnit, svarer chatbotten, at den ikke kan finde et sikkert svar, og henviser til bestyrelsen.
 - Regressionstest af de vigtigste spørgsmål kan køres fra repository-roden med `node scripts/chatbot/test-chatbot.js`.
@@ -53,7 +50,7 @@ Når husordenen eller andre kilder ændres, skal vidensdatabasen bygges igen via
 
 ## Automatisk spørgsmålstræning
 
-Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye danske spørgsmål ud fra `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**.
+Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye danske spørgsmål ud fra `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**. Workflowet bruger `gemini-3.5-flash-lite` som standard og falder tilbage til en lokal generator, hvis Gemini ikke kan bruges.
 
 ### Gemini-opsætning
 
@@ -61,7 +58,7 @@ Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye
 2. Tilføj den i repositoryets **Settings → Secrets and variables → Actions** med navnet `GEMINI_API_KEY`.
 3. Kør workflowet manuelt første gang.
 
-Workflowet bruger som standard `gemini-2.5-flash-lite`. Det er konfigureret til Gemini Developer API's gratis kvote, hvor den er tilgængelig. Gratis adgang har model- og hastighedsbegrænsninger, som Google kan ændre. Der er ingen garanti for ubegrænset gratis brug. Vi bruger ikke betalte funktioner eller Google Search-grounding.
+Gemini Developer API har kvoter og hastighedsbegrænsninger, som Google kan ændre. Der er ingen garanti for ubegrænset eller gratis adgang.
 
 API-nøglen bruges kun af GitHub Actions og må aldrig placeres i JavaScript, HTML eller `config.json`.
 
@@ -80,3 +77,5 @@ Hvis `GEMINI_API_KEY` mangler, eller Gemini returnerer en fejl/kvotegrænse, fal
 - Nye spørgsmål bliver ikke automatisk til officielle svar. Det er stadig `knowledge.json` og hjemmesidens kilder, der bestemmer indholdet.
 
 Workflowet kører dagligt kl. 06:15 UTC og kan startes manuelt. Det ændrer aldrig husorden, vedtægter eller andre officielle kilder.
+
+[Tilbage til repositoryoversigten](../README.md)

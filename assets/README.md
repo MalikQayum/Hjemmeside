@@ -11,3 +11,5 @@ Denne mappe indeholder de statiske ressourcer, som hjemmesidens sider bruger: st
 - `webfonts/`: skrifttypefiler og ikonfonte.
 
 Ændr kun de ressourcer, der er nødvendige for opgaven. Bevar eksisterende filstier, da HTML-siderne refererer direkte til dem.
+
+[Tilbage til repositoryoversigten](../README.md)

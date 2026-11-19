@@ -5,3 +5,5 @@ Grundlæggende styling for typografi, sideopsætning og CSS-reset. Ændringer he
 - `_typography.scss`: typografi og tekstopsætning.
 - `_page.scss`: generelle sideregler.
 - `_reset.scss`: normalisering/reset af browserstandarder.
+
+[Tilbage til repositoryoversigten](../../../README.md)

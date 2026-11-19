@@ -7,3 +7,5 @@ PowerShell- og JavaScript-hjælpeværktøjer til opsætning og vedligeholdelse a
 - `remove-weekly-task.ps1`: fjerner den installerede ugentlige opgave.
 
 Kør kun scripts, når du forstår deres virkning, og kontrollér først konfiguration og stier. Se `.github/nemaffald/README.md` for den samlede vejledning.
+
+[Tilbage til repositoryoversigten](../../../README.md)
