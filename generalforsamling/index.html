@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Generalforsamling i Ejerforeningen Skyttegård/Vigerslev – seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad."
+    />
+    <title>Generalforsamling | Ejerforeningen Skyttegård/Vigerslev</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/contact-form.css" />
+    <style>
+      .gf-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin: 1.5em 0 2em 0;
+      }
+      .gf-nav a {
+        font-size: 0.85em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        background: #ffffff;
+        border: 1px solid rgba(210, 215, 217, 0.75);
+        color: #3d4449;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .gf-nav a:hover {
+        border-color: #f56a6a;
+        color: #f56a6a;
+        background: #fffafa;
+      }
+      .gf-card {
+        background: #ffffff;
+        border: solid 1px rgba(210, 215, 217, 0.75);
+        border-radius: 0.375em;
+        padding: 2.25em;
+        margin-bottom: 2em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        scroll-margin-top: 2em;
+      }
+      .gf-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.85em;
+        margin-bottom: 1.25em;
+        padding-bottom: 0.75em;
+        border-bottom: 2px solid rgba(210, 215, 217, 0.5);
+      }
+      .gf-card-header h2 {
+        margin: 0;
+        font-size: 1.4em;
+        color: #3d4449;
+      }
+      .gf-card-header .icon {
+        font-size: 1.3em;
+        color: #f56a6a;
+      }
+      .gf-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
+        padding: 0.25em 0.7em;
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 0.8em;
+        font-weight: 700;
+        color: #475569;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .price-table {
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+      }
+      .price-table th {
+        background: #f8fafc;
+        color: #3d4449;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        letter-spacing: 0.05em;
+        padding: 0.75em 1em;
+      }
+      .price-table td {
+        padding: 0.75em 1em;
+        vertical-align: middle;
+      }
+      .price-amount {
+        font-weight: 700;
+        color: #f56a6a;
+        white-space: nowrap;
+        text-align: right;
+      }
+      .agenda-list {
+        list-style: none;
+        padding: 0;
+        margin: 1em 0;
+      }
+      .agenda-list li {
+        display: flex;
+        gap: 0.75em;
+        padding: 0.6em 0;
+        border-bottom: 1px solid rgba(210, 215, 217, 0.4);
+      }
+      .agenda-list li:last-child {
+        border-bottom: none;
+      }
+      .agenda-num {
+        font-weight: 700;
+        color: #f56a6a;
+        min-width: 1.8em;
+      }
+      .doc-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.25em 0 0 0;
+      }
+      .doc-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75em 1.25em;
+        padding: 0.85em 1em;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        margin-bottom: 0.65em;
+      }
+      .doc-item-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+        flex: 1;
+        min-width: 220px;
+      }
+      .doc-item-title {
+        font-weight: 700;
+        color: #3d4449;
+      }
+      .doc-item-sub {
+        font-size: 0.85em;
+        color: #64748b;
+      }
+      .doc-type-badge {
+        display: inline-block;
+        padding: 0.2em 0.55em;
+        border-radius: 3px;
+        font-size: 0.75em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        min-width: 3.4em;
+        text-align: center;
+      }
+      .doc-type-gf {
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 1px solid #fecaca;
+      }
+      .doc-type-xgf {
+        background: #fef3c7;
+        color: #b45309;
+        border: 1px solid #fde68a;
+      }
+      .doc-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        flex-wrap: wrap;
+      }
+      .regnskab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+        gap: 0.65em;
+        margin-top: 1em;
+      }
+      .regnskab-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.65em 0.9em;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        color: #3d4449;
+        font-weight: 600;
+        font-size: 0.9em;
+        text-decoration: none;
+        transition: all 0.15s ease;
+      }
+      .regnskab-link:hover {
+        border-color: #f56a6a;
+        color: #f56a6a;
+        background: #fffafa;
+      }
+      .regnskab-link .icon {
+        color: #f56a6a;
+      }
+      .archive-details {
+        margin-top: 1.25em;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        padding: 0.85em 1.15em;
+      }
+      .archive-details summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: #3d4449;
+        font-size: 0.95em;
+        user-select: none;
+      }
+      .archive-details summary:hover {
+        color: #f56a6a;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header">
+            <a href="/" class="logo">
+              <strong>Skyttegård/Vigerslev</strong>
+            </a>
+          </header>
+
+          <!-- Main Section -->
+          <section>
+            <header class="main">
+              <h1>Generalforsamling</h1>
+              <p>Oversigt over ejerforeningens højeste myndighed, seneste indkaldelser, referater, årsregnskab, budget og det gældende prisblad.</p>
+            </header>
+
+            <!-- Hurtig navigation mellem sektioner -->
+            <div class="gf-nav">
+              <a href="#indkaldelse"><span class="icon solid fa-calendar-alt"></span> Indkaldelser</a>
+              <a href="#referat"><span class="icon solid fa-file-alt"></span> Referat</a>
+              <a href="#regnskab"><span class="icon solid fa-file-invoice-dollar"></span> Regnskab</a>
+              <a href="#budget"><span class="icon solid fa-chart-line"></span> Budget</a>
+              <a href="#prisblad"><span class="icon solid fa-tags"></span> Prisblad</a>
+            </div>
+
+            <!-- Om Generalforsamlingen Info Box -->
+            <div class="box" style="margin-bottom: 2.5em; border-left: 4px solid #f56a6a;">
+              <h3 style="margin-bottom: 0.5em;"><span class="icon solid fa-info-circle" style="color: #f56a6a;"></span> Om Generalforsamlingen</h3>
+              <p style="margin-bottom: 0.75em;">
+                Generalforsamlingen er Ejerforeningen Skyttegård/Vigerslevs øverste besluttende organ. I henhold til foreningens vedtægter (§ 14) afholdes den ordinære generalforsamling hvert år <strong>inden den 1. juni</strong>.
+              </p>
+              <ul style="margin-bottom: 0; font-size: 0.95em;">
+                <li><strong>Varsel:</strong> Tidspunktet bekendtgøres for medlemmerne med mindst 3 ugers skriftligt varsel.</li>
+                <li><strong>Forslag:</strong> Eventuelle forslag fra medlemmerne skal være bestyrelsen i hænde senest 14 dage før generalforsamlingen.</li>
+                <li><strong>Stemmeret &amp; Fuldmagt:</strong> Kun foreningens medlemmer har stemmeret, som udøves efter lejlighedens tinglyste fordelingstal. Et medlem kan møde ved skriftlig fuldmagt.</li>
+              </ul>
+            </div>
+
+            <!-- 1. Seneste Indkaldelser -->
+            <div id="indkaldelse" class="gf-card">
+              <div class="gf-card-header">
+                <span class="icon solid fa-calendar-alt"></span>
+                <h2>Seneste indkaldelser &amp; Dagsorden</h2>
+              </div>
+              <p>
+                Indkaldelsen udsendes skriftligt til samtlige ejere med bilag, årsregnskab og budgetforslag. Den ordinære generalforsamling følger den faste dagsorden fastlagt i foreningens vedtægter:
+              </p>
+
+              <ol class="agenda-list">
+                <li><span class="agenda-num">1.</span> <span>Valg af dirigent og referent</span></li>
+                <li><span class="agenda-num">2.</span> <span>Formandens beretning om det forløbne år</span></li>
+                <li><span class="agenda-num">3.</span> <span>Bestyrelsens forelæggelse til godkendelse af regnskab for det forgangne år</span></li>
+                <li><span class="agenda-num">4.</span> <span>Behandling af bestyrelsens og medlemmernes forslag</span></li>
+                <li><span class="agenda-num">5.</span> <span>Bestyrelsens forelæggelse til godkendelse af budgetforslag for det kommende regnskabsår</span></li>
+                <li><span class="agenda-num">6.</span> <span>Valg af formand og øvrige bestyrelsesmedlemmer samt suppleanter</span></li>
+                <li><span class="agenda-num">7.</span> <span>Valg af administrator (DEAS)</span></li>
+                <li><span class="agenda-num">8.</span> <span>Valg af revisor</span></li>
+                <li><span class="agenda-num">9.</span> <span>Eventuelt</span></li>
+              </ol>
+
+              <div style="margin-top: 1.5em; padding-top: 1em; border-top: 1px solid rgba(210, 215, 217, 0.6); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1em;">
+                <span style="font-size: 0.9em; color: #64748b;">
+                  <span class="icon solid fa-envelope"></span> Forslag til næste generalforsamling kan sendes til bestyrelsen.
+                </span>
+                <a href="mailto:bestyrelse@skyttegaardvej.dk?subject=Forslag%20til%20Generalforsamling" class="button small icon solid fa-paper-plane">Indsend forslag</a>
+              </div>
+            </div>
+
+            <!-- 2. Referat -->
+            <div id="referat" class="gf-card">
+              <div class="gf-card-header">
+                <span class="icon solid fa-file-alt"></span>
+                <h2>Referater (GF &amp; XGF)</h2>
+              </div>
+              <p>
+                Efter generalforsamlingen udfærdiges et officielt referat underskrevet af dirigenten og de tilstedeværende bestyrelsesmedlemmer. Herunder kan du læse eller downloade referater fra både ordinære generalforsamlinger (<strong>GF</strong>) og ekstraordinære generalforsamlinger (<strong>XGF</strong>):
+              </p>
+
+              <ul class="doc-list">
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-xgf">XGF</span>
+                    <div>
+                      <div class="doc-item-title">Ekstraordinær generalforsamling 2026</div>
+                      <div class="doc-item-sub">Afholdt 10. juni 2026 &bull; <code>2026-xgf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2026-xgf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2026-xgf-referat.pdf" download="2026-xgf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-gf">GF</span>
+                    <div>
+                      <div class="doc-item-title">Ordinær generalforsamling 2026</div>
+                      <div class="doc-item-sub">Afholdt 6. maj 2026 &bull; <code>2026-gf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2026-gf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2026-gf-referat.pdf" download="2026-gf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-gf">GF</span>
+                    <div>
+                      <div class="doc-item-title">Ordinær generalforsamling 2025</div>
+                      <div class="doc-item-sub">Afholdt 28. april 2025 &bull; <code>2025-gf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2025-gf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2025-gf-referat.pdf" download="2025-gf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-gf">GF</span>
+                    <div>
+                      <div class="doc-item-title">Ordinær generalforsamling 2024</div>
+                      <div class="doc-item-sub">Afholdt 6. maj 2024 &bull; <code>2024-gf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2024-gf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2024-gf-referat.pdf" download="2024-gf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-gf">GF</span>
+                    <div>
+                      <div class="doc-item-title">Ordinær generalforsamling 2023</div>
+                      <div class="doc-item-sub">Afholdt 1. marts 2023 &bull; <code>2023-gf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2023-gf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2023-gf-referat.pdf" download="2023-gf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-xgf">XGF</span>
+                    <div>
+                      <div class="doc-item-title">Ekstraordinær generalforsamling 2022</div>
+                      <div class="doc-item-sub">Afholdt 6. april 2022 &bull; <code>2022-xgf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2022-xgf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2022-xgf-referat.pdf" download="2022-xgf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="doc-type-badge doc-type-gf">GF</span>
+                    <div>
+                      <div class="doc-item-title">Ordinær generalforsamling 2022</div>
+                      <div class="doc-item-sub">Afholdt 2. marts 2022 &bull; <code>2022-gf-referat.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/referater/2022-gf-referat.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/referater/2022-gf-referat.pdf" download="2022-gf-referat.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 3. Regnskab -->
+            <div id="regnskab" class="gf-card">
+              <div class="gf-card-header">
+                <span class="icon solid fa-file-invoice-dollar"></span>
+                <h2>Regnskab &amp; Revision</h2>
+              </div>
+              <p>
+                Foreningens regnskabsår løber fra <strong>1. januar til 31. december</strong> (frem til 2010 gik regnskabsåret fra 1. november til 31. oktober). Herunder findes de realiserede regnskabsoversigter og budgettal pr. regnskabsår:
+              </p>
+
+              <h4 style="margin-top: 1.25em; margin-bottom: 0.4em;">Seneste regnskabsår (2022–2027)</h4>
+              <div class="regnskab-grid">
+                <a href="/regnskab/2027-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2027 <small style="color:#64748b;font-weight:400;">(inkl. 2026)</small></span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+                <a href="/regnskab/2026-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2026</span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+                <a href="/regnskab/2025-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2025</span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+                <a href="/regnskab/2024-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2024</span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+                <a href="/regnskab/2023-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2023</span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+                <a href="/regnskab/2022-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
+                  <span>Regnskab 2022</span>
+                  <span class="icon solid fa-file-pdf"></span>
+                </a>
+              </div>
+
+              <details class="archive-details">
+                <summary><span class="icon solid fa-archive" style="color: #f56a6a; margin-right: 0.4em;"></span> Vis tidligere regnskabsarkiv (1996–2021)</summary>
+                <div class="regnskab-grid" style="margin-top: 1em;">
+                  <a href="/regnskab/2021-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2021</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2020-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2020</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2019-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2019</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2018-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2018</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2017-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2017</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2016-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2016</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2015-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2015</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2014-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2014</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2013-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2013</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2012-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2012</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2011-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2011 (inkl. 2010)</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2009-2010-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2009–2010</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2008-2009-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2008–2009</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2007-2008-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2007–2008</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2006-2007-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2006–2007</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2005-2006-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2005–2006</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2004-2005-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2004–2005</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2003-2004-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2003–2004</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2002-2003-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2002–2003</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2001-2002-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2001–2002</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/2000-2001-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2000–2001</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/1999-2000-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1999–2000</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/1998-1999-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1998–1999</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/1997-1998-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1997–1998</span><span class="icon solid fa-file-pdf"></span></a>
+                  <a href="/regnskab/1996-1997-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1996–1997</span><span class="icon solid fa-file-pdf"></span></a>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.5em; padding-top: 1em; border-top: 1px solid rgba(210, 215, 217, 0.5); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1em;">
+                <span style="font-size: 0.9em; color: #64748b;">
+                  Regnskabet udarbejdes og revideres i samarbejde med foreningens administrator, DEAS.
+                </span>
+                <a href="/kontakt/#deas" class="button small icon solid fa-building">Spørgsmål til regnskab (DEAS)</a>
+              </div>
+            </div>
+
+            <!-- 4. Budget -->
+            <div id="budget" class="gf-card">
+              <div class="gf-card-header">
+                <span class="icon solid fa-chart-line"></span>
+                <h2>Budget</h2>
+              </div>
+              <p>
+                Forud for hver ordinær generalforsamling udarbejder bestyrelsen et samlet driftsbudget for det kommende regnskabsår. Driftsbudgettet godkendes af generalforsamlingen og danner grundlag for fastsættelsen af de månedlige fællesudgifter for ejerforeningens medlemmer.
+              </p>
+
+              <div class="row gtr-150">
+                <div class="col-6 col-12-medium">
+                  <h4 style="margin-bottom: 0.5em;">Driftsbudgettet dækker bl.a.:</h4>
+                  <ul style="font-size: 0.95em; margin-bottom: 0;">
+                    <li>Ejendomsadministration og revisionshonorar (DEAS)</li>
+                    <li>Ejendomsservice, trappevask og renholdelse (Hebsoe Rengøring)</li>
+                    <li>Bygningsforsikring (Protector Forsikring)</li>
+                    <li>Forsyning, vand, varme og el på fællesarealer (HOFOR / FLD)</li>
+                    <li>Parkeringsadministration og teknisk drift</li>
+                  </ul>
+                </div>
+
+                <div class="col-6 col-12-medium">
+                  <h4 style="margin-bottom: 0.5em;">Fastsættelse af fællesudgifter:</h4>
+                  <p style="font-size: 0.95em;">
+                    Fællesudgifterne fordeles personligt og solidarisk blandt medlemmerne i forhold til de tinglyste fordelingstal for den enkelte ejerlejlighed.
+                  </p>
+                  <p style="font-size: 0.9em; color: #64748b;">
+                    Opkrævning af fællesbidrag administreres direkte via DEAS.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Prisblad -->
+            <div id="prisblad" class="gf-card">
+              <div class="gf-card-header">
+                <span class="icon solid fa-tags"></span>
+                <h2>Prisblad 2026</h2>
+              </div>
+              <p>
+                Gældende gebyrer og takster for Ejerforeningen Vigerslevvej 144-148 / Skyttegårdvej 1-11 vedtaget af bestyrelsen / generalforsamlingen:
+              </p>
+
+              <div class="table-wrapper">
+                <table class="price-table alt">
+                  <thead>
+                    <tr>
+                      <th>Ydelse / Emne</th>
+                      <th style="text-align: right;">Gældende Pris</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Køb af nøglekort eller nøglebrikker</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Ekstra eller erstatningsbrikker til opgangsdøre</div>
+                      </td>
+                      <td class="price-amount">Kr. 100,-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Leje af parkeringsplads til bil</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Månedlig leje via venteliste (administreres af bestyrelsen)</div>
+                      </td>
+                      <td class="price-amount">Kr. 100,- / md.</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Leje af parkeringsplads til motorcykel</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Månedlig leje via venteliste</div>
+                      </td>
+                      <td class="price-amount">Kr. 50,- / md.</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Nye navneskilte ved udlejning</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Montering af autoriserede navneskilte på dørtelefon og postkasse</div>
+                      </td>
+                      <td class="price-amount">Kr. 500,-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Fjernelse og afrensning af klistermærker</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">På dørtelefon eller postkasse ved overtrædelse af husorden</div>
+                      </td>
+                      <td class="price-amount">Kr. 500,-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Bortskaffelse af ureglementeret affald</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Affald henstillet uden for affaldscontainere eller storskraldrum</div>
+                      </td>
+                      <td class="price-amount">Kr. 500,-</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Selvrisiko ved selvforskyldt skade</strong>
+                        <div style="font-size: 0.85em; color: #64748b;">Ved skader dækket af ejendommens bygningsforsikring</div>
+                      </td>
+                      <td class="price-amount">Kr. 5.000,-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Download Button for official PDF -->
+              <div style="margin-top: 1.5em; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1em;">
+                <span style="font-size: 0.9em; color: #64748b;">
+                  <span class="icon solid fa-file-pdf"></span> Det officielle underskrevne prisblad er tilgængeligt i PDF-format.
+                </span>
+                <a href="/Prisblad%202026.pdf" download="Prisblad 2026.pdf" class="button primary icon solid fa-download">Download Prisblad 2026 (PDF)</a>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
+  </body>
+</html>
+
+<!-- Sidst opdateret: 2026-11-19 -->
