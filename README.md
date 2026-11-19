@@ -20,36 +20,48 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 - Introduktion og genveje til ejerforeningens vigtigste informationer.
 - Interaktivt områdekort med relevante faciliteter og lokationer i nærområdet.
 
-### 2. Velkomstbrev (`/velkomstbrev/`)
-- **Sti:** `velkomstbrev/index.html`
-- Praktisk information, retningslinjer og introduktion for nye tilflyttere og boligejere.
+### 2. Affald og storskrald (`/affald-storskrald/`)
+- **Sti:** `affald-storskrald/index.html`
+- Information om sortering, skralde- og storskraldsrum, miljøskab og affaldshåndtering.
 
-### 3. Husorden og Vedtægter (`/husorden-vedtaegter/`)
+### 3. Husorden og vedtægter (`/husorden-vedtaegter/`)
 - **Sti:** `husorden-vedtaegter/index.html`
 - Interaktiv dokumentvisning med **PDF.js** til nem læsning af vedtægter og husorden direkte i browseren uden at skulle downloade filer.
 
-### 4. Nyheder (`/nyhed/`)
+### 4. Generalforsamling (`/generalforsamling/`)
+- **Sti:** `generalforsamling/index.html`
+- Indkaldelser, referater, regnskaber, budgetter og prisblad.
+
+### 5. Nyheder (`/nyhed/`)
 - **Sti:** `nyhed/index.html`
-- Seneste nyheder, meddelelser og referater.
+- Seneste nyheder og meddelelser.
 - Viser automatisk foreningens nyhedsbrev direkte fra Word-format (`.docx`).
 
-### 5. Parkering (`/parkering/`)
+### 6. Parkering (`/parkering/`)
 - **Sti:** `parkering/index.html`
 - **Øverst (2-kolonne layout):**
   - **Venstre kolonne:** Information om parkering i foreningen samt oplysninger om uretmæssig parkering (DinParkering døgnvagt).
   - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen, navn, e-mail og bemærkninger).
 - **Nederst:** Livevisning af ejerforeningens opdaterede parkeringsventeliste via Excel/SheetJS-integration.
 
-### 6. Leje af kælderrum (`/kaelderrum/`)
+### 7. Leje af kælderrum (`/kaelderrum/`)
 - **Sti:** `kaelderrum/index.html`
 - Information om leje af kælderrum, lejevilkår, opkrævning og venteliste.
 - Integreret kontaktformular direkte til bestyrelsen, forudfyldt med emnet "Leje af kælderrum".
 
-### 7. Bestilling af nøglebrikker (`/noeglebrikker/`)
-- **Sti:** `noeglebrikker/index.html`
+### 8. Bestilling af nøglekort og nøglebrikker (`/noegler/`)
+- **Sti:** `noegler/index.html`
 - Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
 
-### 8. Kontakt (`/kontakt/`)
+### 9. Udlejning (`/udlejning/`)
+- **Sti:** `udlejning/index.html`
+- Regler for udlejning af lejligheder og foreningens udlejningsblanket.
+
+### 10. Vedligeholdelse (`/vedligeholdelse/`)
+- **Sti:** `vedligeholdelse/index.html`
+- Vejledning om ansvarsfordeling for vedligeholdelse og lukning af vand.
+
+### 11. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
 - Kontaktside med moderne kort-layout (cards) for:
   - **Bestyrelsen** (`bestyrelse@skyttegaardvej.dk`)
@@ -59,7 +71,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
   - **Finn L. & Davidsen A/S** (Fast håndværker & døgnvagt)
   - **DinParkering** (Parkeringskontrol)
 
-### 9. Design- & Komponentreferencer (`/eksempler/`)
+### 12. Design- og komponentreferencer (`/eksempler/`)
 - **Sti:** `eksempler/index.html`
 - Eksempelside med HTML5 UP Editorial-skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
 
@@ -191,8 +203,6 @@ Her kan man:
 
 ---
 
----
-
 ## 🗂️ Mappestruktur og lokal dokumentation
 
 De vigtigste mapper har deres egen `README.md`, så formål, indhold og vedligeholdelse kan findes dér, hvor arbejdet foregår. Root-README'en giver det samlede overblik; de lokale README-filer beskriver den enkelte mappe.
@@ -218,7 +228,7 @@ Undermapper med selvstændigt indhold har også lokale README-filer. De beskrive
 
 ## 🤖 Chatbot - automatisk vidensdatabase
 
-Repositoryet indeholder en gratis, statisk informationsassistent til hjemmesiden. Chatbotten søger i en automatisk genereret `chatbot/data/knowledge.json` og viser relevante tekstuddrag med links til kilderne. Første version bruger **ikke** en generativ AI-model eller eksterne API'er.
+Repositoryet indeholder en statisk informationsassistent til hjemmesiden. Besøgendes spørgsmål behandles i browseren mod den genererede `chatbot/data/knowledge.json`; chatfunktionen bruger ikke en generativ AI-model eller eksterne API'er. Et separat GitHub Actions-workflow kan bruge Gemini til at foreslå og teste nye spørgsmål.
 
 ### Automatisk opdatering
 - Workflow: `.github/workflows/update-chatbot-knowledge.yml`.
@@ -228,7 +238,7 @@ Repositoryet indeholder en gratis, statisk informationsassistent til hjemmesiden
 - Chatfunktion: `assets/js/chatbot.js` og `assets/css/chatbot.css`. Chatbotten kan slås til/fra via `chatbot/config/config.json` (`enabled: true/false`).
 - Chatten indlæses centralt via `assets/js/load-sidebar.js` og vises på hjemmesidens sider.
 
-Workflowet kører ved relevante ændringer, ugentligt og manuelt via GitHub Actions. Kun filer, der står på den eksplicitte `include`-liste i `knowledge-config.json`, bliver indekseret. Parkeringsventelisten, NemAffald-mappen, interne scripts, konfigurationer og øvrige ikke-godkendte filer holdes udenfor.
+Workflowet kører ved relevante ændringer, ugentligt og manuelt via GitHub Actions. Kun filer på den eksplicitte `include`-liste i `knowledge-config.json` bliver indekseret. Parkeringsventelisten, NemAffald-mappen, interne scripts, konfigurationer og øvrige ikke-godkendte filer holdes udenfor.
 
 ### Vedligeholdelse
 Se `chatbot/README.md` for lokal test, tilføjelse af kilder, sikkerhedsregler og kendte begrænsninger. Scannede PDF'er uden tekstlag kræver OCR, før deres indhold kan indekseres.

@@ -7,3 +7,5 @@
 - `knowledge.json`: automatisk genereret, officiel vidensbase fra kilderne i `knowledge-config.json`.
 - `learning-results.json`: seneste resultat fra den automatiske spørgsmålstræning, herunder godkendte og afviste testspørgsmål.
 - Midlertidige AI-genererede kandidater oprettes under workflow-kørslen og bruges ikke som officiel viden.
+
+[Tilbage til repositoryoversigten](../../README.md)

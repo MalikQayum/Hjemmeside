@@ -6,3 +6,5 @@ Denne mappe indeholder scripts, der bruges til at vedligeholde hjemmesidens data
 - `chatbot/`: scripts til generering og validering af chatbotens vidensdatabase.
 
 Scripts køres typisk fra repository'ets rod, så relative filstier fungerer korrekt. Se den relevante undermappes README og det tilhørende GitHub Actions-workflow.
+
+[Tilbage til repositoryoversigten](../README.md)

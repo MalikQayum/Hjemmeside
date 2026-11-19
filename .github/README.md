@@ -9,3 +9,5 @@ Denne mappe indeholder GitHub-specifikke scripts, workflows og hjælpeprojekter.
 
 ## Vedligeholdelse
 Læs den relevante undermappes README, før du ændrer et workflow eller et tilhørende script. Hemmeligheder og tokens skal opbevares i GitHub Secrets - aldrig i filer i repository'et.
+
+[Tilbage til repositoryoversigten](../README.md)
