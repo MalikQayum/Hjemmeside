@@ -102,24 +102,6 @@
       "approved_at": "2026-11-16T22:52:10.888Z"
     },
     {
-      "question": "Skal kælderrum holdes aflåst?",
-      "document_id": "b00f28b9a08680d1",
-      "source_file": "kaelderrum/index.html",
-      "source_url": "/kaelderrum/",
-      "answer_word_count": 40,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
-      "question": "Hvem varetager den overordnede drift af ejerforeningen?",
-      "document_id": "0156d4e41a37fe39",
-      "source_file": "kontakt/index.html",
-      "source_url": "/kontakt/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
       "question": "Må jeg opsætte udvendige antenner og loftantenner?",
       "document_id": "04f17b59d499bf79",
       "source_file": "Husorden.pdf",
@@ -145,51 +127,6 @@
       "answer_word_count": 12,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
-      "question": "Hvem skal man kontakte vedrørende målerudstyr samt aflæsning af varme og vand?",
-      "document_id": "0156d4e41a37fe39",
-      "source_file": "kontakt/index.html",
-      "source_url": "/kontakt/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvad er telefonnummeret til foreningens forsyningsselskab HOFOR?",
-      "document_id": "0156d4e41a37fe39",
-      "source_file": "kontakt/index.html",
-      "source_url": "/kontakt/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvilket firma varetager den daglige ejendomsadministrations opgaver for ejerforeningen?",
-      "document_id": "0156d4e41a37fe39",
-      "source_file": "kontakt/index.html",
-      "source_url": "/kontakt/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvordan opkræves den månedlige leje for et kælderrum?",
-      "document_id": "b00f28b9a08680d1",
-      "source_file": "kaelderrum/index.html",
-      "source_url": "/kaelderrum/",
-      "answer_word_count": 40,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvordan fordeles kælderrum, hvis der ikke er nogen ledige med det samme?",
-      "document_id": "b00f28b9a08680d1",
-      "source_file": "kaelderrum/index.html",
-      "source_url": "/kaelderrum/",
-      "answer_word_count": 40,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
     },
     {
       "question": "Hvordan skal alt affald pakkes ind af hygiejniske grunde?",
