@@ -44,6 +44,16 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         scroll-margin-top: 2em;
       }
+      .gf-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 2em;
+        margin-bottom: 2em;
+      }
+      .gf-card-grid .gf-card {
+        margin-bottom: 0;
+      }
       .gf-card-header {
         display: flex;
         align-items: center;
@@ -222,6 +232,11 @@
       .archive-details summary:hover {
         color: #f56a6a;
       }
+      @media screen and (max-width: 980px) {
+        .gf-card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
 
@@ -294,8 +309,9 @@
               </div>
             </div>
 
-            <!-- 2. Referat -->
-            <div id="referat" class="gf-card">
+            <div class="gf-card-grid">
+              <!-- 2. Referat -->
+              <div id="referat" class="gf-card">
               <div class="gf-card-header">
                 <span class="icon solid fa-file-alt"></span>
                 <h2>Referater (GF &amp; XGF)</h2>
@@ -403,10 +419,10 @@
                   </div>
                 </li>
               </ul>
-            </div>
+              </div>
 
-            <!-- 3. Regnskab -->
-            <div id="regnskab" class="gf-card">
+              <!-- 3. Regnskab -->
+              <div id="regnskab" class="gf-card">
               <div class="gf-card-header">
                 <span class="icon solid fa-file-invoice-dollar"></span>
                 <h2>Regnskab &amp; Revision</h2>
@@ -480,6 +496,7 @@
                 </span>
                 <a href="/kontakt/#deas" class="button small icon solid fa-building">Spørgsmål til regnskab (DEAS)</a>
               </div>
+            </div>
             </div>
 
             <!-- 4. Budget -->
