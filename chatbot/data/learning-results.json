@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-19T15:40:21.803Z",
-  "generated": 3,
+  "tested_at": "2026-11-19T15:42:00.167Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 3,
+  "rejected": 0,
   "total_unique_attempted": 336,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -344,22 +344,5 @@
     "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvilke oplysninger skal man oplyse til DinParkering, hvis en fremmed bil holder på ens p-plads?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej"
-    },
-    {
-      "question": "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej"
-    }
-  ]
+  "rejected_questions": []
 }
