@@ -1340,6 +1340,71 @@
         "sidste",
         "udsendes"
       ]
+    },
+    {
+      "id": "vedligeholdelse-generel",
+      "title": "Generel vedligeholdelse og vandlukning | Ejerforeningen Skyttegård/Vigerslev",
+      "content": "Generel vedligeholdelse, ansvarsfordeling og relevante kontakter:\nIndvendig vedligeholdelse (Ejerens ansvar): Ejeren har ansvaret for alt det indvendige i lejligheden, herunder indvendig maling af vinduer og karme, indvendige døre, gulve, vægge, lofter og alle elinstallationer (ledninger, kontakter, afbrydere og gruppetavle). Til autoriseret el og VVS kan foreningens faste samarbejdspartner Finn L. & Davidsen A/S (FLD) benyttes på tlf. 70 12 20 20 eller salg@fld.dk. Alle forgreninger på rør (vand og afløb) samt sanitet (toiletter, håndvaske, radiatorer) påhviler ejeren. Vedr. radiatortermostater og varmemålere kontaktes ISTA Danmark på tlf. 77 32 33 34.\nFælles vedligeholdelse (Ejerforeningens ansvar): Ejerforeningen vedligeholder bygningens klimaskærm (murværk, facader, tag, sokkel), yderdøre, opgangsdøre og udvendig maling af vinduer. Lodrette rør, stigstrenge og faldstammer samt fællesarealer og opgange (renholdelse varetages af Hebsoe Rengøring) er ligeledes foreningens fælles ansvar.\nProcedure for lukning af vand: Ved planlagt VVS-arbejde skal vandlukning koordineres med autoriseret VVS / FLD (tlf. 70 12 20 20). Der skal ophænges varslingssedler i opgangen i god tid (min. 3-5 dage før) med dato, tidsrum og kontaktoplysninger. Ved akutte rørbrud lukkes afspærringshanen omgående, og FLD døgnvagt kontaktes.",
+      "source": {
+        "file": "vedligeholdelse/index.html",
+        "url": "/vedligeholdelse/"
+      },
+      "language": "da",
+      "category": "vedligeholdelse",
+      "keywords": [
+        "vedligeholdelse",
+        "vandlukning",
+        "lukning af vand",
+        "vand",
+        "fld",
+        "finn l & davidsen",
+        "rør",
+        "faldstamme",
+        "faldstammer",
+        "stigstrenge",
+        "forgreninger",
+        "vinduer",
+        "gulve",
+        "vægge",
+        "el",
+        "elinstallationer",
+        "toilet",
+        "varsling",
+        "sedler",
+        "opgange",
+        "vvs"
+      ]
+    },
+    {
+      "id": "generalforsamling-oversigt",
+      "title": "Generalforsamling, indkaldelser, referat, regnskab, budget og prisblad | Ejerforeningen Skyttegård/Vigerslev",
+      "content": "Generalforsamling i Ejerforeningen Skyttegård/Vigerslev:\nGeneralforsamlingen er foreningens øverste besluttende myndighed. Den ordinære generalforsamling afholdes hvert år inden den 1. juni med mindst 3 ugers skriftligt varsel til medlemmerne. Forslag fra medlemmerne skal være bestyrelsen i hænde senest 14 dage før mødet.\nDagsorden følger de 9 faste punkter ifølge vedtægterne: 1. Valg af dirigent og referent, 2. Formandens beretning, 3. Godkendelse af regnskab, 4. Behandling af forslag, 5. Godkendelse af budget, 6. Valg af formand og bestyrelsesmedlemmer, 7. Valg af administrator (DEAS), 8. Valg af revisor, 9. Eventuelt.\nReferat: Referater underskrives af dirigent og bestyrelse og kan rekvireres ved henvendelse til bestyrelsen eller DEAS.\nRegnskab & Budget: Regnskabsåret følger kalenderåret (1. jan - 31. dec). Årsregnskabet revideres med revisorpåtegning forud for generalforsamlingen. Driftsbudgettet fastsætter de månedlige fællesudgifter efter lejlighedernes tinglyste fordelingstal.\nPrisblad 2026: Gældende takster og gebyrer: Køb af nøglebrik/nøglekort kr. 100,-; Leje af parkeringsplads til bil kr. 100,-/md.; Leje af p-plads til motorcykel kr. 50,-/md.; Nye navneskilte ved udlejning kr. 500,-; Fjernelse af klistermærker kr. 500,-; Bortskaffelse af ureglementeret affald kr. 500,-; Selvrisiko ved selvforskyldt forsikringsskade kr. 5.000,-. Prisblad 2026 kan downloades i PDF på siden.",
+      "source": {
+        "file": "generalforsamling/index.html",
+        "url": "/generalforsamling/"
+      },
+      "language": "da",
+      "category": "generalforsamling",
+      "keywords": [
+        "generalforsamling",
+        "indkaldelse",
+        "indkaldelser",
+        "dagsorden",
+        "referat",
+        "referater",
+        "regnskab",
+        "årsregnskab",
+        "budget",
+        "driftsbudget",
+        "prisblad",
+        "prisblad 2026",
+        "gebyrer",
+        "takster",
+        "priser",
+        "fællesudgifter",
+        "fuldmagt",
+        "stemmeret"
+      ]
     }
   ],
   "warnings": []

@@ -32,6 +32,23 @@
   transform: translateY(-2px);
 }
 
+.contact-card:target {
+  border-color: #f56a6a;
+  box-shadow: 0 0 0 3px rgba(245, 106, 106, 0.25), 0 8px 24px rgba(0, 0, 0, 0.09);
+  scroll-margin-top: 2.5em;
+  transform: translateY(-2px);
+  animation: cardTargetPulse 1.8s ease-out;
+}
+
+@keyframes cardTargetPulse {
+  0% {
+    background-color: #fff5f5;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+
 .contact-card__header {
   display: flex;
   align-items: flex-start;
