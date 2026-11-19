@@ -20,36 +20,32 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
 - Introduktion og genveje til ejerforeningens vigtigste informationer.
 - Interaktivt områdekort med relevante faciliteter og lokationer i nærområdet.
 
-### 2. Velkomstbrev (`/velkomstbrev/`)
-- **Sti:** `velkomstbrev/index.html`
-- Praktisk information, retningslinjer og introduktion for nye tilflyttere og boligejere.
-
-### 3. Husorden og Vedtægter (`/husorden-vedtaegter/`)
+### 2. Husorden og Vedtægter (`/husorden-vedtaegter/`)
 - **Sti:** `husorden-vedtaegter/index.html`
 - Interaktiv dokumentvisning med **PDF.js** til nem læsning af vedtægter og husorden direkte i browseren uden at skulle downloade filer.
 
-### 4. Nyheder (`/nyhed/`)
+### 3. Nyheder (`/nyhed/`)
 - **Sti:** `nyhed/index.html`
 - Seneste nyheder, meddelelser og referater.
 - Viser automatisk foreningens nyhedsbrev direkte fra Word-format (`.docx`).
 
-### 5. Parkering (`/parkering/`)
+### 4. Parkering (`/parkering/`)
 - **Sti:** `parkering/index.html`
 - **Øverst (2-kolonne layout):**
   - **Venstre kolonne:** Information om parkering i foreningen samt oplysninger om uretmæssig parkering (DinParkering døgnvagt).
   - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen, navn, e-mail og bemærkninger).
 - **Nederst:** Livevisning af ejerforeningens opdaterede parkeringsventeliste via Excel/SheetJS-integration.
 
-### 6. Leje af kælderrum (`/kaelderrum/`)
+### 5. Leje af kælderrum (`/kaelderrum/`)
 - **Sti:** `kaelderrum/index.html`
 - Information om leje af kælderrum, lejevilkår, opkrævning og venteliste.
 - Integreret kontaktformular direkte til bestyrelsen, forudfyldt med emnet "Leje af kælderrum".
 
-### 7. Bestilling af nøglebrikker (`/noeglebrikker/`)
-- **Sti:** `noeglebrikker/index.html`
+### 6. Bestilling af nøglekort og nøglebrikker (`/noegler/`)
+- **Sti:** `noegler/index.html`
 - Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
 
-### 8. Kontakt (`/kontakt/`)
+### 7. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
 - Kontaktside med moderne kort-layout (cards) for:
   - **Bestyrelsen** (`bestyrelse@skyttegaardvej.dk`)
@@ -59,7 +55,7 @@ Hjemmesiden fungerer som den primære informationsportal for nuværende og nye e
   - **Finn L. & Davidsen A/S** (Fast håndværker & døgnvagt)
   - **DinParkering** (Parkeringskontrol)
 
-### 9. Design- & Komponentreferencer (`/eksempler/`)
+### 8. Design- & Komponentreferencer (`/eksempler/`)
 - **Sti:** `eksempler/index.html`
 - Eksempelside med HTML5 UP Editorial-skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
 
