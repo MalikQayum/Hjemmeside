@@ -416,7 +416,7 @@
         ]
       },
       "properties": {
-        "name": "Radius 1,5 km – luftlinje",
+        "name": "Radius 1,5 km - luftlinje",
         "description": "Cirklen har en radius på 1.500 meter fra Vigerslevvej 144. Afstande er målt i luftlinje; gang- og køreafstande kan være længere.",
         "category": "radiusCircle",
         "categoryLabel": "Afstandscirkel",
@@ -434,7 +434,7 @@
       },
       "properties": {
         "name": "Skyttegårdvej 1-11 (60 m)",
-        "description": "Adresse: Skyttegårdvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
+        "description": "Adresse: Skyttegårdvej 1-11, 2500 Valby\nDel af E/F Skyttegårdvej/Vigerslevvej. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
         "category": "association",
         "categoryLabel": "Ejerforeningen",
         "source": "manual"
@@ -451,7 +451,7 @@
       },
       "properties": {
         "name": "Vigerslevvej 144-148 (11 m)",
-        "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af Ejerforeningen Skyttegård/Vigerslev. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
+        "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af E/F Skyttegårdvej/Vigerslevvej. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
         "category": "association",
         "categoryLabel": "Ejerforeningen",
         "source": "manual"
@@ -654,7 +654,7 @@
         ]
       },
       "properties": {
-        "name": "Landlystvej – bus 10 (64 m)",
+        "name": "Landlystvej - bus 10 (64 m)",
         "description": "Adresse: Landlystvej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10. Placering fra OpenStreetMap.\nAfstand fra Vigerslevvej 144: ca. 64 m i luftlinje.\nKilde: https://mapcarta.com/N7022561215",
         "category": "bus",
         "categoryLabel": "Busstoppesteder",
@@ -671,7 +671,7 @@
         ]
       },
       "properties": {
-        "name": "Lykkebovej – bus 10 (330 m)",
+        "name": "Lykkebovej - bus 10 (330 m)",
         "description": "Adresse: Lykkebovej ved Vigerslevvej, 2500 Valby\nBusstoppested. Buslinje 10.\nAfstand fra Vigerslevvej 144: ca. 330 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7147-lykkebovej-vigerslevvej",
         "category": "bus",
         "categoryLabel": "Busstoppesteder",
@@ -688,7 +688,7 @@
         ]
       },
       "properties": {
-        "name": "Vigerslevvej (Valby Langgade) – bus (1065 m)",
+        "name": "Vigerslevvej (Valby Langgade) - bus (1065 m)",
         "description": "Adresse: Vigerslevvej ved Valby Langgade, 2500 Valby\nBusstoppested ved Valby Langgade. Stoppestedets linjer og position fremgår af Rejseplanen/stopdata.\nAfstand fra Vigerslevvej 144: ca. 1065 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/1438-vigerslevvej-valby-langgade",
         "category": "bus",
         "categoryLabel": "Busstoppesteder",
@@ -705,7 +705,7 @@
         ]
       },
       "properties": {
-        "name": "Valby Langgade (Vigerslevvej) – bus (993 m)",
+        "name": "Valby Langgade (Vigerslevvej) - bus (993 m)",
         "description": "Adresse: Valby Langgade ved Vigerslevvej, 2500 Valby\nBusstoppested for bl.a. linje 10.\nAfstand fra Vigerslevvej 144: ca. 993 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/7143-valby-langgade-vigerslevvej",
         "category": "bus",
         "categoryLabel": "Busstoppesteder",
@@ -722,7 +722,7 @@
         ]
       },
       "properties": {
-        "name": "Ålholm Plads (Roskildevej) – bus (1260 m)",
+        "name": "Ålholm Plads (Roskildevej) - bus (1260 m)",
         "description": "Adresse: Ålholm Plads ved Roskildevej, 2500 Valby\nBusstoppested. Flere buslinjer betjener Ålholm Plads.\nAfstand fra Vigerslevvej 144: ca. 1260 m i luftlinje.\nKilde: https://stoppested.app/stoppesteder/4491-aalholm-plads-roskildevej",
         "category": "bus",
         "categoryLabel": "Busstoppesteder",
@@ -807,8 +807,8 @@
         ]
       },
       "properties": {
-        "name": "Vigerslevvej – delvist i Ålholm-zonen (16 m)",
-        "description": "Adresse: Vigerslevvej, 2500 Valby\nVigerslevvej er delvist omfattet af Ålholm-zonen. I tidsbegrænsede dele er parkering gratis i op til 3 timer på hverdage kl. 08-22 med p-skive. Det gælder ikke nødvendigvis hele vejen eller denne side af vejen – følg altid skiltningen på stedet.\nAfstand fra Vigerslevvej 144: ca. 16 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
+        "name": "Vigerslevvej - delvist i Ålholm-zonen (16 m)",
+        "description": "Adresse: Vigerslevvej, 2500 Valby\nVigerslevvej er delvist omfattet af Ålholm-zonen. I tidsbegrænsede dele er parkering gratis i op til 3 timer på hverdage kl. 08-22 med p-skive. Det gælder ikke nødvendigvis hele vejen eller denne side af vejen - følg altid skiltningen på stedet.\nAfstand fra Vigerslevvej 144: ca. 16 m i luftlinje.\nKilde: https://www.kk.dk/borger/parkering-trafik-og-veje/parkering/priser-og-parkeringszoner",
         "category": "parkingLimited",
         "categoryLabel": "Tidsbegrænset parkering",
         "source": "manual"
@@ -824,7 +824,7 @@
         ]
       },
       "properties": {
-        "name": "Privat parkering – Skyttegårdvej 7 (60 m)",
+        "name": "Privat parkering - Skyttegårdvej 7 (60 m)",
         "description": "Adresse: Skyttegårdvej 7, 2500 Valby\nPrivat parkering med adgangsbegrænsning. Dette er ikke en offentlig parkeringsplads og må ikke betragtes som gæsteparkering uden tilladelse.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.dingeo.dk/",
         "category": "parkingPrivate",
         "categoryLabel": "Privat parkering",

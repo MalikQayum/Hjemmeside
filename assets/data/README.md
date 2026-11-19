@@ -1,4 +1,4 @@
-# Data – kort- og geografiske filer
+# Data - kort- og geografiske filer
 
 Indeholder data, som bruges af hjemmesidens områdekort.
 

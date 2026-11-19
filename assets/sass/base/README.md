@@ -1,4 +1,4 @@
-# Sass – base
+# Sass - base
 
 Grundlæggende styling for typografi, sideopsætning og CSS-reset. Ændringer her kan påvirke mange eller alle sider.
 

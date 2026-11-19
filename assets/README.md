@@ -1,4 +1,4 @@
-# Assets – hjemmesidens ressourcer
+# Assets - hjemmesidens ressourcer
 
 Denne mappe indeholder de statiske ressourcer, som hjemmesidens sider bruger: stylesheets, JavaScript, geografiske data, Sass-kilder, video og webfonts.
 

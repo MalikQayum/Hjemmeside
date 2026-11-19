@@ -8,7 +8,7 @@
   const TEXT = {
     da: {
       title: "Spørg ejerforeningen", subtitle: "Dansk / English",
-      intro: "Hej! Jeg kan hjælpe med at finde information på ejerforeningens hjemmeside. Vælg et emne herunder, eller skriv dit spørgsmål direkte – du kan altid spørge på tværs af emnerne.",
+      intro: "Hej! Jeg kan hjælpe med at finde information på ejerforeningens hjemmeside. Vælg et emne herunder, eller skriv dit spørgsmål direkte. Du kan altid spørge på tværs af emnerne.",
       topicsHeading: "Hvad drejer dit spørgsmål sig om?", topicPrompt: "Typiske spørgsmål om", backTopics: "Vis alle emner",
       placeholder: "Skriv dit spørgsmål…", send: "Send", open: "Spørg os", close: "Luk chatten",
       noMatch: "Jeg kunne ikke finde et sikkert svar i hjemmesidens nuværende information. Prøv at omformulere spørgsmålet, eller kontakt bestyrelsen.",
@@ -107,8 +107,8 @@
     {
       match: /^(hvordan bruger jeg chatbotten|how do i use the chatbot)\??$/,
       answer: {
-        da: "Vælg et emne for at se forslag til typiske spørgsmål, eller skriv dit spørgsmål i feltet. Emnevalget er kun en genvej – jeg søger stadig i hele hjemmesidens vidensdatabase, så du kan også spørge om noget helt andet.",
-        en: "Choose a topic to see suggested questions, or type your question. The topic selection is only a shortcut – I still search the entire website knowledge base, so you can ask about something completely different."
+        da: "Vælg et emne for at se forslag til typiske spørgsmål, eller skriv dit spørgsmål i feltet. Emnevalget er kun en genvej, da jeg stadig søger i hele hjemmesidens vidensdatabase, så du kan også spørge om noget helt andet.",
+        en: "Choose a topic to see suggested questions, or type your question. The topic selection is only a shortcut, as I still search the entire website knowledge base, so you can ask about something completely different."
       }
     },
     {
@@ -120,7 +120,7 @@
     }
   ];
 
-  // Synonymer hjælper med almindelige formuleringer – de ændrer aldrig kildens regler.
+  // Synonymer hjælper med almindelige formuleringer, og de ændrer aldrig kildens regler.
   const synonyms = {
     parkering: ["parking", "parkeringsplads", "venteliste", "bil", "p-plads", "parkeringskort"],
     husdyr: ["dyr", "hund", "hunde", "kat", "katte", "kæledyr", "kæledyr", "pets", "pet", "dog", "dogs", "cat", "cats"],
@@ -325,8 +325,8 @@
         a.href = sourceUrl.href;
         const title = doc.title || doc.source.file;
         const location = doc.section && !new RegExp(`punkt\\s*${doc.section}`, "i").test(title)
-          ? ` – punkt ${doc.section}`
-          : (!doc.section && doc.page && !new RegExp(`side\\s*${doc.page}`, "i").test(title) ? ` – side ${doc.page}` : "");
+          ? ` - punkt ${doc.section}`
+          : (!doc.section && doc.page && !new RegExp(`side\\s*${doc.page}`, "i").test(title) ? ` - side ${doc.page}` : "");
         a.textContent = title + location; a.target = "_self";
         li.appendChild(a); list.appendChild(li);
       });

@@ -1,4 +1,4 @@
-# JavaScript – hjemmesidens browserfunktioner
+# JavaScript - hjemmesidens browserfunktioner
 
 Indeholder scripts, der kører i besøgendes browser. Eksempler er navigation/sidebar, områdekort, kontaktformular, dokumentvisere, parkeringsventeliste og chatbot.
 

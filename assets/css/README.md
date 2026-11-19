@@ -1,4 +1,4 @@
-# CSS – hjemmesidens stylesheets
+# CSS - hjemmesidens stylesheets
 
 Her ligger de færdige CSS-filer, som browseren indlæser. `main.css` indeholder det overordnede Editorial-design, mens de øvrige stylesheets indeholder side- eller komponentafgrænset styling, herunder kort, dokumentvisere, kontaktformularer, parkering og chatbot.
 

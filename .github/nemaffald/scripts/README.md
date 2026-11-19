@@ -1,4 +1,4 @@
-# NemAffald – hjælpe- og installationsscripts
+# NemAffald - hjælpe- og installationsscripts
 
 PowerShell- og JavaScript-hjælpeværktøjer til opsætning og vedligeholdelse af NemAffald.
 

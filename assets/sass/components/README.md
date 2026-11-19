@@ -1,4 +1,4 @@
-# Sass – komponenter
+# Sass - komponenter
 
 Genanvendelige visuelle komponenter i hjemmesidens design, eksempelvis knapper, formularer, tabeller, lister, billeder, kontaktblokke og indholdssektioner.
 

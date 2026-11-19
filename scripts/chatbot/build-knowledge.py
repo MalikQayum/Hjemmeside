@@ -154,14 +154,14 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
         result = []
         if general:
             result.append({
-                "title": "Parkering – venteliste og generel information",
+                "title": "Parkering - venteliste og generel information",
                 "content": general,
                 "keywords": ["parkering", "parkeringsplads", "venteliste", "skrive op", "bestyrelsen"],
                 "topic": "waitlist"
             })
         if wrongful:
             result.append({
-                "title": "Parkering – uretmæssig parkering",
+                "title": "Parkering - uretmæssig parkering",
                 "content": wrongful,
                 "keywords": ["parkering", "parkeringsplads", "uvedkommende", "dinparkering", "pladsnummer", "registreringsnummer"],
                 "topic": "enforcement"
@@ -173,7 +173,7 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
             if wrongful:
                 summary_parts.append(wrongful)
             result.insert(0, {
-                "title": "Parkering – overblik",
+                "title": "Parkering - overblik",
                 "content": " ".join(summary_parts),
                 "keywords": ["parkering", "parkeringspladser", "venteliste", "dinparkering", "bestyrelsen"],
                 "topic": "overview"
@@ -193,7 +193,7 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
             if section_match:
                 if current is not None: sections.append(current)
                 number = int(section_match.group(1))
-                current = {"section": number, "page": page, "title": f"Husorden – punkt {number}", "content": line.strip(), "keywords": ["husorden", f"punkt {number}"]}
+                current = {"section": number, "page": page, "title": f"Husorden - punkt {number}", "content": line.strip(), "keywords": ["husorden", f"punkt {number}"]}
             elif current is not None and line.strip():
                 current["content"] += "\n" + line.strip()
         if current is not None: sections.append(current)

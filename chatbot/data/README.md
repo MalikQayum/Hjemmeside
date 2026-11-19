@@ -1,4 +1,4 @@
-# Chatbot – genererede data
+# Chatbot - genererede data
 
 `knowledge.json` er chatbotens genererede vidensdatabase. Den bygges ud fra kilderne i `../config/knowledge-config.json` af `../../scripts/chatbot/build-knowledge.py`.
 

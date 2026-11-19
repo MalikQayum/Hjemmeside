@@ -1,4 +1,4 @@
-# Chatbot – vidensbaseret informationsassistent
+# Chatbot - vidensbaseret informationsassistent
 
 Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Selve besøgendes chat og søgning kører lokalt i browseren og bruger ikke en AI-API. Et separat GitHub Actions-workflow kan bruge en AI-API til at generere og teste nye træningsspørgsmål.
 
@@ -34,13 +34,13 @@ Ret kun værdien til `true` eller `false`, og publicér ændringen på GitHub. I
 - Vidensdatabasen bygges fra kilderne i `config/knowledge-config.json`.
 - Husordenens nummererede punkter gemmes hver for sig med punktnummer og PDF-side. Det forhindrer, at punkt 6 om husdyr blandes sammen med fx punkt 9 om fodring af dyr.
 - Frontenden bruger danske synonymer og emnegenkendelse til at finde relevante afsnit. Kendte emner som husdyr, fodring, støj/nattero og parkering prioriterer det relevante kildeafsnit.
-- Ved første åbning vises en emnemenu med parkering, vedtægter, husorden, kontakt, kælderrum, nøglebrikker, nyheder og generelle spørgsmål. Hvert emne har forslag til typiske spørgsmål. Forslagene er genveje – et valgt emne begrænser aldrig den efterfølgende søgning.
+- Ved første åbning vises en emnemenu med parkering, vedtægter, husorden, kontakt, kælderrum, nøglebrikker, nyheder og generelle spørgsmål. Hvert emne har forslag til typiske spørgsmål. Forslagene er genveje - et valgt emne begrænser aldrig den efterfølgende søgning.
 - De generelle spørgsmål om chatbotten har korte, prædefinerede svar i `PREDEFINED_ANSWERS` i `assets/js/chatbot.js`. Spørgsmål om foreningens forhold bruger fortsat den almindelige kildebaserede søgning.
 - Emnenavne og forslag vedligeholdes i `TOPICS` i `assets/js/chatbot.js`. Tilføj kun spørgsmål, som kan besvares ud fra de inkluderede kilder.
 - Knappernes tekstfarve er sort for at sikre kontrast på de røde og hvide knapper.
 - Parkeringssiden opdeles i overblik, venteliste og uretmæssig parkering. Kontaktformularens felter indekseres ikke som viden.
 - Chatbotten viser et kort, kildebaseret svar og den mest relevante kilde. PDF-links åbner på den registrerede side.
-- Chatbotten bruger hjemmesidens røde accentfarve (`#f56a6a`) sammen med hvid og neutral grå – ikke grønne farver.
+- Chatbotten bruger hjemmesidens røde accentfarve (`#f56a6a`) sammen med hvid og neutral grå - ikke grønne farver.
 - Emne- og spørgsmåls-knapper bruger kompakt tekstombrydning, så teksten bliver inden for knapperne. Chatten lukkes og åbnes igen via den samme faste “Spørg os”-knap; der vises ingen separat luk-knap i chatvinduet.
 - Synonymer og emnegenkendelse er kun søgehjælp. De giver ikke chatbotten ret til at udlede nye regler. Selve ordlyden kommer fra kilden.
 - Hvis der ikke findes et tilstrækkeligt relevant afsnit, svarer chatbotten, at den ikke kan finde et sikkert svar, og henviser til bestyrelsen.

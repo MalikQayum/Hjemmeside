@@ -1,4 +1,4 @@
-# Sass – biblioteker og hjælpefunktioner
+# Sass - biblioteker og hjælpefunktioner
 
 Indeholder Sass-hjælpefiler, mixins, variabler, breakpoints, grid-funktioner og vendor-relaterede definitioner.
 
