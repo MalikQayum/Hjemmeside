@@ -187,34 +187,6 @@
         gap: 0.5em;
         flex-wrap: wrap;
       }
-      .regnskab-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-        gap: 0.65em;
-        margin-top: 1em;
-      }
-      .regnskab-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.65em 0.9em;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 4px;
-        color: #3d4449;
-        font-weight: 600;
-        font-size: 0.9em;
-        text-decoration: none;
-        transition: all 0.15s ease;
-      }
-      .regnskab-link:hover {
-        border-color: #f56a6a;
-        color: #f56a6a;
-        background: #fffafa;
-      }
-      .regnskab-link .icon {
-        color: #f56a6a;
-      }
       .archive-details {
         margin-top: 1.25em;
         background: #f8fafc;
@@ -438,62 +410,191 @@
               </p>
 
               <h4 style="margin-top: 1.25em; margin-bottom: 0.4em;">Seneste regnskabsår (2022-2027)</h4>
-              <div class="regnskab-grid">
-                <a href="/dokumenter/generalforsamling/regnskab/2027-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2027 <small style="color:#64748b;font-weight:400;">(inkl. 2026)</small></span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-                <a href="/dokumenter/generalforsamling/regnskab/2026-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2026</span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-                <a href="/dokumenter/generalforsamling/regnskab/2025-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2025</span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-                <a href="/dokumenter/generalforsamling/regnskab/2024-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2024</span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-                <a href="/dokumenter/generalforsamling/regnskab/2023-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2023</span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-                <a href="/dokumenter/generalforsamling/regnskab/2022-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link">
-                  <span>Regnskab 2022</span>
-                  <span class="icon solid fa-file-pdf"></span>
-                </a>
-              </div>
+              <ul class="doc-list">
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2027</div>
+                      <div class="doc-item-sub">Inkl. 2026 &bull; <code>2027-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2027-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2027-regnskab.pdf" download="2027-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2026</div>
+                      <div class="doc-item-sub"><code>2026-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2026-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2026-regnskab.pdf" download="2026-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2025</div>
+                      <div class="doc-item-sub"><code>2025-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2025-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2025-regnskab.pdf" download="2025-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2024</div>
+                      <div class="doc-item-sub"><code>2024-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2024-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2024-regnskab.pdf" download="2024-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2023</div>
+                      <div class="doc-item-sub"><code>2023-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2023-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2023-regnskab.pdf" download="2023-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+                <li class="doc-item">
+                  <div class="doc-item-info">
+                    <span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span>
+                    <div>
+                      <div class="doc-item-title">Regnskab 2022</div>
+                      <div class="doc-item-sub"><code>2022-regnskab.pdf</code></div>
+                    </div>
+                  </div>
+                  <div class="doc-actions">
+                    <a href="/dokumenter/generalforsamling/regnskab/2022-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a>
+                    <a href="/dokumenter/generalforsamling/regnskab/2022-regnskab.pdf" download="2022-regnskab.pdf" class="button primary small icon solid fa-download">Download</a>
+                  </div>
+                </li>
+              </ul>
 
               <details class="archive-details">
                 <summary><span class="icon solid fa-archive" style="color: #f56a6a; margin-right: 0.4em;"></span> Vis tidligere regnskabsarkiv (1996-2021)</summary>
-                <div class="regnskab-grid" style="margin-top: 1em;">
-                  <a href="/dokumenter/generalforsamling/regnskab/2021-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2021</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2020-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2020</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2019-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2019</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2018-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2018</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2017-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2017</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2016-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2016</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2015-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2015</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2014-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2014</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2013-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2013</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2012-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2012</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2011-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2011 (inkl. 2010)</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2009-2010-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2009-2010</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2008-2009-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2008-2009</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2007-2008-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2007-2008</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2006-2007-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2006-2007</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2005-2006-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2005-2006</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2004-2005-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2004-2005</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2003-2004-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2003-2004</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2002-2003-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2002-2003</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2001-2002-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2001-2002</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/2000-2001-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>2000-2001</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/1999-2000-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1999-2000</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/1998-1999-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1998-1999</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/1997-1998-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1997-1998</span><span class="icon solid fa-file-pdf"></span></a>
-                  <a href="/dokumenter/generalforsamling/regnskab/1996-1997-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="regnskab-link"><span>1996-1997</span><span class="icon solid fa-file-pdf"></span></a>
-                </div>
+                <ul class="doc-list" style="margin-top: 1em;">
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2021</div><div class="doc-item-sub"><code>2021-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2021-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2021-regnskab.pdf" download="2021-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2020</div><div class="doc-item-sub"><code>2020-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2020-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2020-regnskab.pdf" download="2020-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2019</div><div class="doc-item-sub"><code>2019-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2019-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2019-regnskab.pdf" download="2019-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2018</div><div class="doc-item-sub"><code>2018-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2018-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2018-regnskab.pdf" download="2018-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2017</div><div class="doc-item-sub"><code>2017-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2017-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2017-regnskab.pdf" download="2017-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2016</div><div class="doc-item-sub"><code>2016-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2016-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2016-regnskab.pdf" download="2016-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2015</div><div class="doc-item-sub"><code>2015-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2015-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2015-regnskab.pdf" download="2015-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2014</div><div class="doc-item-sub"><code>2014-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2014-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2014-regnskab.pdf" download="2014-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2013</div><div class="doc-item-sub"><code>2013-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2013-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2013-regnskab.pdf" download="2013-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2012</div><div class="doc-item-sub"><code>2012-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2012-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2012-regnskab.pdf" download="2012-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2011 (inkl. 2010)</div><div class="doc-item-sub"><code>2011-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2011-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2011-regnskab.pdf" download="2011-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2009-2010</div><div class="doc-item-sub"><code>2009-2010-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2009-2010-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2009-2010-regnskab.pdf" download="2009-2010-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2008-2009</div><div class="doc-item-sub"><code>2008-2009-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2008-2009-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2008-2009-regnskab.pdf" download="2008-2009-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2007-2008</div><div class="doc-item-sub"><code>2007-2008-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2007-2008-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2007-2008-regnskab.pdf" download="2007-2008-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2006-2007</div><div class="doc-item-sub"><code>2006-2007-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2006-2007-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2006-2007-regnskab.pdf" download="2006-2007-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2005-2006</div><div class="doc-item-sub"><code>2005-2006-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2005-2006-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2005-2006-regnskab.pdf" download="2005-2006-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2004-2005</div><div class="doc-item-sub"><code>2004-2005-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2004-2005-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2004-2005-regnskab.pdf" download="2004-2005-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2003-2004</div><div class="doc-item-sub"><code>2003-2004-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2003-2004-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2003-2004-regnskab.pdf" download="2003-2004-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2002-2003</div><div class="doc-item-sub"><code>2002-2003-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2002-2003-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2002-2003-regnskab.pdf" download="2002-2003-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2001-2002</div><div class="doc-item-sub"><code>2001-2002-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2001-2002-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2001-2002-regnskab.pdf" download="2001-2002-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 2000-2001</div><div class="doc-item-sub"><code>2000-2001-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/2000-2001-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/2000-2001-regnskab.pdf" download="2000-2001-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 1999-2000</div><div class="doc-item-sub"><code>1999-2000-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/1999-2000-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/1999-2000-regnskab.pdf" download="1999-2000-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 1998-1999</div><div class="doc-item-sub"><code>1998-1999-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/1998-1999-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/1998-1999-regnskab.pdf" download="1998-1999-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 1997-1998</div><div class="doc-item-sub"><code>1997-1998-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/1997-1998-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/1997-1998-regnskab.pdf" download="1997-1998-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-item-info"><span class="icon solid fa-file-invoice-dollar" style="color: #f56a6a;"></span><div><div class="doc-item-title">Regnskab 1996-1997</div><div class="doc-item-sub"><code>1996-1997-regnskab.pdf</code></div></div></div>
+                    <div class="doc-actions"><a href="/dokumenter/generalforsamling/regnskab/1996-1997-regnskab.pdf" target="_blank" rel="noopener noreferrer" class="button small icon solid fa-eye">Åbn</a><a href="/dokumenter/generalforsamling/regnskab/1996-1997-regnskab.pdf" download="1996-1997-regnskab.pdf" class="button primary small icon solid fa-download">Download</a></div>
+                  </li>
+                </ul>
               </details>
 
               <div style="margin-top: 1.5em; padding-top: 1em; border-top: 1px solid rgba(210, 215, 217, 0.5); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1em;">
