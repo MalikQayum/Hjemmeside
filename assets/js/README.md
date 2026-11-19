@@ -3,12 +3,13 @@
 Indeholder scripts, der kører i besøgendes browser. Eksempler er navigation/sidebar, områdekort, kontaktformular, dokumentvisere, parkeringsventeliste og chatbot.
 
 ## Vigtige filer
-- `load-sidebar.js`: indlæser den fælles sidebar og tilhørende funktioner.
+- `load-sidebar.js`: indlæser den fælles sidebar og dens funktioner. Chatbotten indlæses kun, når `chatbot/config/config.json` har `"enabled": true` eller konfigurationsfilen ikke kan hentes.
 - `home-map.js`: områdekortet.
 - `chatbot.js`: chatbotgrænseflade og søgning i vidensdatabasen.
-- `load-sidebar.js` indlæser kun chatbotten, hvis `chatbot/config/config.json` har `"enabled": true` (eller konfigurationsfilen ikke kan hentes).
 - `parking-waitlist.js`: visning/behandling af parkeringsventelisten.
 - `pdf-viewer.js`, `docx-viewer.js`, `excel-viewer.js`: dokumentvisere.
 - `contact-form.js`, `parking-contact.js`: kontaktformularer.
 
 Undgå at placere hemmeligheder eller private API-nøgler i browserkode. Alt indhold i disse filer kan læses af besøgende.
+
+[Tilbage til repositoryoversigten](../../README.md)

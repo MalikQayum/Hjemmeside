@@ -6,3 +6,5 @@ Indeholder konfigurationsfiler, som styrer NemAffald-projektets lokale eller Git
 - `settings.github.json`: konfiguration beregnet til GitHub-miljøet. Kontrollér indholdet for følsomme oplysninger, før filen deles eller ændres.
 
 Adgangskoder og tokens skal ligge i GitHub Secrets eller lokale miljøvariabler - ikke i versionsstyrede konfigurationsfiler.
+
+[Tilbage til repositoryoversigten](../../../README.md)

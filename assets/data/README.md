@@ -8,3 +8,5 @@ Indeholder data, som bruges af hjemmesidens områdekort.
 - `preview-map.svg`: grafisk forhåndsvisning.
 
 Læs også root-README'ens afsnit om områdekort og workflowet `.github/workflows/update-geojson.yml`, før data ændres. Koordinater i GeoJSON angives som længdegrad efterfulgt af breddegrad.
+
+[Tilbage til repositoryoversigten](../../README.md)

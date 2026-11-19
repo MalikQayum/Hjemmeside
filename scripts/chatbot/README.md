@@ -19,9 +19,11 @@ GitHub Actions-workflowet installerer desuden OCR-værktøjer. Ret ikke `knowled
 
 ## Automatisk spørgsmålstræning
 
-- `generate-questions.py`: bruger Google Gemini API via `GEMINI_API_KEY` til at generere op til 50 nye danske spørgsmål ud fra `chatbot/data/knowledge.json`. Standardmodel: `gemini-2.5-flash-lite`.
+- `generate-questions.py`: bruger Google Gemini API via `GEMINI_API_KEY` til at generere op til 50 nye danske spørgsmål ud fra `chatbot/data/knowledge.json`. Standardmodel: `gemini-3.5-flash-lite`.
 - Hvis nøglen mangler, eller Gemini fejler/rammer en kvotegrænse, bruges en lokal Python-generator uden API-kald.
 - `train-generated-questions.js`: tester hvert spørgsmål med chatbotens faktiske JavaScript-søgemotor og svarformatering. Kun spørgsmål, der finder det angivne kildeafsnit og giver et svar på højst 45 ord, tilføjes til `chatbot/config/response-rules.json`.
 - `.github/workflows/train-chatbot.yml`: kører dagligt eller manuelt og gemmer resultatet i `chatbot/data/learning-results.json`.
 
-Gemini Developer API har en begrænset gratis kvote for udvalgte modeller; Google kan ændre tilgængelighed og grænser. Scriptet bruger ikke betalingsfunktioner og falder tilbage til lokal generering ved API-fejl. API-nøglen skal kun ligge som GitHub Actions secret `GEMINI_API_KEY`.
+Gemini Developer API har kvoter og hastighedsbegrænsninger, som Google kan ændre. Scriptet falder tilbage til lokal generering ved API-fejl. API-nøglen skal kun ligge som GitHub Actions secret `GEMINI_API_KEY`.
+
+[Tilbage til repositoryoversigten](../../README.md)
