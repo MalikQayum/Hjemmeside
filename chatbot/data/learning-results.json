@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-19T18:09:38.168Z",
-  "generated": 0,
+  "tested_at": "2026-11-19T18:30:53.769Z",
+  "generated": 3,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 336,
+  "rejected": 3,
+  "total_unique_attempted": 339,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -341,8 +341,26 @@
     "Hvornår udskiftes låsene på dørene til opgang 3, 9 og 146?",
     "Hvilke oplysninger skal man oplyse til DinParkering, hvis en fremmed bil holder på ens p-plads?",
     "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen?",
-    "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?"
+    "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?",
+    "Hvor ofte skal man lufte ud i lejligheden for at undgå fugtdannelse?",
+    "Hvor længe skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
+    "Hvem varetager parkeringskontrol på foreningens område?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvor ofte skal man lufte ud i lejligheden for at undgå fugtdannelse?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvor længe skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvem varetager parkeringskontrol på foreningens område?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering - uretmæssig parkering",
+      "actual": "Parkering - overblik"
+    }
+  ]
 }
