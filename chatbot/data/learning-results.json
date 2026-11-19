@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-19T15:39:39.310Z",
-  "generated": 0,
+  "tested_at": "2026-11-19T15:40:21.803Z",
+  "generated": 3,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 333,
+  "rejected": 3,
+  "total_unique_attempted": 336,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -338,8 +338,28 @@
     "Hvilke datoer i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
     "Hvor længe skal et nøglekort eller en brik holdes midt på tastaturet for at aktivere låsen?",
     "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglebrikker?",
-    "Hvornår udskiftes låsene på dørene til opgang 3, 9 og 146?"
+    "Hvornår udskiftes låsene på dørene til opgang 3, 9 og 146?",
+    "Hvilke oplysninger skal man oplyse til DinParkering, hvis en fremmed bil holder på ens p-plads?",
+    "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen?",
+    "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvilke oplysninger skal man oplyse til DinParkering, hvis en fremmed bil holder på ens p-plads?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvor lang tid skal man holde nøglekortet eller brikken på tastaturet for at aktivere låsen?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej"
+    },
+    {
+      "question": "Hvad koster det at købe ekstra nøglebrikker eller nøglekort?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | E/F Skyttegårdvej/Vigerslevvej"
+    }
+  ]
 }
