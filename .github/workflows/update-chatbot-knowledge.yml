@@ -6,12 +6,11 @@ on:
     paths:
       - "index.html"
       - "sidebar.html"
-      - "velkomstbrev/**"
       - "husorden-vedtaegter/**"
       - "nyhed/**"
       - "parkering/**"
       - "kaelderrum/**"
-      - "noeglebrikker/**"
+      - "noegler/**"
       - "kontakt/**"
       - "Husorden.pdf"
       - "Vedtægter.pdf"

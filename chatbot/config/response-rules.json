@@ -192,33 +192,6 @@
       "approved_at": "2026-11-16T23:00:10.964Z"
     },
     {
-      "question": "Hvem kan bestille nye eller ekstra nøglebrikker hos ejerforeningen?",
-      "document_id": "846de9af27355119",
-      "source_file": "noeglebrikker/index.html",
-      "source_url": "/noeglebrikker/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvad skal man gøre, hvis man har mistet en nøglebrik?",
-      "document_id": "846de9af27355119",
-      "source_file": "noeglebrikker/index.html",
-      "source_url": "/noeglebrikker/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvordan kan man få ombyttet en defekt nøglebrik?",
-      "document_id": "846de9af27355119",
-      "source_file": "noeglebrikker/index.html",
-      "source_url": "/noeglebrikker/",
-      "answer_word_count": 32,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
       "question": "Hvordan skal alt affald pakkes ind af hygiejniske grunde?",
       "document_id": "c79d8adf5bb57666",
       "source_file": "Husorden.pdf",
