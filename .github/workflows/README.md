@@ -10,6 +10,8 @@ Her ligger YAML-filerne, der bestemmer, hvornår automatiseringerne kører, og h
 - `update-geojson.yml`: opdaterer områdekortets GeoJSON månedligt eller ved manuel start.
 
 ## Vedligeholdelse
-Kontrollér udløser, tilladelser, samtidighed, secrets/variabler og kaldte scripts, før et workflow ændres. Start workflows manuelt fra repositoryets **Actions**-fane, når de understøtter manuel kørsel.
+Før ændringer: kontrollér workflowets udløser og filterstier, tilladelser, samtidighed, secrets/variabler og kaldte scripts. Bekræft, at nødvendige secrets findes som repository secrets og ikke i YAML-filen.
+
+Efter ændringer køres workflowets lokale validering, hvis den findes, og derefter en manuel kørsel fra repositoryets **Actions**-fane, når `workflow_dispatch` er aktiveret. Kontrollér joblog, ændrede filer og eventuelle genererede commits. For workflows, der kan bestille eller ændre eksterne data, brug kun en testtilstand; livehandlinger kræver særskilt godkendelse.
 
 [Tilbage til repositoryoversigten](../../README.md)

@@ -212,13 +212,13 @@ De vigtigste mapper har deres egen `README.md`, så formål, indhold og vedligeh
 | `.github/` | GitHub Actions, automatisering og NemAffald-delprojektet. |
 | `assets/` | CSS, JavaScript, kortdata, Sass, video og webfonts. |
 | `chatbot/` | Chatbotkonfiguration og genereret vidensdatabase. |
-| `dokumenter/` | Samlet arkiv for PDF/Word-dokumenter (`generalforsamling/`, `udlejning/`, `forening/`). |
+| `dokumenter/` | Samlet arkiv for PDF/Word-dokumenter. Se `dokumenter/README.md` og de lokale noter i `forening/`, `generalforsamling/` og `udlejning/`. |
 | `scripts/` | Scripts til dataopdatering og chatbot. |
 | `images/` | Billedressourcer. |
 | `affald-storskrald/`, `generalforsamling/`, `husorden-vedtaegter/`, `kaelderrum/`, `kontakt/`, `noegler/`, `nyhed/`, `parkering/`, `udlejning/`, `vedligeholdelse/` | Hjemmesidens indholdssider. |
 | `eksempler/` | Design- og komponentreferencer. |
 
-Undermapper med selvstændigt indhold har også lokale README-filer. De beskriver mappernes faktiske funktion og relevante vedligeholdelsespunkter. README-filerne er dokumentation og ikke officielle regler for foreningen.
+Hjemmesidens indholdssider, dokumentarkivet og de vigtigste kode- og ressourceområder har lokale README-filer. De beskriver formål, filernes rolle og typiske vedligeholdelsestrin. README-filerne er dokumentation og ikke officielle regler for foreningen.
 
 
 *Sidst opdateret: 2026-11-19*
