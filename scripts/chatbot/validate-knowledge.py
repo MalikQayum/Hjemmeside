@@ -2,6 +2,7 @@
 import json, sys
 from pathlib import Path
 p = Path(__file__).resolve().parents[2] / "chatbot/data/knowledge.json"
+root = p.resolve().parents[2]
 data = json.loads(p.read_text(encoding="utf-8"))
 assert data.get("schema_version") == 1
 assert isinstance(data.get("documents"), list)
@@ -10,6 +11,18 @@ assert len(ids) == len(set(ids)), "Duplicate knowledge IDs"
 for item in data["documents"]:
     assert item.get("content", "").strip(), f"Empty content: {item.get('id')}"
     assert item.get("source", {}).get("url"), f"Missing source URL: {item.get('id')}"
+    source_file = item.get("source", {}).get("file")
+    assert source_file and (root / source_file).is_file(), f"Missing source file: {source_file}"
+assert not any(
+    item.get("source", {}).get("file") in {"velkomstbrev/index.html", "noeglebrikker/index.html"}
+    for item in data["documents"]
+), "Chatbot knowledge contains a source page that no longer exists"
+key_pages = [
+    item for item in data["documents"]
+    if item.get("source", {}).get("file") == "noegler/index.html"
+]
+assert key_pages and all(item.get("category") == "noeglebrikker" for item in key_pages), \
+    "Nøglekort/nøglebrikssiden mangler eller har forkert chatbotkategori"
 # Regressionstest: Husordenens punkt 6 skal være et selvstændigt, præcist kildeafsnit.
 husdyr = [item for item in data["documents"] if item.get("source", {}).get("file") == "Husorden.pdf" and item.get("section") == 6]
 assert len(husdyr) == 1, "Husordenens punkt 6 mangler eller findes flere gange"
