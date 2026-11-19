@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-17T15:56:25.301Z",
-  "generated": 0,
+  "tested_at": "2026-11-19T14:46:46.408Z",
+  "generated": 5,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 328,
+  "rejected": 5,
+  "total_unique_attempted": 333,
   "attempted_questions": [
     "Hvad gælder om Forside | Ejerforeningen Skyttegård/Vigerslev?",
     "Hvor kan jeg læse om Forside | Ejerforeningen Skyttegård/Vigerslev?",
@@ -333,8 +333,38 @@
     "Hvad koster det at tilkøbe ekstra nøglekort og brikker?",
     "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglekort og brikker?",
     "Hvornår udskiftes låsene på dørene i opgang 3, 9 og 146 i forbindelse med det nye nøglesystem?",
-    "Hvor meget koster ekstra nøglekort og brikker?"
+    "Hvor meget koster ekstra nøglekort og brikker?",
+    "Hvor meget koster en ekstra nøglebrik eller et nøglekort?",
+    "Hvilke datoer i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+    "Hvor længe skal et nøglekort eller en brik holdes midt på tastaturet for at aktivere låsen?",
+    "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglebrikker?",
+    "Hvornår udskiftes låsene på dørene til opgang 3, 9 og 146?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvor meget koster en ekstra nøglebrik eller et nøglekort?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvilke datoer i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvor længe skal et nøglekort eller en brik holdes midt på tastaturet for at aktivere låsen?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglebrikker | Ejerforeningen Skyttegård/Vigerslev"
+    },
+    {
+      "question": "Hvilken e-mailadresse skal ejere benytte til bestilling af nøglebrikker?",
+      "reason": "low_question_quality"
+    },
+    {
+      "question": "Hvornår udskiftes låsene på dørene til opgang 3, 9 og 146?",
+      "reason": "low_question_quality"
+    }
+  ]
 }
