@@ -1,9 +1,9 @@
 # Parkering
 
-Indeholder hjemmesidens parkeringsinformation, kontaktformular og visning af parkeringsventelisten.
+Denne mappe indeholder `index.html`, hjemmesidens parkeringsinformation, kontaktformular og visning af parkeringsventelisten.
 
-Siden `index.html` bruger funktioner fra `assets/js/` og `assets/css/`. Den aktuelle Excel-fil `Venteliste Parkering.xlsx` ligger i repository'ets rod og hentes af det fælles OneDrive-workflow `.github/workflows/sync-onedrive-to-github.yml`.
+Parkeringssiden bruger blandt andet `assets/js/parking-contact.js` og `assets/js/parking-waitlist.js` samt de tilhørende stylesheets i `assets/css/`. Excel-filen `Venteliste Parkering.xlsx` ligger i repository-roden, hentes af OneDrive-workflowet `.github/workflows/sync-onedrive-to-github.yml` og vises på siden.
 
-Parkeringsventelisten kan indeholde personoplysninger. At repository'et er offentligt, betyder ikke i sig selv, at alle oplysninger bør gengives af chatbotten. Den skal kun indekseres, hvis det er særskilt besluttet og lovligt.
+Parkeringsventelisten kan indeholde personoplysninger. Den er derfor ikke med i chatbotens kildeallowlist. Vurder behov og lovgrundlag særskilt, før der ændres på offentliggørelse eller indeksering af listen.
 
 [Tilbage til repositoryoversigten](../README.md)
