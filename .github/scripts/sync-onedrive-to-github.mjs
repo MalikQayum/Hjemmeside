@@ -453,6 +453,141 @@ async function findLatestDanishNewsletter(page, latestConfig) {
 // FIND AND DOWNLOAD FILE FROM ONEDRIVE FOLDER
 // ==================================================
 
+async function triggerDownload(page, clickAction, timeout = 60000) {
+  const context = page.context();
+  let settled = false;
+  let timer;
+  const watchedPages = new Set([page]);
+
+  let onDownload;
+  let onNewPage;
+  let onPageClose;
+
+  const cleanup = () => {
+    if (timer) clearTimeout(timer);
+    if (onNewPage) context.off("page", onNewPage);
+    if (onPageClose) page.off("close", onPageClose);
+    if (onDownload) {
+      for (const p of watchedPages) {
+        p.off("download", onDownload);
+      }
+    }
+  };
+
+  const downloadPromise = new Promise((resolve, reject) => {
+    timer = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(new Error(`Timed out waiting for download event (${timeout}ms).`));
+    }, timeout);
+
+    onDownload = (dl) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      resolve(dl);
+    };
+
+    onPageClose = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(new Error("Page closed while waiting for OneDrive download."));
+    };
+
+    onNewPage = (newPage) => {
+      watchedPages.add(newPage);
+      newPage.on("download", onDownload);
+    };
+
+    page.on("download", onDownload);
+    page.on("close", onPageClose);
+    context.on("page", onNewPage);
+  });
+
+  // Prevent unhandled rejection if clickAction throws before await completes.
+  downloadPromise.catch(() => {});
+
+  try {
+    await clickAction();
+    return await downloadPromise;
+  } catch (error) {
+    if (!settled) {
+      settled = true;
+      cleanup();
+    }
+    throw error;
+  }
+}
+
+async function downloadFromOneDriveRow(page, file, fileName) {
+  const downloadLabel = /^(download|hent)$/i;
+  let lastError;
+
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      await page.keyboard.press("Escape").catch(() => {});
+      await file.scrollIntoViewIfNeeded().catch(() => {});
+      await page.waitForTimeout(300);
+
+      if (attempt <= 2) {
+        await file.click({ button: "right", timeout: 15000 });
+      } else {
+        // Fallback: hover row and use checkbox + command bar or row actions menu.
+        const row = file.locator("xpath=ancestor::*[@role='row' or @role='listitem'][1]");
+        await file.hover({ timeout: 10000 }).catch(() => {});
+        const moreBtn = await waitForVisible([
+          row.getByRole("button", { name: /more actions|flere handlinger|show actions|handlinger/i }),
+          row.locator('[role="checkbox"]')
+        ], 4000);
+
+        if (moreBtn) {
+          await moreBtn.click({ timeout: 10000 });
+        } else {
+          await file.click({ button: "right", timeout: 15000 });
+        }
+      }
+
+      await page.waitForTimeout(1500);
+
+      const downloadOption = await waitForVisible([
+        page.getByRole("menuitem", { name: downloadLabel }),
+        page.getByRole("button", { name: downloadLabel }),
+        page.getByText(downloadLabel)
+      ], 10000);
+
+      if (!downloadOption) {
+        throw new Error(
+          `File found, but the OneDrive Download option was not visible for ${fileName}.`
+        );
+      }
+
+      console.log(
+        attempt === 1
+          ? "Starting download..."
+          : `Starting download (attempt ${attempt})...`
+      );
+
+      return await triggerDownload(page, () =>
+        downloadOption.click({ timeout: 15000 })
+      );
+    } catch (error) {
+      lastError = error;
+      console.warn(
+        `Download attempt ${attempt} failed for ${fileName}: ${error.message}`
+      );
+      if (attempt < 3 && !page.isClosed()) {
+        await page.waitForTimeout(2000);
+      } else {
+        break;
+      }
+    }
+  }
+
+  throw lastError;
+}
+
 async function downloadFile(page, fileConfig) {
   const { folderUrl } = fileConfig;
   let fileName = fileConfig.fileName;
@@ -507,38 +642,9 @@ async function downloadFile(page, fileConfig) {
 
   console.log("File found.");
 
-  // Open the file's context menu.
-  await file.click({
-    button: "right"
-  });
+  await file.scrollIntoViewIfNeeded().catch(() => {});
 
-  await page.waitForTimeout(1500);
-
-  const downloadOption = await waitForVisible([
-    page.getByRole("menuitem", {
-      name: /^download$/i
-    }),
-    page.getByText(/^download$/i),
-    page.getByRole("button", {
-      name: /^download$/i
-    })
-  ], 10000);
-
-  if (!downloadOption) {
-    throw new Error(
-      `File found, but the OneDrive Download option was not visible for ${fileName}.`
-    );
-  }
-
-  console.log("Starting download...");
-
-  const downloadPromise = page.waitForEvent("download", {
-    timeout: 60000
-  });
-
-  await downloadOption.click();
-
-  const download = await downloadPromise;
+  const download = await downloadFromOneDriveRow(page, file, fileName);
 
   await mkdir(dirname(destination), {
     recursive: true
@@ -616,7 +722,8 @@ async function main() {
     const firstUid = client.mailbox.uidNext;
 
     browser = await chromium.launch({
-      headless: true
+      headless: true,
+      args: ["--disable-dev-shm-usage"]
     });
 
     const context = await browser.newContext({
