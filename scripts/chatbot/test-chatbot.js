@@ -104,7 +104,8 @@ if (!bylawResults.length || bylawResults[0].doc.category !== "vedtaegter") {
   throw new Error("Vedtægtsspørgsmålet fandt ikke vedtægtskilden");
 }
 const keyResults = api.search("Hvordan bestiller jeg en nøglebrik?");
-if (!keyResults.length || keyResults[0].doc.category !== "noeglebrikker") {
+if (!keyResults.length || keyResults[0].doc.category !== "noeglebrikker" ||
+    keyResults[0].doc.source?.url !== "/noegler/") {
   throw new Error("Nøglebrikspørgsmålet fandt ikke nøglebrikskilden");
 }
 const newsResults = api.search("Hvor finder jeg nyhedsbreve fra bestyrelsen?");

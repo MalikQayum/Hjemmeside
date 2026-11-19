@@ -4,12 +4,11 @@
   "include": [
     "index.html",
     "sidebar.html",
-    "velkomstbrev/index.html",
     "husorden-vedtaegter/index.html",
     "nyhed/index.html",
     "parkering/index.html",
     "kaelderrum/index.html",
-    "noeglebrikker/index.html",
+    "noegler/index.html",
     "kontakt/index.html",
     "Husorden.pdf",
     "Vedtægter.pdf",

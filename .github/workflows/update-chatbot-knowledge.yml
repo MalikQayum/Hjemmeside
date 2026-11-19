@@ -6,12 +6,11 @@ on:
     paths:
       - "index.html"
       - "sidebar.html"
-      - "velkomstbrev/**"
       - "husorden-vedtaegter/**"
       - "nyhed/**"
       - "parkering/**"
       - "kaelderrum/**"
-      - "noeglebrikker/**"
+      - "noegler/**"
       - "kontakt/**"
       - "Husorden.pdf"
       - "Vedtægter.pdf"
@@ -59,12 +58,12 @@ jobs:
       - name: Commit ændringer
         shell: bash
         run: |
-          if git diff --quiet -- chatbot/data/knowledge.json; then
+          if git diff --quiet -- chatbot/data/knowledge.json chatbot/config/response-rules.json; then
             echo "Vidensdatabasen er allerede opdateret."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add chatbot/data/knowledge.json
-          git commit -m "chore: opdater chatbotens vidensdatabase"
+          git add chatbot/data/knowledge.json chatbot/config/response-rules.json
+          git commit -m "chore: opdater chatbotens vidensdatabase og svarregler"
           git push
