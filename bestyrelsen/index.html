@@ -14,7 +14,7 @@
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="./bestyrelsen.css?v=20261121-cellar-address-dropdown-2" />
+    <link rel="stylesheet" href="./bestyrelsen.css?v=20261121-cellar-fixed-rate-3" />
   </head>
 
   <body class="is-preload">
@@ -325,7 +325,7 @@
               <header class="admin-cellar-heading">
                 <div>
                   <h2 id="cellar-admin-heading">Kælderrum – administration</h2>
-                  <p class="admin-muted">De 11 kælderrum ligger fast. Redigér lejeradresse eller areal. Månedlig leje beregnes automatisk ud fra prisposten “Leje af kælderrum” i prisbladet.</p>
+                  <p class="admin-muted">De 11 kælderrum og deres m²-størrelser er faste. Vælg lejeradresse i dropdown-listen. Ændr den fælles m²-pris i prisbladet via posten “Leje af kælderrum”; lejen beregnes automatisk for alle rum.</p>
                 </div>
                 <button id="cellar-refresh" type="button" class="button">Genindlæs kælderrum</button>
               </header>
@@ -335,7 +335,7 @@
                     <tr>
                       <th>Lokale nr.</th>
                       <th>Lejeradresse</th>
-                      <th>Areal (m²)</th>
+                      <th>Størrelse (fast)</th>
                       <th>Leje pr. måned</th>
                       <th>Status</th>
                     </tr>
@@ -348,7 +348,7 @@
               <div class="admin-save-panel admin-cellar-save-panel">
                 <div>
                   <strong id="admin-cellar-change-state">Ingen ikke-gemte ændringer</strong>
-                  <p id="admin-cellar-save-help" class="admin-muted">Alle 11 lokaler er faste. En tom lejeradresse betyder, at lokalet vises som ledigt. Adressen “Ekstern” kan bruges til en lejer uden for foreningen. Kun kaelderrum/data.json bliver opdateret.</p>
+                  <p id="admin-cellar-save-help" class="admin-muted">Alle 11 lokaler og m²-størrelser er faste. Vælg en af de 69 adresser i dropdown-listen eller “Ekstern”. Ændr m²-prisen i prisbladet ovenfor. Kun kaelderrum/data.json bliver opdateret her.</p>
                 </div>
                 <button id="cellar-save" type="button" class="button primary" disabled>Gem kælderrum</button>
               </div>
@@ -362,6 +362,6 @@
       </main>
     </div>
 
-    <script src="./bestyrelsen.js?v=20261121-cellar-address-dropdown-2"></script>
+    <script src="./bestyrelsen.js?v=20261121-cellar-fixed-rate-3"></script>
   </body>
 </html>
