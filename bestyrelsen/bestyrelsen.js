@@ -7,16 +7,20 @@
   const GITHUB_BRANCH = "main";
   const WORKFLOW_FILE = "update-data.yml";
   const PRICE_WORKFLOW_FILE = "update-price-list.yml";
+  const CELLAR_WORKFLOW_FILE = "update-cellar-rooms.yml";
   const API_VERSION = "2026-03-10";
   const SHARED_USERNAME = "bestyrelsen";
   const ALLOWED_GITHUB_LOGIN = "MalikQayum";
   const RUN_NAME_PREFIX = "Update parking data ";
   const PRICE_RUN_NAME_PREFIX = "Update price list ";
+  const CELLAR_RUN_NAME_PREFIX = "Update cellar rooms ";
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
   const DATA_URL = `${API_ROOT}/contents/parkering/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const PRICE_DATA_URL = `${API_ROOT}/contents/generalforsamling/prisblad.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+  const CELLAR_DATA_URL = `${API_ROOT}/contents/kaelderrum/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
   const PRICE_DISPATCH_URL = `${API_ROOT}/actions/workflows/${PRICE_WORKFLOW_FILE}/dispatches`;
+  const CELLAR_DISPATCH_URL = `${API_ROOT}/actions/workflows/${CELLAR_WORKFLOW_FILE}/dispatches`;
   const RUN_TIMEOUT_MS = 90000;
   const POLL_INTERVAL_MS = 1500;
 
@@ -61,11 +65,38 @@
   const priceSaveButton = document.getElementById("price-save");
   const priceRefreshButton = document.getElementById("price-refresh");
   const priceStatus = document.getElementById("admin-price-status");
+  const cellarRowsBody = document.getElementById("admin-cellar-rows");
+  const cellarSaveButton = document.getElementById("cellar-save");
+  const cellarRefreshButton = document.getElementById("cellar-refresh");
+  const cellarChangeState = document.getElementById("admin-cellar-change-state");
+  const cellarSaveHelp = document.getElementById("admin-cellar-save-help");
+  const cellarStatus = document.getElementById("admin-cellar-status");
 
   const ADDRESSES = Array.from(addressInput.options)
     .map((option) => option.value.trim())
     .filter(Boolean);
   const VEHICLE_KEYS = ["car", "motorcycle"];
+  const CELLAR_PRICE_ID = "price-008";
+  const CELLAR_PRICE_DEFAULT = {
+    id: CELLAR_PRICE_ID,
+    title: "Leje af kælderrum",
+    description: "Månedlig leje beregnes efter rummets areal.",
+    amount: 20,
+    unit: "/ m² / md."
+  };
+  const CELLAR_DEFAULTS = [
+    { id: "room-001", roomNumber: 1, areaM2: 3, tenantAddress: "Vigerslevvej 148 sttv" },
+    { id: "room-002", roomNumber: 2, areaM2: 8, tenantAddress: "Skyttegårdvej 1 sttv" },
+    { id: "room-003", roomNumber: 3, areaM2: 20, tenantAddress: "Vigerslevej 148 1th" },
+    { id: "room-012", roomNumber: 12, areaM2: 14, tenantAddress: "Vigerslevej 148 1tv" },
+    { id: "room-033", roomNumber: 33, areaM2: 4, tenantAddress: "" },
+    { id: "room-045", roomNumber: 45, areaM2: 25, tenantAddress: "Ekstern" },
+    { id: "room-055", roomNumber: 55, areaM2: 13, tenantAddress: "Skyttegårdvej 5 1 mf" },
+    { id: "room-068", roomNumber: 68, areaM2: 13, tenantAddress: "Skyttegårdvej 1 th" },
+    { id: "room-069", roomNumber: 69, areaM2: 25, tenantAddress: "Skyttegårdvej 9 1th" },
+    { id: "room-078", roomNumber: 78, areaM2: 27, tenantAddress: "Skyttegårdvej 11 2 th" },
+    { id: "room-080", roomNumber: 80, areaM2: 11, tenantAddress: "Skyttegårdvej 7 sttv" }
+  ];
 
   let sessionToken = "";
   let rows = [];
@@ -74,6 +105,9 @@
   let priceRows = [];
   let priceUpdatedAt = null;
   let hasUnsavedPriceChanges = false;
+  let cellarRooms = [];
+  let cellarUpdatedAt = null;
+  let hasUnsavedCellarChanges = false;
 
   function setStatus(element, message, kind = "") {
     element.textContent = message;
@@ -214,6 +248,53 @@
 
   function sleep(ms) { return new Promise((resolve) => window.setTimeout(resolve, ms)); }
 
+  function normalizeCellarRooms(value) {
+    if (!Array.isArray(value) || value.length !== CELLAR_DEFAULTS.length) {
+      throw new Error(`Kælderrumsdataene skal indeholde præcis ${CELLAR_DEFAULTS.length} faste lokaler.`);
+    }
+    return CELLAR_DEFAULTS.map((fixed, index) => {
+      const item = value[index];
+      if (!item || item.id !== fixed.id || item.roomNumber !== fixed.roomNumber) {
+        throw new Error(`Kælderrum ${fixed.roomNumber} mangler eller står i forkert rækkefølge.`);
+      }
+      const areaM2 = Number(item.areaM2);
+      const tenantAddress = String(item.tenantAddress ?? "");
+      if (!Number.isFinite(areaM2) || areaM2 <= 0 || areaM2 > 250 || Math.round(areaM2 * 100) !== areaM2 * 100) {
+        throw new Error(`Arealet for lokale ${fixed.roomNumber} skal være mellem 0,1 og 250 m² med højst to decimaler.`);
+      }
+      if (tenantAddress.length > 120 || /[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]/.test(tenantAddress)) {
+        throw new Error(`Lejeradressen for lokale ${fixed.roomNumber} er for lang eller indeholder ugyldige tegn.`);
+      }
+      return { ...fixed, areaM2, tenantAddress: tenantAddress.trim() };
+    });
+  }
+
+  async function fetchPublicCellarData() {
+    const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const response = await fetch(`${CELLAR_DATA_URL}&_=${cacheBuster}`, {
+      headers: { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": API_VERSION },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
+        throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
+      }
+      throw new Error(`Kælderrumsdata kunne ikke hentes (HTTP ${response.status}). Kontrollér, at kaelderrum/data.json findes i repositoryet bestyrelsen.`);
+    }
+    const parsed = await response.json();
+    if (!parsed || parsed.schemaVersion !== 1 || !Array.isArray(parsed.rooms)) throw new Error("kaelderrum/data.json har ikke det forventede format.");
+    return { rooms: normalizeCellarRooms(parsed.rooms), updatedAt: parsed.updatedAt || null };
+  }
+
+  async function fetchSavedCellarData(expectedUpdatedAt) {
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const data = await fetchPublicCellarData();
+      if (data.updatedAt === expectedUpdatedAt) return data;
+      if (attempt < 4) await sleep(800);
+    }
+    throw new Error("Workflowet er gennemført, men GitHub har endnu ikke vist de nye kælderrumsdata. Prøv at genindlæse om et øjeblik.");
+  }
+
   async function waitForWorkflowById(runId, token) {
     const startedAt = Date.now();
     while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
@@ -306,6 +387,53 @@
     if (result && Number.isInteger(result.workflow_run_id)) return waitForPriceWorkflowById(result.workflow_run_id, token);
     if (result === null) return waitForPriceWorkflowByRequestId(requestId, token);
     throw new Error("GitHub returnerede et uventet svar på prisworkflow-anmodningen.");
+  }
+
+  async function waitForCellarWorkflowById(runId, token) {
+    const startedAt = Date.now();
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const run = await githubRequest(`${API_ROOT}/actions/runs/${encodeURIComponent(runId)}`, token);
+      if (run.status === "completed") {
+        if (run.conclusion !== "success") throw new Error(`Kælderrumsworkflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen.`);
+        return run;
+      }
+      setStatus(cellarStatus, "GitHub opdaterer kælderrummene …");
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub accepterede ændringerne, men kælderrumsworkflowet blev ikke færdigt inden for tidsgrænsen.");
+  }
+
+  async function waitForCellarWorkflowByRequestId(requestId, token) {
+    const startedAt = Date.now();
+    const runsUrl = `${API_ROOT}/actions/workflows/${encodeURIComponent(CELLAR_WORKFLOW_FILE)}/runs?branch=${encodeURIComponent(GITHUB_BRANCH)}&event=workflow_dispatch&per_page=100`;
+    const expectedTitle = `${CELLAR_RUN_NAME_PREFIX}${requestId}`;
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const result = await githubRequest(runsUrl, token);
+      const run = Array.isArray(result?.workflow_runs) ? result.workflow_runs.find((item) => item.display_title === expectedTitle) : null;
+      if (run) {
+        if (run.status === "completed") {
+          if (run.conclusion !== "success") throw new Error(`Kælderrumsworkflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen.`);
+          return run;
+        }
+        setStatus(cellarStatus, "GitHub opdaterer kælderrummene …");
+      }
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub modtog gemmeanmodningen, men kælderrumsworkflowet blev ikke færdigt inden for tidsgrænsen.");
+  }
+
+  async function dispatchCellarWorkflow(token, data) {
+    const payload = JSON.stringify(data);
+    if (payload.length > 20000) throw new Error("Kælderrumsdataene er for store til at blive sendt til GitHub.");
+    const requestId = `save-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const result = await githubRequest(CELLAR_DISPATCH_URL, token, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: GITHUB_BRANCH, inputs: { payload, request_id: requestId } })
+    });
+    if (result && Number.isInteger(result.workflow_run_id)) return waitForCellarWorkflowById(result.workflow_run_id, token);
+    if (result === null) return waitForCellarWorkflowByRequestId(requestId, token);
+    throw new Error("GitHub returnerede et uventet svar på kælderrumsworkflow-anmodningen.");
   }
 
   function formatTodayInCopenhagen() {
@@ -479,17 +607,106 @@
     priceSaveHelp.textContent = "Når du gemmer, starter et separat GitHub Actions-workflow. Det opdaterer kun generalforsamling/prisblad.json og ændrer ikke parkeringsdataene.";
   }
 
+  function getCellarPricePerM2() {
+    const price = priceRows.find((item) => item.id === CELLAR_PRICE_ID);
+    return price ? price.amount : null;
+  }
+
+  function formatCellarMoney(amount) {
+    return `${new Intl.NumberFormat("da-DK", { maximumFractionDigits: 2 }).format(amount)} kr. / md.`;
+  }
+
+  function setCellarRowCalculatedCells(tr, room) {
+    const rate = getCellarPricePerM2();
+    const rentCell = tr.querySelector("[data-cellar-rent]");
+    const stateCell = tr.querySelector("[data-cellar-state]");
+    const validArea = Number.isFinite(Number(room.areaM2)) && Number(room.areaM2) > 0;
+    rentCell.textContent = rate === null || !validArea ? "Pris ikke tilgængelig" : formatCellarMoney(Number(room.areaM2) * rate);
+    const rented = String(room.tenantAddress || "").trim().length > 0;
+    stateCell.textContent = rented ? "Udlejet" : "Ledigt";
+    stateCell.classList.toggle("is-rented", rented);
+    stateCell.classList.toggle("is-available", !rented);
+  }
+
+  function renderCellarRooms() {
+    if (!cellarRowsBody) return;
+    const fragment = document.createDocumentFragment();
+    cellarRooms.forEach((room) => {
+      const tr = document.createElement("tr");
+      tr.dataset.roomId = room.id;
+      const numberCell = document.createElement("td");
+      numberCell.textContent = String(room.roomNumber);
+      const addressCell = document.createElement("td");
+      const addressInput = document.createElement("input");
+      addressInput.type = "text";
+      addressInput.maxLength = 120;
+      addressInput.value = room.tenantAddress;
+      addressInput.setAttribute("aria-label", `Lejeradresse for lokale ${room.roomNumber}`);
+      addressInput.dataset.cellarField = "tenantAddress";
+      addressInput.dataset.roomId = room.id;
+      addressInput.placeholder = "Tomt hvis ledigt";
+      addressCell.appendChild(addressInput);
+      const areaCell = document.createElement("td");
+      const areaInput = document.createElement("input");
+      areaInput.type = "number";
+      areaInput.min = "0.1";
+      areaInput.max = "250";
+      areaInput.step = "0.1";
+      areaInput.value = String(room.areaM2);
+      areaInput.setAttribute("aria-label", `Areal i m² for lokale ${room.roomNumber}`);
+      areaInput.dataset.cellarField = "areaM2";
+      areaInput.dataset.roomId = room.id;
+      areaCell.appendChild(areaInput);
+      const rentCell = document.createElement("td");
+      rentCell.className = "admin-cellar-rent";
+      rentCell.dataset.cellarRent = "true";
+      const stateCell = document.createElement("td");
+      stateCell.className = "admin-cellar-status";
+      stateCell.dataset.cellarState = "true";
+      tr.append(numberCell, addressCell, areaCell, rentCell, stateCell);
+      setCellarRowCalculatedCells(tr, room);
+      fragment.appendChild(tr);
+    });
+    cellarRowsBody.replaceChildren(fragment);
+  }
+
+  function markCellarDirty() {
+    hasUnsavedCellarChanges = true;
+    cellarSaveButton.disabled = false;
+    cellarChangeState.textContent = "Du har kælderrumsændringer, som ikke er gemt";
+    cellarSaveHelp.textContent = "Gemningen opdaterer kun kaelderrum/data.json. Månedslejen beregnes ud fra kvadratmeterprisen i prisbladet.";
+  }
+
+  function applyCellarData(data) {
+    cellarRooms = normalizeCellarRooms(data.rooms);
+    cellarUpdatedAt = data.updatedAt || null;
+    hasUnsavedCellarChanges = false;
+    renderCellarRooms();
+    cellarSaveButton.disabled = true;
+    cellarChangeState.textContent = "Ingen ikke-gemte ændringer";
+    cellarSaveHelp.textContent = cellarUpdatedAt
+      ? `Seneste gemte ændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(cellarUpdatedAt))}. Alle 11 lokaler er faste.`
+      : "Alle 11 lokaler er faste. En tom adresse betyder ledigt; en udfyldt adresse betyder udlejet.";
+  }
+
   function applyPriceData(data) {
     priceRows = normalizePriceRows(data.rows);
     priceUpdatedAt = data.updatedAt || null;
-    hasUnsavedPriceChanges = false;
+    const cellarPriceMissing = !priceRows.some((item) => item.id === CELLAR_PRICE_ID);
+    if (cellarPriceMissing) priceRows.push({ ...CELLAR_PRICE_DEFAULT });
+    hasUnsavedPriceChanges = cellarPriceMissing;
     clearPriceEditor();
     renderPriceRows();
-    priceSaveButton.disabled = true;
-    priceChangeState.textContent = "Ingen ikke-gemte prisændringer";
-    priceSaveHelp.textContent = priceUpdatedAt
-      ? `Seneste gemte prisændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(priceUpdatedAt))}. Kun prisbladet gemmes, separat fra parkering.`
-      : "Prisbladet indeholder de gældende ydelser og priser.";
+    priceSaveButton.disabled = !hasUnsavedPriceChanges;
+    priceChangeState.textContent = cellarPriceMissing
+      ? "Ny prispost til kælderrum er tilføjet – husk at gemme prisbladet"
+      : "Ingen ikke-gemte prisændringer";
+    priceSaveHelp.textContent = cellarPriceMissing
+      ? "Prisposten “Leje af kælderrum” er tilføjet som kladde til 20 kr. pr. m² pr. måned. Klik Gem prisblad for at gøre prisen aktiv på hjemmesiden. Eksisterende priser er bevaret."
+      : (priceUpdatedAt
+        ? `Seneste gemte prisændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(priceUpdatedAt))}. Kun prisbladet gemmes, separat fra parkering.`
+        : "Prisbladet indeholder de gældende ydelser og priser.");
+    renderCellarRooms();
   }
 
   async function loadCurrentPriceData() {
@@ -502,6 +719,12 @@
     const data = await fetchPublicData();
     applyData(data);
     setStatus(mainStatus, "Alle 69 adresser er indlæst fra repositoryet bestyrelsen.", "success");
+  }
+
+  async function loadCurrentCellarData() {
+    const data = await fetchPublicCellarData();
+    applyCellarData(data);
+    setStatus(cellarStatus, "Alle 11 kælderrum er indlæst fra repositoryet bestyrelsen.", "success");
   }
 
   loginForm.addEventListener("submit", async (event) => {
@@ -525,11 +748,11 @@
     try {
       const githubUser = await verifyGitHubToken(candidateToken);
       sessionToken = candidateToken;
-      await Promise.all([loadCurrentData(), loadCurrentPriceData()]);
+      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData()]);
       signedInAs.textContent = `GitHub-token bekræftet for ${githubUser.login}.`;
       loginView.hidden = true;
       adminView.hidden = false;
-      setStatus(mainStatus, "Du er logget ind. Parkeringsdata og prisblad er indlæst.", "success");
+      setStatus(mainStatus, "Du er logget ind. Parkering, prisblad og kælderrum er indlæst.", "success");
     } catch (error) {
       sessionToken = "";
       setStatus(loginStatus, error.message || "Login mislykkedes.", "error");
@@ -600,15 +823,58 @@
   rowCancel.addEventListener("click", clearEditor);
 
   refreshButton.addEventListener("click", async () => {
-    if ((hasUnsavedChanges || hasUnsavedPriceChanges) && !window.confirm("Dine ikke-gemte ændringer i parkering eller prisblad bliver kasseret. Vil du fortsætte?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges) && !window.confirm("Dine ikke-gemte ændringer i parkering, prisblad eller kælderrum bliver kasseret. Vil du fortsætte?")) return;
     refreshButton.disabled = true;
     priceRefreshButton.disabled = true;
-    setStatus(mainStatus, "Genindlæser parkeringsdata og prisblad …");
+    cellarRefreshButton.disabled = true;
+    setStatus(mainStatus, "Genindlæser parkeringsdata, prisblad og kælderrum …");
     try {
-      await Promise.all([loadCurrentData(), loadCurrentPriceData()]);
-      setStatus(mainStatus, "Parkeringsdata og prisblad er genindlæst.", "success");
+      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData()]);
+      setStatus(mainStatus, "Parkeringsdata, prisblad og kælderrum er genindlæst.", "success");
     } catch (error) { setStatus(mainStatus, error.message || "Data kunne ikke genindlæses.", "error"); }
-    finally { refreshButton.disabled = false; priceRefreshButton.disabled = false; }
+    finally { refreshButton.disabled = false; priceRefreshButton.disabled = false; cellarRefreshButton.disabled = false; }
+  });
+
+  cellarRefreshButton.addEventListener("click", async () => {
+    if (hasUnsavedCellarChanges && !window.confirm("Dine ikke-gemte ændringer i kælderrummene bliver kasseret. Vil du fortsætte?")) return;
+    cellarRefreshButton.disabled = true;
+    setStatus(cellarStatus, "Genindlæser kælderrummene …");
+    try { await loadCurrentCellarData(); }
+    catch (error) { setStatus(cellarStatus, error.message || "Kælderrummene kunne ikke genindlæses.", "error"); }
+    finally { cellarRefreshButton.disabled = false; }
+  });
+
+  cellarRowsBody.addEventListener("input", (event) => {
+    const input = event.target.closest("input[data-cellar-field][data-room-id]");
+    if (!input) return;
+    const room = cellarRooms.find((item) => item.id === input.dataset.roomId);
+    if (!room) return;
+    if (input.dataset.cellarField === "tenantAddress") room.tenantAddress = input.value;
+    else if (input.dataset.cellarField === "areaM2") room.areaM2 = input.value === "" ? NaN : Number(input.value);
+    const rowElement = cellarRowsBody.querySelector(`tr[data-room-id="${CSS.escape(room.id)}"]`);
+    if (rowElement) setCellarRowCalculatedCells(rowElement, room);
+    markCellarDirty();
+  });
+
+  cellarSaveButton.addEventListener("click", async () => {
+    if (!sessionToken || !hasUnsavedCellarChanges) return;
+    cellarSaveButton.disabled = true;
+    cellarRefreshButton.disabled = true;
+    setStatus(cellarStatus, "Sender kælderrumsændringerne til GitHub Actions …");
+    try {
+      const nextData = {
+        schemaVersion: 1,
+        updatedAt: new Date().toISOString(),
+        rooms: normalizeCellarRooms(cellarRooms)
+      };
+      await dispatchCellarWorkflow(sessionToken, nextData);
+      const savedData = await fetchSavedCellarData(nextData.updatedAt);
+      applyCellarData(savedData);
+      setStatus(cellarStatus, "Kælderrummene er gemt. Kun kaelderrum/data.json er opdateret.", "success");
+    } catch (error) {
+      cellarSaveButton.disabled = !hasUnsavedCellarChanges;
+      setStatus(cellarStatus, error.message || "Kælderrummene kunne ikke gemmes.", "error");
+    } finally { cellarRefreshButton.disabled = false; }
   });
 
   priceForm.addEventListener("submit", (event) => {
@@ -638,6 +904,7 @@
     }
     clearPriceEditor();
     renderPriceRows();
+    renderCellarRooms();
     markPriceDirty();
   });
 
@@ -660,6 +927,10 @@
       return;
     }
     if (button.dataset.priceAction === "delete") {
+      if (item.id === CELLAR_PRICE_ID) {
+        setStatus(priceStatus, "Prisposten “Leje af kælderrum” er knyttet til kælderrumsoversigten og kan ikke slettes. Du kan ændre beløbet.", "error");
+        return;
+      }
       if (priceRows.length <= 1) {
         setStatus(priceStatus, "Prisbladet skal mindst indeholde én ydelse. Redigér den sidste række i stedet for at slette den.", "error");
         return;
@@ -668,6 +939,7 @@
       priceRows = priceRows.filter((row) => row.id !== item.id);
       clearPriceEditor();
       renderPriceRows();
+      renderCellarRooms();
       markPriceDirty();
       setStatus(priceStatus, `“${item.title}” er fjernet fra kladden. Husk at gemme prisbladet.`);
     }
@@ -734,6 +1006,9 @@
     priceRows = [];
     priceUpdatedAt = null;
     hasUnsavedPriceChanges = false;
+    cellarRooms = [];
+    cellarUpdatedAt = null;
+    hasUnsavedCellarChanges = false;
     tokenInput.value = "";
     loginView.hidden = false;
     adminView.hidden = true;
@@ -741,9 +1016,13 @@
     usernameInput.value = SHARED_USERNAME;
     saveButton.disabled = true;
     priceSaveButton.disabled = true;
+    cellarSaveButton.disabled = true;
     clearPriceEditor();
     renderPriceRows();
     setStatus(priceStatus, "");
+    renderCellarRooms();
+    cellarChangeState.textContent = "Ingen ikke-gemte ændringer";
+    setStatus(cellarStatus, "");
     setStatus(loginStatus, "Du er logget ud.");
     setStatus(mainStatus, "");
     clearEditor();
@@ -751,7 +1030,7 @@
   }
 
   logoutButton.addEventListener("click", () => {
-    if ((hasUnsavedChanges || hasUnsavedPriceChanges) && !window.confirm("Du har ikke-gemte ændringer i parkering eller prisblad. Log ud alligevel?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges) && !window.confirm("Du har ikke-gemte ændringer i parkering, prisblad eller kælderrum. Log ud alligevel?")) return;
     logout();
   });
 
