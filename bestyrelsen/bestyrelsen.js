@@ -10,8 +10,9 @@
   const SHARED_USERNAME = "bestyrelsen";
   const ALLOWED_GITHUB_LOGIN = "MalikQayum";
   const RUN_NAME_PREFIX = "Update test parking data ";
-  const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPOSITORY}/${GITHUB_BRANCH}/testparkeringside/data.json`;
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
+  // GitHubs Contents API læser den aktuelle fil direkte og undgår raw-CDN'ens forsinkede opdateringer.
+  const DATA_URL = `${API_ROOT}/contents/testparkeringside/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
   const MAX_ROWS = 100;
   const RUN_TIMEOUT_MS = 90000;
@@ -110,8 +111,20 @@
   }
 
   async function fetchPublicData() {
-    const response = await fetch(`${DATA_URL}?_=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+    const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const response = await fetch(`${DATA_URL}&_=${cacheBuster}`, {
+      headers: {
+        Accept: "application/vnd.github.raw+json",
+        "X-GitHub-Api-Version": API_VERSION
+      },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
+        throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
+      }
+      throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+    }
     const parsed = await response.json();
     if (!parsed || parsed.schemaVersion !== 1 || !Array.isArray(parsed.rows)) {
       throw new Error("data.json har ikke det forventede format.");
@@ -123,13 +136,14 @@
   }
 
   async function fetchSavedData(expectedUpdatedAt) {
-    // Vent kort på, at GitHubs offentlige raw-fil viser det netop gemte commit.
-    for (let attempt = 0; attempt < 25; attempt += 1) {
+    // Contents API viser normalt det nye commit straks efter workflowets push.
+    // En kort reserveperiode håndterer eventuel forsinkelse i GitHubs API-replikering.
+    for (let attempt = 0; attempt < 5; attempt += 1) {
       const data = await fetchPublicData();
       if (data.updatedAt === expectedUpdatedAt) return data;
-      await sleep(1200);
+      if (attempt < 4) await sleep(800);
     }
-    throw new Error("Workflowet er gennemført, men den offentlige datafil er endnu ikke opdateret. Genindlæs om et øjeblik.");
+    throw new Error("Workflowet er gennemført, men GitHub har endnu ikke vist den nye datafil. Prøv at genindlæse om et øjeblik.");
   }
 
   function sleep(ms) {
