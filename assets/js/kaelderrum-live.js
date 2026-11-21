@@ -13,7 +13,7 @@
   const status = document.getElementById("kaelderrum-live-status");
   if (!body || !status) return;
 
-  const EXPECTED_ROOMS = [[1, 3], [2, 8], [3, 20], [12, 14], [33, 4], [45, 25], [55, 13], [68, 13], [69, 25], [78, 27], [80, 11]];
+  const EXPECTED_ROOM_NUMBERS = [1, 2, 3, 12, 33, 45, 55, 68, 69, 78, 80];
 
   async function fetchJson(path) {
     const url = `${API_ROOT}/${path}?ref=${encodeURIComponent(BRANCH)}&_=${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -31,19 +31,19 @@
   }
 
   function validateRooms(data) {
-    if (!data || data.schemaVersion !== 1 || !Array.isArray(data.rooms) || data.rooms.length !== EXPECTED_ROOMS.length) {
+    if (!data || data.schemaVersion !== 1 || !Array.isArray(data.rooms) || data.rooms.length !== EXPECTED_ROOM_NUMBERS.length) {
       throw new Error("Kælderrumsdataene har et ugyldigt format.");
     }
     return data.rooms.map((room, index) => {
-      const [expectedNumber, expectedArea] = EXPECTED_ROOMS[index];
+      const expectedNumber = EXPECTED_ROOM_NUMBERS[index];
       if (!room || room.roomNumber !== expectedNumber || room.id !== `room-${String(expectedNumber).padStart(3, "0")}`) {
         throw new Error("Kælderrumslisten mangler et lokale eller har en forkert rækkefølge.");
       }
       if (typeof room.tenantAddress !== "string" || room.tenantAddress.length > 120) {
         throw new Error(`Lejeradressen for lokale ${expectedNumber} er ugyldig.`);
       }
-      if (room.areaM2 !== expectedArea) {
-        throw new Error(`Størrelsen på lokale ${expectedNumber} er låst til ${expectedArea} m².`);
+      if (typeof room.areaM2 !== "number" || !Number.isFinite(room.areaM2) || room.areaM2 <= 0 || room.areaM2 > 250) {
+        throw new Error(`Arealet for lokale ${expectedNumber} er ugyldigt.`);
       }
       return room;
     });

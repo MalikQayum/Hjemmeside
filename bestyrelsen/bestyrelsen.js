@@ -272,15 +272,16 @@
       if (!item || item.id !== fixed.id || item.roomNumber !== fixed.roomNumber) {
         throw new Error(`Kælderrum ${fixed.roomNumber} mangler eller står i forkert rækkefølge.`);
       }
-      // Arealet er fastlagt for hvert lokale og kan ikke ændres i administrationen.
-      // Brug altid den godkendte størrelse fra CELLAR_DEFAULTS, også hvis ældre data
-      // indeholder en forkert værdi fra den tidligere redigerbare m²-funktion.
+      const areaM2 = Number(item.areaM2);
       const storedAddress = String(item.tenantAddress ?? "").trim();
       const tenantAddress = CELLAR_LEGACY_ADDRESS_MAP.get(storedAddress) || storedAddress;
+      if (!Number.isFinite(areaM2) || areaM2 <= 0 || areaM2 > 250 || Math.round(areaM2 * 100) !== areaM2 * 100) {
+        throw new Error(`Arealet for lokale ${fixed.roomNumber} skal være mellem 0,1 og 250 m² med højst to decimaler.`);
+      }
       if (tenantAddress && !CELLAR_ADDRESS_OPTIONS.has(tenantAddress)) {
         throw new Error(`Lejeradressen for lokale ${fixed.roomNumber} findes ikke på adresselisten. Vælg en adresse fra dropdown-listen.`);
       }
-      return { ...fixed, tenantAddress };
+      return { ...fixed, areaM2, tenantAddress };
     });
   }
 
@@ -673,8 +674,16 @@
       addressSelect.value = room.tenantAddress;
       addressCell.appendChild(addressSelect);
       const areaCell = document.createElement("td");
-      areaCell.className = "admin-cellar-area";
-      areaCell.textContent = `${new Intl.NumberFormat("da-DK", { maximumFractionDigits: 2 }).format(room.areaM2)} m²`;
+      const areaInput = document.createElement("input");
+      areaInput.type = "number";
+      areaInput.min = "0.1";
+      areaInput.max = "250";
+      areaInput.step = "0.1";
+      areaInput.value = String(room.areaM2);
+      areaInput.setAttribute("aria-label", `Areal i m² for lokale ${room.roomNumber}`);
+      areaInput.dataset.cellarField = "areaM2";
+      areaInput.dataset.roomId = room.id;
+      areaCell.appendChild(areaInput);
       const rentCell = document.createElement("td");
       rentCell.className = "admin-cellar-rent";
       rentCell.dataset.cellarRent = "true";
@@ -692,7 +701,7 @@
     hasUnsavedCellarChanges = true;
     cellarSaveButton.disabled = false;
     cellarChangeState.textContent = "Du har kælderrumsændringer, som ikke er gemt";
-    cellarSaveHelp.textContent = "Gemningen opdaterer kun kaelderrum/data.json. Lokalerne har faste m²-størrelser; ændr den fælles m²-pris i prisbladet via posten “Leje af kælderrum”.";
+    cellarSaveHelp.textContent = "Gemningen opdaterer kun kaelderrum/data.json. Månedslejen beregnes ud fra kvadratmeterprisen i prisbladet.";
   }
 
   function applyCellarData(data) {
@@ -703,8 +712,8 @@
     cellarSaveButton.disabled = true;
     cellarChangeState.textContent = "Ingen ikke-gemte ændringer";
     cellarSaveHelp.textContent = cellarUpdatedAt
-      ? `Seneste gemte ændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(cellarUpdatedAt))}. Lokalenumre og m²-størrelser er faste.`
-      : "Alle 11 lokaler og deres m²-størrelser er faste. En tom adresse betyder ledigt; en udfyldt adresse betyder udlejet.";
+      ? `Seneste gemte ændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(cellarUpdatedAt))}. Alle 11 lokaler er faste.`
+      : "Alle 11 lokaler er faste. En tom adresse betyder ledigt; en udfyldt adresse betyder udlejet.";
   }
 
   function applyPriceData(data) {
@@ -866,11 +875,16 @@
     const room = cellarRooms.find((item) => item.id === field.dataset.roomId);
     if (!room) return;
     if (field.dataset.cellarField === "tenantAddress") room.tenantAddress = field.value;
-    else return;
+    else if (field.dataset.cellarField === "areaM2") room.areaM2 = field.value === "" ? NaN : Number(field.value);
     const rowElement = cellarRowsBody.querySelector(`tr[data-room-id="${CSS.escape(room.id)}"]`);
     if (rowElement) setCellarRowCalculatedCells(rowElement, room);
     markCellarDirty();
   }
+
+  cellarRowsBody.addEventListener("input", (event) => {
+    const input = event.target.closest('input[data-cellar-field="areaM2"][data-room-id]');
+    if (input) updateCellarFieldValue(input);
+  });
 
   cellarRowsBody.addEventListener("change", (event) => {
     const field = event.target.closest('select[data-cellar-field="tenantAddress"][data-room-id]');
