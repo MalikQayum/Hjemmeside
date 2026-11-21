@@ -5,8 +5,10 @@
   const updatedLabel = document.getElementById("test-parking-updated");
   if (!tableWrap || !updatedLabel) return;
 
-  // Data hentes fra det separate, offentlige repository Vigerslev-Skyttegard/bestyrelsen.
-  const DATA_URL = "https://raw.githubusercontent.com/Vigerslev-Skyttegard/bestyrelsen/main/testparkeringside/data.json";
+  // Brug GitHubs Contents API i stedet for raw.githubusercontent.com.
+  // GitHubs raw-CDN kan vise en ældre fil efter et nyt commit, selv med cache-busting.
+  const DATA_URL = "https://api.github.com/repos/Vigerslev-Skyttegard/bestyrelsen/contents/testparkeringside/data.json?ref=main";
+  const GITHUB_API_VERSION = "2026-03-10";
   const COLUMNS = [
     { key: "address", label: "Adresse" },
     { key: "car", label: "Bil" },
@@ -65,16 +67,51 @@
   }
 
   async function loadData() {
-    const response = await fetch(`${DATA_URL}?_=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+    const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const url = `${DATA_URL}&_=${cacheBuster}`;
+    const response = await fetch(url, {
+      headers: {
+        Accept: "application/vnd.github.raw+json",
+        "X-GitHub-Api-Version": GITHUB_API_VERSION
+      },
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
+        throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
+      }
+      throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+    }
     return response.json();
   }
 
-  loadData()
-    .then(renderTable)
-    .catch((error) => {
+  async function refreshData() {
+    tableWrap.textContent = "Henter de nyeste testdata …";
+    try {
+      const data = await loadData();
+      renderTable(data);
+    } catch (error) {
       console.error("Testparkeringssiden kunne ikke indlæse data:", error);
-      tableWrap.textContent = "Testdata kunne ikke indlæses. Kontrollér, at repositoryet bestyrelsen er offentligt, og at data.json ligger i roden.";
+      tableWrap.textContent = error.message || "Testdata kunne ikke indlæses. Kontrollér, at repositoryet bestyrelsen er offentligt, og at data.json ligger i roden.";
       updatedLabel.textContent = "Ingen data tilgængelige.";
-    });
+    }
+  }
+
+  // Indlæs igen, når brugeren vender tilbage til fanen. Ingen konstant polling.
+  let lastLoadedAt = Date.now();
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && Date.now() - lastLoadedAt > 15000) {
+      lastLoadedAt = Date.now();
+      refreshData();
+    }
+  });
+  window.addEventListener("focus", () => {
+    if (Date.now() - lastLoadedAt > 15000) {
+      lastLoadedAt = Date.now();
+      refreshData();
+    }
+  });
+
+  refreshData();
 })();
