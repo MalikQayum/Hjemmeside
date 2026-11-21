@@ -46,7 +46,8 @@
   text-transform: uppercase;
 }
 
-.admin-field input {
+.admin-field input,
+.admin-field select {
   width: 100%;
 }
 
