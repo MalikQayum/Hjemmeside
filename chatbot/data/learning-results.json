@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-21T14:34:50.802Z",
-  "generated": 2,
+  "tested_at": "2026-11-21T23:30:32.320Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 2,
+  "rejected": 0,
   "total_unique_attempted": 348,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -356,18 +356,5 @@
     "Hvor ofte kommer Hebsoe Rengøring for at gøre rent og slå græs?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvordan oprettes man på ventelisten til en parkeringsplads?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Parkering - overblik",
-      "actual": "Parkering - venteliste og generel information"
-    },
-    {
-      "question": "Hvor ofte kommer Hebsoe Rengøring for at gøre rent og slå græs?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Affald og udenomsarealer - rengøring (Hebsoe)",
-      "actual": "Affald og storskrald - skralderum, storskraldsrum og miljøskab"
-    }
-  ]
+  "rejected_questions": []
 }
