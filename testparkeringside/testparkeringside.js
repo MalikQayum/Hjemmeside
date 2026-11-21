@@ -1,3 +1,8 @@
+/*
+ * Venteliste til parkering på testsiden.
+ * Data hentes fra Vigerslev-Skyttegard/bestyrelsen/testparkeringside/data.json.
+ * Excel-filen og scripts til /parkering/ bruges ikke her.
+ */
 (() => {
   "use strict";
 
@@ -5,64 +10,187 @@
   const updatedLabel = document.getElementById("test-parking-updated");
   if (!tableWrap || !updatedLabel) return;
 
-  // Brug GitHubs Contents API i stedet for raw.githubusercontent.com.
-  // GitHubs raw-CDN kan vise en ældre fil efter et nyt commit, selv med cache-busting.
   const DATA_URL = "https://api.github.com/repos/Vigerslev-Skyttegard/bestyrelsen/contents/testparkeringside/data.json?ref=main";
   const GITHUB_API_VERSION = "2026-03-10";
+  const EXPECTED_ROW_COUNT = 69;
+  const CAPACITY = { car: 9, motorcycle: 2 };
   const COLUMNS = [
     { key: "address", label: "Adresse" },
     { key: "car", label: "Bil" },
     { key: "motorcycle", label: "MC / scooter" }
   ];
 
-  function createCell(tagName, value) {
+  function normalize(value) {
+    return String(value ?? "").replace(/\u00a0/g, " ").trim().toLowerCase();
+  }
+
+  function isEmpty(value) {
+    const text = normalize(value);
+    return text === "" || text === "blank" || text === "1/0/00";
+  }
+
+  function isDanishRegistration(value) {
+    return /^[A-ZÆØÅ]{2}\s?-?\s?\d{5}$/i.test(String(value ?? "").trim());
+  }
+
+  function isRealDate(day, month, year) {
+    if (year < 100) year += year >= 50 ? 1900 : 2000;
+    if (day < 1 || day > 31 || month < 1 || month > 12) return false;
+    const date = new Date(year, month - 1, day);
+    return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+  }
+
+  function isWaitlistDate(value) {
+    const text = String(value ?? "").trim();
+    const match = text.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2}|\d{4})$/);
+    if (!match) return false;
+    const first = Number(match[1]);
+    const second = Number(match[2]);
+    const year = Number(match[3]);
+    return isRealDate(first, second, year) || isRealDate(second, first, year);
+  }
+
+  function createCell(tagName, value, className = "") {
     const cell = document.createElement(tagName);
     cell.textContent = value || "";
+    if (className) cell.className = className;
     return cell;
+  }
+
+  function classifyValue(value) {
+    if (isEmpty(value)) return "";
+    if (isDanishRegistration(value)) return "parking-cell-registration";
+    if (isWaitlistDate(value)) return "parking-cell-date";
+    return "";
+  }
+
+  function countParkingStatus(rows) {
+    const registrations = { car: new Set(), motorcycle: new Set() };
+    const waiting = { car: new Set(), motorcycle: new Set() };
+
+    rows.forEach((item) => {
+      ["car", "motorcycle"].forEach((key) => {
+        const value = String(item[key] ?? "").trim();
+        if (isEmpty(value)) return;
+        if (isDanishRegistration(value)) {
+          registrations[key].add(value.replace(/[\s-]/g, "").toUpperCase());
+        } else {
+          waiting[key].add(item.address);
+        }
+      });
+    });
+
+    return {
+      car: {
+        occupied: registrations.car.size,
+        available: Math.max(0, CAPACITY.car - registrations.car.size),
+        waiting: waiting.car.size
+      },
+      motorcycle: {
+        occupied: registrations.motorcycle.size,
+        available: Math.max(0, CAPACITY.motorcycle - registrations.motorcycle.size),
+        waiting: waiting.motorcycle.size
+      }
+    };
+  }
+
+  function renderParkingStatus(rows) {
+    const data = countParkingStatus(rows);
+    const section = document.createElement("section");
+    section.className = "test-parking-availability";
+    section.id = "test-parking-availability";
+    section.setAttribute("aria-label", "Parkeringsstatus");
+
+    const grid = document.createElement("div");
+    grid.className = "test-parking-status-grid";
+
+    [
+      { key: "car", title: "Bil" },
+      { key: "motorcycle", title: "MC / scooter" }
+    ].forEach(({ key, title }) => {
+      const card = document.createElement("div");
+      card.className = "test-parking-status-card";
+
+      const heading = document.createElement("h4");
+      heading.textContent = title;
+
+      const available = document.createElement("div");
+      available.className = "test-parking-status-available";
+      available.append(document.createTextNode(String(data[key].available)));
+      const capacity = document.createElement("span");
+      capacity.textContent = ` / ${CAPACITY[key]}`;
+      available.append(capacity);
+
+      const availableLabel = document.createElement("p");
+      availableLabel.textContent = "Ledige pladser";
+
+      const waiting = document.createElement("div");
+      waiting.className = "test-parking-status-waiting";
+      const waitingCount = document.createElement("strong");
+      waitingCount.textContent = String(data[key].waiting);
+      const waitingLabel = document.createElement("span");
+      waitingLabel.textContent = "På venteliste";
+      waiting.append(waitingCount, waitingLabel);
+
+      card.append(heading, available, availableLabel, waiting);
+      grid.append(card);
+    });
+
+    section.append(grid);
+    return section;
   }
 
   function formatUpdatedAt(value) {
     if (!value) return "Ventelisten er endnu ikke opdateret via bestyrelsens administration.";
     const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return "Testdata er opdateret.";
-    return `Testdata senest opdateret ${new Intl.DateTimeFormat("da-DK", {
+    if (Number.isNaN(date.getTime())) return "Ventelisten er opdateret via bestyrelsens administration.";
+    return `Ventelisten senest opdateret ${new Intl.DateTimeFormat("da-DK", {
       dateStyle: "long",
       timeStyle: "short"
     }).format(date)}.`;
   }
 
-  function renderTable(data) {
+  function validateData(data) {
     if (!data || data.schemaVersion !== 1 || !Array.isArray(data.rows)) {
-      throw new Error("Testdatafilen har ikke det forventede format.");
+      throw new Error("Datafilen har ikke det forventede format.");
     }
+    if (data.rows.length !== EXPECTED_ROW_COUNT) {
+      throw new Error(`Ventelisten skal indeholde ${EXPECTED_ROW_COUNT} faste adresser. Der blev fundet ${data.rows.length}.`);
+    }
+    data.rows.forEach((item, index) => {
+      if (!item || typeof item.address !== "string" || !item.address.trim()) {
+        throw new Error(`Adresse mangler på række ${index + 1}.`);
+      }
+    });
+  }
+
+  function renderTable(data) {
+    validateData(data);
 
     const table = document.createElement("table");
     table.className = "test-parking-table";
+    table.setAttribute("aria-label", "Venteliste til parkering");
+
     const thead = document.createElement("thead");
     const headingRow = document.createElement("tr");
     COLUMNS.forEach((column) => headingRow.appendChild(createCell("th", column.label)));
-    thead.appendChild(headingRow);
-    table.appendChild(thead);
+    thead.append(headingRow);
 
     const tbody = document.createElement("tbody");
-    if (data.rows.length === 0) {
+    data.rows.forEach((item) => {
       const row = document.createElement("tr");
-      const cell = document.createElement("td");
-      cell.colSpan = COLUMNS.length;
-      cell.className = "test-parking-empty";
-      cell.textContent = "Der er endnu ingen testposter.";
-      row.appendChild(cell);
-      tbody.appendChild(row);
-    } else {
-      data.rows.forEach((item) => {
-        const row = document.createElement("tr");
-        COLUMNS.forEach((column) => row.appendChild(createCell("td", String(item[column.key] ?? "").trim())));
-        tbody.appendChild(row);
+      COLUMNS.forEach((column) => {
+        const value = String(item[column.key] ?? "").trim();
+        const cell = createCell("td", isEmpty(value) ? "" : value, classifyValue(value));
+        if (column.key !== "address" && !value) cell.classList.add("test-parking-empty-cell");
+        row.append(cell);
       });
-    }
+      tbody.append(row);
+    });
 
-    table.appendChild(tbody);
-    tableWrap.replaceChildren(table);
+    table.append(thead, tbody);
+    tableWrap.replaceChildren(renderParkingStatus(data.rows), table);
+    tableWrap.setAttribute("aria-busy", "false");
     updatedLabel.textContent = formatUpdatedAt(data.updatedAt);
   }
 
@@ -81,24 +209,35 @@
       if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
         throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
       }
-      throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+      if (response.status === 404) {
+        throw new Error("Testdata blev ikke fundet. Kontrollér, at repositoryet Vigerslev-Skyttegard/bestyrelsen er offentligt, og at testparkeringside/data.json ligger på main.");
+      }
+      throw new Error(`Ventelisten kunne ikke hentes (HTTP ${response.status}).`);
     }
+
     return response.json();
   }
 
   async function refreshData() {
-    tableWrap.textContent = "Henter de nyeste testdata …";
+    tableWrap.setAttribute("aria-busy", "true");
+    tableWrap.replaceChildren(Object.assign(document.createElement("p"), {
+      textContent: "Henter den nyeste venteliste …"
+    }));
     try {
       const data = await loadData();
       renderTable(data);
     } catch (error) {
       console.error("Testparkeringssiden kunne ikke indlæse data:", error);
-      tableWrap.textContent = error.message || "Testdata kunne ikke indlæses. Kontrollér, at repositoryet bestyrelsen er offentligt, og at data.json ligger i roden.";
+      const message = document.createElement("p");
+      message.className = "test-parking-load-error";
+      message.setAttribute("role", "alert");
+      message.textContent = error.message || "Ventelisten kunne ikke indlæses. Prøv igen senere.";
+      tableWrap.replaceChildren(message);
+      tableWrap.setAttribute("aria-busy", "false");
       updatedLabel.textContent = "Ingen data tilgængelige.";
     }
   }
 
-  // Indlæs igen, når brugeren vender tilbage til fanen. Ingen konstant polling.
   let lastLoadedAt = Date.now();
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible" && Date.now() - lastLoadedAt > 15000) {
