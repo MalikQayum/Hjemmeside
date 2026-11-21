@@ -6,13 +6,17 @@
   const GITHUB_REPOSITORY = "bestyrelsen";
   const GITHUB_BRANCH = "main";
   const WORKFLOW_FILE = "update-data.yml";
+  const PRICE_WORKFLOW_FILE = "update-price-list.yml";
   const API_VERSION = "2026-03-10";
   const SHARED_USERNAME = "bestyrelsen";
   const ALLOWED_GITHUB_LOGIN = "MalikQayum";
   const RUN_NAME_PREFIX = "Update parking data ";
+  const PRICE_RUN_NAME_PREFIX = "Update price list ";
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
   const DATA_URL = `${API_ROOT}/contents/parkering/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+  const PRICE_DATA_URL = `${API_ROOT}/contents/generalforsamling/prisblad.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
+  const PRICE_DISPATCH_URL = `${API_ROOT}/actions/workflows/${PRICE_WORKFLOW_FILE}/dispatches`;
   const RUN_TIMEOUT_MS = 90000;
   const POLL_INTERVAL_MS = 1500;
 
@@ -41,6 +45,22 @@
   const saveButton = document.getElementById("admin-save");
   const refreshButton = document.getElementById("admin-refresh");
   const logoutButton = document.getElementById("admin-logout");
+  const priceForm = document.getElementById("price-editor-form");
+  const priceRowIdInput = document.getElementById("price-row-id");
+  const priceTitleInput = document.getElementById("price-title");
+  const priceDescriptionInput = document.getElementById("price-description");
+  const priceAmountInput = document.getElementById("price-amount");
+  const priceUnitInput = document.getElementById("price-unit");
+  const priceFormHeading = document.getElementById("price-editor-heading");
+  const priceFormSubmit = document.getElementById("price-editor-submit");
+  const priceFormCancel = document.getElementById("price-editor-cancel");
+  const priceRowsBody = document.getElementById("admin-price-rows");
+  const priceCount = document.getElementById("admin-price-count");
+  const priceChangeState = document.getElementById("admin-price-change-state");
+  const priceSaveHelp = document.getElementById("admin-price-save-help");
+  const priceSaveButton = document.getElementById("price-save");
+  const priceRefreshButton = document.getElementById("price-refresh");
+  const priceStatus = document.getElementById("admin-price-status");
 
   const ADDRESSES = Array.from(addressInput.options)
     .map((option) => option.value.trim())
@@ -51,6 +71,9 @@
   let rows = [];
   let updatedAt = null;
   let hasUnsavedChanges = false;
+  let priceRows = [];
+  let priceUpdatedAt = null;
+  let hasUnsavedPriceChanges = false;
 
   function setStatus(element, message, kind = "") {
     element.textContent = message;
@@ -143,6 +166,52 @@
     throw new Error("Workflowet er gennemført, men GitHub har endnu ikke vist den nye datafil. Prøv at genindlæse om et øjeblik.");
   }
 
+  function normalizePriceRows(value) {
+    if (!Array.isArray(value)) throw new Error("Prisbladet indeholder ikke en liste over priser.");
+    if (value.length < 1 || value.length > 100) throw new Error("Prisbladet skal indeholde mellem 1 og 100 ydelser.");
+    const seenIds = new Set();
+    return value.map((item, index) => {
+      const id = String(item?.id || `price-${String(index + 1).padStart(3, "0")}`).trim();
+      const title = String(item?.title || "").trim();
+      const description = String(item?.description || "").trim();
+      const amount = Number(item?.amount);
+      const unit = String(item?.unit || "").trim();
+      if (!/^[A-Za-z0-9_-]{1,80}$/.test(id) || seenIds.has(id)) throw new Error("Prisbladet indeholder et ugyldigt eller gentaget række-id.");
+      if (!title || title.length > 160) throw new Error("Hver ydelse skal have en titel på højst 160 tegn.");
+      if (description.length > 400) throw new Error("En prisbeskrivelse er længere end 400 tegn.");
+      if (!Number.isInteger(amount) || amount < 0 || amount > 1000000) throw new Error(`Prisen for “${title}” skal være et helt beløb mellem 0 og 1.000.000 kr.`);
+      if (unit.length > 40) throw new Error("En pris-enhed må højst være 40 tegn.");
+      seenIds.add(id);
+      return { id, title, description, amount, unit };
+    });
+  }
+
+  async function fetchPublicPriceData() {
+    const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const response = await fetch(`${PRICE_DATA_URL}&_=${cacheBuster}`, {
+      headers: { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": API_VERSION },
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
+        throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
+      }
+      throw new Error(`Prisbladet kunne ikke hentes (HTTP ${response.status}). Kontrollér, at generalforsamling/prisblad.json er lagt i repositoryet bestyrelsen.`);
+    }
+    const parsed = await response.json();
+    if (!parsed || parsed.schemaVersion !== 1 || !Array.isArray(parsed.rows)) throw new Error("prisblad.json har ikke det forventede format.");
+    return { rows: normalizePriceRows(parsed.rows), updatedAt: parsed.updatedAt || null };
+  }
+
+  async function fetchSavedPriceData(expectedUpdatedAt) {
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const data = await fetchPublicPriceData();
+      if (data.updatedAt === expectedUpdatedAt) return data;
+      if (attempt < 4) await sleep(800);
+    }
+    throw new Error("Prisworkflowet er gennemført, men GitHub har endnu ikke vist den nye prisfil. Prøv at genindlæse om et øjeblik.");
+  }
+
   function sleep(ms) { return new Promise((resolve) => window.setTimeout(resolve, ms)); }
 
   async function waitForWorkflowById(runId, token) {
@@ -190,6 +259,53 @@
     if (result && Number.isInteger(result.workflow_run_id)) return waitForWorkflowById(result.workflow_run_id, token);
     if (result === null) return waitForWorkflowByRequestId(requestId, token);
     throw new Error("GitHub returnerede et uventet svar på workflow-anmodningen.");
+  }
+
+  async function waitForPriceWorkflowById(runId, token) {
+    const startedAt = Date.now();
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const run = await githubRequest(`${API_ROOT}/actions/runs/${encodeURIComponent(runId)}`, token);
+      if (run.status === "completed") {
+        if (run.conclusion !== "success") throw new Error(`Prisworkflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen for fejlen.`);
+        return run;
+      }
+      setStatus(priceStatus, "GitHub opdaterer prisbladet …");
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub accepterede prisændringerne, men workflowet blev ikke færdigt inden for tidsgrænsen. Kontrollér Actions i repositoryet bestyrelsen.");
+  }
+
+  async function waitForPriceWorkflowByRequestId(requestId, token) {
+    const startedAt = Date.now();
+    const runsUrl = `${API_ROOT}/actions/workflows/${encodeURIComponent(PRICE_WORKFLOW_FILE)}/runs?branch=${encodeURIComponent(GITHUB_BRANCH)}&event=workflow_dispatch&per_page=100`;
+    const expectedTitle = `${PRICE_RUN_NAME_PREFIX}${requestId}`;
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const result = await githubRequest(runsUrl, token);
+      const run = Array.isArray(result?.workflow_runs) ? result.workflow_runs.find((item) => item.display_title === expectedTitle) : null;
+      if (run) {
+        if (run.status === "completed") {
+          if (run.conclusion !== "success") throw new Error(`Prisworkflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen for fejlen.`);
+          return run;
+        }
+        setStatus(priceStatus, "GitHub opdaterer prisbladet …");
+      }
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub modtog prisændringerne, men workflowet blev ikke færdigt inden for tidsgrænsen. Kontrollér Actions i repositoryet bestyrelsen.");
+  }
+
+  async function dispatchPriceWorkflow(token, data) {
+    const payload = JSON.stringify(data);
+    if (payload.length > 30000) throw new Error("Prisbladet er for stort til at blive sendt til GitHub.");
+    const requestId = `save-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const result = await githubRequest(PRICE_DISPATCH_URL, token, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: GITHUB_BRANCH, inputs: { payload, request_id: requestId } })
+    });
+    if (result && Number.isInteger(result.workflow_run_id)) return waitForPriceWorkflowById(result.workflow_run_id, token);
+    if (result === null) return waitForPriceWorkflowByRequestId(requestId, token);
+    throw new Error("GitHub returnerede et uventet svar på prisworkflow-anmodningen.");
   }
 
   function formatTodayInCopenhagen() {
@@ -304,6 +420,83 @@
       : "Standardoversigten indeholder alle 69 boliger med tomme felter.";
   }
 
+  function formatAdminPrice(row) {
+    const amount = new Intl.NumberFormat("da-DK", { maximumFractionDigits: 0 }).format(row.amount);
+    return `Kr. ${amount},-${row.unit ? ` ${row.unit}` : ""}`;
+  }
+
+  function renderPriceRows() {
+    const fragment = document.createDocumentFragment();
+    priceRows.forEach((item) => {
+      const tr = document.createElement("tr");
+      const nameCell = document.createElement("td");
+      const title = document.createElement("strong");
+      title.textContent = item.title;
+      nameCell.appendChild(title);
+      if (item.description) {
+        const description = document.createElement("small");
+        description.textContent = item.description;
+        nameCell.appendChild(description);
+      }
+      const amountCell = document.createElement("td");
+      amountCell.className = "admin-price-amount";
+      amountCell.textContent = formatAdminPrice(item);
+      const actionCell = document.createElement("td");
+      const actions = document.createElement("div");
+      actions.className = "admin-price-actions";
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.textContent = "Rediger";
+      edit.dataset.priceAction = "edit";
+      edit.dataset.priceId = item.id;
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "Slet";
+      remove.dataset.priceAction = "delete";
+      remove.dataset.priceId = item.id;
+      actions.append(edit, remove);
+      actionCell.appendChild(actions);
+      tr.append(nameCell, amountCell, actionCell);
+      fragment.appendChild(tr);
+    });
+    priceRowsBody.replaceChildren(fragment);
+    priceCount.textContent = `${priceRows.length} ydelser i prisbladet`;
+  }
+
+  function clearPriceEditor() {
+    priceForm.reset();
+    priceRowIdInput.value = "";
+    priceFormHeading.textContent = "Tilføj pris";
+    priceFormSubmit.textContent = "Tilføj pris";
+    priceFormCancel.hidden = true;
+  }
+
+  function markPriceDirty() {
+    hasUnsavedPriceChanges = true;
+    priceSaveButton.disabled = false;
+    priceChangeState.textContent = "Du har prisændringer, som ikke er gemt";
+    priceSaveHelp.textContent = "Når du gemmer, starter et separat GitHub Actions-workflow. Det opdaterer kun generalforsamling/prisblad.json og ændrer ikke parkeringsdataene.";
+  }
+
+  function applyPriceData(data) {
+    priceRows = normalizePriceRows(data.rows);
+    priceUpdatedAt = data.updatedAt || null;
+    hasUnsavedPriceChanges = false;
+    clearPriceEditor();
+    renderPriceRows();
+    priceSaveButton.disabled = true;
+    priceChangeState.textContent = "Ingen ikke-gemte prisændringer";
+    priceSaveHelp.textContent = priceUpdatedAt
+      ? `Seneste gemte prisændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(priceUpdatedAt))}. Kun prisbladet gemmes, separat fra parkering.`
+      : "Prisbladet indeholder de gældende ydelser og priser.";
+  }
+
+  async function loadCurrentPriceData() {
+    const data = await fetchPublicPriceData();
+    applyPriceData(data);
+    setStatus(priceStatus, "Prisbladet er indlæst fra repositoryet bestyrelsen.", "success");
+  }
+
   async function loadCurrentData() {
     const data = await fetchPublicData();
     applyData(data);
@@ -331,11 +524,11 @@
     try {
       const githubUser = await verifyGitHubToken(candidateToken);
       sessionToken = candidateToken;
-      await loadCurrentData();
+      await Promise.all([loadCurrentData(), loadCurrentPriceData()]);
       signedInAs.textContent = `GitHub-token bekræftet for ${githubUser.login}.`;
       loginView.hidden = true;
       adminView.hidden = false;
-      setStatus(mainStatus, "Du er logget ind. Alle 69 boliger er indlæst.", "success");
+      setStatus(mainStatus, "Du er logget ind. Parkeringsdata og prisblad er indlæst.", "success");
     } catch (error) {
       sessionToken = "";
       setStatus(loginStatus, error.message || "Login mislykkedes.", "error");
@@ -406,12 +599,109 @@
   rowCancel.addEventListener("click", clearEditor);
 
   refreshButton.addEventListener("click", async () => {
-    if (hasUnsavedChanges && !window.confirm("Dine ikke-gemte ændringer bliver kasseret. Vil du fortsætte?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges) && !window.confirm("Dine ikke-gemte ændringer i parkering eller prisblad bliver kasseret. Vil du fortsætte?")) return;
     refreshButton.disabled = true;
-    setStatus(mainStatus, "Genindlæser ventelistedata …");
-    try { await loadCurrentData(); }
-    catch (error) { setStatus(mainStatus, error.message || "Parkeringsdata kunne ikke genindlæses.", "error"); }
-    finally { refreshButton.disabled = false; }
+    priceRefreshButton.disabled = true;
+    setStatus(mainStatus, "Genindlæser parkeringsdata og prisblad …");
+    try {
+      await Promise.all([loadCurrentData(), loadCurrentPriceData()]);
+      setStatus(mainStatus, "Parkeringsdata og prisblad er genindlæst.", "success");
+    } catch (error) { setStatus(mainStatus, error.message || "Data kunne ikke genindlæses.", "error"); }
+    finally { refreshButton.disabled = false; priceRefreshButton.disabled = false; }
+  });
+
+  priceForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const id = priceRowIdInput.value.trim();
+    const title = priceTitleInput.value.trim();
+    const description = priceDescriptionInput.value.trim();
+    const amount = Number(priceAmountInput.value);
+    const unit = priceUnitInput.value.trim();
+    if (!title || title.length > 160 || description.length > 400 || !Number.isInteger(amount) || amount < 0 || amount > 1000000 || unit.length > 40) {
+      setStatus(priceStatus, "Kontrollér ydelse, beskrivelse og pris. Prisen skal være et helt beløb mellem 0 og 1.000.000 kr.", "error");
+      return;
+    }
+    if (id) {
+      const index = priceRows.findIndex((item) => item.id === id);
+      if (index < 0) { setStatus(priceStatus, "Den valgte prispost findes ikke længere. Genindlæs prisbladet.", "error"); return; }
+      priceRows[index] = { id, title, description, amount, unit };
+      setStatus(priceStatus, `“${title}” er ændret i kladden. Husk at gemme prisbladet.`);
+    } else {
+      if (priceRows.length >= 100) {
+        setStatus(priceStatus, "Prisbladet kan højst indeholde 100 ydelser.", "error");
+        return;
+      }
+      const newId = `price-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+      priceRows.push({ id: newId, title, description, amount, unit });
+      setStatus(priceStatus, `“${title}” er tilføjet i kladden. Husk at gemme prisbladet.`);
+    }
+    clearPriceEditor();
+    renderPriceRows();
+    markPriceDirty();
+  });
+
+  priceRowsBody.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-price-action]");
+    if (!button) return;
+    const item = priceRows.find((row) => row.id === button.dataset.priceId);
+    if (!item) return;
+    if (button.dataset.priceAction === "edit") {
+      priceRowIdInput.value = item.id;
+      priceTitleInput.value = item.title;
+      priceDescriptionInput.value = item.description;
+      priceAmountInput.value = String(item.amount);
+      priceUnitInput.value = item.unit;
+      priceFormHeading.textContent = "Rediger pris";
+      priceFormSubmit.textContent = "Opdater pris";
+      priceFormCancel.hidden = false;
+      priceTitleInput.focus();
+      document.querySelector(".admin-price-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    if (button.dataset.priceAction === "delete") {
+      if (priceRows.length <= 1) {
+        setStatus(priceStatus, "Prisbladet skal mindst indeholde én ydelse. Redigér den sidste række i stedet for at slette den.", "error");
+        return;
+      }
+      if (!window.confirm(`Vil du slette “${item.title}” fra prisbladet? Ændringen træder først i kraft, når du gemmer.`)) return;
+      priceRows = priceRows.filter((row) => row.id !== item.id);
+      clearPriceEditor();
+      renderPriceRows();
+      markPriceDirty();
+      setStatus(priceStatus, `“${item.title}” er fjernet fra kladden. Husk at gemme prisbladet.`);
+    }
+  });
+
+  priceFormCancel.addEventListener("click", clearPriceEditor);
+
+  priceRefreshButton.addEventListener("click", async () => {
+    if (hasUnsavedPriceChanges && !window.confirm("Dine ikke-gemte prisændringer bliver kasseret. Vil du fortsætte?")) return;
+    priceRefreshButton.disabled = true;
+    setStatus(priceStatus, "Genindlæser prisblad …");
+    try { await loadCurrentPriceData(); }
+    catch (error) { setStatus(priceStatus, error.message || "Prisbladet kunne ikke genindlæses.", "error"); }
+    finally { priceRefreshButton.disabled = false; }
+  });
+
+  priceSaveButton.addEventListener("click", async () => {
+    if (!sessionToken || !hasUnsavedPriceChanges) return;
+    priceSaveButton.disabled = true;
+    priceRefreshButton.disabled = true;
+    setStatus(priceStatus, "Sender prisændringerne til GitHub Actions …");
+    try {
+      const nextData = {
+        schemaVersion: 1,
+        updatedAt: new Date().toISOString(),
+        rows: normalizePriceRows(priceRows)
+      };
+      await dispatchPriceWorkflow(sessionToken, nextData);
+      const savedData = await fetchSavedPriceData(nextData.updatedAt);
+      applyPriceData(savedData);
+      setStatus(priceStatus, "Prisbladet er gemt. Kun generalforsamling/prisblad.json er opdateret.", "success");
+    } catch (error) {
+      priceSaveButton.disabled = !hasUnsavedPriceChanges;
+      setStatus(priceStatus, error.message || "Prisbladet kunne ikke gemmes.", "error");
+    } finally { priceRefreshButton.disabled = false; }
   });
 
   saveButton.addEventListener("click", async () => {
@@ -440,12 +730,19 @@
     rows = [];
     updatedAt = null;
     hasUnsavedChanges = false;
+    priceRows = [];
+    priceUpdatedAt = null;
+    hasUnsavedPriceChanges = false;
     tokenInput.value = "";
     loginView.hidden = false;
     adminView.hidden = true;
     loginForm.reset();
     usernameInput.value = SHARED_USERNAME;
     saveButton.disabled = true;
+    priceSaveButton.disabled = true;
+    clearPriceEditor();
+    renderPriceRows();
+    setStatus(priceStatus, "");
     setStatus(loginStatus, "Du er logget ud.");
     setStatus(mainStatus, "");
     clearEditor();
@@ -453,7 +750,7 @@
   }
 
   logoutButton.addEventListener("click", () => {
-    if (hasUnsavedChanges && !window.confirm("Du har ikke-gemte ændringer. Log ud alligevel?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges) && !window.confirm("Du har ikke-gemte ændringer i parkering eller prisblad. Log ud alligevel?")) return;
     logout();
   });
 

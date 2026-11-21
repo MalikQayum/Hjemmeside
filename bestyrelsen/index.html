@@ -10,7 +10,7 @@
     />
     <meta
       name="description"
-      content="Bestyrelsens administrationsside til parkeringsventeliste og nummerplader."
+      content="Bestyrelsens administrationsside til parkeringsventeliste, nummerplader og prisblad."
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
@@ -29,7 +29,7 @@
           <section id="login-view">
             <header class="main">
               <h1>Bestyrelsen</h1>
-              <p>Log ind for at administrere venteliste og nummerplader.</p>
+              <p>Log ind for at administrere venteliste, nummerplader og prisblad.</p>
             </header>
 
             <div class="admin-login-card">
@@ -82,7 +82,7 @@
           <section id="admin-view" hidden>
             <header class="admin-toolbar">
               <div>
-                <h1>Parkeringsventeliste – administration</h1>
+                <h1>Bestyrelsens administration</h1>
                 <p id="admin-signed-in-as" class="admin-muted"></p>
               </div>
               <div class="admin-toolbar-actions">
@@ -248,13 +248,84 @@
               <button id="admin-save" type="button" class="button primary" disabled>Gem ændringer</button>
             </div>
 
-            <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
+
+
+            <section class="admin-price-section" aria-labelledby="price-admin-heading">
+              <header class="admin-price-heading">
+                <div>
+                  <h2 id="price-admin-heading">Prisblad – administration</h2>
+                  <p class="admin-muted">Opret, rediger og fjern ydelser og priser. Ændringerne vises på siden Generalforsamling.</p>
+                </div>
+                <button id="price-refresh" type="button" class="button">Genindlæs prisblad</button>
+              </header>
+
+              <div class="admin-price-grid">
+                <section class="admin-editor-card" aria-labelledby="price-editor-heading">
+                  <h3 id="price-editor-heading">Tilføj pris</h3>
+                  <form id="price-editor-form">
+                    <input id="price-row-id" type="hidden" />
+                    <div class="admin-field">
+                      <label for="price-title">Ydelse / emne</label>
+                      <input id="price-title" name="title" type="text" maxlength="160" required />
+                    </div>
+                    <div class="admin-field">
+                      <label for="price-description">Beskrivelse</label>
+                      <textarea id="price-description" name="description" rows="3" maxlength="400" placeholder="Kort forklaring (valgfri)"></textarea>
+                    </div>
+                    <div class="admin-price-fields">
+                      <div class="admin-field">
+                        <label for="price-amount">Pris i kroner</label>
+                        <input id="price-amount" name="amount" type="number" min="0" max="1000000" step="1" required />
+                      </div>
+                      <div class="admin-field">
+                        <label for="price-unit">Enhed / tillæg</label>
+                        <input id="price-unit" name="unit" type="text" maxlength="40" placeholder="Fx / md. (valgfri)" />
+                      </div>
+                    </div>
+                    <div class="admin-form-actions">
+                      <button id="price-editor-submit" type="submit" class="button primary">Tilføj pris</button>
+                      <button id="price-editor-cancel" type="button" class="button" hidden>Annuller redigering</button>
+                    </div>
+                  </form>
+                </section>
+
+                <section class="admin-list-card" aria-labelledby="price-list-heading">
+                  <div class="admin-list-heading">
+                    <div>
+                      <h3 id="price-list-heading">Gældende priser</h3>
+                      <p id="admin-price-count" class="admin-muted"></p>
+                    </div>
+                  </div>
+                  <div class="admin-table-wrap">
+                    <table class="admin-table admin-price-table">
+                      <thead>
+                        <tr>
+                          <th>Ydelse / beskrivelse</th>
+                          <th>Pris</th>
+                          <th>Handling</th>
+                        </tr>
+                      </thead>
+                      <tbody id="admin-price-rows"></tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+
+              <div class="admin-save-panel">
+                <div>
+                  <strong id="admin-price-change-state">Ingen ikke-gemte prisændringer</strong>
+                  <p id="admin-price-save-help" class="admin-muted">Prisbladet gemmes separat fra parkeringsdataene. Kun generalforsamling/prisblad.json bliver opdateret.</p>
+                </div>
+                <button id="price-save" type="button" class="button primary" disabled>Gem prisblad</button>
+              </div>
+              <p id="admin-price-status" class="admin-status" role="status" aria-live="polite"></p>
+            </section><p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
             <p class="admin-footer-link"><a href="/parkering/" target="_blank" rel="noopener">Åbn den offentlige parkeringsside</a></p>
           </section>
         </div>
       </main>
     </div>
 
-    <script src="./bestyrelsen.js?v=20261121-official-parking-1"></script>
+    <script src="./bestyrelsen.js?v=20261121-price-list-1"></script>
   </body>
 </html>
