@@ -14,7 +14,7 @@
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="./bestyrelsen.css?v=20261121-cellar-fixed-rate-3" />
+    <link rel="stylesheet" href="/assets/css/bestyrelsen.css?v=20261121-cellar-fixed-rate-3" />
   </head>
 
   <body class="is-preload">
@@ -91,169 +91,10 @@
               </div>
             </header>
 
-            <div class="admin-parking-note" role="note">
-              <strong>Du administrerer den offentlige parkeringsoversigt.</strong>
-              <p>
-                Ændringerne bliver vist på <code>/parkering/</code>. Alle 69 boliger
-                ligger fast i tabellen. Første tilmelding registrerer dags dato;
-                når en plads tildeles, erstattes datoen med nummerpladen.
-              </p>
-            </div>
-
-            <div class="admin-grid">
-              <section class="admin-editor-card" aria-labelledby="row-editor-title">
-                <h2 id="row-editor-title">Venteliste og parkeringsregistrering</h2>
-                <form id="admin-row-form">
-                  <div class="admin-field">
-                    <label for="row-address">Adresse</label>
-                    <select id="row-address" name="address" required>
-                      <option value="">Vælg adresse …</option>
-                      <option value="Vigerslevvej 148, st.tv">Vigerslevvej 148, st.tv</option>
-                      <option value="Vigerslevvej 148, st.mf">Vigerslevvej 148, st.mf</option>
-                      <option value="Vigerslevvej 148, st.th">Vigerslevvej 148, st.th</option>
-                      <option value="Vigerslevvej 148, 1.tv">Vigerslevvej 148, 1.tv</option>
-                      <option value="Vigerslevvej 148, 1.mf">Vigerslevvej 148, 1.mf</option>
-                      <option value="Vigerslevvej 148, 1.th">Vigerslevvej 148, 1.th</option>
-                      <option value="Vigerslevvej 148, 2.tv">Vigerslevvej 148, 2.tv</option>
-                      <option value="Vigerslevvej 148, 2.mf">Vigerslevvej 148, 2.mf</option>
-                      <option value="Vigerslevvej 148, 2.th">Vigerslevvej 148, 2.th</option>
-                      <option value="Vigerslevvej 146, st.tv">Vigerslevvej 146, st.tv</option>
-                      <option value="Vigerslevvej 146, st.th">Vigerslevvej 146, st.th</option>
-                      <option value="Vigerslevvej 146, 1.tv">Vigerslevvej 146, 1.tv</option>
-                      <option value="Vigerslevvej 146, 1.th">Vigerslevvej 146, 1.th</option>
-                      <option value="Vigerslevvej 146, 2.tv">Vigerslevvej 146, 2.tv</option>
-                      <option value="Vigerslevvej 146, 2.th">Vigerslevvej 146, 2.th</option>
-                      <option value="Vigerslevvej 144, st.tv">Vigerslevvej 144, st.tv</option>
-                      <option value="Vigerslevvej 144, st.mf">Vigerslevvej 144, st.mf</option>
-                      <option value="Vigerslevvej 144, st.th">Vigerslevvej 144, st.th</option>
-                      <option value="Vigerslevvej 144, 1.tv">Vigerslevvej 144, 1.tv</option>
-                      <option value="Vigerslevvej 144, 1.mf">Vigerslevvej 144, 1.mf</option>
-                      <option value="Vigerslevvej 144, 1.th">Vigerslevvej 144, 1.th</option>
-                      <option value="Vigerslevvej 144, 2.tv">Vigerslevvej 144, 2.tv</option>
-                      <option value="Vigerslevvej 144, 2.mf">Vigerslevvej 144, 2.mf</option>
-                      <option value="Vigerslevvej 144, 2.th">Vigerslevvej 144, 2.th</option>
-                      <option value="Skyttegaardvej 11, st.tv">Skyttegaardvej 11, st.tv</option>
-                      <option value="Skyttegaardvej 11, st.mf">Skyttegaardvej 11, st.mf</option>
-                      <option value="Skyttegaardvej 11, st.th">Skyttegaardvej 11, st.th</option>
-                      <option value="Skyttegaardvej 11, 1.tv">Skyttegaardvej 11, 1.tv</option>
-                      <option value="Skyttegaardvej 11, 1.mf">Skyttegaardvej 11, 1.mf</option>
-                      <option value="Skyttegaardvej 11, 1.th">Skyttegaardvej 11, 1.th</option>
-                      <option value="Skyttegaardvej 11, 2.tv">Skyttegaardvej 11, 2.tv</option>
-                      <option value="Skyttegaardvej 11, 2.mf">Skyttegaardvej 11, 2.mf</option>
-                      <option value="Skyttegaardvej 11, 2.th">Skyttegaardvej 11, 2.th</option>
-                      <option value="Skyttegaardvej 9, st.tv">Skyttegaardvej 9, st.tv</option>
-                      <option value="Skyttegaardvej 9, st.th">Skyttegaardvej 9, st.th</option>
-                      <option value="Skyttegaardvej 9, 1.tv">Skyttegaardvej 9, 1.tv</option>
-                      <option value="Skyttegaardvej 9, 1.th">Skyttegaardvej 9, 1.th</option>
-                      <option value="Skyttegaardvej 9, 2.tv">Skyttegaardvej 9, 2.tv</option>
-                      <option value="Skyttegaardvej 9, 2.th">Skyttegaardvej 9, 2.th</option>
-                      <option value="Skyttegaardvej 7, st.tv">Skyttegaardvej 7, st.tv</option>
-                      <option value="Skyttegaardvej 7, st.mf">Skyttegaardvej 7, st.mf</option>
-                      <option value="Skyttegaardvej 7, st.th">Skyttegaardvej 7, st.th</option>
-                      <option value="Skyttegaardvej 7, 1.tv">Skyttegaardvej 7, 1.tv</option>
-                      <option value="Skyttegaardvej 7, 1.mf">Skyttegaardvej 7, 1.mf</option>
-                      <option value="Skyttegaardvej 7, 1.th">Skyttegaardvej 7, 1.th</option>
-                      <option value="Skyttegaardvej 7, 2.tv">Skyttegaardvej 7, 2.tv</option>
-                      <option value="Skyttegaardvej 7, 2.mf">Skyttegaardvej 7, 2.mf</option>
-                      <option value="Skyttegaardvej 7, 2.th">Skyttegaardvej 7, 2.th</option>
-                      <option value="Skyttegaardvej 5, st.tv">Skyttegaardvej 5, st.tv</option>
-                      <option value="Skyttegaardvej 5, st.mf">Skyttegaardvej 5, st.mf</option>
-                      <option value="Skyttegaardvej 5, st.th">Skyttegaardvej 5, st.th</option>
-                      <option value="Skyttegaardvej 5, 1.tv">Skyttegaardvej 5, 1.tv</option>
-                      <option value="Skyttegaardvej 5, 1.mf">Skyttegaardvej 5, 1.mf</option>
-                      <option value="Skyttegaardvej 5, 1.th">Skyttegaardvej 5, 1.th</option>
-                      <option value="Skyttegaardvej 5, 2.tv">Skyttegaardvej 5, 2.tv</option>
-                      <option value="Skyttegaardvej 5, 2.mf">Skyttegaardvej 5, 2.mf</option>
-                      <option value="Skyttegaardvej 5, 2.th">Skyttegaardvej 5, 2.th</option>
-                      <option value="Skyttegaardvej 3, st.tv">Skyttegaardvej 3, st.tv</option>
-                      <option value="Skyttegaardvej 3, st.th">Skyttegaardvej 3, st.th</option>
-                      <option value="Skyttegaardvej 3, 1.tv">Skyttegaardvej 3, 1.tv</option>
-                      <option value="Skyttegaardvej 3, 1.th">Skyttegaardvej 3, 1.th</option>
-                      <option value="Skyttegaardvej 3, 2.tv">Skyttegaardvej 3, 2.tv</option>
-                      <option value="Skyttegaardvej 3, 2.th">Skyttegaardvej 3, 2.th</option>
-                      <option value="Skyttegaardvej 1, st.tv">Skyttegaardvej 1, st.tv</option>
-                      <option value="Skyttegaardvej 1, st.th">Skyttegaardvej 1, st.th</option>
-                      <option value="Skyttegaardvej 1, 1.tv">Skyttegaardvej 1, 1.tv</option>
-                      <option value="Skyttegaardvej 1, 1.th">Skyttegaardvej 1, 1.th</option>
-                      <option value="Skyttegaardvej 1, 2.tv">Skyttegaardvej 1, 2.tv</option>
-                      <option value="Skyttegaardvej 1, 2.th">Skyttegaardvej 1, 2.th</option>
-                    </select>
-                    <small>Vælg boligen. Alle 69 adresser findes allerede i oversigten.</small>
-                  </div>
-                  <div class="admin-field">
-                    <label for="row-vehicle-type">Køretøjstype</label>
-                    <select id="row-vehicle-type" name="vehicleType" required>
-                      <option value="">Vælg køretøjstype …</option>
-                      <option value="car">Bil</option>
-                      <option value="motorcycle">MC/scooter</option>
-                    </select>
-                  </div>
-                  <div class="admin-field">
-                    <label id="row-registration-label" for="row-registration">Ventelistedato / nummerplade</label>
-                    <input
-                      id="row-registration"
-                      name="registration"
-                      type="text"
-                      maxlength="60"
-                      placeholder="Vælg først adresse og køretøjstype"
-                      disabled
-                      readonly
-                      autocomplete="off"
-                    />
-                    <small id="row-registration-help">
-                      Når du tilmelder en bolig til ventelisten, registreres dags dato automatisk.
-                      Når en parkeringsplads tildeles, erstattes datoen med nummerpladen.
-                    </small>
-                  </div>
-                  <div class="admin-form-actions">
-                    <button id="admin-row-submit" type="submit" class="button primary" disabled>Tilmeld på venteliste</button>
-                    <button id="admin-row-clear" type="button" class="button" hidden>Ryd felt</button>
-                    <button id="admin-row-cancel" type="button" class="button">Nulstil valg</button>
-                  </div>
-                </form>
-              </section>
-
-              <section class="admin-list-card" aria-labelledby="rows-title">
-                <div class="admin-list-heading">
-                  <div>
-                    <h2 id="rows-title">Alle boliger</h2>
-                    <p id="admin-row-count" class="admin-muted"></p>
-                  </div>
-                </div>
-                <div class="admin-table-wrap">
-                  <table class="admin-table">
-                    <thead>
-                      <tr>
-                        <th>Adresse</th>
-                        <th>Bil – venteliste / nummerplade</th>
-                        <th>MC/scooter – venteliste / nummerplade</th>
-                        <th>Vælg felt</th>
-                      </tr>
-                    </thead>
-                    <tbody id="admin-rows"></tbody>
-                  </table>
-                </div>
-              </section>
-            </div>
-
-            <div class="admin-save-panel">
-              <div>
-                <strong id="admin-change-state">Ingen ikke-gemte ændringer</strong>
-                <p id="admin-save-help" class="admin-muted">
-                  Alle 69 boliger ligger fast i tabellen. Ved første tilmelding sættes dags dato
-                  automatisk i den valgte køretøjskolonne. Når pladsen tildeles, redigeres datoen
-                  til nummerpladen. Gemning starter et kontrolleret workflow, som kun opdaterer data.json.
-                </p>
-              </div>
-              <button id="admin-save" type="button" class="button primary" disabled>Gem ændringer</button>
-            </div>
-
-
-
             <section class="admin-price-section" aria-labelledby="price-admin-heading">
               <header class="admin-price-heading">
                 <div>
-                  <h2 id="price-admin-heading">Prisblad – administration</h2>
+                  <h2 id="price-admin-heading">Prisblad - administration</h2>
                   <p class="admin-muted">Opret, rediger og fjern ydelser og priser. Ændringerne vises på siden Generalforsamling.</p>
                 </div>
                 <button id="price-refresh" type="button" class="button">Genindlæs prisblad</button>
@@ -324,7 +165,7 @@
             <section class="admin-cellar-section" aria-labelledby="cellar-admin-heading">
               <header class="admin-cellar-heading">
                 <div>
-                  <h2 id="cellar-admin-heading">Kælderrum – administration</h2>
+                  <h2 id="cellar-admin-heading">Kælderrum - administration</h2>
                   <p class="admin-muted">De 11 kælderrum og deres m²-størrelser er faste. Vælg lejeradresse i dropdown-listen. Ændr den fælles m²-pris i prisbladet via posten “Leje af kælderrum”; lejen beregnes automatisk for alle rum.</p>
                 </div>
                 <button id="cellar-refresh" type="button" class="button">Genindlæs kælderrum</button>
@@ -355,13 +196,162 @@
               <p id="admin-cellar-status" class="admin-status" role="status" aria-live="polite"></p>
             </section>
 
-            <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
-            <p class="admin-footer-link"><a href="/parkering/" target="_blank" rel="noopener">Åbn den offentlige parkeringsside</a></p>
+            <section class="admin-parking-section" aria-labelledby="row-editor-title">
+              <div class="admin-grid">
+                <section class="admin-editor-card" aria-labelledby="row-editor-title">
+                  <h2 id="row-editor-title">Venteliste og parkeringsregistrering</h2>
+                  <form id="admin-row-form">
+                    <div class="admin-field">
+                      <label for="row-address">Adresse</label>
+                      <select id="row-address" name="address" required>
+                        <option value="">Vælg adresse …</option>
+                        <option value="Vigerslevvej 148, st.tv">Vigerslevvej 148, st.tv</option>
+                        <option value="Vigerslevvej 148, st.mf">Vigerslevvej 148, st.mf</option>
+                        <option value="Vigerslevvej 148, st.th">Vigerslevvej 148, st.th</option>
+                        <option value="Vigerslevvej 148, 1.tv">Vigerslevvej 148, 1.tv</option>
+                        <option value="Vigerslevvej 148, 1.mf">Vigerslevvej 148, 1.mf</option>
+                        <option value="Vigerslevvej 148, 1.th">Vigerslevvej 148, 1.th</option>
+                        <option value="Vigerslevvej 148, 2.tv">Vigerslevvej 148, 2.tv</option>
+                        <option value="Vigerslevvej 148, 2.mf">Vigerslevvej 148, 2.mf</option>
+                        <option value="Vigerslevvej 148, 2.th">Vigerslevvej 148, 2.th</option>
+                        <option value="Vigerslevvej 146, st.tv">Vigerslevvej 146, st.tv</option>
+                        <option value="Vigerslevvej 146, st.th">Vigerslevvej 146, st.th</option>
+                        <option value="Vigerslevvej 146, 1.tv">Vigerslevvej 146, 1.tv</option>
+                        <option value="Vigerslevvej 146, 1.th">Vigerslevvej 146, 1.th</option>
+                        <option value="Vigerslevvej 146, 2.tv">Vigerslevvej 146, 2.tv</option>
+                        <option value="Vigerslevvej 146, 2.th">Vigerslevvej 146, 2.th</option>
+                        <option value="Vigerslevvej 144, st.tv">Vigerslevvej 144, st.tv</option>
+                        <option value="Vigerslevvej 144, st.mf">Vigerslevvej 144, st.mf</option>
+                        <option value="Vigerslevvej 144, st.th">Vigerslevvej 144, st.th</option>
+                        <option value="Vigerslevvej 144, 1.tv">Vigerslevvej 144, 1.tv</option>
+                        <option value="Vigerslevvej 144, 1.mf">Vigerslevvej 144, 1.mf</option>
+                        <option value="Vigerslevvej 144, 1.th">Vigerslevvej 144, 1.th</option>
+                        <option value="Vigerslevvej 144, 2.tv">Vigerslevvej 144, 2.tv</option>
+                        <option value="Vigerslevvej 144, 2.mf">Vigerslevvej 144, 2.mf</option>
+                        <option value="Vigerslevvej 144, 2.th">Vigerslevvej 144, 2.th</option>
+                        <option value="Skyttegaardvej 11, st.tv">Skyttegaardvej 11, st.tv</option>
+                        <option value="Skyttegaardvej 11, st.mf">Skyttegaardvej 11, st.mf</option>
+                        <option value="Skyttegaardvej 11, st.th">Skyttegaardvej 11, st.th</option>
+                        <option value="Skyttegaardvej 11, 1.tv">Skyttegaardvej 11, 1.tv</option>
+                        <option value="Skyttegaardvej 11, 1.mf">Skyttegaardvej 11, 1.mf</option>
+                        <option value="Skyttegaardvej 11, 1.th">Skyttegaardvej 11, 1.th</option>
+                        <option value="Skyttegaardvej 11, 2.tv">Skyttegaardvej 11, 2.tv</option>
+                        <option value="Skyttegaardvej 11, 2.mf">Skyttegaardvej 11, 2.mf</option>
+                        <option value="Skyttegaardvej 11, 2.th">Skyttegaardvej 11, 2.th</option>
+                        <option value="Skyttegaardvej 9, st.tv">Skyttegaardvej 9, st.tv</option>
+                        <option value="Skyttegaardvej 9, st.th">Skyttegaardvej 9, st.th</option>
+                        <option value="Skyttegaardvej 9, 1.tv">Skyttegaardvej 9, 1.tv</option>
+                        <option value="Skyttegaardvej 9, 1.th">Skyttegaardvej 9, 1.th</option>
+                        <option value="Skyttegaardvej 9, 2.tv">Skyttegaardvej 9, 2.tv</option>
+                        <option value="Skyttegaardvej 9, 2.th">Skyttegaardvej 9, 2.th</option>
+                        <option value="Skyttegaardvej 7, st.tv">Skyttegaardvej 7, st.tv</option>
+                        <option value="Skyttegaardvej 7, st.mf">Skyttegaardvej 7, st.mf</option>
+                        <option value="Skyttegaardvej 7, st.th">Skyttegaardvej 7, st.th</option>
+                        <option value="Skyttegaardvej 7, 1.tv">Skyttegaardvej 7, 1.tv</option>
+                        <option value="Skyttegaardvej 7, 1.mf">Skyttegaardvej 7, 1.mf</option>
+                        <option value="Skyttegaardvej 7, 1.th">Skyttegaardvej 7, 1.th</option>
+                        <option value="Skyttegaardvej 7, 2.tv">Skyttegaardvej 7, 2.tv</option>
+                        <option value="Skyttegaardvej 7, 2.mf">Skyttegaardvej 7, 2.mf</option>
+                        <option value="Skyttegaardvej 7, 2.th">Skyttegaardvej 7, 2.th</option>
+                        <option value="Skyttegaardvej 5, st.tv">Skyttegaardvej 5, st.tv</option>
+                        <option value="Skyttegaardvej 5, st.mf">Skyttegaardvej 5, st.mf</option>
+                        <option value="Skyttegaardvej 5, st.th">Skyttegaardvej 5, st.th</option>
+                        <option value="Skyttegaardvej 5, 1.tv">Skyttegaardvej 5, 1.tv</option>
+                        <option value="Skyttegaardvej 5, 1.mf">Skyttegaardvej 5, 1.mf</option>
+                        <option value="Skyttegaardvej 5, 1.th">Skyttegaardvej 5, 1.th</option>
+                        <option value="Skyttegaardvej 5, 2.tv">Skyttegaardvej 5, 2.tv</option>
+                        <option value="Skyttegaardvej 5, 2.mf">Skyttegaardvej 5, 2.mf</option>
+                        <option value="Skyttegaardvej 5, 2.th">Skyttegaardvej 5, 2.th</option>
+                        <option value="Skyttegaardvej 3, st.tv">Skyttegaardvej 3, st.tv</option>
+                        <option value="Skyttegaardvej 3, st.th">Skyttegaardvej 3, st.th</option>
+                        <option value="Skyttegaardvej 3, 1.tv">Skyttegaardvej 3, 1.tv</option>
+                        <option value="Skyttegaardvej 3, 1.th">Skyttegaardvej 3, 1.th</option>
+                        <option value="Skyttegaardvej 3, 2.tv">Skyttegaardvej 3, 2.tv</option>
+                        <option value="Skyttegaardvej 3, 2.th">Skyttegaardvej 3, 2.th</option>
+                        <option value="Skyttegaardvej 1, st.tv">Skyttegaardvej 1, st.tv</option>
+                        <option value="Skyttegaardvej 1, st.th">Skyttegaardvej 1, st.th</option>
+                        <option value="Skyttegaardvej 1, 1.tv">Skyttegaardvej 1, 1.tv</option>
+                        <option value="Skyttegaardvej 1, 1.th">Skyttegaardvej 1, 1.th</option>
+                        <option value="Skyttegaardvej 1, 2.tv">Skyttegaardvej 1, 2.tv</option>
+                        <option value="Skyttegaardvej 1, 2.th">Skyttegaardvej 1, 2.th</option>
+                      </select>
+                      <small>Vælg boligen. Alle 69 adresser findes allerede i oversigten.</small>
+                    </div>
+                    <div class="admin-field">
+                      <label for="row-vehicle-type">Køretøjstype</label>
+                      <select id="row-vehicle-type" name="vehicleType" required>
+                        <option value="">Vælg køretøjstype …</option>
+                        <option value="car">Bil</option>
+                        <option value="motorcycle">MC/scooter</option>
+                      </select>
+                    </div>
+                    <div class="admin-field">
+                      <label id="row-registration-label" for="row-registration">Ventelistedato / nummerplade</label>
+                      <input
+                        id="row-registration"
+                        name="registration"
+                        type="text"
+                        maxlength="60"
+                        placeholder="Vælg først adresse og køretøjstype"
+                        disabled
+                        readonly
+                        autocomplete="off"
+                      />
+                      <small id="row-registration-help">
+                        Når du tilmelder en bolig til ventelisten, registreres dags dato automatisk.
+                        Når en parkeringsplads tildeles, erstattes datoen med nummerpladen.
+                      </small>
+                    </div>
+                    <div class="admin-form-actions">
+                      <button id="admin-row-submit" type="submit" class="button primary" disabled>Tilmeld på venteliste</button>
+                      <button id="admin-row-clear" type="button" class="button" hidden>Ryd felt</button>
+                      <button id="admin-row-cancel" type="button" class="button">Nulstil valg</button>
+                    </div>
+                  </form>
+                </section>
+
+                <section class="admin-list-card" aria-labelledby="rows-title">
+                  <div class="admin-list-heading">
+                    <div>
+                      <h2 id="rows-title">Alle boliger</h2>
+                      <p id="admin-row-count" class="admin-muted"></p>
+                    </div>
+                  </div>
+                  <div class="admin-table-wrap">
+                    <table class="admin-table">
+                      <thead>
+                        <tr>
+                          <th>Adresse</th>
+                          <th>Bil - venteliste / nummerplade</th>
+                          <th>MC/scooter - venteliste / nummerplade</th>
+                          <th>Vælg felt</th>
+                        </tr>
+                      </thead>
+                      <tbody id="admin-rows"></tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+
+              <div class="admin-save-panel">
+                <div>
+                  <strong id="admin-change-state">Ingen ikke-gemte ændringer</strong>
+                  <p id="admin-save-help" class="admin-muted">
+                    Alle 69 boliger ligger fast i tabellen. Ved første tilmelding sættes dags dato
+                    automatisk i den valgte køretøjskolonne. Når pladsen tildeles, redigeres datoen
+                    til nummerpladen. Gemning starter et kontrolleret workflow, som kun opdaterer data.json.
+                  </p>
+                </div>
+                <button id="admin-save" type="button" class="button primary" disabled>Gem ændringer</button>
+              </div>
+
+              <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
+            </section>
           </section>
         </div>
       </main>
     </div>
 
-    <script src="./bestyrelsen.js?v=20261121-cellar-fixed-rate-3"></script>
+    <script src="/assets/js/bestyrelsen.js?v=20261121-cellar-fixed-rate-3"></script>
   </body>
 </html>
