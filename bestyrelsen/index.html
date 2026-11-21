@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; object-src 'none'; base-uri 'none'; form-action 'self'"
+    />
+    <meta
       name="description"
       content="Bestyrelsens administrationsside til test af parkeringsoversigten."
     />
@@ -36,7 +40,7 @@
                   <input id="admin-username" name="username" type="text" value="bestyrelsen" autocomplete="off" required />
                 </div>
                 <div class="admin-field">
-                  <label for="admin-token">Adgangskode</label>
+                  <label for="admin-token">GitHub-adgangsnøgle</label>
                   <input
                     id="admin-token"
                     name="token"
@@ -47,9 +51,10 @@
                     required
                   />
                   <small>
-                    Adgangskoden er en GitHub Fine-grained Personal Access Token.
-                    Den skal kun have adgang til repositoryet <strong>bestyrelsen</strong>
-                    med <strong>Actions: Read and write</strong>. Den skal ikke have
+                    Indsæt en GitHub Fine-grained Personal Access Token fra kontoen
+                    <strong>MalikQayum</strong>. Den skal kun have adgang til repositoryet
+                    <strong>Vigerslev-Skyttegard/bestyrelsen</strong> med
+                    <strong>Actions: Read and write</strong>. Den må ikke have
                     rettigheden Contents: Write.
                   </small>
                 </div>
@@ -61,15 +66,15 @@
             <div class="admin-security-note" role="note">
               <strong>Om adgangsnøglen</strong>
               <p>
-                Adgangsnøglen bruges til at starte det kontrollerede GitHub Actions-workflow
-                og kontrollere status på kørslen i repositoryet bestyrelsen. Den giver ikke direkte
-                adgang til at redigere hjemmeside-repositoryet eller data.json.
-                Nøglen gemmes ikke i hjemmesidens filer, localStorage eller
-                sessionStorage; den ligger kun i sidens hukommelse, mens du er
-                logget ind. Log ud, når du er færdig, og tilbagekald nøglen hos
-                GitHub, hvis den bliver delt med uvedkommende. Selve administrations-
-                sidens adresse er ikke privatbeskyttet af GitHub Pages; det er
-                gemmefunktionen, der kræver GitHub-adgangsnøglen.
+                Ved login kontrolleres tokenen direkte hos GitHub; der startes ikke
+                et workflow. Først når du gemmer ændringer, startes det kontrollerede
+                workflow i repositoryet bestyrelsen. Tokenen kan ikke direkte redigere
+                filer og har ikke adgang til hjemmeside-repositoryet. Den gemmes ikke
+                i hjemmesidens filer, localStorage eller sessionStorage; den ligger
+                kun i sidens hukommelse, mens du er logget ind. Log ud, når du er
+                færdig. Selve administrationssidens adresse er ikke privatbeskyttet
+                af GitHub Pages; det er redigerings- og gemmefunktionen, der kræver
+                GitHub-adgangsnøglen.
               </p>
             </div>
           </section>
