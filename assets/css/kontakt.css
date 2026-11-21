@@ -14,6 +14,18 @@
   margin-bottom: 3em;
 }
 
+.contact-grid:last-child {
+  margin-bottom: 0;
+}
+
+.contact-platforms-section .contact-intro {
+  margin-bottom: 1.75em;
+}
+
+.contact-card--platform {
+  background: #fbfcfd;
+}
+
 .contact-card {
   background: #ffffff;
   border: solid 1px rgba(210, 215, 217, 0.75);

@@ -17,7 +17,10 @@
 
   function formatPrice(row, format) {
     const amount = formatAmount(row.amount);
+    const unitSuffix = row.unit ? ` ${row.unit}` : "";
     if (format === "kr-dash") return `kr. ${amount},-`;
+    if (format === "kr-dash-unit") return `kr. ${amount},-${unitSuffix}`;
+    if (format === "currency-unit") return `${amount} kr.${unitSuffix}`;
     if (format === "amount") return amount;
     return `${amount} kr.`;
   }
