@@ -262,7 +262,7 @@
       if (!Number.isFinite(areaM2) || areaM2 <= 0 || areaM2 > 250 || Math.round(areaM2 * 100) !== areaM2 * 100) {
         throw new Error(`Arealet for lokale ${fixed.roomNumber} skal være mellem 0,1 og 250 m² med højst to decimaler.`);
       }
-      if (tenantAddress.length > 120 || /[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]/.test(tenantAddress)) {
+      if (tenantAddress.length > 120 || /[\x00-\x08\x0B\x0C\x0E-\x1F]/.test(tenantAddress)) {
         throw new Error(`Lejeradressen for lokale ${fixed.roomNumber} er for lang eller indeholder ugyldige tegn.`);
       }
       return { ...fixed, areaM2, tenantAddress: tenantAddress.trim() };
