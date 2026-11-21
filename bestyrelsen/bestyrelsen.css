@@ -414,16 +414,22 @@
   min-width: 760px;
 }
 
-.admin-cellar-table input {
-  min-width: 140px;
+.admin-cellar-table select {
+  min-width: 190px;
   margin: 0;
   height: 2.65em;
   padding: 0.35em 0.55em;
 }
 
-.admin-cellar-table input[type="number"] {
-  min-width: 78px;
-  width: 90px;
+.admin-cellar-table select {
+  max-width: 100%;
+}
+
+
+.admin-cellar-area {
+  min-width: 84px;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .admin-cellar-rent {
