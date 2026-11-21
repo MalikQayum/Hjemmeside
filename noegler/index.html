@@ -43,7 +43,7 @@
 
                     <h3>Bestilling &amp; Berettigelse</h3>
                     <p>
-                      Nye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt. 100 kr. pr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.
+                      Nye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt. <span data-price-id="price-001" data-price-format="currency">Indlæser pris …</span> pr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.
                     </p>
 
                     <hr style="margin: 1.5em 0;" />
@@ -114,8 +114,8 @@
                       <div class="col-12 js-order-fields">
                         <div class="row gtr-uniform">
                           <div class="col-6 col-12-xsmall">
-                            <label for="noegle-brik-qty">Antal nøglebrikker (100 kr./stk.)</label>
-                            <select name="antal_brikker" id="noegle-brik-qty" data-unit-price="100">
+                            <label for="noegle-brik-qty">Antal nøglebrikker (<span data-price-id="price-001" data-price-format="currency">Indlæser pris …</span>/stk.)</label>
+                            <select name="antal_brikker" id="noegle-brik-qty" data-unit-price="0" data-price-unit-id="price-001" data-price-ready="false">
                               <option value="0" selected>0 stk.</option>
                               <option value="1">1 stk.</option>
                               <option value="2">2 stk.</option>
@@ -131,8 +131,8 @@
                           </div>
 
                           <div class="col-6 col-12-xsmall">
-                            <label for="noegle-kort-qty">Antal nøglekort (100 kr./stk.)</label>
-                            <select name="antal_kort" id="noegle-kort-qty" data-unit-price="100">
+                            <label for="noegle-kort-qty">Antal nøglekort (<span data-price-id="price-001" data-price-format="currency">Indlæser pris …</span>/stk.)</label>
+                            <select name="antal_kort" id="noegle-kort-qty" data-unit-price="0" data-price-unit-id="price-001" data-price-ready="false">
                               <option value="0" selected>0 stk.</option>
                               <option value="1">1 stk.</option>
                               <option value="2">2 stk.</option>
@@ -151,7 +151,7 @@
                             <label>Samlet pris</label>
                             <div class="info-contact-price-box" aria-live="polite">
                               <span class="info-contact-price-amount js-total-price">0 kr.</span>
-                              <span class="info-contact-price-unit js-price-breakdown">(0 stk. × 100 kr.)</span>
+                              <span class="info-contact-price-unit js-price-breakdown">Prisoplysninger indlæses …</span>
                             </div>
                           </div>
 
@@ -209,7 +209,8 @@
     <script src="/assets/js/breakpoints.min.js"></script>
     <script src="/assets/js/util.js"></script>
     <script src="/assets/js/load-sidebar.js"></script>
-    <script src="/assets/js/contact-form.js"></script>
+    <script src="/assets/js/public-price-bindings.js?v=20261121-1"></script>
+    <script src="/assets/js/contact-form.js?v=20261121-dynamic-price-1"></script>
   </body>
 </html>
 
