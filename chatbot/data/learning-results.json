@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-21T07:46:01.564Z",
+  "tested_at": "2026-11-21T14:34:50.802Z",
   "generated": 2,
   "approved": 0,
   "rejected": 2,
-  "total_unique_attempted": 346,
+  "total_unique_attempted": 348,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -351,17 +351,23 @@
     "Må jeg benytte til erhvervsaktiviteter eller permanent ferie-/korttidsudlejning?",
     "Hvem varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk?",
     "Hvor mange sekunder skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
-    "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146?"
+    "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146?",
+    "Hvordan oprettes man på ventelisten til en parkeringsplads?",
+    "Hvor ofte kommer Hebsoe Rengøring for at gøre rent og slå græs?"
   ],
   "approved_questions": [],
   "rejected_questions": [
     {
-      "question": "Hvor mange sekunder skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
-      "reason": "low_question_quality"
+      "question": "Hvordan oprettes man på ventelisten til en parkeringsplads?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Parkering - overblik",
+      "actual": "Parkering - venteliste og generel information"
     },
     {
-      "question": "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146?",
-      "reason": "low_question_quality"
+      "question": "Hvor ofte kommer Hebsoe Rengøring for at gøre rent og slå græs?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Affald og udenomsarealer - rengøring (Hebsoe)",
+      "actual": "Affald og storskrald - skralderum, storskraldsrum og miljøskab"
     }
   ]
 }
