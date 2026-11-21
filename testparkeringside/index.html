@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Separat testside til afprøvning af parkeringsoversigten. Indeholder kun fiktive testdata."
+    />
+    <title>Testparkering | E/F Skyttegårdvej/Vigerslevvej</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="./testparkeringside.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header">
+            <a href="/" class="logo"><strong>E/F Skyttegårdvej/Vigerslevvej</strong></a>
+          </header>
+
+          <section>
+            <header class="main">
+              <h1>Testparkering</h1>
+              <p>Afprøvning af parkeringsoversigten og dens tabeldata.</p>
+            </header>
+
+            <div class="test-parking-warning" role="note">
+              <strong>TESTSIDE – IKKE DEN RIGTIGE VENTELISTE</strong>
+              <p>
+                Denne side er kun til afprøvning. Alle viste rækker er fiktive
+                testdata og må ikke bruges til administration af rigtige
+                parkeringspladser.
+              </p>
+            </div>
+
+            <section class="test-parking-status" aria-labelledby="test-parking-heading">
+              <header class="major">
+                <h2 id="test-parking-heading">Testventeliste</h2>
+                <p id="test-parking-updated" class="test-parking-updated">Indlæser testdata …</p>
+              </header>
+
+              <div id="test-parking-table-wrap" class="test-parking-table-wrap" aria-live="polite">
+                <p>Testdata indlæses …</p>
+              </div>
+            </section>
+
+            <p class="test-parking-back">
+              <a href="/" class="button">Tilbage til hjemmesiden</a>
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <aside id="sidebar" aria-label="Navigation og kontakt"></aside>
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/load-sidebar.js"></script>
+    <script src="./testparkeringside.js"></script>
+  </body>
+</html>
