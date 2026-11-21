@@ -109,6 +109,11 @@
         white-space: nowrap;
         text-align: right;
       }
+      .gf-price-updated {
+        margin: 1.25em 0 0;
+        color: #64748b;
+        font-size: 0.85em;
+      }
       .agenda-list {
         list-style: none;
         padding: 0;
@@ -644,7 +649,7 @@
             <div id="prisblad" class="gf-card">
               <div class="gf-card-header">
                 <span class="icon solid fa-tags"></span>
-                <h2>Prisblad 2026</h2>
+                <h2>Gældende prisblad</h2>
               </div>
               <p>
                 Gældende gebyrer og takster for Ejerforeningen Vigerslevvej 144-148 / Skyttegårdvej 1-11 vedtaget af bestyrelsen / generalforsamlingen:
@@ -658,67 +663,13 @@
                       <th style="text-align: right;">Gældende Pris</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <strong>Køb af nøglekort eller nøglebrikker</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Ekstra eller erstatningsbrikker til opgangsdøre</div>
-                      </td>
-                      <td class="price-amount">Kr. 100,-</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Leje af parkeringsplads til bil</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Månedlig leje via venteliste (administreres af bestyrelsen)</div>
-                      </td>
-                      <td class="price-amount">Kr. 100,- / md.</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Leje af parkeringsplads til motorcykel</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Månedlig leje via venteliste</div>
-                      </td>
-                      <td class="price-amount">Kr. 50,- / md.</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Nye navneskilte ved udlejning</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Montering af autoriserede navneskilte på dørtelefon og postkasse</div>
-                      </td>
-                      <td class="price-amount">Kr. 500,-</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Fjernelse og afrensning af klistermærker</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">På dørtelefon eller postkasse ved overtrædelse af husorden</div>
-                      </td>
-                      <td class="price-amount">Kr. 500,-</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Bortskaffelse af ureglementeret affald</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Affald henstillet uden for affaldscontainere eller storskraldrum</div>
-                      </td>
-                      <td class="price-amount">Kr. 500,-</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Selvrisiko ved selvforskyldt skade</strong>
-                        <div style="font-size: 0.85em; color: #64748b;">Ved skader dækket af ejendommens bygningsforsikring</div>
-                      </td>
-                      <td class="price-amount">Kr. 5.000,-</td>
-                    </tr>
+                  <tbody id="price-table-body">
+                    <tr><td colspan="2">Prisbladet indlæses …</td></tr>
                   </tbody>
                 </table>
               </div>
 
-              <!-- Download Button for official PDF -->
-              <div style="margin-top: 1.5em; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1em;">
-                <span style="font-size: 0.9em; color: #64748b;">
-                  <span class="icon solid fa-file-pdf"></span> Det officielle underskrevne prisblad er tilgængeligt i PDF-format.
-                </span>
-                <a href="/dokumenter/generalforsamling/prisblad-2026.pdf" download="Prisblad 2026.pdf" class="button primary icon solid fa-download">Download Prisblad 2026 (PDF)</a>
-              </div>
+              <p id="price-last-updated" class="gf-price-updated" role="status" aria-live="polite">Prisbladet indlæses fra bestyrelsens aktuelle prisliste …</p>
             </div>
 
           </section>
@@ -734,7 +685,8 @@
     <script src="/assets/js/breakpoints.min.js"></script>
     <script src="/assets/js/util.js"></script>
     <script src="/assets/js/load-sidebar.js"></script>
+    <script src="/assets/js/general-price-list.js?v=20261121-1"></script>
   </body>
 </html>
 
-<!-- Sidst opdateret: 2026-11-19 -->
+<!-- Sidst opdateret: 2026-11-21 -->
