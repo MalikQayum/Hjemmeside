@@ -10,11 +10,11 @@
     />
     <meta
       name="description"
-      content="Bestyrelsens administrationsside til parkeringsventeliste, nummerplader og prisblad."
+      content="Bestyrelsens administrationsside til parkeringsventeliste, nummerplader, prisblad og kælderrum."
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="./bestyrelsen.css?v=20261121-price-format-2" />
+    <link rel="stylesheet" href="./bestyrelsen.css?v=20261121-cellar-1" />
   </head>
 
   <body class="is-preload">
@@ -319,13 +319,49 @@
                 <button id="price-save" type="button" class="button primary" disabled>Gem prisblad</button>
               </div>
               <p id="admin-price-status" class="admin-status" role="status" aria-live="polite"></p>
-            </section><p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="admin-cellar-section" aria-labelledby="cellar-admin-heading">
+              <header class="admin-cellar-heading">
+                <div>
+                  <h2 id="cellar-admin-heading">Kælderrum – administration</h2>
+                  <p class="admin-muted">De 11 kælderrum ligger fast. Redigér lejeradresse eller areal. Månedlig leje beregnes automatisk ud fra prisposten “Leje af kælderrum” i prisbladet.</p>
+                </div>
+                <button id="cellar-refresh" type="button" class="button">Genindlæs kælderrum</button>
+              </header>
+              <div class="admin-table-wrap">
+                <table class="admin-table admin-cellar-table">
+                  <thead>
+                    <tr>
+                      <th>Lokale nr.</th>
+                      <th>Lejeradresse</th>
+                      <th>Areal (m²)</th>
+                      <th>Leje pr. måned</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-cellar-rows">
+                    <tr><td colspan="5">Kælderrummene indlæses …</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="admin-save-panel admin-cellar-save-panel">
+                <div>
+                  <strong id="admin-cellar-change-state">Ingen ikke-gemte ændringer</strong>
+                  <p id="admin-cellar-save-help" class="admin-muted">Alle 11 lokaler er faste. En tom lejeradresse betyder, at lokalet vises som ledigt. Adressen “Ekstern” kan bruges til en lejer uden for foreningen. Kun kaelderrum/data.json bliver opdateret.</p>
+                </div>
+                <button id="cellar-save" type="button" class="button primary" disabled>Gem kælderrum</button>
+              </div>
+              <p id="admin-cellar-status" class="admin-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
             <p class="admin-footer-link"><a href="/parkering/" target="_blank" rel="noopener">Åbn den offentlige parkeringsside</a></p>
           </section>
         </div>
       </main>
     </div>
 
-    <script src="./bestyrelsen.js?v=20261121-price-list-2"></script>
+    <script src="./bestyrelsen.js?v=20261121-cellar-1"></script>
   </body>
 </html>

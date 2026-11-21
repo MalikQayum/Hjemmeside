@@ -10,6 +10,7 @@
     <title>Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/contact-form.css" />
+    <link rel="stylesheet" href="/assets/css/kaelderrum-live.css?v=20261121-1" />
   </head>
 
   <body class="is-preload">
@@ -28,6 +29,30 @@
               <h1>Leje af kælderrum</h1>
               <p>Information om mulighederne for at leje ekstra kælderrum i ejerforeningen.</p>
             </header>
+
+            <section class="kaelderrum-live-section" aria-labelledby="kaelderrum-overview-heading">
+              <header>
+                <h2 id="kaelderrum-overview-heading">Oversigt over kælderrum</h2>
+                <p>Her kan du se de 11 kælderrum, deres størrelse, lejeradresse og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbladet.</p>
+              </header>
+              <div class="table-wrapper kaelderrum-live-table-wrap">
+                <table class="kaelderrum-live-table">
+                  <thead>
+                    <tr>
+                      <th>Lokale nr.</th>
+                      <th>Lejeradresse</th>
+                      <th>Størrelse</th>
+                      <th>Leje pr. måned</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="kaelderrum-live-rows">
+                    <tr><td colspan="5">Kælderrumsoversigten indlæses …</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p id="kaelderrum-live-status" class="kaelderrum-live-status" role="status" aria-live="polite">Oversigten hentes fra bestyrelsens aktuelle data.</p>
+            </section>
 
             <div class="row gtr-150 contact-equal-row">
               <!-- Venstre kolonne: Information & Lejevilkår -->
@@ -154,6 +179,7 @@
     <script src="/assets/js/util.js"></script>
     <script src="/assets/js/load-sidebar.js"></script>
     <script src="/assets/js/contact-form.js"></script>
+    <script src="/assets/js/kaelderrum-live.js?v=20261121-1"></script>
   </body>
 </html>
 

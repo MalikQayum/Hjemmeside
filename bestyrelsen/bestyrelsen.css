@@ -380,3 +380,80 @@
     gap: 0;
   }
 }
+
+
+/* Cellar-room administration */
+.admin-cellar-section {
+  margin-top: 2.5em;
+  padding-top: 2em;
+  border-top: 2px solid rgba(210, 215, 217, 0.65);
+}
+
+.admin-cellar-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.25em;
+}
+
+.admin-cellar-heading h2 {
+  margin-bottom: 0.25em;
+}
+
+.admin-cellar-heading p {
+  margin-bottom: 0;
+}
+
+.admin-cellar-heading .button {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.admin-cellar-table {
+  min-width: 760px;
+}
+
+.admin-cellar-table input {
+  min-width: 140px;
+  margin: 0;
+  height: 2.65em;
+  padding: 0.35em 0.55em;
+}
+
+.admin-cellar-table input[type="number"] {
+  min-width: 78px;
+  width: 90px;
+}
+
+.admin-cellar-rent {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.admin-cellar-status {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.admin-cellar-status.is-rented {
+  color: #237a46;
+}
+
+.admin-cellar-status.is-available {
+  color: #64748b;
+}
+
+.admin-cellar-save-panel {
+  margin-top: 1em;
+}
+
+@media screen and (max-width: 736px) {
+  .admin-cellar-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .admin-cellar-heading .button {
+    width: 100%;
+  }
+}

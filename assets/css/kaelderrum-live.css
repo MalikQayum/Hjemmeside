@@ -1,0 +1,73 @@
+/* Dynamic public cellar-room table */
+.kaelderrum-live-section {
+  margin: 2.25em 0;
+  padding: 1.75em;
+  border: 1px solid rgba(210, 215, 217, 0.85);
+  border-radius: 0.35em;
+  background: #fff;
+}
+
+.kaelderrum-live-section header h2 {
+  margin-bottom: 0.35em;
+}
+
+.kaelderrum-live-section header p {
+  margin-bottom: 1.25em;
+}
+
+.kaelderrum-live-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kaelderrum-live-table {
+  width: 100%;
+  min-width: 680px;
+  margin: 0;
+}
+
+.kaelderrum-live-table th,
+.kaelderrum-live-table td {
+  vertical-align: middle;
+}
+
+.kaelderrum-live-table td:nth-child(3),
+.kaelderrum-live-table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+.kaelderrum-live-rent {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kaelderrum-live-status-pill {
+  display: inline-block;
+  padding: 0.2em 0.65em;
+  border-radius: 999px;
+  font-size: 0.82em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.kaelderrum-live-status-pill.is-rented {
+  color: #17633a;
+  background: #e7f5ec;
+}
+
+.kaelderrum-live-status-pill.is-available {
+  color: #475569;
+  background: #eef2f6;
+}
+
+.kaelderrum-live-status {
+  margin: 0.9em 0 0;
+  color: #64748b;
+  font-size: 0.85em;
+}
+
+@media screen and (max-width: 736px) {
+  .kaelderrum-live-section {
+    padding: 1.1em;
+  }
+}
