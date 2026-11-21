@@ -8,6 +8,8 @@
   const WORKFLOW_FILE = "update-data.yml";
   const API_VERSION = "2026-03-10";
   const SHARED_USERNAME = "bestyrelsen";
+  const ALLOWED_GITHUB_LOGIN = "MalikQayum";
+  const RUN_NAME_PREFIX = "Update test parking data ";
   const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPOSITORY}/${GITHUB_BRANCH}/testparkeringside/data.json`;
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
@@ -52,9 +54,9 @@
 
   function apiErrorMessage(status, details) {
     if (status === 401) return "GitHub afviste adgangsnøglen. Kontrollér, at tokenen er kopieret korrekt og stadig er aktiv.";
-    if (status === 403) return "GitHub afviste handlingen. Kontrollér, at tokenen har Actions: Read and write til repositoryet bestyrelsen.";
-    if (status === 404) return "GitHub fandt ikke repositoryet eller workflowet. Kontrollér, at repositoryet hedder bestyrelsen, og at workflowfilen ligger på main.";
-    if (status === 422) return "GitHub kunne ikke starte workflowet. Kontrollér, at workflow_dispatch findes på standardbranchen main.";
+    if (status === 403) return "GitHub afviste anmodningen. Kontrollér, at tokenen er aktiv, at Vigerslev-Skyttegard har godkendt den, og ved gemning at den har Actions: Read and write.";
+    if (status === 404) return "GitHub fandt ikke repositoryet eller workflowet. Kontrollér, at repositoryet hedder Vigerslev-Skyttegard/bestyrelsen, og at workflowfilen ligger på main.";
+    if (status === 422) return "GitHub kunne ikke starte workflowet. Kontrollér, at workflow_dispatch er aktiveret, og at workflowet er opdateret på main.";
     return details || `GitHub returnerede HTTP ${status}.`;
   }
 
@@ -69,6 +71,8 @@
       }
     });
 
+    if (response.status === 204) return null;
+
     let result = null;
     try {
       result = await response.json();
@@ -80,6 +84,19 @@
       throw new Error(apiErrorMessage(response.status, result?.message));
     }
     return result;
+  }
+
+  async function verifyGitHubToken(token) {
+    // GET /user bekræfter tokenens ægthed uden at starte et workflow.
+    // GitHub oplyser, at Fine-grained PATs ikke behøver ekstra user-permissions til dette endpoint.
+    const user = await githubRequest("https://api.github.com/user", token);
+    if (!user || typeof user.login !== "string") {
+      throw new Error("GitHub kunne ikke bekræfte tokenens ejerkonto.");
+    }
+    if (user.login.toLowerCase() !== ALLOWED_GITHUB_LOGIN.toLowerCase()) {
+      throw new Error(`Denne administration accepterer kun en token fra GitHub-kontoen ${ALLOWED_GITHUB_LOGIN}. Den indtastede token tilhører ${user.login}.`);
+    }
+    return user;
   }
 
   function normalizeRows(value) {
@@ -119,7 +136,7 @@
     return new Promise((resolve) => window.setTimeout(resolve, ms));
   }
 
-  async function waitForWorkflow(runId, token) {
+  async function waitForWorkflowById(runId, token) {
     const startedAt = Date.now();
     while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
       const run = await githubRequest(`${API_ROOT}/actions/runs/${encodeURIComponent(runId)}`, token);
@@ -129,15 +146,44 @@
         }
         return run;
       }
+      setStatus(mainStatus, "GitHub behandler ændringerne …");
       await sleep(POLL_INTERVAL_MS);
     }
-    throw new Error("GitHub accepterede opgaven, men workflowet er stadig i gang. Kontrollér Actions under repositoryet bestyrelsen.");
+    throw new Error("GitHub accepterede gemmeanmodningen, men workflowet blev ikke færdigt inden for tidsgrænsen. Kontrollér Actions i repositoryet bestyrelsen.");
   }
 
-  async function dispatchWorkflow(token, data, validateOnly) {
+  async function waitForWorkflowByRequestId(requestId, token) {
+    // Reservevej til API-versioner, der svarer med 204 uden workflow_run_id.
+    const startedAt = Date.now();
+    const runsUrl = `${API_ROOT}/actions/workflows/${encodeURIComponent(WORKFLOW_FILE)}/runs?branch=${encodeURIComponent(GITHUB_BRANCH)}&event=workflow_dispatch&per_page=100`;
+    const expectedTitle = `${RUN_NAME_PREFIX}${requestId}`;
+
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const result = await githubRequest(runsUrl, token);
+      const run = Array.isArray(result?.workflow_runs)
+        ? result.workflow_runs.find((item) => item.display_title === expectedTitle)
+        : null;
+
+      if (run) {
+        if (run.status === "completed") {
+          if (run.conclusion !== "success") {
+            throw new Error(`GitHub-workflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen for fejlen.`);
+          }
+          return run;
+        }
+        setStatus(mainStatus, "GitHub behandler ændringerne …");
+      }
+      await sleep(POLL_INTERVAL_MS);
+    }
+
+    throw new Error("GitHub modtog gemmeanmodningen, men workflowet blev ikke færdigt inden for tidsgrænsen. Kontrollér Actions i repositoryet bestyrelsen.");
+  }
+
+  async function dispatchWorkflow(token, data) {
     const payload = JSON.stringify(data);
     if (payload.length > 60000) throw new Error("Testdataene er for store til at blive sendt til GitHub.");
 
+    const requestId = `save-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     const result = await githubRequest(DISPATCH_URL, token, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -145,15 +191,22 @@
         ref: GITHUB_BRANCH,
         inputs: {
           payload,
-          validate_only: Boolean(validateOnly)
+          request_id: requestId
         }
       })
     });
 
-    if (!result || !result.workflow_run_id) {
-      throw new Error("GitHub modtog ikke et workflow-ID. Kontrollér Actions og prøv igen.");
+    // GitHubs aktuelle REST API-version returnerer normalt 200 med workflow_run_id.
+    if (result && Number.isInteger(result.workflow_run_id)) {
+      return waitForWorkflowById(result.workflow_run_id, token);
     }
-    return waitForWorkflow(result.workflow_run_id, token);
+
+    // Behold kompatibilitet med API-svar, der ikke indeholder en JSON-body (204).
+    if (result === null) {
+      return waitForWorkflowByRequestId(requestId, token);
+    }
+
+    throw new Error("GitHub returnerede et uventet svar på workflow-anmodningen.");
   }
 
   function markDirty() {
@@ -258,15 +311,12 @@
     }
 
     try {
-      // Validerer tokenen ved at starte workflowet uden at ændre data.json.
-      await dispatchWorkflow(candidateToken, {
-        schemaVersion: 1,
-        updatedAt: null,
-        rows: []
-      }, true);
+      // Hurtig login: kontroller kun tokenens ægthed og ejerkonto via GET /user.
+      // Intet GitHub Actions-workflow startes under login.
+      const githubUser = await verifyGitHubToken(candidateToken);
       sessionToken = candidateToken;
       await loadCurrentData();
-      signedInAs.textContent = "GitHub-adgangen er bekræftet for bestyrelsens konto.";
+      signedInAs.textContent = `GitHub-token bekræftet for ${githubUser.login}.`;
       loginView.hidden = true;
       adminView.hidden = false;
       setStatus(mainStatus, "Du er logget ind. Testdata er indlæst.", "success");
@@ -362,7 +412,7 @@
         updatedAt: new Date().toISOString(),
         rows: normalizeRows(rows)
       };
-      await dispatchWorkflow(sessionToken, nextData, false);
+      await dispatchWorkflow(sessionToken, nextData);
       const savedData = await fetchSavedData(nextData.updatedAt);
       applyData(savedData);
       setStatus(mainStatus, "Testdata er gemt. Kun data.json i repositoryet bestyrelsen er blevet opdateret.", "success");
