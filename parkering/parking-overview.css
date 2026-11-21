@@ -1,39 +1,30 @@
-/* Selvstændig styling til testparkeringssiden.
-   Udtrykket følger /parkering/, men ændringer her påvirker ikke den side. */
+/* Selvstændig styling til den offentlige parkeringsside. */
 
-.test-parking-warning {
-  margin: 0 0 2em;
-  padding: 1.25em 1.5em;
-  border: 1px solid #f0d58a;
-  border-left: 4px solid #d89a21;
-  border-radius: 0.375em;
-  background: #fff9e9;
-  color: #604b1d;
-}
 
-.test-parking-warning strong {
+
+.parking-warning strong {
   display: block;
   margin-bottom: 0.4em;
   color: #755414;
 }
 
-.test-parking-warning p {
+.parking-warning p {
   margin: 0;
   color: #604b1d;
 }
 
-.test-parking-equal-row {
+.parking-equal-row {
   display: flex;
   flex-wrap: wrap;
 }
 
-.test-parking-col-equal {
+.parking-col-equal {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
 }
 
-.test-parking-card-box {
+.parking-card-box {
   background: #ffffff;
   border: solid 1px rgba(210, 215, 217, 0.75);
   border-radius: 0.375em;
@@ -45,23 +36,23 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
-.test-parking-card-box--compact {
+.parking-card-box--compact {
   height: auto;
 }
 
-.test-parking-card-box--fill {
+.parking-card-box--fill {
   height: auto;
   flex: 1;
 }
 
-.test-parking-contact-form {
+.parking-contact-form {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.test-parking-contact-form label {
+.parking-contact-form label {
   font-weight: 600;
   font-size: 0.85em;
   text-transform: uppercase;
@@ -70,7 +61,7 @@
   margin-bottom: 0.4em;
 }
 
-.test-parking-contact-status {
+.parking-contact-status {
   display: none;
   margin-top: 1em;
   padding: 1em;
@@ -80,11 +71,11 @@
   color: #166534;
 }
 
-.test-parking-contact-status.is-visible {
+.parking-contact-status.is-visible {
   display: block;
 }
 
-.test-parking-contact-status h4 {
+.parking-contact-status h4 {
   color: #166534;
   margin: 0 0 0.5em;
   display: flex;
@@ -92,120 +83,120 @@
   gap: 0.5em;
 }
 
-.test-parking-contact-status p {
+.parking-contact-status p {
   margin: 0 0 1em;
   font-size: 0.9em;
   color: #15803d;
 }
 
-.test-parking-contact-status .status-actions {
+.parking-contact-status .status-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
 }
 
-.test-parking-updated {
+.parking-updated {
   margin-top: 0.25em;
   color: #7f888f;
   font-size: 0.9em;
 }
 
-.test-parking-table-wrap {
+.parking-table-wrap {
   width: 100%;
   overflow-x: auto;
   margin: 1.5rem 0;
   -webkit-overflow-scrolling: touch;
 }
 
-.test-parking-table {
+.parking-table {
   width: 100%;
   min-width: 34rem;
   border-collapse: collapse;
   font-size: 0.9rem;
 }
 
-.test-parking-table th,
-.test-parking-table td {
+.parking-table th,
+.parking-table td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid rgba(160, 160, 160, 0.3);
   text-align: left;
   vertical-align: middle;
 }
 
-.test-parking-table thead th {
+.parking-table thead th {
   font-weight: 600;
   background: rgba(160, 160, 160, 0.1);
   white-space: nowrap;
 }
 
-.test-parking-table tbody tr:nth-child(even) {
+.parking-table tbody tr:nth-child(even) {
   background: rgba(160, 160, 160, 0.04);
 }
 
-.test-parking-table tbody tr:hover {
+.parking-table tbody tr:hover {
   background: rgba(160, 160, 160, 0.12);
 }
 
-.test-parking-table td:first-child {
+.parking-table td:first-child {
   min-width: 17rem;
 }
 
-.test-parking-table td.parking-cell-registration {
+.parking-table td.parking-cell-registration {
   background-color: #d1fae5;
   color: #065f46;
   font-weight: 600;
   white-space: nowrap;
 }
 
-.test-parking-table td.parking-cell-date {
+.parking-table td.parking-cell-date {
   background-color: #dbeafe;
   color: #1e40af;
   white-space: nowrap;
 }
 
-.test-parking-table .test-parking-empty-cell {
+.parking-table .parking-empty-cell {
   color: transparent;
 }
 
-.test-parking-availability {
+.parking-availability {
   margin: 0 0 2em;
 }
 
-.test-parking-status-grid {
+.parking-status-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1em;
 }
 
-.test-parking-status-card {
+.parking-status-card {
   padding: 1.25em;
   border: 1px solid rgba(144, 144, 144, 0.3);
   border-radius: 0.5em;
   background: rgba(144, 144, 144, 0.04);
 }
 
-.test-parking-status-card h4 {
+.parking-status-card h4 {
   margin-bottom: 0.5em;
 }
 
-.test-parking-status-available {
+.parking-status-available {
   font-size: 2em;
   font-weight: 700;
   color: #238b57;
   line-height: 1.2;
 }
 
-.test-parking-status-available span {
+.parking-status-available span {
   font-size: 0.6em;
   color: #7f888f;
 }
 
-.test-parking-status-card > p {
+.parking-status-card > p {
   margin: 0.25em 0 1em;
   font-size: 0.85em;
 }
 
-.test-parking-status-waiting {
+.parking-status-waiting {
   display: flex;
   align-items: baseline;
   gap: 0.5em;
@@ -213,19 +204,19 @@
   border-top: 1px solid rgba(144, 144, 144, 0.3);
 }
 
-.test-parking-status-waiting strong {
+.parking-status-waiting strong {
   font-size: 1.3em;
 }
 
-.test-parking-status-waiting span {
+.parking-status-waiting span {
   font-size: 0.85em;
 }
 
-.test-parking-back {
+.parking-back {
   margin-top: 2em;
 }
 
-.test-parking-load-error {
+.parking-load-error {
   padding: 1em 1.25em;
   border: 1px solid #e4b7b7;
   border-radius: 0.375em;
@@ -234,22 +225,22 @@
 }
 
 @media (max-width: 600px) {
-  .test-parking-card-box {
+  .parking-card-box {
     padding: 1.5em;
   }
 
-  .test-parking-table {
+  .parking-table {
     font-size: 0.8rem;
   }
 
-  .test-parking-table th,
-  .test-parking-table td {
+  .parking-table th,
+  .parking-table td {
     padding: 0.6rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .test-parking-status-grid {
+  .parking-status-grid {
     grid-template-columns: 1fr;
   }
 }

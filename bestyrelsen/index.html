@@ -10,7 +10,7 @@
     />
     <meta
       name="description"
-      content="Bestyrelsens administrationsside til test af parkeringsoversigten."
+      content="Bestyrelsens administrationsside til parkeringsventeliste og nummerplader."
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
@@ -91,12 +91,12 @@
               </div>
             </header>
 
-            <div class="admin-test-warning" role="note">
-              <strong>Du redigerer kun testdata.</strong>
+            <div class="admin-parking-note" role="note">
+              <strong>Du administrerer den offentlige parkeringsoversigt.</strong>
               <p>
-                Ændringerne påvirker kun <code>/testparkeringsside/</code>.
-                Den eksisterende offentlige side <code>/parkering/</code> og dens
-                Excel-venteliste ændres ikke.
+                Ændringerne bliver vist på <code>/parkering/</code>. Alle 69 boliger
+                ligger fast i tabellen. Første tilmelding registrerer dags dato;
+                når en plads tildeles, erstattes datoen med nummerpladen.
               </p>
             </div>
 
@@ -249,12 +249,12 @@
             </div>
 
             <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
-            <p class="admin-footer-link"><a href="/testparkeringside/" target="_blank" rel="noopener">Åbn den offentlige testparkeringsside</a></p>
+            <p class="admin-footer-link"><a href="/parkering/" target="_blank" rel="noopener">Åbn den offentlige parkeringsside</a></p>
           </section>
         </div>
       </main>
     </div>
 
-    <script src="./bestyrelsen.js?v=20261121-venteliste-1"></script>
+    <script src="./bestyrelsen.js?v=20261121-official-parking-1"></script>
   </body>
 </html>

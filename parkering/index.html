@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Find ejerforeningens oplysninger om parkering og kontakt bestyrelsen."
+      content="Information om parkering i ejerforeningen, venteliste og parkeringsoversigt."
     />
     <title>Parkering | E/F Skyttegårdvej/Vigerslevvej</title>
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/excel-viewer.css" />
-    <link rel="stylesheet" href="/assets/css/parking-contact.css" />
+    <link rel="stylesheet" href="./parking-overview.css?v=20261121-official-1" />
   </head>
 
-  <body class="is-preload">
+  <body class="is-preload parking-page">
     <div id="wrapper">
       <main id="main">
         <div class="inner">
@@ -23,7 +22,6 @@
             </a>
           </header>
 
-          <!-- Top Section: Side-by-side equal height columns -->
           <section>
             <header class="main">
               <h1>Parkering</h1>
@@ -31,7 +29,7 @@
             </header>
 
             <div class="row gtr-150 parking-equal-row">
-              <!-- Venstre kolonne: 2 rækker (Cykelparkering øverst, Generel info & Uretmæssig parkering nederst) -->
+              <!-- Venstre kolonne: Cykelparkering, generel information og uretmæssig parkering -->
               <div class="col-6 col-12-medium parking-col-equal">
                 <div class="parking-card-box parking-card-box--compact">
                   <div>
@@ -47,14 +45,19 @@
                   <div>
                     <h3><span class="icon solid fa-car"></span> <span class="icon solid fa-motorcycle"></span> Generel information</h3>
                     <p>
-                      Ejerforeningens parkeringspladser administreres af bestyrelsen. Ønsker du at blive skrevet op på ventelisten til en parkeringsplads, kan du benytte kontaktformularen her på siden.
+                      Ejerforeningens parkeringspladser administreres af bestyrelsen.
+                      Ønsker du at blive skrevet op på ventelisten til en
+                      parkeringsplads, kan du benytte kontaktformularen her på siden.
                     </p>
 
                     <hr style="margin: 1.5em 0;" />
 
                     <h3>Uretmæssig parkering</h3>
                     <p>
-                      <strong>Hvis nogen holder på din parkeringsplads</strong>, skal du kontakte DinParkering, som varetager parkeringskontrollen på området. Oplys gerne pladsnummer og bilens registreringsnummer.
+                      <strong>Hvis nogen holder på din parkeringsplads</strong>,
+                      skal du kontakte DinParkering, som varetager
+                      parkeringskontrollen på området. Oplys gerne pladsnummer og
+                      bilens registreringsnummer.
                     </p>
                   </div>
 
@@ -92,7 +95,7 @@
                           type="text"
                           name="adresse"
                           id="parking-address"
-                          placeholder="F.eks. Skyttegårdvej 1, 4. th"
+                          placeholder="F.eks. Skyttegaardvej 1, 2. th"
                           required
                         />
                       </div>
@@ -104,6 +107,7 @@
                           name="navn"
                           id="parking-name"
                           placeholder="Dit navn"
+                          autocomplete="name"
                           required
                         />
                       </div>
@@ -115,6 +119,7 @@
                           name="email"
                           id="parking-email"
                           placeholder="din@email.dk"
+                          autocomplete="email"
                           required
                         />
                       </div>
@@ -140,7 +145,6 @@
                       </ul>
                     </div>
 
-                    <!-- Status / Feedback Container -->
                     <div id="parking-form-status" class="parking-contact-status" aria-live="polite"></div>
                   </form>
                 </div>
@@ -148,17 +152,21 @@
             </div>
           </section>
 
-          <!-- Lower Section: Venteliste Table -->
+          <!-- Parkeringsoversigt: data hentes fra Vigerslev-Skyttegard/bestyrelsen/parkering/data.json. -->
           <section>
             <header class="major">
               <h2>Venteliste til parkering</h2>
+              <p id="parking-updated" class="parking-updated">Indlæser ventelisten …</p>
             </header>
 
-            <div id="excel-viewer" aria-live="polite">
-              <!--Indlæser ventelisten... -->
+            <div id="parking-table-wrap" class="parking-table-wrap" aria-live="polite" aria-busy="true">
+              <p>Ventelisten indlæses …</p>
             </div>
           </section>
 
+          <p class="parking-back">
+            <a href="/" class="button">Tilbage til hjemmesiden</a>
+          </p>
         </div>
       </main>
 
@@ -170,14 +178,7 @@
     <script src="/assets/js/breakpoints.min.js"></script>
     <script src="/assets/js/util.js"></script>
     <script src="/assets/js/load-sidebar.js"></script>
-
-    <!-- SheetJS: reads the Excel workbook in the browser -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-
-    <script src="/assets/js/excel-viewer.js"></script>
-    <script src="/assets/js/parking-contact.js"></script>
-    <script src="/assets/js/parking-waitlist.js"></script>
+    <script src="./parking-contact-form.js?v=20261121-official-1"></script>
+    <script src="./parking-overview.js?v=20261121-official-1"></script>
   </body>
 </html>
-
-<!-- Sidst opdateret: 2026-11-13 -->

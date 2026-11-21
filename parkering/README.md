@@ -1,9 +1,13 @@
 # Parkering
 
-Denne mappe indeholder `index.html`, hjemmesidens parkeringsinformation, kontaktformular og visning af parkeringsventelisten.
+Denne mappe indeholder den offentlige parkeringsside på `/parkering/`.
 
-Parkeringssiden bruger blandt andet `assets/js/parking-contact.js` og `assets/js/parking-waitlist.js` samt de tilhørende stylesheets i `assets/css/`. Excel-filen `Venteliste Parkering.xlsx` ligger i repository-roden, hentes af OneDrive-workflowet `.github/workflows/sync-onedrive-to-github.yml` og vises på siden.
+Parkeringssiden viser foreningens parkeringsinformation, kontaktformular og den aktuelle oversigt over venteliste/parkeringspladser. Tabellen henter data direkte fra det offentlige repository `Vigerslev-Skyttegard/bestyrelsen`, filen `parkering/data.json` via GitHubs Contents API.
 
-Parkeringsventelisten kan indeholde personoplysninger. Den er derfor ikke med i chatbotens kildeallowlist. Vurder behov og lovgrundlag særskilt, før der ændres på offentliggørelse eller indeksering af listen.
+Data administreres af bestyrelsen på `/bestyrelsen/`. Bestyrelsens side starter workflowet `.github/workflows/update-data.yml` i data-repositoryet. Workflowet validerer de 69 faste adresser og opdaterer kun `parkering/data.json`.
+
+Den offentlige parkeringsside bruger ikke `Venteliste Parkering.xlsx`, SheetJS eller de gamle Excel-visningsscripts. Excel-filen kan fortsat ligge i hjemmesidens repository som arkiv/OneDrive-synkroniseret fil, men den er ikke datakilde for parkeringsoversigten.
+
+Parkeringsoversigten er offentligt tilgængelig. Nummerplader og ventelistedatoer i `parkering/data.json` kan derfor ses af alle besøgende. Vurder offentliggørelsen af personoplysninger særskilt.
 
 [Tilbage til repositoryoversigten](../README.md)

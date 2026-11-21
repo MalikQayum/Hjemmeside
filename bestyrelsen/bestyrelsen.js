@@ -9,9 +9,9 @@
   const API_VERSION = "2026-03-10";
   const SHARED_USERNAME = "bestyrelsen";
   const ALLOWED_GITHUB_LOGIN = "MalikQayum";
-  const RUN_NAME_PREFIX = "Update test parking data ";
+  const RUN_NAME_PREFIX = "Update parking data ";
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
-  const DATA_URL = `${API_ROOT}/contents/testparkeringside/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+  const DATA_URL = `${API_ROOT}/contents/parkering/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
   const RUN_TIMEOUT_MS = 90000;
   const POLL_INTERVAL_MS = 1500;
@@ -125,7 +125,7 @@
       if (response.status === 403 && response.headers?.get("X-RateLimit-Remaining") === "0") {
         throw new Error("GitHubs offentlige API har midlertidigt nået sin grænse. Prøv igen om lidt.");
       }
-      throw new Error(`Testdata kunne ikke hentes (HTTP ${response.status}).`);
+      throw new Error(`Parkeringsdata kunne ikke hentes (HTTP ${response.status}).`);
     }
     const parsed = await response.json();
     if (!parsed || parsed.schemaVersion !== 1 || !Array.isArray(parsed.rows)) {
@@ -180,7 +180,7 @@
 
   async function dispatchWorkflow(token, data) {
     const payload = JSON.stringify(data);
-    if (payload.length > 60000) throw new Error("Testdataene er for store til at blive sendt til GitHub.");
+    if (payload.length > 60000) throw new Error("Parkeringsdataene er for store til at blive sendt til GitHub.");
     const requestId = `save-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
     const result = await githubRequest(DISPATCH_URL, token, {
       method: "POST",
@@ -197,7 +197,7 @@
       timeZone: "Europe/Copenhagen", day: "2-digit", month: "2-digit", year: "numeric"
     }).formatToParts(new Date());
     const part = (type) => parts.find((item) => item.type === type)?.value || "";
-    return `${part("day")}.${part("month")}.${part("year")}`;
+    return `${part("day")}/${part("month")}/${part("year")}`;
   }
 
   function getSelectedRow() {
@@ -249,7 +249,7 @@
     hasUnsavedChanges = true;
     saveButton.disabled = false;
     changeState.textContent = "Du har ændringer, som ikke er gemt";
-    saveHelp.textContent = "Når du gemmer, starter et kontrolleret GitHub Actions-workflow. Det opdaterer kun testparkeringssidens data.json.";
+    saveHelp.textContent = "Når du gemmer, starter et kontrolleret GitHub Actions-workflow. Det opdaterer kun parkeringsoversigtens data.json.";
   }
 
   function clearEditor() {
@@ -410,7 +410,7 @@
     refreshButton.disabled = true;
     setStatus(mainStatus, "Genindlæser ventelistedata …");
     try { await loadCurrentData(); }
-    catch (error) { setStatus(mainStatus, error.message || "Testdata kunne ikke genindlæses.", "error"); }
+    catch (error) { setStatus(mainStatus, error.message || "Parkeringsdata kunne ikke genindlæses.", "error"); }
     finally { refreshButton.disabled = false; }
   });
 

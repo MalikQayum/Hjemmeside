@@ -59,7 +59,7 @@
 }
 
 .admin-security-note,
-.admin-test-warning {
+.admin-parking-note {
   margin: 1.5em 0 2em;
   padding: 1.15em 1.35em;
   border: 1px solid rgba(160, 160, 160, 0.3);
@@ -68,20 +68,20 @@
 }
 
 .admin-security-note strong,
-.admin-test-warning strong {
+.admin-parking-note strong {
   display: block;
   margin-bottom: 0.45em;
   font-weight: 700;
 }
 
 .admin-security-note p,
-.admin-test-warning p {
+.admin-parking-note p {
   margin: 0;
   font-size: 0.92em;
   line-height: 1.65;
 }
 
-.admin-test-warning {
+.admin-parking-note {
   border-left: 5px solid #c68a17;
   background: #fff9e9;
 }
