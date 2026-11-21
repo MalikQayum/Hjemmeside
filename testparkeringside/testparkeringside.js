@@ -17,12 +17,12 @@
 
   function createCell(tagName, value) {
     const cell = document.createElement(tagName);
-    cell.textContent = value || "—";
+    cell.textContent = value || "";
     return cell;
   }
 
   function formatUpdatedAt(value) {
-    if (!value) return "Eksempeldata – ikke en rigtig venteliste.";
+    if (!value) return "Ventelisten er endnu ikke opdateret via bestyrelsens administration.";
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return "Testdata er opdateret.";
     return `Testdata senest opdateret ${new Intl.DateTimeFormat("da-DK", {
