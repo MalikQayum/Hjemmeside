@@ -1,14 +1,14 @@
-/* Kontaktformular til testparkeringssiden – uafhængigt af /parkering/. */
+/* Kontaktformular til den offentlige parkeringsside. */
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("test-parking-contact-form");
+  const form = document.getElementById("parking-contact-form");
   if (!form) return;
 
-  const typeSelect = document.getElementById("test-parking-type");
-  const addressInput = document.getElementById("test-parking-address");
-  const nameInput = document.getElementById("test-parking-name");
-  const emailInput = document.getElementById("test-parking-email");
-  const messageInput = document.getElementById("test-parking-message");
-  const statusContainer = document.getElementById("test-parking-form-status");
+  const typeSelect = document.getElementById("parking-type");
+  const addressInput = document.getElementById("parking-address");
+  const nameInput = document.getElementById("parking-name");
+  const emailInput = document.getElementById("parking-email");
+  const messageInput = document.getElementById("parking-message");
+  const statusContainer = document.getElementById("parking-form-status");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
