@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T03:41:23.685649+00:00",
+  "generated_at": "2026-11-21T06:10:15.135146+00:00",
   "source_count": 11,
-  "chunk_count": 43,
+  "chunk_count": 44,
   "documents": [
     {
       "id": "56032ba25498f22a",
@@ -191,9 +191,9 @@
       "topic": "enforcement"
     },
     {
-      "id": "4b0c2257dce9c7fb",
+      "id": "07e4c042c14bd52a",
       "title": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nLeje af kælderrum\nInformation om mulighederne for at leje ekstra kælderrum i ejerforeningen.\nGenerel information\nEjerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.\nLedige kælderrum & Venteliste\nDa efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.\nLejevilkår & Priser\nMånedlig leje:\nLejen opkræves månedligt sammen med fællesudgifterne via DEAS.\nBrugsret:\nKælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.",
+      "content": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nLeje af kælderrum\nInformation om mulighederne for at leje ekstra kælderrum i ejerforeningen.\nOversigt over kælderrum\nHer kan du se de 11 kælderrum, deres størrelse, lejeradresse og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbladet.\nLokale nr.\nLejeradresse\nStørrelse\nLeje pr. måned\nStatus\nKælderrumsoversigten indlæses …\nOversigten hentes fra bestyrelsens aktuelle data.\nGenerel information\nEjerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.\nLedige kælderrum & Venteliste\nDa efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.\nLejevilkår & Priser\nMånedlig leje:\nLejen opkræves månedligt sammen med fællesudgifterne via DEAS.\nBrugsret:\nKælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum",
       "source": {
         "file": "kaelderrum/index.html",
         "url": "/kaelderrum/"
@@ -201,30 +201,61 @@
       "language": "da",
       "category": "kaelderrum",
       "keywords": [
-        "antal",
-        "ejendommens",
+        "aktuelle",
+        "deres",
         "ejerforeningen",
         "ekstra",
-        "foreningens",
-        "generel",
+        "her",
         "html",
         "index",
         "information",
         "kaelderrum",
         "kælderrum",
-        "kældre",
         "leje",
-        "lejes",
+        "lejeradresse",
         "mulighederne",
-        "råder",
+        "månedlige",
+        "oversigt",
         "skyttegårdvej",
+        "størrelse",
         "vigerslevvej"
       ]
     },
     {
-      "id": "9a3e62342cfc5850",
+      "id": "d6ad2be4007180d6",
+      "title": "fremlejes.",
+      "content": "fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.",
+      "source": {
+        "file": "kaelderrum/index.html",
+        "url": "/kaelderrum/"
+      },
+      "language": "da",
+      "category": "kaelderrum",
+      "keywords": [
+        "aflåst",
+        "ansvar",
+        "din",
+        "dækkes",
+        "eget",
+        "fremlejes",
+        "henvendelse",
+        "holdes",
+        "html",
+        "husstandsforsikring",
+        "indbo",
+        "index",
+        "kaelderrum",
+        "kælderrum",
+        "opbevaring",
+        "sikkerhed",
+        "skal",
+        "sker"
+      ]
+    },
+    {
+      "id": "67b4dc1a9cbe9d1c",
       "title": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglekort & nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Den aktuelle pris pr. nøglebrik eller nøglekort fremgår af det gældende prisblad på hjemmesiden under Generalforsamling. Beløbet opkræves sammen med fællesudgifterne via DEAS.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglekort & nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
+      "content": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglekort & nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt.\nIndlæser pris …\npr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglekort & nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
       "source": {
         "file": "noegler/index.html",
         "url": "/noegler/"
