@@ -1,0 +1,90 @@
+.test-parking-warning {
+  margin: 0 0 2em;
+  padding: 1.25em 1.5em;
+  border: 1px solid #e6c56b;
+  border-left: 5px solid #c68a17;
+  border-radius: 0.375em;
+  background: #fff9e9;
+  color: #59420e;
+}
+
+.test-parking-warning strong {
+  display: block;
+  margin-bottom: 0.55em;
+  color: #59420e;
+  font-weight: 700;
+}
+
+.test-parking-warning p {
+  margin: 0;
+  color: #59420e;
+}
+
+.test-parking-updated {
+  margin-top: 0.35em;
+  color: #7f888f;
+  font-size: 0.85em;
+}
+
+.test-parking-table-wrap {
+  width: 100%;
+  margin: 1.25em 0 2em;
+  overflow-x: auto;
+  border: 1px solid rgba(160, 160, 160, 0.3);
+  border-radius: 0.375em;
+  background: #fff;
+}
+
+.test-parking-table {
+  width: 100%;
+  min-width: 540px;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+.test-parking-table th,
+.test-parking-table td {
+  padding: 0.9em 1em;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.25);
+  text-align: left;
+  vertical-align: top;
+}
+
+.test-parking-table thead th {
+  background: #f3f5f5;
+  color: #3d4449;
+  font-weight: 700;
+}
+
+.test-parking-table tbody tr:nth-child(even) {
+  background: rgba(160, 160, 160, 0.045);
+}
+
+.test-parking-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.test-parking-empty {
+  padding: 1.5em;
+  color: #7f888f;
+}
+
+.test-parking-back {
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 600px) {
+  .test-parking-warning {
+    padding: 1em;
+  }
+
+  .test-parking-table {
+    font-size: 0.85em;
+  }
+
+  .test-parking-table th,
+  .test-parking-table td {
+    padding: 0.75em;
+  }
+}

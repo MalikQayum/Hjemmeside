@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Bestyrelsens administrationsside til test af parkeringsoversigten."
+    />
+    <title>Bestyrelsen | Administration</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="./bestyrelsen.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <main id="main">
+        <div class="inner">
+          <header id="header" class="admin-header">
+            <a href="/" class="logo"><strong>E/F Skyttegårdvej/Vigerslevvej</strong></a>
+            <span class="admin-header-label">Bestyrelsens administration</span>
+          </header>
+
+          <section id="login-view">
+            <header class="main">
+              <h1>Bestyrelsen</h1>
+              <p>Log ind for at redigere testparkeringsoversigten.</p>
+            </header>
+
+            <div class="admin-login-card">
+              <h2>Log ind</h2>
+              <form id="admin-login-form">
+                <div class="admin-field">
+                  <label for="admin-username">Brugernavn</label>
+                  <input id="admin-username" name="username" type="text" value="bestyrelsen" autocomplete="off" required />
+                </div>
+                <div class="admin-field">
+                  <label for="admin-token">Adgangskode</label>
+                  <input
+                    id="admin-token"
+                    name="token"
+                    type="password"
+                    placeholder="Indsæt bestyrelsens GitHub-adgangsnøgle"
+                    autocomplete="off"
+                    spellcheck="false"
+                    required
+                  />
+                  <small>
+                    Adgangskoden er en GitHub Fine-grained Personal Access Token.
+                    Den skal kun have adgang til repositoryet <strong>bestyrelsen</strong>
+                    med <strong>Actions: Read and write</strong>. Den skal ikke have
+                    rettigheden Contents: Write.
+                  </small>
+                </div>
+                <button id="admin-login-button" type="submit" class="button primary fit">Log ind</button>
+                <p id="admin-login-status" class="admin-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="admin-security-note" role="note">
+              <strong>Om adgangsnøglen</strong>
+              <p>
+                Adgangsnøglen bruges til at starte det kontrollerede GitHub Actions-workflow
+                og kontrollere status på kørslen i repositoryet bestyrelsen. Den giver ikke direkte
+                adgang til at redigere hjemmeside-repositoryet eller data.json.
+                Nøglen gemmes ikke i hjemmesidens filer, localStorage eller
+                sessionStorage; den ligger kun i sidens hukommelse, mens du er
+                logget ind. Log ud, når du er færdig, og tilbagekald nøglen hos
+                GitHub, hvis den bliver delt med uvedkommende. Selve administrations-
+                sidens adresse er ikke privatbeskyttet af GitHub Pages; det er
+                gemmefunktionen, der kræver GitHub-adgangsnøglen.
+              </p>
+            </div>
+          </section>
+
+          <section id="admin-view" hidden>
+            <header class="admin-toolbar">
+              <div>
+                <h1>Testparkering – administration</h1>
+                <p id="admin-signed-in-as" class="admin-muted"></p>
+              </div>
+              <div class="admin-toolbar-actions">
+                <button id="admin-refresh" type="button" class="button">Genindlæs data</button>
+                <button id="admin-logout" type="button" class="button">Log ud</button>
+              </div>
+            </header>
+
+            <div class="admin-test-warning" role="note">
+              <strong>Du redigerer kun testdata.</strong>
+              <p>
+                Ændringerne påvirker kun <code>/testparkeringsside/</code>.
+                Den eksisterende offentlige side <code>/parkering/</code> og dens
+                Excel-venteliste ændres ikke.
+              </p>
+            </div>
+
+            <div class="admin-grid">
+              <section class="admin-editor-card" aria-labelledby="row-editor-title">
+                <h2 id="row-editor-title">Tilføj række</h2>
+                <form id="admin-row-form">
+                  <div class="admin-field">
+                    <label for="row-address">Adresse / reference</label>
+                    <input id="row-address" name="address" type="text" maxlength="120" placeholder="F.eks. TESTADRESSE 4, 1. th" required />
+                  </div>
+                  <div class="admin-field">
+                    <label for="row-car">Bil</label>
+                    <input id="row-car" name="car" type="text" maxlength="60" placeholder="F.eks. TEST-BIL-04" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="row-motorcycle">MC / scooter</label>
+                    <input id="row-motorcycle" name="motorcycle" type="text" maxlength="60" placeholder="F.eks. TEST-MC-04" />
+                  </div>
+                  <div class="admin-form-actions">
+                    <button id="admin-row-submit" type="submit" class="button primary">Tilføj række</button>
+                    <button id="admin-row-cancel" type="button" class="button" hidden>Annuller redigering</button>
+                  </div>
+                </form>
+              </section>
+
+              <section class="admin-list-card" aria-labelledby="rows-title">
+                <div class="admin-list-heading">
+                  <div>
+                    <h2 id="rows-title">Rækker i testtabellen</h2>
+                    <p id="admin-row-count" class="admin-muted"></p>
+                  </div>
+                </div>
+                <div class="admin-table-wrap">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Adresse / reference</th>
+                        <th>Bil</th>
+                        <th>MC / scooter</th>
+                        <th>Handling</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-rows"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+
+            <div class="admin-save-panel">
+              <div>
+                <strong id="admin-change-state">Ingen ikke-gemte ændringer</strong>
+                <p id="admin-save-help" class="admin-muted">
+                  Når du gemmer, starter et GitHub Actions-workflow i repositoryet
+                  bestyrelsen. Workflowet opdaterer kun data.json. Testparkeringssiden
+                  henter derefter de nye data fra det offentlige repository.
+                </p>
+              </div>
+              <button id="admin-save" type="button" class="button primary" disabled>Gem ændringer</button>
+            </div>
+
+            <p id="admin-main-status" class="admin-status" role="status" aria-live="polite"></p>
+            <p class="admin-footer-link"><a href="/testparkeringside/" target="_blank" rel="noopener">Åbn den offentlige testparkeringsside</a></p>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./bestyrelsen.js"></script>
+  </body>
+</html>
