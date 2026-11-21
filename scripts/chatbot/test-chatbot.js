@@ -83,11 +83,14 @@ if (!learnedMatch.length || learnedMatch[0].doc.id !== husdyrDoc.id) {
 api.setRules({ schema_version: 1, rules: [] });
 console.log("OK: Godkendte læringsregler kan pege på et verificeret kildeafsnit");
 
-const expectedTopics = ["parkering", "vedtaegter", "husorden", "kontakt", "kaelderrum", "noeglebrikker", "nyheder", "generelt"];
+const expectedTopics = [
+  "parkering", "vedtaegter", "husorden", "kontakt", "kaelderrum",
+  "noeglebrikker", "nyheder", "affald", "generalforsamling", "udlejning", "vedligeholdelse", "generelt"
+];
 for (const topic of expectedTopics) {
   if (!api.topics.some(item => item.id === topic)) throw new Error(`Mangler chatbot-emnet: ${topic}`);
 }
-console.log("OK: Alle otte emner er tilgængelige");
+console.log("OK: Alle tolv emner er tilgængelige");
 
 const generalAnswer = api.predefinedAnswer("Hvad kan jeg spørge om?");
 if (!generalAnswer || !generalAnswer.includes("parkering") || !generalAnswer.includes("vedtægter")) {
@@ -112,4 +115,20 @@ const newsResults = api.search("Hvor finder jeg nyhedsbreve fra bestyrelsen?");
 if (!newsResults.length || newsResults[0].doc.category !== "nyheder") {
   throw new Error("Nyhedsspørgsmålet fandt ikke nyhedskilden");
 }
-console.log("OK: Vedtægter, nøglebrikker og nyheder finder den rigtige kategori");
+const wasteResults = api.search("Hvor ligger skralderum og storskraldsrum?");
+if (!wasteResults.length || wasteResults[0].doc.source?.url !== "/affald-storskrald/") {
+  throw new Error("Affaldsspørgsmålet fandt ikke /affald-storskrald/");
+}
+const gfResults = api.search("Hvor finder jeg referater, regnskab og prisblad?");
+if (!gfResults.length || gfResults[0].doc.source?.url !== "/generalforsamling/") {
+  throw new Error("Generalforsamlingsspørgsmålet fandt ikke /generalforsamling/");
+}
+const rentalResults = api.search("Hvad er reglerne for Airbnb og korttidsudlejning?");
+if (!rentalResults.length || rentalResults[0].doc.source?.url !== "/udlejning/") {
+  throw new Error("Udlejningsspørgsmålet fandt ikke /udlejning/");
+}
+const maintResults = api.search("Hvad er proceduren ved lukning af vand?");
+if (!maintResults.length || maintResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Vedligeholdelsesspørgsmålet fandt ikke /vedligeholdelse/");
+}
+console.log("OK: Vedtægter, nøglebrikker, nyheder, affald, generalforsamling, udlejning og vedligeholdelse finder de rigtige kilder");

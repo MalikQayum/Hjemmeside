@@ -280,6 +280,12 @@
 }
 
 .admin-price-section {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.admin-parking-section {
   margin-top: 2.5em;
   padding-top: 2em;
   border-top: 2px solid rgba(210, 215, 217, 0.65);

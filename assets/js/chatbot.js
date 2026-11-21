@@ -86,6 +86,38 @@
       ]
     },
     {
+      id: "affald",
+      label: { da: "Affald & storskrald", en: "Waste & bulky waste" },
+      questions: [
+        { da: "Hvor ligger skralderum og storskraldsrum?", en: "Where are the waste and bulky waste rooms?" },
+        { da: "Hvor finder jeg miljøskabet til farligt affald?", en: "Where is the hazardous waste cabinet?" }
+      ]
+    },
+    {
+      id: "generalforsamling",
+      label: { da: "Generalforsamling", en: "General meeting" },
+      questions: [
+        { da: "Hvornår afholdes generalforsamlingen?", en: "When is the general meeting held?" },
+        { da: "Hvor finder jeg referater, regnskab og prisblad?", en: "Where can I find minutes, accounts and the price list?" }
+      ]
+    },
+    {
+      id: "udlejning",
+      label: { da: "Udlejning & Airbnb", en: "Renting & Airbnb" },
+      questions: [
+        { da: "Hvad er reglerne for Airbnb og korttidsudlejning?", en: "What are the rules for Airbnb and short-term rentals?" },
+        { da: "Hvordan udlejer jeg min lejlighed, og hvor er blanketten?", en: "How do I rent out my apartment and find the form?" }
+      ]
+    },
+    {
+      id: "vedligeholdelse",
+      label: { da: "Vedligeholdelse", en: "Maintenance" },
+      questions: [
+        { da: "Hvad er ejerens ansvar ved vedligeholdelse?", en: "What maintenance is the owner responsible for?" },
+        { da: "Hvad er proceduren ved lukning af vand?", en: "What is the procedure for shutting off the water?" }
+      ]
+    },
+    {
       id: "generelt",
       label: { da: "Generelle spørgsmål", en: "General questions" },
       questions: [
@@ -100,8 +132,8 @@
     {
       match: /^(hvad kan jeg sporge om|hvad kan du hjaelpe med|what can i ask about|what can you help me with)\??$/,
       answer: {
-        da: "Jeg kan hjælpe med oplysninger om parkering, vedtægter, husorden, kontakt, kælderrum, nøglebrikker og nyheder. Vælg et emne eller skriv et frit spørgsmål.",
-        en: "I can help with information about parking, bylaws, house rules, contact details, basement storage, key fobs and news. Choose a topic or type your own question."
+        da: "Jeg kan hjælpe med oplysninger om parkering, vedtægter, husorden, kontakt, kælderrum, nøglebrikker, nyheder, affald og storskrald, generalforsamling, udlejning og vedligeholdelse. Vælg et emne eller skriv et frit spørgsmål.",
+        en: "I can help with information about parking, bylaws, house rules, contact details, basement storage, key fobs, news, waste, general meetings, renting and maintenance. Choose a topic or type your own question."
       }
     },
     {
@@ -124,12 +156,15 @@
   const synonyms = {
     parkering: ["parking", "parkeringsplads", "venteliste", "bil", "p-plads", "parkeringskort"],
     husdyr: ["dyr", "hund", "hunde", "kat", "katte", "kæledyr", "kæledyr", "pets", "pet", "dog", "dogs", "cat", "cats"],
-    husorden: ["regler", "støj", "affald", "cykler", "rygning", "trappe"],
-    vedtaegter: ["vedtægter", "regler", "bestyrelse", "generalforsamling"],
+    husorden: ["regler", "støj", "cykler", "rygning", "trappe"],
+    vedtaegter: ["vedtægter", "regler", "bestyrelse"],
     noeglebrik: ["noeglebrik", "noeglebrikker", "adgang", "adgangsbrik", "nøglekort", "key fob", "keycard"],
     kaelderrum: ["kaelderrum", "kaelder", "leje", "opbevaring", "basement storage"],
     kontakt: ["bestyrelse", "email", "telefon", "deas", "contact"],
-    airbnb: ["udlejning", "korttidsudlejning", "fremleje"]
+    affald: ["storskrald", "skralderum", "storskraldsrum", "miljøskab", "genbrugsplads", "sortering", "rengøring", "hebsoe", "rotter"],
+    generalforsamling: ["gf", "xgf", "referat", "referater", "indkaldelse", "dagsorden", "regnskab", "årsregnskab", "budget", "driftsbudget", "prisblad", "takster"],
+    airbnb: ["udlejning", "korttidsudlejning", "fremleje", "udlejningsblanket", "navneskilte"],
+    vedligeholdelse: ["vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "faldstammer", "vinduer", "radiator", "vvs", "fld", "ista"]
   };
 
   const stopWords = new Set(["maa", "må", "vi", "jeg", "man", "kan", "det", "er", "der", "har", "have", "holde", "holde", "vores", "for", "med", "til", "om", "at", "en", "et", "the", "can", "we", "i", "a", "is", "are"]);
@@ -138,7 +173,11 @@
     { id: "fodring", terms: ["fodre", "fodring", "fugle", "katte", "fodres"], category: "husorden", section: 9 },
     { id: "stoej", terms: ["støj", "larm", "musik", "radio", "fjernsyn", "nattero", "højlydt"], category: "husorden", section: 7 },
     { id: "parkering", terms: ["parkering", "parkeringsplads", "parkeringspladser", "p-plads", "venteliste", "dinparkering", "parkeringskontrol", "pladsnummer", "uvedkommende", "holder på min plads", "forkert parkeret", "parking", "parking space"], category: "parkering" },
-    { id: "vedtaegter", terms: ["vedtægter", "vedtægt", "generalforsamling", "udlejning", "fremleje", "bylaws"], category: "vedtaegter" },
+    { id: "vedtaegter", terms: ["vedtægter", "vedtægt", "bylaws"], category: "vedtaegter" },
+    { id: "affald", terms: ["affald", "storskrald", "skralderum", "storskraldsrum", "miljøskab", "genbrugsplads", "affaldssortering", "farligt affald", "hebsoe", "rengøring", "bulky waste", "waste"], category: "affald" },
+    { id: "generalforsamling", terms: ["generalforsamling", "generalforsamlingen", "referat", "referater", "gf", "xgf", "indkaldelse", "dagsorden", "regnskab", "årsregnskab", "budget", "driftsbudget", "prisblad", "general meeting"], category: "generalforsamling" },
+    { id: "udlejning", terms: ["udlejning", "udleje", "airbnb", "korttidsudlejning", "fremleje", "udlejningsblanket", "navneskilte", "sublet", "rental"], category: "udlejning" },
+    { id: "vedligeholdelse", terms: ["vedligeholdelse", "vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "varslingsseddel", "faldstammer", "fld", "ista", "indvendig vedligeholdelse", "udvendig vedligehold", "maintenance"], category: "vedligeholdelse" },
     { id: "kontakt", terms: ["kontakt", "bestyrelse", "bestyrelsen", "administrator", "email", "e-mail", "telefon", "deas"], category: "kontakt" },
     { id: "kaelderrum", terms: ["kælderrum", "kælder", "opbevaring", "basement storage"], category: "kaelderrum" },
     { id: "noeglebrikker", terms: ["nøglebrik", "nøglebrikker", "nøglekort", "adgangsbrik", "key fob", "keycard"], category: "noeglebrikker" },
@@ -196,6 +235,24 @@
       if (doc.topic === "enforcement" && /holder|uvedkommende|pladsnummer|forkert parkeret|dinparkering/.test(q)) score += 30;
       else if (doc.topic === "waitlist" && /venteliste|skrevet op|ledig plads/.test(q)) score += 30;
       else if (doc.topic === "overview") score += 8;
+    } else if (intent?.id === "affald") {
+      const q = normalize(query);
+      if (doc.topic === "cleaning" && /rengoring|hebsoe|opgang|graesslaaning|vicevaert/.test(q)) score += 24;
+      else if (doc.topic === "waste") score += 12;
+    } else if (intent?.id === "generalforsamling") {
+      const q = normalize(query);
+      if (doc.topic === "finance" && /referat|regnskab|budget|prisblad|gebyr|takst|gf|xgf/.test(q)) score += 24;
+      else if (doc.topic === "meeting") score += 12;
+    } else if (intent?.id === "udlejning") {
+      const q = normalize(query);
+      if (doc.topic === "airbnb" && /airbnb|korttid|erhverv|forbud|ma man|ikke ma/.test(q)) score += 24;
+      else if (doc.topic === "procedure" && /blanket|udlejningsblanket|navneskilt|hvordan|procedure/.test(q)) score += 24;
+      else if (doc.topic === "conditions" && /betingelse|ansvar|haeftelse|vaerelse|fremleje/.test(q)) score += 24;
+    } else if (intent?.id === "vedligeholdelse") {
+      const q = normalize(query);
+      if (doc.topic === "water" && /vand|vandlukning|lukning|rorbrud|rorskade|varsling/.test(q)) score += 24;
+      else if (doc.topic === "exterior" && /udvendig|tag|facade|murvaerk|faldstamme|faelles|forening/.test(q)) score += 24;
+      else if (doc.topic === "interior") score += 12;
     }
     const normalizedQuery = normalize(query);
     if (normalizedQuery.length > 4 && normalize(doc.content || "").includes(normalizedQuery)) score += 10;

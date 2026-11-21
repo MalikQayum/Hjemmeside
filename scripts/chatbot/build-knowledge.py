@@ -203,6 +203,135 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
             })
             return result
 
+    posix_rel = Path(rel).as_posix()
+    lines = [line.strip() for line in text.splitlines()]
+
+    def slice_between(start_marker: str, stop_markers: set[str]) -> str:
+        collected = []
+        active = False
+        stop_folded = {item.casefold() for item in stop_markers}
+        for line in lines:
+            if not active:
+                if line.casefold() == start_marker.casefold():
+                    active = True
+                continue
+            if line.casefold() in stop_folded:
+                break
+            if line:
+                collected.append(line)
+        return re.sub(r"\s+", " ", " ".join(collected)).strip()
+
+    if posix_rel == "affald-storskrald/index.html":
+        waste = slice_between("Affald og storskrald", {"Rengøring og udenomsarealer"})
+        cleaning = slice_between("Rengøring og udenomsarealer", {"Storskraldsrum", "Din browser understøtter ikke videoafspilning."})
+        result = []
+        if waste:
+            result.append({
+                "title": "Affald og storskrald - skralderum, storskraldsrum og miljøskab",
+                "content": waste,
+                "keywords": ["affald", "storskrald", "skralderum", "storskraldsrum", "miljøskab", "sortering", "genbrugsplads", "farligt affald", "rotter", "gebyr"],
+                "topic": "waste"
+            })
+        if cleaning:
+            result.append({
+                "title": "Affald og udenomsarealer - rengøring (Hebsoe)",
+                "content": cleaning,
+                "keywords": ["rengøring", "hebsoe", "opgang", "fællesarealer", "græsslåning", "vicevært"],
+                "topic": "cleaning"
+            })
+        if result:
+            return result
+
+    if posix_rel == "generalforsamling/index.html":
+        about_gf = slice_between("Om Generalforsamlingen", {"Seneste indkaldelser & Dagsorden"})
+        agenda = slice_between("Seneste indkaldelser & Dagsorden", {"Indsend forslag", "Referater (GF & XGF)"})
+        budget = slice_between("Budget", {"Gældende prisblad"})
+        price_note = slice_between("Gældende prisblad", {"Prisbladet indlæses …"})
+        result = []
+        if about_gf or agenda:
+            combined = " ".join(part for part in [about_gf, agenda] if part)
+            result.append({
+                "title": "Generalforsamling - indkaldelse, forslag, stemmeret og dagsorden",
+                "content": combined,
+                "keywords": ["generalforsamling", "indkaldelse", "varsel", "forslag", "stemmeret", "fuldmagt", "dagsorden", "bestyrelse"],
+                "topic": "meeting"
+            })
+        result.append({
+            "title": "Generalforsamling - referater, regnskab, budget og prisblad",
+            "content": " ".join(part for part in [
+                "På generalforsamlingssiden findes officielle referater fra ordinære (GF) og ekstraordinære (XGF) generalforsamlinger samt årsregnskaber fra 1996 til i dag.",
+                "Foreningens regnskabsår løber fra 1. januar til 31. december og revideres i samarbejde med DEAS.",
+                budget,
+                price_note
+            ] if part),
+            "keywords": ["generalforsamling", "referat", "referater", "gf", "xgf", "regnskab", "årsregnskab", "budget", "driftsbudget", "fællesudgifter", "prisblad", "gebyr", "deas"],
+            "topic": "finance"
+        })
+        return result
+
+    if posix_rel == "udlejning/index.html":
+        rules = slice_between("Hvad man ikke må: Airbnb, korttidsudlejning & erhverv", {"Procedure for udlejning"})
+        procedure = slice_between("Procedure for udlejning", {"Betingelser & Ejers ansvar"})
+        conditions = slice_between("Betingelser & Ejers ansvar", {"Udlejningsblanket"})
+        procedure = re.sub(r"Indlæser pris\s*…", "fastsat i det gældende prisblad", procedure)
+        result = []
+        if rules:
+            result.append({
+                "title": "Udlejning - Airbnb, korttidsudlejning og forbud",
+                "content": rules,
+                "keywords": ["udlejning", "airbnb", "korttidsudlejning", "erhverv", "fremleje", "30 dage", "4 udlejninger", "tilladelse"],
+                "topic": "airbnb"
+            })
+        if procedure:
+            result.append({
+                "title": "Udlejning - procedure, udlejningsblanket og navneskilte",
+                "content": procedure,
+                "keywords": ["udlejning", "udlejningsblanket", "blanket", "navneskilte", "dørtelefon", "postkasse", "bestyrelsen"],
+                "topic": "procedure"
+            })
+        if conditions:
+            result.append({
+                "title": "Udlejning - betingelser, fremleje af værelser og ejers ansvar",
+                "content": conditions,
+                "keywords": ["udlejning", "fremleje", "værelser", "ejers ansvar", "husorden", "deas", "hæftelse"],
+                "topic": "conditions"
+            })
+        if result:
+            return result
+
+    if posix_rel == "vedligeholdelse/index.html":
+        inside = slice_between("Indvendig vedligeholdelse (Ejer)", {"Udvendig og fælles vedligehold (Foreningen)"})
+        outside = slice_between("Udvendig og fælles vedligehold (Foreningen)", {"Procedure for lukning af vand"})
+        water = slice_between("Procedure for lukning af vand", set())
+        inside = re.sub(r"\bEjerens eget ansvar\b|\bGå til kontaktkort \([^)]+\)|\bVVS \([^)]+\)|\bMålere & varme \([^)]+\)", "", inside)
+        inside = re.sub(r"\s+", " ", inside).strip()
+        outside = re.sub(r"\bBestyrelsens ansvar\b|\bGå til kontaktkort \([^)]+\)|\bKontakt Bestyrelsen\b|\bGå til Nøglebrikker\b", "", outside)
+        outside = re.sub(r"\s+", " ", outside).strip()
+        result = []
+        if inside:
+            result.append({
+                "title": "Vedligeholdelse - indvendig vedligeholdelse (ejers ansvar)",
+                "content": inside,
+                "keywords": ["vedligeholdelse", "indvendig", "vinduer", "døre", "gulve", "vægge", "elinstallationer", "rør", "sanitet", "radiatorer", "fld", "ista"],
+                "topic": "interior"
+            })
+        if outside:
+            result.append({
+                "title": "Vedligeholdelse - udvendig og fælles vedligeholdelse (foreningen)",
+                "content": outside,
+                "keywords": ["vedligeholdelse", "udvendig", "murværk", "facader", "tag", "faldstammer", "fællesarealer", "opgange", "dørtelefoner", "hebsoe"],
+                "topic": "exterior"
+            })
+        if water:
+            result.append({
+                "title": "Vedligeholdelse - procedure for lukning af vand og akutte rørskader",
+                "content": water,
+                "keywords": ["vandlukning", "lukning af vand", "vvs", "fld", "døgnvagt", "rørbrud", "rørskade", "varslingsseddel"],
+                "topic": "water"
+            })
+        if result:
+            return result
+
     if Path(rel).name.lower() == "husorden.pdf":
         page = 1
         sections = []
@@ -245,6 +374,10 @@ def category_for(rel):
         (("kaelderrum", "kælderrum"), "kaelderrum"),
         (("noegler", "noeglebrikker", "nøglebrikker"), "noeglebrikker"),
         (("kontakt",), "kontakt"),
+        (("affald",), "affald"),
+        (("generalforsamling",), "generalforsamling"),
+        (("udlejning",), "udlejning"),
+        (("vedligeholdelse",), "vedligeholdelse"),
         (("velkomstbrev",), "velkomst"),
         (("nyhed",), "nyheder")
     ]:
