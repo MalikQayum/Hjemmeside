@@ -164,7 +164,7 @@
     affald: ["storskrald", "skralderum", "storskraldsrum", "miljøskab", "genbrugsplads", "sortering", "rengøring", "hebsoe", "rotter"],
     generalforsamling: ["gf", "xgf", "referat", "referater", "indkaldelse", "dagsorden", "regnskab", "årsregnskab", "budget", "driftsbudget", "prisblad", "takster"],
     airbnb: ["udlejning", "korttidsudlejning", "fremleje", "udlejningsblanket", "navneskilte"],
-    vedligeholdelse: ["vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "faldstammer", "vinduer", "radiator", "vvs", "fld", "ista"]
+    vedligeholdelse: ["vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "faldstammer", "vinduer", "radiator", "vvs", "fld", "ista", "forsikring", "bygningsforsikring", "indboforsikring", "protector", "selvrisiko", "skadesanmeldelse"]
   };
 
   const stopWords = new Set(["maa", "må", "vi", "jeg", "man", "kan", "det", "er", "der", "har", "have", "holde", "holde", "vores", "for", "med", "til", "om", "at", "en", "et", "the", "can", "we", "i", "a", "is", "are"]);
@@ -177,7 +177,7 @@
     { id: "affald", terms: ["affald", "storskrald", "skralderum", "storskraldsrum", "miljøskab", "genbrugsplads", "affaldssortering", "farligt affald", "hebsoe", "rengøring", "bulky waste", "waste"], category: "affald" },
     { id: "generalforsamling", terms: ["generalforsamling", "generalforsamlingen", "referat", "referater", "gf", "xgf", "indkaldelse", "dagsorden", "regnskab", "årsregnskab", "budget", "driftsbudget", "prisblad", "general meeting"], category: "generalforsamling" },
     { id: "udlejning", terms: ["udlejning", "udleje", "airbnb", "korttidsudlejning", "fremleje", "udlejningsblanket", "navneskilte", "sublet", "rental"], category: "udlejning" },
-    { id: "vedligeholdelse", terms: ["vedligeholdelse", "vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "varslingsseddel", "faldstammer", "fld", "ista", "indvendig vedligeholdelse", "udvendig vedligehold", "maintenance"], category: "vedligeholdelse" },
+    { id: "vedligeholdelse", terms: ["vedligeholdelse", "vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "varslingsseddel", "faldstammer", "fld", "ista", "indvendig vedligeholdelse", "udvendig vedligehold", "forsikring", "bygningsforsikring", "indboforsikring", "selvrisiko", "skadesanmeldelse", "protector", "maintenance"], category: "vedligeholdelse" },
     { id: "kontakt", terms: ["kontakt", "bestyrelse", "bestyrelsen", "administrator", "email", "e-mail", "telefon", "deas"], category: "kontakt" },
     { id: "kaelderrum", terms: ["kælderrum", "kælder", "opbevaring", "basement storage"], category: "kaelderrum" },
     { id: "noeglebrikker", terms: ["nøglebrik", "nøglebrikker", "nøglekort", "adgangsbrik", "key fob", "keycard"], category: "noeglebrikker" },
@@ -250,7 +250,8 @@
       else if (doc.topic === "conditions" && /betingelse|ansvar|haeftelse|vaerelse|fremleje/.test(q)) score += 24;
     } else if (intent?.id === "vedligeholdelse") {
       const q = normalize(query);
-      if (doc.topic === "water" && /vand|vandlukning|lukning|rorbrud|rorskade|varsling/.test(q)) score += 24;
+      if (doc.topic === "insurance" && /forsikring|bygningsforsikring|indboforsikring|protector|selvrisiko|skadesanmeldelse/.test(q)) score += 26;
+      else if (doc.topic === "water" && /vand|vandlukning|lukning|rorbrud|rorskade|varsling/.test(q)) score += 24;
       else if (doc.topic === "exterior" && /udvendig|tag|facade|murvaerk|faldstamme|faelles|forening/.test(q)) score += 24;
       else if (doc.topic === "interior") score += 12;
     }

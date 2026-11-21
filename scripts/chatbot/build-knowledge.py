@@ -201,6 +201,15 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
                 "keywords": ["parkering", "parkeringspladser", "venteliste", "dinparkering", "bestyrelsen"],
                 "topic": "overview"
             })
+            prices = section_text("Priser for parkeringsplads", {"Generel information", "Uretmæssig parkering", "Venteliste til parkering"})
+            if prices:
+                prices = re.sub(r"Indlæser pris\s*…", "fremgår af det gældende prisblad", prices)
+                result.append({
+                    "title": "Parkering - priser for bil og MC",
+                    "content": prices,
+                    "keywords": ["parkering", "pris", "priser", "bil", "motorcykel", "mc", "leje", "prisblad", "deas"],
+                    "topic": "prices"
+                })
             return result
 
     posix_rel = Path(rel).as_posix()
@@ -221,8 +230,15 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
                 collected.append(line)
         return re.sub(r"\s+", " ", " ".join(collected)).strip()
 
+    def clean_price_placeholders(value: str) -> str:
+        value = re.sub(r"\bpt\.\s+Indlæser pris\s*…", "fastsat i det gældende prisblad", value)
+        value = re.sub(r"\bpå\s+Indlæser pris\s*…\s*\(jf\.\s*det gældende prisblad\s*\)", "fastsat i det gældende prisblad", value)
+        value = re.sub(r"Indlæser pris\s*…\s*\(jf\.\s*det gældende prisblad\s*\)", "fastsat i det gældende prisblad", value)
+        value = re.sub(r"Indlæser pris\s*…", "fastsat i det gældende prisblad", value)
+        return re.sub(r"\s+([.,:;?!])", r"\1", value)
+
     if posix_rel == "affald-storskrald/index.html":
-        waste = slice_between("Affald og storskrald", {"Rengøring og udenomsarealer"})
+        waste = clean_price_placeholders(slice_between("Affald og storskrald", {"Rengøring og udenomsarealer"}))
         cleaning = slice_between("Rengøring og udenomsarealer", {"Storskraldsrum", "Din browser understøtter ikke videoafspilning."})
         result = []
         if waste:
@@ -273,7 +289,7 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
         rules = slice_between("Hvad man ikke må: Airbnb, korttidsudlejning & erhverv", {"Procedure for udlejning"})
         procedure = slice_between("Procedure for udlejning", {"Betingelser & Ejers ansvar"})
         conditions = slice_between("Betingelser & Ejers ansvar", {"Udlejningsblanket"})
-        procedure = re.sub(r"Indlæser pris\s*…", "fastsat i det gældende prisblad", procedure)
+        procedure = clean_price_placeholders(procedure)
         result = []
         if rules:
             result.append({
@@ -302,11 +318,13 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
     if posix_rel == "vedligeholdelse/index.html":
         inside = slice_between("Indvendig vedligeholdelse (Ejer)", {"Udvendig og fælles vedligehold (Foreningen)"})
         outside = slice_between("Udvendig og fælles vedligehold (Foreningen)", {"Procedure for lukning af vand"})
-        water = slice_between("Procedure for lukning af vand", set())
+        water = slice_between("Procedure for lukning af vand", {"Forsikring og anmeldelse af skader"})
+        insurance = clean_price_placeholders(slice_between("Forsikring og anmeldelse af skader", set()))
         inside = re.sub(r"\bEjerens eget ansvar\b|\bGå til kontaktkort \([^)]+\)|\bVVS \([^)]+\)|\bMålere & varme \([^)]+\)", "", inside)
         inside = re.sub(r"\s+", " ", inside).strip()
         outside = re.sub(r"\bBestyrelsens ansvar\b|\bGå til kontaktkort \([^)]+\)|\bKontakt Bestyrelsen\b|\bGå til Nøglebrikker\b", "", outside)
-        outside = re.sub(r"\s+", " ", outside).strip()
+        outside = clean_price_placeholders(re.sub(r"\s+", " ", outside).strip())
+        water = clean_price_placeholders(water)
         result = []
         if inside:
             result.append({
@@ -328,6 +346,13 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
                 "content": water,
                 "keywords": ["vandlukning", "lukning af vand", "vvs", "fld", "døgnvagt", "rørbrud", "rørskade", "varslingsseddel"],
                 "topic": "water"
+            })
+        if insurance:
+            result.append({
+                "title": "Vedligeholdelse - forsikring og anmeldelse af skader",
+                "content": insurance,
+                "keywords": ["forsikring", "bygningsforsikring", "indboforsikring", "protector", "skade", "skadesanmeldelse", "selvrisiko", "deas"],
+                "topic": "insurance"
             })
         if result:
             return result
@@ -352,6 +377,8 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
         if sections:
             # Første dokumenttitel/indledning uden for et nummereret punkt udelades; hvert punkt står rent.
             return [x for x in sections if len(x["content"]) >= 20]
+    if posix_rel.endswith(".html"):
+        text = clean_price_placeholders(text)
     return [{"content": x} for x in chunks(text, size, overlap)]
 
 def title_for(rel, chunk):

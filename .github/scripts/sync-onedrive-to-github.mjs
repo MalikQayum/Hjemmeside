@@ -19,13 +19,7 @@ import { dirname } from "node:path";
 // Add one entry for each file you want to synchronize.
 // Each file can come from a different OneDrive folder.
 const FILES = [
-  {
-    folderUrl: "https://onedrive.live.com/my?id=%2Fpersonal%2F4560751afe576670%2FDocuments%2FDokumenter%2FParkering&viewid=92a05dab%2D4425%2D48df%2D9c92%2D07bfe5d43802",
-    fileName: "Venteliste Parkering.xlsx",
-    destination: "Venteliste Parkering.xlsx"
-  },
-
-  // FILE 2 - LATEST NEWSLETTER
+  // FILE 1 - LATEST NEWSLETTER
   // Automatically download the newest dated newsletter from the Information folder.
   {
     folderUrl: "https://onedrive.live.com/my?id=%2Fpersonal%2F4560751afe576670%2FDocuments%2FDokumenter%2FInformation&viewid=92a05dab%2D4425%2D48df%2D9c92%2D07bfe5d43802",

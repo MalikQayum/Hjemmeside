@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /bestyrelsen/
+Disallow: /chatbot/
+Disallow: /scripts/
+
+Sitemap: https://skyttegaardvej.dk/sitemap.xml

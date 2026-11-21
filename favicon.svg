@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="E/F Skyttegårdvej/Vigerslevvej">
+  <rect width="64" height="64" rx="14" fill="#f56a6a" />
+  <path
+    d="M14 31L32 16l18 15v20a2 2 0 0 1-2 2H37V39H27v14H16a2 2 0 0 1-2-2V31z"
+    fill="#ffffff"
+  />
+  <rect x="22" y="29" width="6" height="6" rx="1" fill="#f56a6a" />
+  <rect x="36" y="29" width="6" height="6" rx="1" fill="#f56a6a" />
+</svg>

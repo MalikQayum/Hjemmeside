@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T07:33:13.110476+00:00",
+  "generated_at": "2026-11-21T23:15:37.811839+00:00",
   "source_count": 15,
-  "chunk_count": 54,
+  "chunk_count": 59,
   "documents": [
     {
-      "id": "56032ba25498f22a",
+      "id": "140efd6498525628",
       "title": "Forside | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Forside | E/F Skyttegårdvej/Vigerslevvej\nForside\nVelkommen til Ejerforeningen\nEjerforeningen omfatter ejendommene på Skyttegårdvej 1-11\nog Vigerslevvej 144-148 i Valby. Ejendommene ligger i et\nattraktivt og veletableret boligområde med kort afstand til\nindkøb, offentlig transport og grønne områder.\nForeningen danner rammen om et rart og velfungerende bomiljø,\nhvor der lægges vægt på godt naboskab, fælles ansvar og omsorg\nfor ejendommene og deres fællesarealer.\nDin browser understøtter ikke videoafspilning.\nInformation til beboere og ejere\nPå denne hjemmeside kan beboere og ejere finde praktiske\noplysninger, relevante dokumenter, nyheder fra bestyrelsen\nog information om livet i ejerforeningen.\nGode forbindelser og faciliteter\nOmrådet har gode transportmuligheder med busforbindelser og\nadgang til S-tog fra blandt andet Valby Station, Danshøj\nStation og Hvidovre Station. Der er desuden gode muligheder\nfor daglige indkøb i nærliggende supermarkeder og butikker.\nFor familier ligger der skoler og daginstitutioner i\nlokalområdet, og de nærliggende grønne områder, herunder\nVigerslevparken, giver gode muligheder for gåture, motion\nog afslapning.",
+      "content": "Forside | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nVelkommen til Ejerforeningen\nE/F Skyttegårdvej/Vigerslevvej består af 69 ejerlejligheder\nfordelt på Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby.\nDen daglige ejendomsadministration varetages af DEAS i tæt\nsamarbejde med foreningens valgte bestyrelse.\nEjendommene danner rammen om et roligt og velfungerende bomiljø\nmed fælles have- og gårdarealer, cykelparkering i kælder og\nstativer, skralde- og storskraldsrum med miljøskab, ekstra\nkælderrum samt egne parkeringspladser til bil og motorcykel.\nHer på hjemmesiden finder du gældende regler, praktiske\nvejledninger og direkte selvbetjening, uanset om du er\nnuværende beboer, ejer eller ny i foreningen.\nDin browser understøtter ikke videoafspilning.\nBestyrelsen og hverdagen i ejendommen\nBestyrelsen arbejder løbende på at holde ejendommen velholdt og\ninformationen enkel. Her på siden samler vi løbende opdateringer,\nbeslutninger og praktisk vejledning, så både ejere og lejere\nhurtigt kan orientere sig i hverdagen.\nNærområdet inden for 1,5 km\nEjendommene ligger centralt i det vestlige Valby med hurtig\nadgang til offentlig transport. Bus 10 stopper ved",
       "source": {
         "file": "index.html",
         "url": "/"
@@ -17,22 +17,53 @@
       "keywords": [
         "144",
         "148",
-        "afstand",
-        "attraktivt",
-        "boligområde",
-        "ejendommene",
+        "består",
+        "daglige",
+        "deas",
+        "ejendomsadministration",
         "ejerforeningen",
+        "ejerlejligheder",
+        "fordelt",
         "forside",
         "html",
         "index",
-        "kort",
-        "ligger",
-        "omfatter",
         "skyttegårdvej",
+        "tæt",
         "valby",
-        "veletableret",
+        "varetages",
         "velkommen",
         "vigerslevvej"
+      ]
+    },
+    {
+      "id": "638e12d05f2aab98",
+      "title": "tere sig i hverdagen.",
+      "content": "tere sig i hverdagen.\nNærområdet inden for 1,5 km\nEjendommene ligger centralt i det vestlige Valby med hurtig\nadgang til offentlig transport. Bus 10 stopper ved\nLandlystvej omkring 65 meter fra ejendommen, og inden for kort\ngå- eller cykelafstand ligger S-tog fra Hvidovre Station\n(ca. 590 m), Danshøj Station (ca. 740 m) og Ålholm Station\n(ca. 1,3 km).\nDaglige indkøb klares nemt lige om hjørnet med Dagli'Brugsen\nSkyttegården cirka 40 meter fra opgangen. Inden for en radius\npå 1,5 km ligger derudover både føtex, Netto, Lidl,\n365discount og Kvickly.\nFor børnefamilier og til fritiden ligger Lykkebo Skole\n(ca. 240 m), Hanssted Skole (ca. 540 m) og Ålholm Skole tæt\npå, ligesom grønne strøg som Vigerslevparken indbyder til\ngåture og løb. Kortet viser også nærliggende parkeringsforhold,\nherunder offentlig gadeparkering på Skyttegårdvej og\ntidsbegrænsede zoner langs Vigerslevvej.\nTip: Klik på ikonerne i kortet for at se adresser og\nafstande, eller brug lagmenuen øverst til højre i kortet til at\nfiltrere kategorier.",
+      "source": {
+        "file": "index.html",
+        "url": "/"
+      },
+      "language": "da",
+      "category": "generelt",
+      "keywords": [
+        "adgang",
+        "bus",
+        "centralt",
+        "ejendommene",
+        "html",
+        "hurtig",
+        "hverdagen",
+        "inden",
+        "index",
+        "ligger",
+        "nærområdet",
+        "offentlig",
+        "sig",
+        "stopper",
+        "tere",
+        "transport",
+        "valby",
+        "vestlige"
       ]
     },
     {
@@ -191,9 +222,41 @@
       "topic": "enforcement"
     },
     {
-      "id": "99b84538edbe5be7",
+      "id": "7580a2a2dba9a897",
+      "title": "Parkering - priser for bil og MC",
+      "content": "Bil: fremgår af det gældende prisblad • MC/scooter: fremgår af det gældende prisblad Lejen opkræves månedligt via DEAS (jf. det gældende prisblad ).",
+      "source": {
+        "file": "parkering/index.html",
+        "url": "/parkering/"
+      },
+      "language": "da",
+      "category": "parkering",
+      "keywords": [
+        "bil",
+        "deas",
+        "fremgår",
+        "gældende",
+        "html",
+        "index",
+        "leje",
+        "lejen",
+        "mc",
+        "motorcykel",
+        "månedligt",
+        "opkræves",
+        "parkering",
+        "pris",
+        "prisblad",
+        "priser",
+        "scooter",
+        "via"
+      ],
+      "topic": "prices"
+    },
+    {
+      "id": "ebdb29c695bbc1a0",
       "title": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nLeje af kælderrum\nInformation om mulighederne for at leje ekstra kælderrum i ejerforeningen.\nGenerel information\nEjerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.\nLedige kælderrum & Venteliste\nDa efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.\nLejevilkår & Priser\nMånedlig leje:\nLejen opkræves månedligt sammen med fællesudgifterne via DEAS.\nBrugsret:\nKælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.\nOversigt over kælderrum\nHer kan du se de 11 kælderrum, deres størrelse, lejeradresse og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbladet.\nLokale nr.\nLejeradresse\nStørrelse\nLeje pr. måned\nStatus",
+      "content": "Leje af kælderrum | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nLeje af kælderrum\nInformation om mulighederne for at leje ekstra kælderrum i ejerforeningen.\nGenerel information\nEjerforeningen råder over et antal ekstra kælderrum i ejendommens kældre, som kan lejes af foreningens beboere til opbevaring.\nLedige kælderrum & Venteliste\nDa efterspørgslen på kælderrum varierer, fører bestyrelsen en venteliste. Hvis der ikke er et ledigt kælderrum med det samme, bliver du skrevet op på ventelisten i datorækkefølge.\nLejevilkår & Priser\nMånedlig leje:\nLejen er fastsat i det gældende prisblad\nefter rummets faste areal (jf.\ndet gældende prisblad\n) og opkræves månedligt sammen med fællesudgifterne via DEAS.\nBrugsret:\nKælderrummet må kun benyttes af beboere i ejerforeningen og må ikke fremlejes.\nSikkerhed:\nKælderrum skal holdes aflåst, og opbevaring sker på eget ansvar (dækkes af din indbo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.\nOversigt over kælderrum",
       "source": {
         "file": "kaelderrum/index.html",
         "url": "/kaelderrum/"
@@ -222,9 +285,9 @@
       ]
     },
     {
-      "id": "d67fb8a2ab258d83",
-      "title": "og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbla",
-      "content": "og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbladet.\nLokale nr.\nLejeradresse\nStørrelse\nLeje pr. måned\nStatus\nKælderrumsoversigten indlæses …\nOversigten hentes fra bestyrelsens aktuelle data.",
+      "id": "244ea3fadaa1b527",
+      "title": "bo- eller husstandsforsikring).",
+      "content": "bo- eller husstandsforsikring).\nHenvendelse om kælderrum\nUdfyld formularen for at henvende dig om leje eller opskrivning til venteliste.\nOversigt over kælderrum\nHer kan du se de 11 kælderrum, deres størrelse, lejeradresse og aktuelle månedlige leje. Lejen beregnes automatisk ud fra den gældende kvadratmeterpris i prisbladet.\nLokale nr.\nLejeradresse\nStørrelse\nLeje pr. måned\nStatus\nKælderrumsoversigten indlæses …\nOversigten hentes fra bestyrelsens aktuelle data.",
       "source": {
         "file": "kaelderrum/index.html",
         "url": "/kaelderrum/"
@@ -232,30 +295,30 @@
       "language": "da",
       "category": "kaelderrum",
       "keywords": [
-        "aktuelle",
-        "automatisk",
-        "beregnes",
-        "gældende",
+        "deres",
+        "dig",
+        "formularen",
+        "henvende",
+        "henvendelse",
+        "her",
         "html",
+        "husstandsforsikring",
         "index",
         "kaelderrum",
-        "kvadratmeterpris",
-        "kælderrumsoversigten",
+        "kælderrum",
         "leje",
-        "lejen",
         "lejeradresse",
-        "lokale",
-        "måned",
-        "månedlige",
-        "prisbladet",
-        "status",
-        "størrelse"
+        "opskrivning",
+        "oversigt",
+        "størrelse",
+        "udfyld",
+        "venteliste"
       ]
     },
     {
-      "id": "67b4dc1a9cbe9d1c",
+      "id": "d326a08c422f2b12",
       "title": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglekort & nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er pt.\nIndlæser pris …\npr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglekort & nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
+      "content": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nBestilling af nøglekort & nøglebrikker\nInformation om bestilling, erstatning og udlevering af elektroniske nøglebrikker.\nElektronisk adgangssystem\nAdgang til opgange og fællesarealer i ejerforeningen sker ved hjælp af elektroniske nøglebrikker. Hver brik er kodet med et unikt nummer for høj sikkerhed.\nBestilling & Berettigelse\nNye eller ekstra nøglebrikker og nøglekort kan bestilles af lejlighedens ejere eller faste beboere via kontaktformularen. Prisen er fastsat i det gældende prisblad\npr. stk., og beløbet opkræves sammen med fællesudgifterne via DEAS.\nMistet eller defekt nøglebrik\nHar du mistet en nøglebrik?\nOplys brikkens nummer hvis muligt, så den kan spærres i systemet straks af hensyn til sikkerheden i ejendommen. Defekte brikker kan ombyttes ved henvendelse.\nBestil nøglekort & nøglebrikker\nUdfyld formularen for at sende en bestilling eller spærre en mistet brik.",
       "source": {
         "file": "noegler/index.html",
         "url": "/noegler/"
@@ -284,9 +347,9 @@
       ]
     },
     {
-      "id": "c506dee042af8378",
+      "id": "6dd0134e71fc5e3d",
       "title": "Kontakt | E/F Skyttegårdvej/Vigerslevvej",
-      "content": "Kontakt | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nKontakt\nOversigt over bestyrelsen og foreningens faste samarbejdspartnere.\nHar du spørgsmål til foreningen, drift af ejendommen eller\nadministrative henvendelser, finder du herunder de relevante\nkontaktpersoner og samarbejdspartnere. Bemærk, at enkelte\nsamarbejdspartnere udelukkende har kontakt med bestyrelsen.\nEjerforening\nBestyrelsen\nVaretager den overordnede drift af ejerforeningen, generalforsamling, fællesarealer, husorden og venteliste til parkering.\nbestyrelse@skyttegaardvej.dk\nSend e-mail\nAdministration\nDEAS\nVaretager den daglige ejendomsadministration, opkrævning af fællesudgifter, ejerskifte og administrative spørgsmål.\nSANW@deas.dk\n+45 70 30 20 20\nSend e-mail\nRing op\nBygningsforsikring\nProtector Forsikring\nProtector Forsikring håndterer foreningens bygningsforsikring i samarbejde med DEAS. Ved spørgsmål om foreningens forsikring skal beboere kontakte bestyrelsen eller DEAS.\nprotectorforsikring.dk\nBesøg hjemmeside\nMålere & Forbrug\nISTA Danmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail",
+      "content": "Kontakt | E/F Skyttegårdvej/Vigerslevvej\nE/F Skyttegårdvej/Vigerslevvej\nKontakt\nOversigt over bestyrelsen og foreningens faste samarbejdspartnere.\nHar du spørgsmål til foreningen, drift af ejendommen eller\nadministrative henvendelser, finder du herunder de relevante\nkontaktpersoner og samarbejdspartnere. Bemærk, at enkelte\nsamarbejdspartnere udelukkende har kontakt med bestyrelsen.\nEjerforening\nBestyrelsen\nVaretager den overordnede drift af ejerforeningen, generalforsamling, fællesarealer, husorden og venteliste til parkering.\nbestyrelse@skyttegaardvej.dk\nSend e-mail\nAdministration\nDEAS\nVaretager den daglige ejendomsadministration, opkrævning af fællesudgifter, ejerskifte og administrative spørgsmål.\nSANW@deas.dk\n+45 70 30 20 20\nSend e-mail\nRing op\nAnmeld skade\nBygningsforsikring\nProtector Forsikring\nProtector Forsikring håndterer foreningens bygningsforsikring i samarbejde med DEAS. Ved spørgsmål om foreningens forsikring skal beboere kontakte bestyrelsen eller DEAS.\nVed selvforskyldt skade dækket af bygningsforsikringen gælder en selvrisiko fastsat i det gældende prisblad.\nprotectorforsikring.dk\nAnmeld skade\nBesøg hjemmeside\nMålere & Forbrug\nISTA Danmark A/S",
       "source": {
         "file": "kontakt/index.html",
         "url": "/kontakt/"
@@ -315,9 +378,9 @@
       ]
     },
     {
-      "id": "54520cf42d873774",
-      "title": "anmark A/S",
-      "content": "anmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail\nRing op\nForsyning\nHOFOR\nHovedstadsområdets Forsyningsselskab, som leverer drikkevand og fjernvarme samt drifter spildevands- og forsyningsnettet.\nkundeservice@hofor.dk\n+45 33 95 33 95\nSend e-mail\nRing op\nHåndværker / Døgnvagt\nFinn L. & Davidsen A/S\nForeningens faste samarbejdspartner til autoriseret el-, VVS- og teknisk vedligeholdelse samt akutte VVS- og el-opgaver.\nSe retningslinjer for vandlukning og rør på siden for\nGenerel vedligeholdelse\n.\nsalg@fld.dk\n+45 70 12 20 20\nSend e-mail\nRing op\nSelvstændig forening\nAndelsvaskeriforeningen FIVA\nFIVA driver og administrerer andelsvaskeriet i kælderen på\nSkyttegårdvej 9. Foreningen er selvstændig og administrerer\nselv medlemskab, andele og vaskeriets drift.\nHenvendelser vedrørende vaskeriet skal derfor rettes direkte\ntil FIVA og ikke til ejerforeningens bestyrelse.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby\nCVR-nr.: 41670754\nSend e-mail\nDownload vedtægter\nRengøring & ejendomsservice\nHebsoe Rengøring",
+      "id": "176ce489c06b63b6",
+      "title": "ygningsforsikringen gælder en selvrisiko fastsat i det gældende prisblad.",
+      "content": "ygningsforsikringen gælder en selvrisiko fastsat i det gældende prisblad.\nprotectorforsikring.dk\nAnmeld skade\nBesøg hjemmeside\nMålere & Forbrug\nISTA Danmark A/S\nStår for målerudstyr, aflæsning af varme og vand samt udarbejdelse af det årlige forbrugs- og varmeregnskab.\nista@ista.dk\n+45 77 32 33 34\nSend e-mail\nRing op\nForsyning\nHOFOR\nHovedstadsområdets Forsyningsselskab, som leverer drikkevand og fjernvarme samt drifter spildevands- og forsyningsnettet.\nkundeservice@hofor.dk\n+45 33 95 33 95\nSend e-mail\nRing op\nHåndværker / Døgnvagt\nFinn L. & Davidsen A/S\nForeningens faste samarbejdspartner til autoriseret el-, VVS- og teknisk vedligeholdelse samt akutte VVS- og el-opgaver.\nSe retningslinjer for vandlukning og rør på siden for\nGenerel vedligeholdelse.\nsalg@fld.dk\n+45 70 12 20 20\nSend e-mail\nRing op\nSelvstændig forening\nAndelsvaskeriforeningen FIVA\nFIVA driver og administrerer andelsvaskeriet i kælderen på\nSkyttegårdvej 9. Foreningen er selvstændig og administrerer\nselv medlemskab, andele og vaskeriets drift.\nHenvendelser vedrørende vaskeriet skal derfor rettes direkte\ntil FIVA og ikke til ejerforeningens bestyrelse.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby",
       "source": {
         "file": "kontakt/index.html",
         "url": "/kontakt/"
@@ -325,30 +388,30 @@
       "language": "da",
       "category": "kontakt",
       "keywords": [
-        "aflæsning",
-        "anmark",
-        "forbrugs",
-        "forsyning",
+        "anmeld",
+        "besøg",
+        "danmark",
+        "fastsat",
+        "forbrug",
+        "gældende",
+        "gælder",
+        "hjemmeside",
         "html",
         "index",
         "ista",
         "kontakt",
-        "mail",
-        "målerudstyr",
-        "ring",
-        "send",
-        "står",
-        "udarbejdelse",
-        "vand",
-        "varme",
-        "varmeregnskab",
-        "årlige"
+        "målere",
+        "prisblad",
+        "protectorforsikring",
+        "selvrisiko",
+        "skade",
+        "ygningsforsikringen"
       ]
     },
     {
-      "id": "64b794c73f07f315",
-      "title": "e.",
-      "content": "e.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby\nCVR-nr.: 41670754\nSend e-mail\nDownload vedtægter\nRengøring & ejendomsservice\nHebsoe Rengøring\nHebsoe Rengøring varetager rengøring og ejendomsservice for foreningen. Virksomheden har udelukkende kontakt med bestyrelsen. Beboere skal derfor kontakte bestyrelsen ved spørgsmål, bemærkninger eller ønsker til rengøringen og fællesarealerne.\nhebsoe.dk\nLæs om virksomheden\nParkeringskontrol\nDinParkering\nVaretager parkeringskontrol på foreningens område. Kontakt DinParkering hvis en uvedkommende bil holder på din p-plads.\n+45 70 20 89 70\nRing op",
+      "id": "2a0d49cd4ae15e72",
+      "title": "vedrørende vaskeriet skal derfor rettes direkte",
+      "content": "vedrørende vaskeriet skal derfor rettes direkte\ntil FIVA og ikke til ejerforeningens bestyrelse.\nvaskeri@skyttegaardvej.dk\nSkyttegårdvej 9, kælderen, 2500 Valby\nCVR-nr.: 41670754\nSend e-mail\nDownload vedtægter\nRengøring & ejendomsservice\nHebsoe Rengøring\nHebsoe Rengøring varetager rengøring og ejendomsservice for foreningen. Virksomheden har udelukkende kontakt med bestyrelsen. Beboere skal derfor kontakte bestyrelsen ved spørgsmål, bemærkninger eller ønsker til rengøringen og fællesarealerne.\nhebsoe.dk\nLæs om virksomheden\nParkeringskontrol\nDinParkering\nVaretager parkeringskontrol på foreningens område. Kontakt DinParkering hvis en uvedkommende bil holder på din p-plads.\n+45 70 20 89 70\nRing op\nLogin og digitale platforme\nHerunder finder du direkte links til de eksterne portaler og\nlogin-platforme, som beboere eller bestyrelsen har adgang til.\nDisse er ikke kontaktpersoner, men digitale selvbetjenings- og\nadministrationssystemer.\nEjendomsportal\nPHM Digital\nDigital portal fra PHM Group og DEAS med adgang til\nforeningens dokumenter, meddelelser, opkrævninger og\nbestyrelsesværktøjer.\nphmdigital.dk\nLog ind på PHM Digital\nBeboerportal\nDEAS Onlineadgang",
       "source": {
         "file": "kontakt/index.html",
         "url": "/kontakt/"
@@ -357,29 +420,91 @@
       "category": "kontakt",
       "keywords": [
         "2500",
-        "41670754",
-        "cvr",
-        "download",
-        "ejendomsservice",
-        "hebsoe",
+        "bestyrelse",
+        "derfor",
+        "direkte",
+        "ejerforeningens",
+        "fiva",
         "html",
         "index",
         "kontakt",
         "kælderen",
-        "mail",
-        "rengøring",
-        "send",
+        "rettes",
+        "skal",
         "skyttegaardvej",
         "skyttegårdvej",
         "valby",
         "vaskeri",
-        "vedtægter"
+        "vaskeriet",
+        "vedrørende"
       ]
     },
     {
-      "id": "94ca7d0b238e68e0",
+      "id": "2f7cd1872c6e2138",
+      "title": "AS med adgang til",
+      "content": "AS med adgang til\nforeningens dokumenter, meddelelser, opkrævninger og\nbestyrelsesværktøjer.\nphmdigital.dk\nLog ind på PHM Digital\nBeboerportal\nDEAS Onlineadgang\nBeboerlogin hos foreningens administrator DEAS med adgang\ntil ejendomsdokumenter, opkrævninger og personlige\noplysninger.\nonlineadgang.deas.dk\nLog ind på DEAS Onlineadgang\nAdministration & domæne\nDanDomain Kundecenter\nLogin til DanDomain Kundecenter til administration af\nforeningens domæne, webhotel, DNS-indstillinger og\ne-mailkonti.\nkundecenter.dandomain.dk\nLog ind på Kundecenter\nE-mail platform\nDanDomain Webmail\nWebmail-login til foreningens officielle e-mailkonti under\nskyttegaardvej.dk hos DanDomain.\nwebmail.dandomain.dk\nÅbn DanDomain Webmail\nHjemmeside & kode\nGitHub\nLogin til GitHub til administration af ejerforeningens\nhjemmeside, dokumenter og automatiske arbejdsgange.\ngithub.com/login\nLog ind på GitHub\nIntern administration\nBestyrelsens administration\nLogin for bestyrelsen til administration af prisblad,\nkælderrum samt venteliste og nummerplader til parkering.\n/bestyrelsen/\nGå til bestyrelsens login\nParkeringsportal\nDinParkering\nLogin til DinParkering til administration af digitale",
+      "source": {
+        "file": "kontakt/index.html",
+        "url": "/kontakt/"
+      },
+      "language": "da",
+      "category": "kontakt",
+      "keywords": [
+        "adgang",
+        "beboerlogin",
+        "beboerportal",
+        "bestyrelsesværktøjer",
+        "deas",
+        "digital",
+        "dokumenter",
+        "foreningens",
+        "html",
+        "ind",
+        "index",
+        "kontakt",
+        "log",
+        "meddelelser",
+        "onlineadgang",
+        "opkrævninger",
+        "phm",
+        "phmdigital"
+      ]
+    },
+    {
+      "id": "5da31b924de20058",
+      "title": "liste og nummerplader til parkering.",
+      "content": "liste og nummerplader til parkering.\n/bestyrelsen/\nGå til bestyrelsens login\nParkeringsportal\nDinParkering\nLogin til DinParkering til administration af digitale\nparkeringstilladelser og parkeringskontrol på området.\napi.dpmobile.systems\nLog ind på DinParkering\nFiler & dokumenter\nOneDrive\nLogin til foreningens OneDrive med delte dokumenter,\nnyhedsbreve og filer for bestyrelsen.\nonedrive.live.com\nLog ind på OneDrive\nAdgangskontrol & låse\nTTLock\nWebportal til TTLock til administration af ejendommens\nelektroniske låsesystem, nøglebrikker og nøglekort.\nlock2.ttlock.com\nLog ind på TTLock\nVideoovervågning\nTP-Link Tapo\nAdgang og vejledning til visning af foreningens\novervågningskameraer via TP-Link Tapo-platformen og appen.\ntapo.com/en/faqs/how-to-view-the-camera\nÅbn Tapo kameraoversigt",
+      "source": {
+        "file": "kontakt/index.html",
+        "url": "/kontakt/"
+      },
+      "language": "da",
+      "category": "kontakt",
+      "keywords": [
+        "administration",
+        "api",
+        "bestyrelsen",
+        "bestyrelsens",
+        "digitale",
+        "dinparkering",
+        "dpmobile",
+        "html",
+        "index",
+        "kontakt",
+        "liste",
+        "login",
+        "nummerplader",
+        "området",
+        "parkering",
+        "parkeringskontrol",
+        "parkeringsportal",
+        "parkeringstilladelser"
+      ]
+    },
+    {
+      "id": "f8073092ba984c45",
       "title": "Affald og storskrald - skralderum, storskraldsrum og miljøskab",
-      "content": "Skralderummene er placeret på siden af Vigerslevvej 148 samt mellem Skyttegårdvej 5 og 7 . De åbnes med den samme brik, som du bruger til opgangen. Storskraldsrummet ligger ved Skyttegårdvej 5 (ved kældernedgangen fra haven) og er markeret med en rød firkant på billedet. Regler for affaldshåndtering Sortering & miljøskab: Affaldssorteringen følger Københavns Kommunes ordning. Miljøskabet findes i skraldeburet på Skyttegårdvej (mellem nr. 5 og 7), hvor farligt affald (fx maling, batterier, kemikalier og småt elektronik) skal afleveres. Genbrugsplads: Større mængder affald, byggeaffald og materialer, der ikke hører til i foreningens containere eller storskraldsrum, skal afleveres på genbrugspladsen. Undgå rotter og fugle: Overfyldte containere og åbne låg giver adgang for rotter og fugle. Sørg derfor altid for, at låget kan lukkes helt. Gebyr og opkrævning: Det er ikke tilladt at efterlade affald uden for containerne. Der kan pålægges gebyr og opkrævninger, hvis man henstiller affald eller storskrald forkert.",
+      "content": "Skralderummene er placeret på siden af Vigerslevvej 148 samt mellem Skyttegårdvej 5 og 7. De åbnes med den samme brik, som du bruger til opgangen. Storskraldsrummet ligger ved Skyttegårdvej 5 (ved kældernedgangen fra haven) og er markeret med en rød firkant på billedet. Regler for affaldshåndtering Sortering & miljøskab: Affaldssorteringen følger Københavns Kommunes ordning. Miljøskabet findes i skraldeburet på Skyttegårdvej (mellem nr. 5 og 7), hvor farligt affald (fx maling, batterier, kemikalier og småt elektronik) skal afleveres. Genbrugsplads: Større mængder affald, byggeaffald og materialer, der ikke hører til i foreningens containere eller storskraldsrum, skal afleveres på genbrugspladsen. Undgå rotter og fugle: Overfyldte containere og åbne låg giver adgang for rotter og fugle. Sørg derfor altid for, at låget kan lukkes helt. Gebyr og opkrævning: Det er ikke tilladt at efterlade affald uden for containerne. Der pålægges et gebyr fastsat i det gældende prisblad for bortskaffelse af ureglementeret affald henstillet uden for affaldscontainere eller storskraldsrum.",
       "source": {
         "file": "affald-storskrald/index.html",
         "url": "/affald-storskrald/"
@@ -569,9 +694,9 @@
       "topic": "airbnb"
     },
     {
-      "id": "bd622e30807430a2",
+      "id": "6dd751b0d16f93e6",
       "title": "Udlejning - procedure, udlejningsblanket og navneskilte",
-      "content": "Hvis du ønsker at udleje din ejerlejlighed, skal følgende trin gennemføres før eller senest samtidig med, at lejeren flytter ind: 1 Udfyld udlejningsblanket Hent foreningens officielle Udlejningsblanket herunder (PDF eller Word), og udfyld adresse, ejers oplysninger, lejers navn samt udlejningsperiode. 2 Send til bestyrelsen Den udfyldte og underskrevne blanket sendes til bestyrelsen på bestyrelse@skyttegaardvej.dk , så udlejningen kan blive registreret og godkendt. 3 Autoriserede navneskilte Ved udlejning udskiftes navneskilte på dørtelefon og postkasse via foreningen. Gebyret for nye navneskilte ved udlejning er fastsat i det gældende prisblad (jf. det gældende prisblad ). Egne klistermærker på dørtelefon og postkasse er ikke tilladt og afrenses for ejerens regning ( fastsat i det gældende prisblad ). 4 Instruér din lejer Gennemgå foreningens Husorden og vedtægter samt reglerne for Affalds- og storskraldssortering med lejeren før indflytning.",
+      "content": "Hvis du ønsker at udleje din ejerlejlighed, skal følgende trin gennemføres før eller senest samtidig med, at lejeren flytter ind: 1 Udfyld udlejningsblanket Hent foreningens officielle Udlejningsblanket herunder (PDF eller Word), og udfyld adresse, ejers oplysninger, lejers navn samt udlejningsperiode. 2 Send til bestyrelsen Den udfyldte og underskrevne blanket sendes til bestyrelsen på bestyrelse@skyttegaardvej.dk, så udlejningen kan blive registreret og godkendt. 3 Autoriseret navneskilt på postkassen Ved udlejning udskiftes navneskiltet på postkassen via foreningen. På dørtelefonen kommer der ikke navn på, der står kun adressen. Gebyret for nyt navneskilt ved udlejning er fastsat i det gældende prisblad. Egne klistermærker på dørtelefon og postkasse er ikke tilladt og afrenses for ejerens regning ( fastsat i det gældende prisblad ). 4 Instruér din lejer Gennemgå foreningens Husorden og vedtægter samt reglerne for Affalds- og storskraldssortering med lejeren før indflytning.",
       "source": {
         "file": "udlejning/index.html",
         "url": "/udlejning/"
@@ -685,9 +810,9 @@
       "topic": "interior"
     },
     {
-      "id": "7f992dc115bec81d",
+      "id": "2fb85d1479c0846e",
       "title": "Vedligeholdelse - udvendig og fælles vedligeholdelse (foreningen)",
-      "content": "Ejerforeningen varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk, Facader & Tag: Ydermure, tagbelægning, tagrender, nedløbsrør, sokkel og bygningens klimaskærm. Lodrette rør & Faldstammer: Hovedstigstrenge til vand og varme samt lodrette faldstammer, som betjener flere lejligheder, er ejerforeningens fælles ansvar. Udvendige døre & Vinduer: Yderdøre, opgangsdøre og udvendig vedligeholdelse/maling af vinduer. Fællesarealer & Opgange: Trappeopgange, kældergange, loftsrum, cykelkældre og udenomsarealer (renholdelse varetages af Hebsoe Rengøring). Dørtelefoner & Adgangskontrol: Hoveddøre, elektronisk låsesystem og dørtelefoner.",
+      "content": "Ejerforeningen varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk, Facader & Tag: Ydermure, tagbelægning, tagrender, nedløbsrør, sokkel og bygningens klimaskærm. Lodrette rør & Faldstammer: Hovedstigstrenge til vand og varme samt lodrette faldstammer, som betjener flere lejligheder, er ejerforeningens fælles ansvar. Udvendige døre & Vinduer: Yderdøre, opgangsdøre og udvendig vedligeholdelse/maling af vinduer. Fællesarealer & Opgange: Trappeopgange, kældergange, loftsrum, cykelkældre og udenomsarealer (renholdelse varetages af Hebsoe Rengøring). Dørtelefoner & Adgangskontrol: Hoveddøre, elektronisk låsesystem og dørtelefoner. På dørtelefonen vises kun adressen uden navn, og nye nøglebrikker eller nøglekort koster fastsat i det gældende prisblad pr. stk.",
       "source": {
         "file": "vedligeholdelse/index.html",
         "url": "/vedligeholdelse/"
@@ -723,9 +848,9 @@
       "topic": "exterior"
     },
     {
-      "id": "20d294d4a49258f6",
+      "id": "86bca547c90a8236",
       "title": "Vedligeholdelse - procedure for lukning af vand og akutte rørskader",
-      "content": "Hvis du eller en håndværker skal udføre VVS-arbejde i din lejlighed, som kræver lukning af vandet for en streng eller hele opgangen, skal nedenstående retningslinjer følges: 1. Kontakt til autoriseret VVS (FLD) Planlagt arbejde på vandinstallationer og lukning af stigerør skal koordineres med autoriseret VVS. Foreningens faste samarbejdspartner er Finn L. & Davidsen A/S (FLD) på tlf. 70 12 20 20 eller salg@fld.dk ( se kontaktkort ). 2. Varsling med sedler i opgangen Det er et krav, at der ophænges en tydelig varslingsseddel i opgangen i god tid (min. 3-5 dage før) . Sedlen skal oplyse: Dato og præcist tidsrum for vandlukningen (f.eks. kl. 08:30 - 12:00). Hvilke opgange og lejligheder der berøres. Kontaktoplysninger på udførende håndværker eller beboer. 3. Akutte brud og rørskader Ved akut rørbrud eller ukontrolleret vandudstrømning skal afspærringshanen lukkes omgående. Kontakt straks FLD Døgnvagt på tlf. 70 12 20 20 ( se kontaktkort ) samt bestyrelsen ( se bestyrelsen ).",
+      "content": "Hvis du eller en håndværker skal udføre VVS-arbejde i din lejlighed, som kræver lukning af vandet for en streng eller hele opgangen, skal nedenstående retningslinjer følges: 1. Kontakt til autoriseret VVS (FLD) Planlagt arbejde på vandinstallationer og lukning af stigerør skal koordineres med autoriseret VVS. Foreningens faste samarbejdspartner er Finn L. & Davidsen A/S (FLD) på tlf. 70 12 20 20 eller salg@fld.dk ( se kontaktkort ). 2. Varsling med sedler i opgangen Det er et krav, at der ophænges en tydelig varslingsseddel i opgangen i god tid (min. 3-5 dage før). Sedlen skal oplyse: Dato og præcist tidsrum for vandlukningen (f.eks. kl. 08:30 - 12:00). Hvilke opgange og lejligheder der berøres. Kontaktoplysninger på udførende håndværker eller beboer. 3. Akutte brud og rørskader Ved akut rørbrud eller ukontrolleret vandudstrømning skal afspærringshanen lukkes omgående. Kontakt straks FLD Døgnvagt på tlf. 70 12 20 20 ( se kontaktkort ) samt bestyrelsen ( se bestyrelsen ). Ved selvforskyldt skade dækket af ejendommens bygningsforsikring gælder en selvrisiko fastsat i det gældende prisblad.",
       "source": {
         "file": "vedligeholdelse/index.html",
         "url": "/vedligeholdelse/"
@@ -760,6 +885,42 @@
         "vvs"
       ],
       "topic": "water"
+    },
+    {
+      "id": "807f34680d19f654",
+      "title": "Vedligeholdelse - forsikring og anmeldelse af skader",
+      "content": "Overblik over forskellen på ejerforeningens bygningsforsikring og beboernes egen indboforsikring samt fremgangsmåden ved skader: 1. Ejendommens bygningsforsikring Ejerforeningen har tegnet bygningsforsikring hos Protector Forsikring ( se kontaktkort ). Forsikringen dækker selve bygningen, faste bygningsdele og fælles installationer, herunder f.eks. pludselige rør- og vandskader på ejendommen. 2. Egen indboforsikring Som ejer eller lejer skal du selv have en gældende indboforsikring. Den dækker dine private ejendele i lejligheden og i eventuelle kælderrum samt eventuelle egne tilvalg for glas og sanitet. 3. Anmeldelse og selvrisiko Skader omfattet af bygningsforsikringen kan anmeldes via DEAS selvbetjening eller ved kontakt til DEAS eller bestyrelsen ( se kontakter ). Se også Protector Forsikrings vejledning til skadeanmeldelse. Ved selvforskyldt skade gælder en selvrisiko fastsat i det gældende prisblad.",
+      "source": {
+        "file": "vedligeholdelse/index.html",
+        "url": "/vedligeholdelse/"
+      },
+      "language": "da",
+      "category": "vedligeholdelse",
+      "keywords": [
+        "beboernes",
+        "bygningsforsikring",
+        "deas",
+        "egen",
+        "ejendommens",
+        "ejerforeningen",
+        "ejerforeningens",
+        "forsikring",
+        "forskellen",
+        "fremgangsmåden",
+        "hos",
+        "html",
+        "indboforsikring",
+        "index",
+        "overblik",
+        "protector",
+        "selvrisiko",
+        "skade",
+        "skader",
+        "skadesanmeldelse",
+        "tegnet",
+        "vedligeholdelse"
+      ],
+      "topic": "insurance"
     },
     {
       "id": "c79d8adf5bb57666",

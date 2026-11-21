@@ -9,6 +9,7 @@
 /* Introduction */
 .home-intro {
   min-width: 0;
+  overflow-wrap: break-word;
 }
 
 /* 3D video section */
@@ -120,19 +121,6 @@
   box-shadow: 0 1px 5px rgba(0,0,0,.35);
   font-size: 16px;
   line-height: 1;
-}
-
-.home-map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35em 0.85em;
-  margin: 0 0 1em;
-  color: #626b72;
-  font-size: 0.82em;
-}
-
-.home-map-legend span {
-  white-space: nowrap;
 }
 
 @media screen and (max-width: 980px) {
@@ -311,21 +299,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-.home-practical-cards > div {
-  display: flex;
-}
-
-.home-practical-cards .box {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 0;
-}
-
-.home-practical-cards .box .actions {
-  margin-top: auto;
-  padding-top: 0.75em;
-  margin-bottom: 0;
-}
-
