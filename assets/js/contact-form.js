@@ -18,9 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const messageFieldWrapper = form.querySelector(".js-message-field");
     const statusContainer = form.querySelector(".info-contact-status");
 
-    const unitPrice = brikSelect
-      ? Number(brikSelect.getAttribute("data-unit-price")) || 100
-      : 100;
+    const getUnitPrice = () => {
+      if (!brikSelect) return 0;
+      const value = Number(brikSelect.dataset.unitPrice);
+      return Number.isFinite(value) && value >= 0 ? value : 0;
+    };
+
+    const isUnitPriceReady = () => !brikSelect || brikSelect.dataset.priceReady === "true";
 
     const formatKr = (amount) => `${amount.toLocaleString("da-DK")} kr.`;
 
@@ -42,7 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateTotalPrice = () => {
       if (!totalPriceEl) return;
+      if (!isUnitPriceReady()) {
+        totalPriceEl.textContent = "—";
+        if (priceBreakdownEl) priceBreakdownEl.textContent = "Prisoplysninger indlæses …";
+        return;
+      }
       const { brikQty, kortQty, totalQty } = getCounts();
+      const unitPrice = getUnitPrice();
       totalPriceEl.textContent = formatKr(totalQty * unitPrice);
       if (priceBreakdownEl) {
         priceBreakdownEl.textContent = `(${brikQty} brikker + ${kortQty} kort × ${unitPrice} kr.)`;
@@ -74,6 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener("input", updateTotalPrice);
       });
       updateTotalPrice();
+      document.addEventListener("efo:prices-loaded", updateTotalPrice);
+      document.addEventListener("efo:prices-error", (event) => {
+        updateTotalPrice();
+        if (statusContainer) {
+          statusContainer.textContent = event.detail?.message || "Prisoplysningerne kunne ikke indlæses. Prøv igen senere.";
+        }
+      });
     }
 
     if (consentCheckbox) {
@@ -94,6 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const hasOrderFields = orderFieldsWrapper && !orderFieldsWrapper.hidden;
       const { brikQty, kortQty, totalQty } = getCounts();
+
+      if (hasOrderFields && !isUnitPriceReady()) {
+        e.preventDefault();
+        if (statusContainer) statusContainer.textContent = "Den aktuelle pris kunne ikke indlæses. Bestillingen kan ikke beregnes lige nu. Prøv at genindlæse siden.";
+        return;
+      }
 
       if (hasOrderFields && totalQty < 1 && brikSelect) {
         e.preventDefault();
@@ -120,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const hasMessageField = !messageFieldWrapper || !messageFieldWrapper.hidden;
       const message = hasMessageField && messageInput ? messageInput.value.trim() : "";
 
+      const unitPrice = getUnitPrice();
       const totalFormatted = hasOrderFields ? formatKr(totalQty * unitPrice) : null;
       const mailboxApproved =
         hasOrderFields && consentCheckbox ? consentCheckbox.checked : false;

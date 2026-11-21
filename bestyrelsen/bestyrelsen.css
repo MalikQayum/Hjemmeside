@@ -323,14 +323,15 @@
   min-width: 520px;
 }
 
-.admin-price-table td:first-child strong,
-.admin-price-table td:first-child small {
+.admin-price-table td:first-child strong {
   display: block;
 }
 
-.admin-price-table td:first-child small {
+.admin-price-description {
+  display: block;
   margin-top: 0.25em;
-  color: #7f888f;
+  color: #64748b;
+  font-size: 0.85em;
   line-height: 1.45;
 }
 

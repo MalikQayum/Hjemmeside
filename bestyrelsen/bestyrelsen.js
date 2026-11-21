@@ -434,7 +434,8 @@
       title.textContent = item.title;
       nameCell.appendChild(title);
       if (item.description) {
-        const description = document.createElement("small");
+        const description = document.createElement("div");
+        description.className = "admin-price-description";
         description.textContent = item.description;
         nameCell.appendChild(description);
       }
