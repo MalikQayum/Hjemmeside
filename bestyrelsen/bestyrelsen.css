@@ -414,7 +414,6 @@
   min-width: 760px;
 }
 
-.admin-cellar-table input,
 .admin-cellar-table select {
   min-width: 190px;
   margin: 0;
@@ -426,9 +425,11 @@
   max-width: 100%;
 }
 
-.admin-cellar-table input[type="number"] {
-  min-width: 78px;
-  width: 90px;
+
+.admin-cellar-area {
+  min-width: 84px;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .admin-cellar-rent {
