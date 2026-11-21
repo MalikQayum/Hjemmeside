@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-21T06:59:41.104Z",
-  "generated": 2,
-  "approved": 0,
-  "rejected": 2,
-  "total_unique_attempted": 341,
+  "tested_at": "2026-11-21T07:41:46.707Z",
+  "generated": 3,
+  "approved": 3,
+  "rejected": 0,
+  "total_unique_attempted": 344,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -346,19 +346,15 @@
     "Hvor længe skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
     "Hvem varetager parkeringskontrol på foreningens område?",
     "Hvor mange sekunder skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen?",
-    "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146 i det nye nøglesystem?"
+    "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146 i det nye nøglesystem?",
+    "Må jeg efterlade affald uden for containerne?",
+    "Må jeg benytte til erhvervsaktiviteter eller permanent ferie-/korttidsudlejning?",
+    "Hvem varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk?"
   ],
-  "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvor mange sekunder skal nøglekort eller brik holdes midt på tastaturet for at aktivere låsen?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglekort & nøglebrikker | E/F Skyttegårdvej/Vigerslevvej"
-    },
-    {
-      "question": "Hvilken dato udskiftes låsene på dørene til opgang 3, 9 og 146 i det nye nøglesystem?",
-      "reason": "low_question_quality"
-    }
-  ]
+  "approved_questions": [
+    "Må jeg efterlade affald uden for containerne?",
+    "Må jeg benytte til erhvervsaktiviteter eller permanent ferie-/korttidsudlejning?",
+    "Hvem varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk?"
+  ],
+  "rejected_questions": []
 }
