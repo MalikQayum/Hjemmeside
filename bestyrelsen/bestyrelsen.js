@@ -85,18 +85,33 @@
     unit: "/ m² / md."
   };
   const CELLAR_DEFAULTS = [
-    { id: "room-001", roomNumber: 1, areaM2: 3, tenantAddress: "Vigerslevvej 148 sttv" },
-    { id: "room-002", roomNumber: 2, areaM2: 8, tenantAddress: "Skyttegårdvej 1 sttv" },
-    { id: "room-003", roomNumber: 3, areaM2: 20, tenantAddress: "Vigerslevej 148 1th" },
-    { id: "room-012", roomNumber: 12, areaM2: 14, tenantAddress: "Vigerslevej 148 1tv" },
+    { id: "room-001", roomNumber: 1, areaM2: 3, tenantAddress: "Vigerslevvej 148, st.tv" },
+    { id: "room-002", roomNumber: 2, areaM2: 8, tenantAddress: "Skyttegaardvej 1, st.tv" },
+    { id: "room-003", roomNumber: 3, areaM2: 20, tenantAddress: "Vigerslevvej 148, 1.th" },
+    { id: "room-012", roomNumber: 12, areaM2: 14, tenantAddress: "Vigerslevvej 148, 1.tv" },
     { id: "room-033", roomNumber: 33, areaM2: 4, tenantAddress: "" },
     { id: "room-045", roomNumber: 45, areaM2: 25, tenantAddress: "Ekstern" },
-    { id: "room-055", roomNumber: 55, areaM2: 13, tenantAddress: "Skyttegårdvej 5 1 mf" },
-    { id: "room-068", roomNumber: 68, areaM2: 13, tenantAddress: "Skyttegårdvej 1 th" },
-    { id: "room-069", roomNumber: 69, areaM2: 25, tenantAddress: "Skyttegårdvej 9 1th" },
-    { id: "room-078", roomNumber: 78, areaM2: 27, tenantAddress: "Skyttegårdvej 11 2 th" },
-    { id: "room-080", roomNumber: 80, areaM2: 11, tenantAddress: "Skyttegårdvej 7 sttv" }
+    { id: "room-055", roomNumber: 55, areaM2: 13, tenantAddress: "Skyttegaardvej 5, 1.mf" },
+    { id: "room-068", roomNumber: 68, areaM2: 13, tenantAddress: "Skyttegaardvej 1, st.th" },
+    { id: "room-069", roomNumber: 69, areaM2: 25, tenantAddress: "Skyttegaardvej 9, 1.th" },
+    { id: "room-078", roomNumber: 78, areaM2: 27, tenantAddress: "Skyttegaardvej 11, 2.th" },
+    { id: "room-080", roomNumber: 80, areaM2: 11, tenantAddress: "Skyttegaardvej 7, st.tv" }
   ];
+
+  // Kælderrummenes lejeradresser bruger samme standardiserede liste som parkeringsoversigten.
+  const CELLAR_EXTERNAL_ADDRESS = "Ekstern";
+  const CELLAR_ADDRESS_OPTIONS = new Set([...ADDRESSES, CELLAR_EXTERNAL_ADDRESS]);
+  const CELLAR_LEGACY_ADDRESS_MAP = new Map([
+    ["Vigerslevvej 148 sttv", "Vigerslevvej 148, st.tv"],
+    ["Skyttegårdvej 1 sttv", "Skyttegaardvej 1, st.tv"],
+    ["Vigerslevej 148 1th", "Vigerslevvej 148, 1.th"],
+    ["Vigerslevej 148 1tv", "Vigerslevvej 148, 1.tv"],
+    ["Skyttegårdvej 5 1 mf", "Skyttegaardvej 5, 1.mf"],
+    ["Skyttegårdvej 1 th", "Skyttegaardvej 1, st.th"],
+    ["Skyttegårdvej 9 1th", "Skyttegaardvej 9, 1.th"],
+    ["Skyttegårdvej 11 2 th", "Skyttegaardvej 11, 2.th"],
+    ["Skyttegårdvej 7 sttv", "Skyttegaardvej 7, st.tv"]
+  ]);
 
   let sessionToken = "";
   let rows = [];
@@ -257,15 +272,15 @@
       if (!item || item.id !== fixed.id || item.roomNumber !== fixed.roomNumber) {
         throw new Error(`Kælderrum ${fixed.roomNumber} mangler eller står i forkert rækkefølge.`);
       }
-      const areaM2 = Number(item.areaM2);
-      const tenantAddress = String(item.tenantAddress ?? "");
-      if (!Number.isFinite(areaM2) || areaM2 <= 0 || areaM2 > 250 || Math.round(areaM2 * 100) !== areaM2 * 100) {
-        throw new Error(`Arealet for lokale ${fixed.roomNumber} skal være mellem 0,1 og 250 m² med højst to decimaler.`);
+      // Arealet er fastlagt for hvert lokale og kan ikke ændres i administrationen.
+      // Brug altid den godkendte størrelse fra CELLAR_DEFAULTS, også hvis ældre data
+      // indeholder en forkert værdi fra den tidligere redigerbare m²-funktion.
+      const storedAddress = String(item.tenantAddress ?? "").trim();
+      const tenantAddress = CELLAR_LEGACY_ADDRESS_MAP.get(storedAddress) || storedAddress;
+      if (tenantAddress && !CELLAR_ADDRESS_OPTIONS.has(tenantAddress)) {
+        throw new Error(`Lejeradressen for lokale ${fixed.roomNumber} findes ikke på adresselisten. Vælg en adresse fra dropdown-listen.`);
       }
-      if (tenantAddress.length > 120 || /[\x00-\x08\x0B\x0C\x0E-\x1F]/.test(tenantAddress)) {
-        throw new Error(`Lejeradressen for lokale ${fixed.roomNumber} er for lang eller indeholder ugyldige tegn.`);
-      }
-      return { ...fixed, areaM2, tenantAddress: tenantAddress.trim() };
+      return { ...fixed, tenantAddress };
     });
   }
 
@@ -637,26 +652,29 @@
       const numberCell = document.createElement("td");
       numberCell.textContent = String(room.roomNumber);
       const addressCell = document.createElement("td");
-      const addressInput = document.createElement("input");
-      addressInput.type = "text";
-      addressInput.maxLength = 120;
-      addressInput.value = room.tenantAddress;
-      addressInput.setAttribute("aria-label", `Lejeradresse for lokale ${room.roomNumber}`);
-      addressInput.dataset.cellarField = "tenantAddress";
-      addressInput.dataset.roomId = room.id;
-      addressInput.placeholder = "Tomt hvis ledigt";
-      addressCell.appendChild(addressInput);
+      const addressSelect = document.createElement("select");
+      addressSelect.setAttribute("aria-label", `Lejeradresse for lokale ${room.roomNumber}`);
+      addressSelect.dataset.cellarField = "tenantAddress";
+      addressSelect.dataset.roomId = room.id;
+      const emptyOption = document.createElement("option");
+      emptyOption.value = "";
+      emptyOption.textContent = "Ledigt / vælg adresse …";
+      addressSelect.appendChild(emptyOption);
+      ADDRESSES.forEach((address) => {
+        const option = document.createElement("option");
+        option.value = address;
+        option.textContent = address;
+        addressSelect.appendChild(option);
+      });
+      const externalOption = document.createElement("option");
+      externalOption.value = CELLAR_EXTERNAL_ADDRESS;
+      externalOption.textContent = CELLAR_EXTERNAL_ADDRESS;
+      addressSelect.appendChild(externalOption);
+      addressSelect.value = room.tenantAddress;
+      addressCell.appendChild(addressSelect);
       const areaCell = document.createElement("td");
-      const areaInput = document.createElement("input");
-      areaInput.type = "number";
-      areaInput.min = "0.1";
-      areaInput.max = "250";
-      areaInput.step = "0.1";
-      areaInput.value = String(room.areaM2);
-      areaInput.setAttribute("aria-label", `Areal i m² for lokale ${room.roomNumber}`);
-      areaInput.dataset.cellarField = "areaM2";
-      areaInput.dataset.roomId = room.id;
-      areaCell.appendChild(areaInput);
+      areaCell.className = "admin-cellar-area";
+      areaCell.textContent = `${new Intl.NumberFormat("da-DK", { maximumFractionDigits: 2 }).format(room.areaM2)} m²`;
       const rentCell = document.createElement("td");
       rentCell.className = "admin-cellar-rent";
       rentCell.dataset.cellarRent = "true";
@@ -674,7 +692,7 @@
     hasUnsavedCellarChanges = true;
     cellarSaveButton.disabled = false;
     cellarChangeState.textContent = "Du har kælderrumsændringer, som ikke er gemt";
-    cellarSaveHelp.textContent = "Gemningen opdaterer kun kaelderrum/data.json. Månedslejen beregnes ud fra kvadratmeterprisen i prisbladet.";
+    cellarSaveHelp.textContent = "Gemningen opdaterer kun kaelderrum/data.json. Lokalerne har faste m²-størrelser; ændr den fælles m²-pris i prisbladet via posten “Leje af kælderrum”.";
   }
 
   function applyCellarData(data) {
@@ -685,8 +703,8 @@
     cellarSaveButton.disabled = true;
     cellarChangeState.textContent = "Ingen ikke-gemte ændringer";
     cellarSaveHelp.textContent = cellarUpdatedAt
-      ? `Seneste gemte ændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(cellarUpdatedAt))}. Alle 11 lokaler er faste.`
-      : "Alle 11 lokaler er faste. En tom adresse betyder ledigt; en udfyldt adresse betyder udlejet.";
+      ? `Seneste gemte ændring: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(cellarUpdatedAt))}. Lokalenumre og m²-størrelser er faste.`
+      : "Alle 11 lokaler og deres m²-størrelser er faste. En tom adresse betyder ledigt; en udfyldt adresse betyder udlejet.";
   }
 
   function applyPriceData(data) {
@@ -844,16 +862,19 @@
     finally { cellarRefreshButton.disabled = false; }
   });
 
-  cellarRowsBody.addEventListener("input", (event) => {
-    const input = event.target.closest("input[data-cellar-field][data-room-id]");
-    if (!input) return;
-    const room = cellarRooms.find((item) => item.id === input.dataset.roomId);
+  function updateCellarFieldValue(field) {
+    const room = cellarRooms.find((item) => item.id === field.dataset.roomId);
     if (!room) return;
-    if (input.dataset.cellarField === "tenantAddress") room.tenantAddress = input.value;
-    else if (input.dataset.cellarField === "areaM2") room.areaM2 = input.value === "" ? NaN : Number(input.value);
+    if (field.dataset.cellarField === "tenantAddress") room.tenantAddress = field.value;
+    else return;
     const rowElement = cellarRowsBody.querySelector(`tr[data-room-id="${CSS.escape(room.id)}"]`);
     if (rowElement) setCellarRowCalculatedCells(rowElement, room);
     markCellarDirty();
+  }
+
+  cellarRowsBody.addEventListener("change", (event) => {
+    const field = event.target.closest('select[data-cellar-field="tenantAddress"][data-room-id]');
+    if (field) updateCellarFieldValue(field);
   });
 
   cellarSaveButton.addEventListener("click", async () => {
