@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-22T08:03:11.351Z",
-  "generated": 0,
+  "tested_at": "2026-11-22T08:04:55.836Z",
+  "generated": 1,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 350,
+  "rejected": 1,
+  "total_unique_attempted": 351,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -355,8 +355,14 @@
     "Hvordan oprettes man på ventelisten til en parkeringsplads?",
     "Hvor ofte kommer Hebsoe Rengøring for at gøre rent og slå græs?",
     "Hvor mange sekunder skal et nøglekort eller en brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
-    "Hvor meget koster ekstra nøglekort og brikker ved tilkøb?"
+    "Hvor meget koster ekstra nøglekort og brikker ved tilkøb?",
+    "Hvilken dato udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvilken dato udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+      "reason": "low_question_quality"
+    }
+  ]
 }
