@@ -1,25 +1,52 @@
-# NemAffald - hjælpe- og installationsscripts
+# NemAffald Scripts - Drifts- og installationsværktøjer
 
-PowerShell- og JavaScript-hjælpeværktøjer til opsætning og vedligeholdelse af NemAffald.
+Denne mappe indeholder hjælpeværktøjer, Node.js-scripts og PowerShell-automatiseringsscripts til opsætning og daglig afvikling af NemAffald-modulet for **Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148**.
 
-- `prepare-github-config.js`: klargør GitHub-konfigurationen.
-- `install-weekly-task.ps1`: installerer den ugentlige opgave i Windows.
-- `remove-weekly-task.ps1`: fjerner den installerede ugentlige opgave.
+---
 
-## Vedligeholdelse og brug
+## Filer i mappen
 
-Efter `npm ci` skal `npm run weekly:test` gennemføres med succes, før den lokale planlagte opgave installeres. Testen opretter en readiness-fil, som installationsscriptet kræver. Kør fra `.github/nemaffald/` i PowerShell:
+| Script | Type | Miljø | Beskrivelse og formål |
+|---|---|---|---|
+| `prepare-github-config.js` | Node.js | GitHub Actions | Læser repository secrets, validerer kontaktdata og danner de nødvendige runtime-konfigurationsfiler (`settings.json` og `contact.json`) forud for bestilling. |
+| `install-weekly-task.ps1` | PowerShell | Windows PC / Server | Installerer og aktiverer en ugentlig automatiseret opgave i Windows Opgavestyring (Task Scheduler) til lokal drift. |
+| `remove-weekly-task.ps1` | PowerShell | Windows PC / Server | Afregistrerer og sletter den automatiserede opgave i Windows Opgavestyring uden at berøre projektfilerne. |
 
-```powershell
-.\scripts\install-weekly-task.ps1
-```
+---
 
-Fjern opgaven med:
+## Detaljeret gennemgang af scripts
 
-```powershell
-.\scripts\remove-weekly-task.ps1
-```
+### 1. `prepare-github-config.js`
+- **Udførelse:** Kaldes som det første trin i GitHub Actions-workflowet `.github/workflows/nemaffald-weekly.yml`.
+- **Valideringsrutine:**
+  - Undersøger om miljøvariablen `NEMAFFALD_CONTACT_JSON` er til stede.
+  - Parser JSON-strukturen og verificerer, at de obligatoriske felter (`fullName`, `phoneNumber`, `emailAddress`) er udfyldt med gyldige formater.
+  - Sammenholder adressen i `settings.github.json` med foreningens godkendte adresser i Valby.
+  - Skriver de midlertidige filer `settings.json` og `contact.json` i rodmappen for `.github/nemaffald/`.
+- **Sikkerhed:** Scriptet logger udelukkende statusmeddelelser (fx "Kontaktprofil valideret") og udskriver aldrig selve telefonnumrene eller e-mailadresserne til GitHub Actions loggen.
 
-`prepare-github-config.js` køres af GitHub Actions før en bestilling og bruger secret `NEMAFFALD_CONTACT_JSON`. Skriv aldrig kontaktoplysninger i scripts eller versionsstyrede konfigurationsfiler. Livebestilling er slået fra som standard og kræver eksplicit opt-in med repository-variablen `NEMAFFALD_ENABLE_SUBMISSION=true`. Se projektets README og workflowdokumentationen før større ændringer.
+### 2. `install-weekly-task.ps1`
+- **Forudsætning:**
+  Før scriptet kan afvikles, skal `npm ci` og en succesfuld testkørsel være gennemført:
+  ```powershell
+  cd .github/nemaffald
+  npm ci
+  npm run weekly:test
+  ```
+  Testkørslen opretter en tidsstemplet readiness-fil. Hvis readiness-filen mangler, eller hvis den seneste test fejlede, vil PowerShell-scriptet afbryde installationen for at forhindre fejlbehæftede automatiske kørsler.
+- **Kørsel i PowerShell (som administrator):**
+  ```powershell
+  .\scripts\install-weekly-task.ps1
+  ```
+  Dette opretter en planlagt opgave i Windows Task Scheduler med navnet `NemAffald Weekly Order`, der kører en gang ugentligt i baggrunden.
 
-[Tilbage til repositoryoversigten](../../../README.md)
+### 3. `remove-weekly-task.ps1`
+- **Formål:** Hvis foreningen skifter til ren GitHub Actions-afvikling eller ønsker at suspendere de lokale automatiske kørsler, slettes den planlagte opgave nemt med:
+  ```powershell
+  .\scripts\remove-weekly-task.ps1
+  ```
+  Scriptet stopper eventuelt kørende instanser og fjerner opgavens registrering fra Windows.
+
+---
+
+[Tilbage til NemAffald-oversigten](../README.md) · [Tilbage til repositoryoversigten](../../../../README.md)

@@ -1,16 +1,67 @@
-# NemAffald - konfiguration
+# NemAffald - Konfiguration og indstillinger
 
-Indeholder konfigurationsfiler, som styrer NemAffald-projektets lokale eller GitHub-baserede opsætning.
+Denne mappe indeholder skabeloner og konfigurationsfiler, som styrer NemAffald-modulets automatiserede bestillinger hos Københavns Kommune for **Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148**.
 
-- `settings.example.json`: eksempel på konfiguration og struktur. Brug den som udgangspunkt.
-- `settings.github.json`: konfiguration beregnet til GitHub-miljøet. Kontrollér indholdet for følsomme oplysninger, før filen deles eller ændres.
+---
 
-## Vedligeholdelse
+## Filer i mappen
 
-Brug `settings.example.json` som skabelon ved lokal opsætning. `settings.github.json` indeholder den ikke-hemmelige runtime-konfiguration, som workflowet klargør. Scriptet `scripts/prepare-github-config.js` skriver `settings.json` og `contact.json` under kørslen; de genererede filer indeholder runtime-data og må ikke committes.
+| Fil | Type | Beskrivelse og formål |
+|---|---|---|
+| `settings.example.json` | JSON (Skabelon) | **Strukturskabelon.** Indeholder samtlige understøttede konfigurationsfelter med eksempelværdier. Anvendes som udgangspunkt ved ny lokal installation på en pc eller server. |
+| `settings.github.json` | JSON (Miljøkonfiguration) | **GitHub Actions-indstillinger.** Indeholder de faste, ikke-følsomme driftsparametre for ejendommen (adresse, foreningsnavn og ugedage), som anvendes i cloud-miljøet. |
 
-Kontaktprofilen til GitHub-workflowet leveres som repository-secret `NEMAFFALD_CONTACT_JSON`, ikke fra en versionsstyret fil. Ændr kun oplysningerne, når de er verificeret og godkendt, og behold bekræftelser for rollen som affaldsansvarlig og samtykke til huskning. Scriptet validerer desuden, at ejendomsadresse og ugetidspunkt svarer til workflowets forventninger.
+---
 
-Adgangskoder og tokens skal ligge i GitHub Secrets eller lokale miljøvariabler - ikke i versionsstyrede konfigurationsfiler.
+## Konfigurationsparametre i `settings.example.json`
 
-[Tilbage til repositoryoversigten](../../../README.md)
+En typisk opsætning omfatter følgende kernefelter:
+
+```json
+{
+  "address": {
+    "street": "Skyttegårdvej",
+    "houseNumber": "5",
+    "postalCode": "2500",
+    "city": "Valby"
+  },
+  "wasteTypes": [
+    "garden_waste",
+    "bulky_waste"
+  ],
+  "schedule": {
+    "preferredDay": "Monday",
+    "orderLeadTimeDays": 5
+  },
+  "notifications": {
+    "emailConfirmation": true,
+    "smsNotification": false
+  }
+}
+```
+
+- **`address`:** Den præcise matrikeladresse, som registreres hos kommunen for afhentningen.
+- **`wasteTypes`:** Angiver de affaldsfraktioner, som skal bestilles (haveaffald, storskrald).
+- **`schedule`:** Foretrukken ugedag for afhentning samt frist for bestilling (lead time).
+- **`notifications`:** Valg af modtagelse af bekræftelseskvittering fra kommunen.
+
+---
+
+## Håndtering af følsomme data og runtime-filer
+
+1. **Ingen personoplysninger i git:**
+   - Navne, private telefonnumre og e-mailadresser på bestyrelsesmedlemmer må **ikke** gemmes i versionsstyrede JSON-filer.
+2. **Klargøring via `prepare-github-config.js`:**
+   - Under afvikling på GitHub Actions indlæses kontaktdata fra hemmeligheden `NEMAFFALD_CONTACT_JSON`.
+   - Scriptet `scripts/prepare-github-config.js` opretter dynamisk to lokale filer i runtime-miljøet:
+     - `settings.json`: Den samlede konfiguration for den aktuelle kørsel.
+     - `contact.json`: Den verificerede kontaktprofil for affaldsansvarlig.
+   - Begge filer er tilføjet til `.gitignore` og efterlades aldrig i repositoryet.
+3. **Formularkrav og bekræftelser:**
+   - Konfigurationen sikrer, at modulet automatisk afkrydser de lovpligtige bekræftelser på NemAffald-portalen:
+     - Erklæring om, at bestilleren er bemyndiget affaldsansvarlig for ejendommen.
+     - Samtykke til, at kommunen må sende driftsmeddelelser vedrørende afhentningen.
+
+---
+
+[Tilbage til NemAffald-oversigten](../README.md) · [Tilbage til repositoryoversigten](../../../../README.md)

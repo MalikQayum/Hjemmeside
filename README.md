@@ -1,244 +1,187 @@
 # Hjemmeside - Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148
 
-Velkommen til det officielle kildekode-repository for **Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148** (Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby).
+Velkommen til det officielle kildekode-repository for **Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148** (Skyttegårdvej 1-11 og Vigerslevvej 144-148 i Valby, 69 ejerlejligheder).
 
-Hjemmesiden fungerer som den primære informationsportal for nuværende og nye ejere samt beboere i foreningen.
+Hjemmesiden fungerer som den primære informationsportal og selvbetjeningsplatform for nuværende ejere, beboere, tilflyttere og bestyrelsen.
 
 ---
 
-## 🌐 Domæne & Hosting
+## Domæne & Hosting
 - **Aktivt domæne:** [www.skyttegaardvej.dk](https://www.skyttegaardvej.dk)
 - **GitHub Pages:** Integreret med automatisk CNAME-opsætning (`skyttegaardvej.dk`).
-- **Ikke købt domæne:** `www.vigerslevvej.dk`
+- **Primære filial:** `main`
+- **Tilknyttet organisation:** [GitHub - Vigerslev-Skyttegard](https://github.com/Vigerslev-Skyttegard)
 
 ---
 
-## 📄 Sider og Funktioner
+## Sider og Funktioner
 
 ### 1. Forside (`/`)
 - **Sti:** `index.html`
-- Introduktion og genveje til ejerforeningens vigtigste informationer.
-- Interaktivt områdekort med relevante faciliteter og lokationer i nærområdet.
+- **Funktion:** Velkomst, introduktion til foreningens 69 lejligheder, hverdagen i ejendommen og 3D-luftvisning af ejendommen (`ejerforeningen-3d.mp4`).
+- **Områdekort:** Interaktivt kort (Leaflet + OpenStreetMap) med faciliteter inden for en radius på 1,5 km (skoler, togstationer, buslinjer, indkøb og offentlige parkeringszoner).
 
 ### 2. Affald og storskrald (`/affald-storskrald/`)
 - **Sti:** `affald-storskrald/index.html`
-- Information om sortering, skralde- og storskraldsrum, miljøskab og affaldshåndtering.
+- **Funktion:** Placering af skralderum (Vigerslevvej 148 samt Skyttegårdvej 5-7), miljøskab til farligt affald og storskraldsrum ved Skyttegårdvej 5.
+- **Regler:** Retningslinjer for affaldshåndtering, gebyr for ureglementeret henstilling af affald samt oplysninger om rengøring og trappevask varetaget af Hebsoe Rengøring.
+- **Multimedie:** Billedguide over storskraldsrum samt to videoer med adgangsforhold.
 
 ### 3. Husorden og vedtægter (`/husorden-vedtaegter/`)
 - **Sti:** `husorden-vedtaegter/index.html`
-- Interaktiv dokumentvisning med **PDF.js** til nem læsning af vedtægter og husorden direkte i browseren uden at skulle downloade filer.
+- **Funktion:** Interaktiv dokumentvisning med **PDF.js** til nem læsning af foreningens gældende vedtægter (`Vedtægter.pdf`) og husorden (`Husorden.pdf`) direkte i browseren på både computer og mobil.
 
 ### 4. Generalforsamling (`/generalforsamling/`)
 - **Sti:** `generalforsamling/index.html`
-- Indkaldelser, referater, regnskaber, budgetter og prisblad.
+- **Funktion:** Ejerforeningens øverste myndighed.
+- **Indhold:**
+  - Seneste ordinære og ekstraordinære generalforsamlinger (indkaldelser og referater).
+  - Årsregnskaber og revisionspåtegning udarbejdet i samarbejde med DEAS.
+  - Samlet driftsbudget for det kommende regnskabsår.
+  - Historisk dokumentarkiv med referater og regnskaber tilbage til 1996.
+  - Gældende prisblad med dynamisk indlæsning af gebyrer og takster via `assets/js/general-price-list.js`.
 
 ### 5. Nyheder (`/nyhed/`)
 - **Sti:** `nyhed/index.html`
-- Seneste nyheder og meddelelser.
-- Viser automatisk foreningens nyhedsbrev direkte fra Word-format (`.docx`).
+- **Funktion:** Seneste nyhedsbreve fra bestyrelsen.
+- **Teknologi:** Viser foreningens nyhedsbrev direkte fra Microsoft Word-format (`Nyhedsbrev.docx`) i browseren via `docx-preview` og `JSZip`.
 
 ### 6. Parkering (`/parkering/`)
 - **Sti:** `parkering/index.html`
-- **Øverst (2-kolonne layout):**
-  - **Venstre kolonne:** Information om parkering i foreningen samt oplysninger om uretmæssig parkering (DinParkering døgnvagt).
-  - **Højre kolonne:** Forudfyldt kontaktformular til bestyrelsen (valg mellem *Venteliste* eller *Andre henvendelser*, adresse i foreningen, navn, e-mail og bemærkninger).
-- **Nederst:** Livevisning af ejerforeningens opdaterede parkeringsventeliste via Excel/SheetJS-integration.
+- **Struktur:**
+  - **Cykelparkering:** Information om gratis cykelkælder og udendørs cykelstativer.
+  - **Priser:** Dynamiske satser for bil og motorcykel/scooter hentet automatisk via prisbladet.
+  - **Uretmæssig parkering:** Retningslinjer og direkte opkaldslink til DinParkering døgnvagt.
+  - **Kontaktformular:** Tilmelding til venteliste eller andre parkeringshenvendelser til bestyrelsen.
+  - **Venteliste:** Live-visning af den officielle venteliste til parkeringspladser indlæst dynamisk fra data-repositoryet `Vigerslev-Skyttegard/bestyrelsen/parkering/data.json` via `assets/js/parking-overview.js`.
 
 ### 7. Leje af kælderrum (`/kaelderrum/`)
 - **Sti:** `kaelderrum/index.html`
-- Information om leje af kælderrum, lejevilkår, opkrævning og venteliste.
-- Integreret kontaktformular direkte til bestyrelsen, forudfyldt med emnet "Leje af kælderrum".
+- **Funktion:** Information om foreningens 11 ekstra kælderrum, lejevilkår og opkrævning via DEAS.
+- **Dynamisk oversigt:** Live-tabel over alle 11 lokaler med faste arealer (fra 2,1 m2 til 7,4 m2), lejestatus og automatisk beregnet månedlig leje baseret på prisbladets kvadratmetersats (`assets/js/kaelderrum-live.js`).
+- **Formular:** Integreret kontaktformular til opskrivning på venteliste eller opsigelse.
 
-### 8. Bestilling af nøglekort og nøglebrikker (`/noegler/`)
+### 8. Nøglekort og nøglebrikker (`/noegler/`)
 - **Sti:** `noegler/index.html`
-- Information om det elektroniske adgangssystem, regler for udlevering, håndtering af mistede/defekte nøglebrikker samt kontaktformular til bestilling og spærring af brikker.
+- **Funktion:** Det elektroniske adgangssystem til opgange og fællesarealer.
+- **Pris og bestilling:** Dynamisk stykpris for nøglebrikker og nøglekort via prisbladet, automatisk beregning af samlet pris samt lovpligtigt postkassesamtykke.
+- **Håndtering:** Hurtig spærring af mistede nøglebrikker eller ombytning af defekte brikker.
 
 ### 9. Udlejning (`/udlejning/`)
 - **Sti:** `udlejning/index.html`
-- Regler for udlejning af lejligheder og foreningens udlejningsblanket.
+- **Regler:** Procedure for udlejning af ejerlejligheder, forbud mod erhverv/hoteldrift samt begrænsninger for korttidsudlejning (Airbnb) jf. vedtægternes § 30 (maksimalt 4 udlejninger og højst 30 dage sammenlagt pr. kalenderår med obligatorisk skriftlig varsling til bestyrelsen).
+- **Blanket:** Download af foreningens officielle udlejningsblanket i både PDF og Word (.docx) samt e-mail link til bestyrelsen.
 
 ### 10. Vedligeholdelse (`/vedligeholdelse/`)
 - **Sti:** `vedligeholdelse/index.html`
-- Vejledning om ansvarsfordeling for vedligeholdelse og lukning af vand.
+- **Ansvarsfordeling:** Tydelig opdeling mellem ejerens indvendige vedligeholdelsesansvar (vinduer indvendigt, overflader, el, rørforgreninger, sanitet) og foreningens fælles ansvar (klimaskærm, faldstammer, stigstrenge, facader, opgange, dørtelefoner).
+- **Vandlukning:** Procedure for lukning af vand, krav om koordinering med autoriseret VVS (Finn L. & Davidsen) samt varsling i opgangen min. 3-5 dage forinden.
+- **Forsikring:** Gennemgang af ejendommens bygningsforsikring hos Protector Forsikring over for beboerens private indboforsikring, selvrisiko ved selvforskyldte skader samt direkte links til skadeanmeldelse via DEAS Selvbetjening og Protectors skadesportal.
 
 ### 11. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
-- Kontaktside med moderne kort-layout (cards) for:
-  - **Bestyrelsen** (`bestyrelse@skyttegaardvej.dk`)
-  - **DEAS A/S** (Ejendomsadministration)
-  - **ISTA Danmark A/S** (Forbrugs- og varmeregnskab)
-  - **HOFOR** (Vand og fjernvarme)
-  - **Finn L. & Davidsen A/S** (Fast håndværker & døgnvagt)
-  - **DinParkering** (Parkeringskontrol)
-
-### 12. Design- og komponentreferencer (`/eksempler/`)
-- **Sti:** `eksempler/index.html`
-- Eksempelside med HTML5 UP Editorial-skabelonens knapper, formularer, tabeller og typografi til fremtidige udvidelser.
+- **Layout:** Responsivt gitter begrænset til maksimalt 3 kort side om side på desktop, 2 på tablet og 1 på mobil.
+- **Samarbejdspartnere:**
+  - **Bestyrelsen:** Overordnet drift, husorden og parkering (`#bestyrelsen`).
+  - **DEAS A/S:** Ejendomsadministration, regnskab og skadeanmeldelse (`#deas`).
+  - **Protector Forsikring:** Bygningsforsikring og skadesvejledning (`#protector`).
+  - **ISTA Danmark A/S:** Målere, vand- og varmeregnskab (`#ista`).
+  - **HOFOR:** Fjernvarme og vandforsyning (`#hofor`).
+  - **Finn L. & Davidsen A/S:** VVS, el, døgnvagt og autoriseret håndværkerservice (`#fld`).
+  - **FIVA Ejendomsadministration:** Historisk administrationspartner (`#fiva`).
+  - **Hebsoe Rengøring:** Trappevask og renholdelse af fællesarealer (`#hebsoe`).
+  - **DinParkering:** Parkeringskontrol og uretmæssig parkering (`#dinparkering`).
+- **Digitale platforme (`#platforme`):**
+  - **PHM Digital:** Beboerportal til opgange og drift (`#phm`).
+  - **DEAS Onlineadgang:** Dokumenter, forbrug og opkrævninger (`#deas-online`).
+  - **DanDomain:** Samlet kundecenter og webmail for foreningens domæne (`#dandomain`).
+  - **GitHub:** Kildekode, organisation og automatisering (`#github`).
+  - **Bestyrelsens login:** Nem tilgang til intern administration (`#bestyrelsen-login`).
+  - **DinParkering:** Udstedelse og håndtering af digitale parkeringstilladelser (`#dinparkering-login`).
+  - **OneDrive:** Fildeling og fælles bestyrelsesdrev (`#onedrive`).
+  - **TTLock:** Elektronisk adgangskontrol til fælleslåse (`#ttlock`).
+  - **Tapo:** Kameraovervågning af udvalgte fællesrum (`#tapo`).
 
 ---
 
-## 🗺️ Interaktivt områdekort
+## Interaktivt områdekort
 
-Områdekortet viser ejerforeningens placering og relevante faciliteter i nærområdet inden for en radius på 1,5 km.
+Områdekortet på forsiden viser ejerforeningens placering og relevante faciliteter i nærområdet inden for en radius på 1,5 km.
 
-Kortet er bygget med **Leaflet** og **OpenStreetMap** og anvender en GeoJSON-fil til geografiske data.
+Kortet er bygget med **Leaflet** og **OpenStreetMap** og anvender GeoJSON som datagrundlag.
 
 ### Datafil
 - **Sti:** `assets/data/ejerforeningen-omraadekort.geojson`
-- Indeholder kortets geografiske punkter, herunder skoler, dagligvarebutikker, busstoppesteder, togstationer og parkeringsmuligheder.
-- Indeholder også polygonen for ejerforeningens 1,5 km-radius.
+- Indeholder kortets geografiske punkter (skoler, dagligvarer, busstoppesteder, togstationer og parkeringsmuligheder) samt polygonen for 1,5 km-radius.
 
 ### Tilføj eller fjern lokationer
+Manuelt oprettede punkter vedligeholdes i:
+`assets/data/ejerforeningen-omraadekort-manual.geojson`
 
-Alle lokationer vedligeholdes i:
-
-`assets/data/ejerforeningen-omraadekort.geojson`
-
-For at tilføje et nyt sted skal der oprettes et nyt `Feature`-objekt under filens `features`-array.
-
-Eksempel på en skole:
-
+Nye steder oprettes som et GeoJSON `Feature`-objekt:
 ```json
 {
   "type": "Feature",
   "properties": {
-    "name": "Skolens navn",
-    "description": "Beskrivelse af skolen",
-    "category": "school"
+    "name": "Stedets navn",
+    "description": "Beskrivelse af stedet",
+    "category": "grocery"
   },
   "geometry": {
     "type": "Point",
-    "coordinates": [
-      12.485000,
-      55.663000
-    ]
+    "coordinates": [12.485000, 55.663000]
   }
 }
 ```
+*Koordinater skrives som `[længdegrad, breddegrad]` i decimalgrader.*
 
-**Koordinater:**
-- Første koordinat er længdegrad (longitude).
-- Andet koordinat er breddegrad (latitude).
-- Koordinater angives i decimalgrader.
-
-For at fjerne en lokation slettes det tilhørende `Feature`-objekt fra GeoJSON-filen.
-
-### Eksisterende kategorier
-
-| Kategori i GeoJSON | Visningsnavn |
-|---|---|
-| `association` | Ejerforeningen |
-| `grocery` | Dagligvarebutikker |
-| `school` | Skoler |
-| `bus` | Busstoppesteder |
-| `train` | Togstationer |
-| `parkingFree` | Offentlig gadeparkering |
-| `parkingLimited` | Tidsbegrænset parkering |
-| `parkingPrivate` | Privat parkering |
-| `center` | Centrum |
-| `radiusCircle` | Afgrænsning af 1,5 km radius |
-
-### Automatisk visning
-
-Når en lokation tilføjes med en eksisterende kategori:
-- JavaScript placerer automatisk punktet på kortet.
-- Det korrekte ikon og den tilhørende farve anvendes.
-- Punktet vises under den relevante kategori i kortets filter.
-- Besøgende kan klikke på punktet for at se navn og beskrivelse.
-
-**Der kræves ingen ændringer i JavaScript eller CSS**, når der tilføjes eller fjernes lokationer under eksisterende kategorier.
-
-Hvis der oprettes en helt ny kategori, skal `categoryConfig` i JavaScript-filen også opdateres med kategoriens interne navn, visningsnavn, ikon og farve.
-
-### Kortets funktioner
-- Fastlåst kortvisning uden mulighed for at trække eller panorere kortet.
-- Ingen zoomknapper, scroll-zoom eller touch-zoom.
-- Automatisk tilpasning til 1,5 km-radius ved indlæsning.
-- Klikbare markører med navn og beskrivelse.
-- Kategorifiltre, så besøgende kan vælge, hvilke steder der vises.
-- OpenStreetMap anvendes som kortbaggrund med påkrævet kreditering.
+Scriptet `scripts/update-geojson.py` kombinerer de manuelle punkter med OpenStreetMap-data og danner `assets/data/ejerforeningen-omraadekort.geojson`.
 
 ---
 
-## ⚙️ GitHub Actions - Automatisk synkronisering fra OneDrive
+## GitHub Actions og Automatisering
 
-Hjemmesiden anvender **GitHub Actions** til automatisk at hente og opdatere udvalgte dokumenter fra Microsoft OneDrive.
+Repositoryet anvender **GitHub Actions** til vedligeholdelse og opdatering:
 
-Formålet er at holde hjemmesidens dokumenter opdaterede uden manuel download og upload til GitHub.
-
-### Funktionalitet
-- Automatisk kørsel efter workflowets fastsatte tidsplan.
-- Mulighed for manuel igangsættelse via GitHub Actions (`workflow_dispatch`), hvis workflowet understøtter det.
-- Henter de nyeste versioner af de konfigurerede dokumenter fra OneDrive.
-- Kontrollerer, om filerne er ændret.
-- Opretter automatisk et commit til repositoryet, når der registreres ændringer.
-- Undgår unødvendige commits, hvis filerne er uændrede.
-
-### Vedligeholdelse
-Hvis filer flyttes eller omdøbes i OneDrive, skal de tilsvarende referencer i synkroniseringsworkflowet opdateres.
-
-Hvis nye dokumenter skal synkroniseres, skal de tilføjes til workflowets konfiguration.
-
-### Godkendelse og sikkerhed
-- Adgang til OneDrive håndteres gennem GitHub Secrets.
-- Følsomme godkendelsesoplysninger må aldrig indsættes direkte i workflow-filer eller scripts.
-- Repositoryets rettigheder skal tillade automatiske commits.
-
-### Administration
-GitHub Actions findes under repositoryets **Actions**-fane på GitHub.
-
-Her kan man:
-- Se tidligere kørsler og deres status.
-- Kontrollere eventuelle fejl.
-- Se hvilke filer der er blevet opdateret.
-- Starte workflows manuelt, hvis denne funktion er aktiveret.
+1. **`update-data.yml`:** Sikrer dataintegritet ved ændringer i bestyrelsens datalager.
+2. **`update-geojson.yml`:** Månedlig opdatering af OpenStreetMap-faciliteter i nærområdet.
+3. **`update-chatbot-knowledge.yml`:** Bygger og validerer chatbottens vidensdatabase ud fra godkendte HTML- og kildedokumenter.
+4. **`train-chatbot.yml`:** Træningsworkflow til forbedring af chatbottens svar via godkendte spørgsmålsregler.
+5. **`sync-onedrive-to-github.yml`:** Automatisk synkronisering af udvalgte dokumenter (f.eks. nyhedsbrev) fra OneDrive.
+6. **`nemaffald-weekly.yml`:** Ugentlig bestilling og kontrol af haveaffald og storskrald via Københavns Kommunes portal.
 
 ---
 
-## 📝 Redigering af Indhold
+## Chatbot - Vidensbaseret Assistent
 
-- **Menupunkter og sidebar:** Navigationen vedligeholdes ét centralt sted i `sidebar.html`, som automatisk indlæses på alle undersider via `/assets/js/load-sidebar.js`.
-- **Dokumenter:** Nyhedsbreve (`Nyhedsbrev.docx`), vedtægter (`Vedtægter.pdf`), husorden (`Husorden.pdf`) og parkeringsventeliste (`Venteliste Parkering.xlsx`) kan udskiftes direkte i projektmappen eller opdateres via den automatiske OneDrive-synkronisering, hvor det er konfigureret.
-- **Områdekort:** Nye og eksisterende lokationer vedligeholdes i `assets/data/ejerforeningen-omraadekort.geojson`.
+Hjemmesiden har en integreret, browserbaseret chatbot til beboerspørgsmål:
+- **Konfiguration:** `chatbot/config/config.json` med `"enabled": true` eller `false`.
+- **Vidensbase:** `chatbot/data/knowledge.json` genereret fra tilladte sider i `chatbot/config/knowledge-config.json`.
+- **Svarregler:** `chatbot/config/response-rules.json` indeholder verificerede spørgsmålsformater, der peger direkte på kildeafsnit.
+- **Sikkerhed:** Chatbotten kører 100% lokalt i browseren mod vidensfilen. Den bruger ingen eksterne API-kald under almindelig browsing, og den opfinder aldrig regler ud over hvad der fremgår af kildedokumenterne.
 
 ---
 
-## 🗂️ Mappestruktur og lokal dokumentation
-
-De vigtigste mapper har deres egen `README.md`, så formål, indhold og vedligeholdelse kan findes dér, hvor arbejdet foregår. Root-README'en giver det samlede overblik; de lokale README-filer beskriver den enkelte mappe.
+## Mappestruktur
 
 | Mappe | Formål |
 |---|---|
-| `.github/` | GitHub Actions, automatisering og NemAffald-delprojektet. |
-| `assets/` | CSS, JavaScript, kortdata, Sass, video og webfonts. |
-| `chatbot/` | Chatbotkonfiguration og genereret vidensdatabase. |
-| `dokumenter/` | Samlet arkiv for PDF/Word-dokumenter. Se `dokumenter/README.md` og de lokale noter i `forening/`, `generalforsamling/` og `udlejning/`. |
-| `scripts/` | Scripts til dataopdatering og chatbot. |
-| `images/` | Billedressourcer. |
-| `affald-storskrald/`, `generalforsamling/`, `husorden-vedtaegter/`, `kaelderrum/`, `kontakt/`, `noegler/`, `nyhed/`, `parkering/`, `udlejning/`, `vedligeholdelse/` | Hjemmesidens indholdssider. |
-| `eksempler/` | Design- og komponentreferencer. |
+| `.github/` | GitHub Actions-workflows, hjælpescripts og NemAffald-modul. |
+| `assets/` | CSS, JavaScript, GeoJSON-data, Sass-kilder, video og fonte. |
+| `chatbot/` | Konfiguration, svarmodeller og indekseret vidensdatabase. |
+| `dokumenter/` | PDF- og Word-dokumenter for forening, generalforsamling og udlejning. |
+| `images/` | Billedressourcer og grafik (herunder `Storskraldrum.png`). |
+| `scripts/` | Python- og Node.js-scripts til GeoJSON og chatbot. |
+| `affald-storskrald/` | Siden om affald, miljøskab og storskraldsrum. |
+| `generalforsamling/` | Siden for generalforsamling, referater, regnskab og prisblad. |
+| `husorden-vedtaegter/` | Siden for husorden og vedtægter med PDF.js. |
+| `kaelderrum/` | Siden for leje af kælderrum med live-oversigt. |
+| `kontakt/` | Kontaktsiden med samarbejdspartnere og digitale platforme. |
+| `noegler/` | Siden for nøglebrikker, nøglekort og postkassesamtykke. |
+| `nyhed/` | Nyhedssiden med DOCX-visning af nyhedsbrev. |
+| `parkering/` | Parkeringssiden med live venteliste og kontaktformular. |
+| `udlejning/` | Siden om udlejningsregler, Airbnb-begrænsninger og blanketter. |
+| `vedligeholdelse/` | Siden om indvendig/udvendig vedligeholdelse, vandlukning og forsikring. |
 
-Hjemmesidens indholdssider, dokumentarkivet og de vigtigste kode- og ressourceområder har lokale README-filer. De beskriver formål, filernes rolle og typiske vedligeholdelsestrin. README-filerne er dokumentation og ikke officielle regler for foreningen.
+*Sidst opdateret: 2026-11-22*
 
-
-*Sidst opdateret: 2026-11-19*
-
-
----
-
-## 🤖 Chatbot - automatisk vidensdatabase
-
-Repositoryet indeholder en statisk informationsassistent til hjemmesiden. Besøgendes spørgsmål behandles i browseren mod den genererede `chatbot/data/knowledge.json`; chatfunktionen bruger ikke en generativ AI-model eller eksterne API'er. Et separat GitHub Actions-workflow kan bruge Gemini til at foreslå og teste nye spørgsmål.
-
-### Automatisk opdatering
-- Workflow: `.github/workflows/update-chatbot-knowledge.yml`.
-- Generator: `scripts/chatbot/build-knowledge.py`.
-- Kildekonfiguration: `chatbot/config/knowledge-config.json`.
-- Genereret vidensfil: `chatbot/data/knowledge.json` (må ikke redigeres manuelt).
-- Chatfunktion: `assets/js/chatbot.js` og `assets/css/chatbot.css`. Chatbotten kan slås til/fra via `chatbot/config/config.json` (`enabled: true/false`).
-- Chatten indlæses centralt via `assets/js/load-sidebar.js` og vises på hjemmesidens sider.
-
-Workflowet kører ved relevante ændringer, ugentligt og manuelt via GitHub Actions. Kun filer på den eksplicitte `include`-liste i `knowledge-config.json` bliver indekseret. Parkeringsventelisten, NemAffald-mappen, interne scripts, konfigurationer og øvrige ikke-godkendte filer holdes udenfor.
-
-### Vedligeholdelse
-Se `chatbot/README.md` for lokal test, tilføjelse af kilder, sikkerhedsregler og kendte begrænsninger. Scannede PDF'er uden tekstlag kræver OCR, før deres indhold kan indekseres.

@@ -1,29 +1,52 @@
-# Chatbot - bygge- og valideringsscripts
+# Chatbot Scripts - Bygge-, validerings- og træningspipeline
 
-- `build-knowledge.py`: læser de godkendte kilder fra `chatbot/config/knowledge-config.json`, udtrækker tekst, opdeler den i afsnit og skriver `chatbot/data/knowledge.json`. Formularfelter og knapper ignoreres i HTML. Parkeringssiden opdeles i særskilte afsnit om overblik, venteliste og uretmæssig parkering. Forældede svarregler, der ikke længere peger på en genereret kilde, fjernes også. Understøtter HTML, Markdown, PDF og DOCX. Scannede PDF'er kan OCR-behandles, når Poppler og Tesseract er installeret.
-- `validate-knowledge.py`: kontrollerer JSON-struktur, unikke ID'er, indhold og kilde-URL'er samt regressionstjek af husdyr, nattero og parkeringssiden.
-- `test-chatbot.js`: tester de vigtigste søgninger og svar i frontend med Node.js standardbibliotek; kræver ingen npm-pakker.
+Denne mappe indeholder de eksekverbare Python- og Node.js-scripts, der driver den vidensbaserede søge- og træningsarkitektur for chatbotten i **Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148**.
 
-## Lokal kørsel
-Kør fra repository'ets rod:
+---
+
+## Moduloversigt
+
+| Script | Sprog | Funktion og rolle |
+|---|---|---|
+| `build-knowledge.py` | Python 3 | Parser alle tilladte kilder i `chatbot/config/knowledge-config.json`, udtrækker ren tekst uden HTML-støj, opdeler i søgbare tekststykker (chunks) og genererer den officielle vidensdatabase `chatbot/data/knowledge.json`. Fjerner automatisk forældede svarregler, hvis kilden er slettet. |
+| `validate-knowledge.py` | Python 3 | Udfører skemavalidering og logisk kontrol på `knowledge.json`. Verificerer entydige dokument-ID'er, valide URL-fragmenter, minimale tekstlængder og udfører regressionstest på centrale regler (husdyr, nattero, storskrald og parkering). |
+| `test-chatbot.js` | Node.js | Kører enhedstest og søgetest direkte mod chatbottens frontend-algoritmer (`BM25`/`TF-IDF`). Testen afvikles uden eksterne npm-afhængigheder ved hjælp af Node.js standardbibliotek. |
+| `generate-questions.py` | Python 3 | Genererer op til 50 nye naturlige spørgsmålsvarianter ud fra de eksisterende kildedokumenter. Anvender Google Gemini API (`gemini-3.5-flash-lite`), hvis hemmeligheden `GEMINI_API_KEY` er tilgængelig, og falder automatisk tilbage til en regelbaseret lokal Python-generator, hvis API-kaldet udelades eller rammer kvoteloftet. |
+| `train-generated-questions.js` | Node.js | Evalueringsmotor for genererede spørgsmål. Tester hvert kandidatspørgsmål mod chatbottens søgemotor. Kun spørgsmål, der med høj sikkerhed matcher kilde-ID'et og giver et konsekvent svar under 45 ord, godkendes og tilføjes til `chatbot/config/response-rules.json`. |
+
+---
+
+## Lokal afvikling af byggepipelinen
+
+For at bygge, validere og teste chatbotten lokalt på en maskine:
 
 ```bash
+# 1. Installer nødvendige Python-afhængigheder til tekstudtrækning
 python -m pip install pypdf python-docx
+
+# 2. Generer vidensdatabasen
 python scripts/chatbot/build-knowledge.py
+
+# 3. Kør skema- og integritetsvalidering
 python scripts/chatbot/validate-knowledge.py
+
+# 4. Kør regressionstest af søgemotoren
 node scripts/chatbot/test-chatbot.js
 ```
 
-GitHub Actions-workflowet installerer desuden OCR-værktøjer. Ret ikke `knowledge.json` manuelt; generér den på ny.
+---
 
+## Træningsworkflow og sikkerhedsgarantier
 
-## Automatisk spørgsmålstræning
+1. **Ingen opdigtede fakta:**
+   - Hverken Gemini eller den lokale spørgsmålsgenerator må generere svartekster. De genererer udelukkende spørgsmål baseret på overskrifter og afsnit i `knowledge.json`. Svaret hentes altid direkte fra kildedokumentet.
+2. **Krav til optagelse i `response-rules.json`:**
+   - Søgemotoren skal pege på præcis det tiltænkte dokument.
+   - Svarlængden må ikke overstige 45 ord.
+   - Kilden skal indeholde en gyldig URL med sidetal eller anker.
+3. **Logning i `learning-results.json`:**
+   - Alle afviste spørgsmål registreres med årsagskode, så bestyrelsen kan gennemgå træningsforløbet.
 
-- `generate-questions.py`: bruger Google Gemini API via `GEMINI_API_KEY` til at generere op til 50 nye danske spørgsmål ud fra `chatbot/data/knowledge.json`. Standardmodel: `gemini-3.5-flash-lite`.
-- Hvis nøglen mangler, eller Gemini fejler/rammer en kvotegrænse, bruges en lokal Python-generator uden API-kald.
-- `train-generated-questions.js`: tester hvert spørgsmål med chatbotens faktiske JavaScript-søgemotor og svarformatering. Kun spørgsmål, der finder det angivne kildeafsnit og giver et svar på højst 45 ord, tilføjes til `chatbot/config/response-rules.json`.
-- `.github/workflows/train-chatbot.yml`: kører dagligt eller manuelt og gemmer resultatet i `chatbot/data/learning-results.json`.
+---
 
-Gemini Developer API har kvoter og hastighedsbegrænsninger, som Google kan ændre. Scriptet falder tilbage til lokal generering ved API-fejl. API-nøglen skal kun ligge som GitHub Actions secret `GEMINI_API_KEY`.
-
-[Tilbage til repositoryoversigten](../../README.md)
+[Tilbage til chatbot-oversigten](../../chatbot/README.md) · [Tilbage til repositoryoversigten](../../README.md)
