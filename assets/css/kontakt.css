@@ -9,7 +9,7 @@
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 1.75em;
   margin-bottom: 3em;
 }
@@ -30,10 +30,14 @@
   background: #ffffff;
   border: solid 1px rgba(210, 215, 217, 0.75);
   border-radius: 0.375em;
+  box-sizing: border-box;
   padding: 1.75em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   height: 100%;
 }
@@ -83,6 +87,8 @@
 
 .contact-card__header-text {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .contact-card__badge {
@@ -125,12 +131,14 @@
 
 .contact-card__info-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75em;
   font-size: 0.9em;
   margin-bottom: 0.6em;
+  min-width: 0;
   color: #3d4449;
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .contact-card__info-item:last-child {
@@ -141,6 +149,8 @@
   color: #f56a6a;
   font-size: 1em;
   width: 1.25em;
+  flex-shrink: 0;
+  margin-top: 0.25em;
   text-align: center;
 }
 
@@ -148,6 +158,8 @@
   color: #3d4449;
   text-decoration: none;
   border-bottom: 1px dotted rgba(210, 215, 217, 0.75);
+  min-width: 0;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -165,12 +177,18 @@
 
 .contact-card__actions .button {
   flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
   text-align: center;
 }
 
 @media screen and (max-width: 480px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 1.25em;
   }
 }
 

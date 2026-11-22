@@ -434,7 +434,7 @@
       },
       "properties": {
         "name": "Skyttegårdvej 1-11 (60 m)",
-        "description": "Adresse: Skyttegårdvej 1-11, 2500 Valby\nDel af E/F Skyttegårdvej/Vigerslevvej. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
+        "description": "Adresse: Skyttegårdvej 1-11, 2500 Valby\nDel af Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148. Placeringen er vejledende og repræsenterer ejendommen på Skyttegårdvej.\nAfstand fra Vigerslevvej 144: ca. 60 m i luftlinje.\nKilde: https://www.boligsiden.dk/",
         "category": "association",
         "categoryLabel": "Ejerforeningen",
         "source": "manual"
@@ -451,7 +451,7 @@
       },
       "properties": {
         "name": "Vigerslevvej 144-148 (11 m)",
-        "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af E/F Skyttegårdvej/Vigerslevvej. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
+        "description": "Adresse: Vigerslevvej 144-148, 2500 Valby\nDel af Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148. Radiusmålingens centrum er den konkrete adresse Vigerslevvej 144.\nAfstand fra Vigerslevvej 144: ca. 11 m i luftlinje.\nKilde: https://www.boligiq.dk/ejendom/vigerslevvej-144-2500-valby/167454",
         "category": "association",
         "categoryLabel": "Ejerforeningen",
         "source": "manual"
