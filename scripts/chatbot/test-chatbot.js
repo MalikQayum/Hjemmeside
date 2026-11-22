@@ -39,6 +39,9 @@ console.log(`OK: Chatbotten er som standard ${chatbotConfig.enabled ? "aktiveret
 if (source.includes('class="acb-close"') || source.includes('querySelector(".acb-close")')) {
   throw new Error("Den separate luk-knap skal være fjernet");
 }
+if (source.includes('acb-language') || source.includes('Dansk / English')) {
+  throw new Error("Sprogskift og engelsk skal være fjernet fra chatbotten");
+}
 if (!source.includes('launcher.addEventListener("click"') || !source.includes('launcher.setAttribute("aria-expanded", String(!panel.hidden))')) {
   throw new Error("Spørg os-knappen skal åbne og lukke chatten");
 }
@@ -131,4 +134,67 @@ const maintResults = api.search("Hvad er proceduren ved lukning af vand?");
 if (!maintResults.length || maintResults[0].doc.source?.url !== "/vedligeholdelse/") {
   throw new Error("Vedligeholdelsesspørgsmålet fandt ikke /vedligeholdelse/");
 }
-console.log("OK: Vedtægter, nøglebrikker, nyheder, affald, generalforsamling, udlejning og vedligeholdelse finder de rigtige kilder");
+
+const waterDamageResults = api.search("vandskade i mit badeværelse");
+if (!waterDamageResults.length || waterDamageResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Vandskadespørgsmålet fandt ikke /vedligeholdelse/");
+}
+const waterDamageAnswer = api.formatAnswer(waterDamageResults, "vandskade i mit badeværelse");
+if (
+  !waterDamageAnswer.includes("forgrening") ||
+  !waterDamageAnswer.includes("policens vilkår") ||
+  !waterDamageAnswer.includes("70 12 20 20")
+) {
+  throw new Error(`Vandskadesvaret mangler præcis sondring eller FLD kontakt: ${waterDamageAnswer}`);
+}
+
+const burstPipeResults = api.search("mit vandrør er sprunget");
+if (!burstPipeResults.length || burstPipeResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Sprunget rør-spørgsmålet fandt ikke /vedligeholdelse/");
+}
+const burstPipeAnswer = api.formatAnswer(burstPipeResults, "mit vandrør er sprunget");
+if (
+  !burstPipeAnswer.includes("afspærringshanen lukkes omgående") ||
+  !burstPipeAnswer.includes("rørforgreninger") ||
+  !burstPipeAnswer.includes("70 12 20 20")
+) {
+  throw new Error(`Sprunget rør-svaret mangler akut afspærring eller rørskelsætning: ${burstPipeAnswer}`);
+}
+
+const branchResults = api.search("hvem har ansvaret for rørforgreninger i lejligheden");
+if (!branchResults.length || branchResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Forgreningsspørgsmålet fandt ikke /vedligeholdelse/");
+}
+const branchAnswer = api.formatAnswer(branchResults, "hvem har ansvaret for rørforgreninger i lejligheden");
+if (!branchAnswer.includes("ejerens eget ansvar") || !branchAnswer.includes("lodrette hovedstigstrenge")) {
+  throw new Error(`Forgreningssvaret mangler klar ansvarsfordeling: ${branchAnswer}`);
+}
+
+const verticalResults = api.search("hvem har ansvaret for lodrette faldstammer");
+if (!verticalResults.length || verticalResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Faldstammespørgsmålet fandt ikke /vedligeholdelse/");
+}
+const verticalAnswer = api.formatAnswer(verticalResults, "hvem har ansvaret for lodrette faldstammer");
+if (!verticalAnswer.includes("frem til den individuelle forgrening") || !verticalAnswer.includes("§ 7, stk. 2")) {
+  throw new Error(`Faldstammesvaret mangler henvisning til forgrening og § 7, stk. 2: ${verticalAnswer}`);
+}
+
+const insuranceResults = api.search("hvad dækker bygningsforsikringen ved skade");
+if (!insuranceResults.length || insuranceResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Forsikringsspørgsmålet fandt ikke /vedligeholdelse/");
+}
+const insuranceAnswer = api.formatAnswer(insuranceResults, "hvad dækker bygningsforsikringen ved skade");
+if (!insuranceAnswer.includes("policens vilkår") || insuranceAnswer.includes("pludselige rør- og vandskader på ejendommen")) {
+  throw new Error(`Forsikringssvaret bruger upræcis formulering: ${insuranceAnswer}`);
+}
+
+const toiletResults = api.search("mit toilet løber");
+if (!toiletResults.length || toiletResults[0].doc.source?.url !== "/vedligeholdelse/") {
+  throw new Error("Toiletspørgsmålet fandt ikke /vedligeholdelse/");
+}
+const toiletAnswer = api.formatAnswer(toiletResults, "mit toilet løber");
+if (!toiletAnswer.includes("ansvaret") || !toiletAnswer.includes("sanitet")) {
+  throw new Error("Toiletsvaret mangler ejerens indvendige ansvar");
+}
+
+console.log("OK: Vedtægter, nøglebrikker, nyheder, affald, generalforsamling, udlejning, vedligeholdelse, forgreninger, vandskade og forsikring giver præcise svar");

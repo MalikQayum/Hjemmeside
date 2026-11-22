@@ -117,6 +117,7 @@ def main():
             if part.get("section") is not None: entry["section"] = part["section"]
             if part.get("page") is not None: entry["page"] = part["page"]
             if part.get("topic") is not None: entry["topic"] = part["topic"]
+            if part.get("anchor") is not None: entry["anchor"] = part["anchor"]
             entries.append(entry)
     prune_stale_response_rules(entries)
     payload = {
@@ -330,29 +331,33 @@ def chunks_with_metadata(rel: str, text: str, size: int, overlap: int):
             result.append({
                 "title": "Vedligeholdelse - indvendig vedligeholdelse (ejers ansvar)",
                 "content": inside,
-                "keywords": ["vedligeholdelse", "indvendig", "vinduer", "døre", "gulve", "vægge", "elinstallationer", "rør", "sanitet", "radiatorer", "fld", "ista"],
-                "topic": "interior"
+                "keywords": ["vedligeholdelse", "indvendig", "vinduer", "døre", "gulve", "vægge", "elinstallationer", "rør", "forgrening", "forgreninger", "rørforgreninger", "sanitet", "radiatorer", "fld", "ista", "badeværelse", "toilet", "vandhane", "blandingsbatteri", "håndvask", "bruser", "cisterne", "afløb", "utæt", "vandskade", "vandrør"],
+                "topic": "interior",
+                "anchor": "indvendig"
             })
         if outside:
             result.append({
                 "title": "Vedligeholdelse - udvendig og fælles vedligeholdelse (foreningen)",
                 "content": outside,
-                "keywords": ["vedligeholdelse", "udvendig", "murværk", "facader", "tag", "faldstammer", "fællesarealer", "opgange", "dørtelefoner", "hebsoe"],
-                "topic": "exterior"
+                "keywords": ["vedligeholdelse", "udvendig", "murværk", "facader", "tag", "faldstammer", "fællesarealer", "opgange", "dørtelefoner", "hebsoe", "stigerør", "hovedstigstrenge", "forsyningslinjer", "lodrette", "forgrening"],
+                "topic": "exterior",
+                "anchor": "udvendig"
             })
         if water:
             result.append({
                 "title": "Vedligeholdelse - procedure for lukning af vand og akutte rørskader",
                 "content": water,
-                "keywords": ["vandlukning", "lukning af vand", "vvs", "fld", "døgnvagt", "rørbrud", "rørskade", "varslingsseddel"],
-                "topic": "water"
+                "keywords": ["vandlukning", "lukning af vand", "vvs", "fld", "døgnvagt", "rørbrud", "rørskade", "varslingsseddel", "akut", "sprunget", "vandrør", "sprunget rør", "afspærringshane", "lækage", "oversvømmelse", "vandskade", "vandudstrømning", "vand", "hovedhane", "forgreninger", "faldstammer"],
+                "topic": "water",
+                "anchor": "vandlukning"
             })
         if insurance:
             result.append({
                 "title": "Vedligeholdelse - forsikring og anmeldelse af skader",
                 "content": insurance,
-                "keywords": ["forsikring", "bygningsforsikring", "indboforsikring", "protector", "skade", "skadesanmeldelse", "selvrisiko", "deas"],
-                "topic": "insurance"
+                "keywords": ["forsikring", "bygningsforsikring", "indboforsikring", "protector", "skade", "skader", "skadesanmeldelse", "selvrisiko", "deas", "vandskade", "vandskader", "rørskade", "badeværelse", "policens vilkår", "forgreninger"],
+                "topic": "insurance",
+                "anchor": "forsikring"
             })
         if result:
             return result

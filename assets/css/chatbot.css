@@ -37,12 +37,6 @@
 #association-chatbot .acb-header strong, #association-chatbot .acb-header small { display: block; }
 #association-chatbot .acb-header strong { font-size: 15px; }
 #association-chatbot .acb-header small { margin-top: 4px; opacity: .9; font-size: 11px; white-space: normal; overflow-wrap: break-word; }
-#association-chatbot .acb-header-actions { display: flex; flex-shrink: 0; gap: 7px; }
-#association-chatbot .acb-header button {
-  border: 1px solid #ffffffa6; background: #ffffff14; color: #fff;
-  border-radius: 6px; min-width: 34px; min-height: 0; height: 32px; padding: 0 8px; cursor: pointer;
-}
-#association-chatbot .acb-header button:hover { background: #ffffff2b; }
 #association-chatbot .acb-messages { flex: 1; overflow-y: auto; padding: 15px; background: #fff; }
 #association-chatbot .acb-message {
   max-width: 95%; margin: 0 0 13px; padding: 11px 12px;
@@ -75,19 +69,12 @@
 
 /* Tydelig knaptekst: sort tekst på alle knapper, også de røde primærknapper. */
 #association-chatbot .acb-launcher,
-#association-chatbot .acb-header button,
 #association-chatbot .acb-send,
 #association-chatbot .acb-topic-button,
 #association-chatbot .acb-question-button,
 #association-chatbot .acb-topic-back {
   color: #000 !important;
 }
-#association-chatbot .acb-header button {
-  background: #fff;
-  border-color: #fff;
-  font-weight: 700;
-}
-#association-chatbot .acb-header button:hover { background: #f4f4f4; }
 #association-chatbot .acb-topic-message {
   width: 100%;
   max-width: 100%;

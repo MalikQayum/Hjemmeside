@@ -58,7 +58,7 @@ Hjemmesiden fungerer som den primære informationsportal og selvbetjeningsplatfo
 ### 7. Leje af kælderrum (`/kaelderrum/`)
 - **Sti:** `kaelderrum/index.html`
 - **Funktion:** Information om foreningens 11 ekstra kælderrum, lejevilkår og opkrævning via DEAS.
-- **Dynamisk oversigt:** Live-tabel over alle 11 lokaler med faste arealer (fra 2,1 m2 til 7,4 m2), lejestatus og automatisk beregnet månedlig leje baseret på prisbladets kvadratmetersats (`assets/js/kaelderrum-live.js`).
+- **Dynamisk oversigt:** Live-tabel over alle 11 lokaler med faste arealer (fra 3 m² til 27 m²), lejestatus og automatisk beregnet månedlig leje baseret på prisbladets kvadratmetersats (`assets/js/kaelderrum-live.js`).
 - **Formular:** Integreret kontaktformular til opskrivning på venteliste eller opsigelse.
 
 ### 8. Nøglekort og nøglebrikker (`/noegler/`)
@@ -74,9 +74,9 @@ Hjemmesiden fungerer som den primære informationsportal og selvbetjeningsplatfo
 
 ### 10. Vedligeholdelse (`/vedligeholdelse/`)
 - **Sti:** `vedligeholdelse/index.html`
-- **Ansvarsfordeling:** Tydelig opdeling mellem ejerens indvendige vedligeholdelsesansvar (vinduer indvendigt, overflader, el, rørforgreninger, sanitet) og foreningens fælles ansvar (klimaskærm, faldstammer, stigstrenge, facader, opgange, dørtelefoner).
+- **Ansvarsfordeling:** Tydelig opdeling mellem ejerens indvendige vedligeholdelsesansvar (vinduer indvendigt, overflader, el, individuelle indvendige rørforgreninger, sanitet) og foreningens fælles ansvar (klimaskærm, fælles lodrette hovedstigstrenge og faldstammer frem til den individuelle forgrening jf. vedtægterne § 7, stk. 2, facader, opgange, dørtelefoner).
 - **Vandlukning:** Procedure for lukning af vand, krav om koordinering med autoriseret VVS (Finn L. & Davidsen) samt varsling i opgangen min. 3-5 dage forinden.
-- **Forsikring:** Gennemgang af ejendommens bygningsforsikring hos Protector Forsikring over for beboerens private indboforsikring, selvrisiko ved selvforskyldte skader samt direkte links til skadeanmeldelse via DEAS Selvbetjening og Protectors skadesportal.
+- **Forsikring:** Gennemgang af ejendommens bygningsforsikring hos Protector Forsikring (hvor konkret dækning altid afgøres af selskabet ud fra skadens placering, årsag og policens vilkår) over for beboerens private indboforsikring, selvrisiko ved dækket selvforskyldt skade samt direkte links til skadeanmeldelse via DEAS Selvbetjening og Protectors skadesportal.
 
 ### 11. Kontakt (`/kontakt/`)
 - **Sti:** `kontakt/index.html`
@@ -88,19 +88,19 @@ Hjemmesiden fungerer som den primære informationsportal og selvbetjeningsplatfo
   - **ISTA Danmark A/S:** Målere, vand- og varmeregnskab (`#ista`).
   - **HOFOR:** Fjernvarme og vandforsyning (`#hofor`).
   - **Finn L. & Davidsen A/S:** VVS, el, døgnvagt og autoriseret håndværkerservice (`#fld`).
-  - **FIVA Ejendomsadministration:** Historisk administrationspartner (`#fiva`).
+  - **Andelsvaskeriforeningen FIVA:** Selvstændig andelsvaskeriforening i kælderen på Skyttegårdvej 9 (`#fiva`).
   - **Hebsoe Rengøring:** Trappevask og renholdelse af fællesarealer (`#hebsoe`).
   - **DinParkering:** Parkeringskontrol og uretmæssig parkering (`#dinparkering`).
 - **Digitale platforme (`#platforme`):**
-  - **PHM Digital:** Beboerportal til opgange og drift (`#phm`).
-  - **DEAS Onlineadgang:** Dokumenter, forbrug og opkrævninger (`#deas-online`).
+  - **PHM Digital:** Ejendomsportal til dokumenter, meddelelser og opkrævninger (`#phm-digital`).
+  - **DEAS Onlineadgang:** Dokumenter, forbrug og opkrævninger (`#deas-onlineadgang`).
   - **DanDomain:** Samlet kundecenter og webmail for foreningens domæne (`#dandomain`).
   - **GitHub:** Kildekode, organisation og automatisering (`#github`).
   - **Bestyrelsens login:** Nem tilgang til intern administration (`#bestyrelsen-login`).
   - **DinParkering:** Udstedelse og håndtering af digitale parkeringstilladelser (`#dinparkering-login`).
-  - **OneDrive:** Fildeling og fælles bestyrelsesdrev (`#onedrive`).
-  - **TTLock:** Elektronisk adgangskontrol til fælleslåse (`#ttlock`).
-  - **Tapo:** Kameraovervågning af udvalgte fællesrum (`#tapo`).
+  - **OneDrive:** Fildeling og fælles bestyrelsesdrev (`#onedrive-login`).
+  - **TTLock:** Elektronisk adgangskontrol til fælleslåse (`#ttlock-login`).
+  - **Tapo:** Kameraovervågning af udvalgte fællesrum (`#tapo-login`).
 
 ---
 
