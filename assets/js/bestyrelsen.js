@@ -164,7 +164,7 @@
     return user;
   }
 
-  // Sikrer, at data altid består af de 69 faste boliger – aldrig færre eller flere.
+  // Sikrer, at data altid består af de 69 faste boliger - aldrig færre eller flere.
   function normalizeRows(value) {
     const incoming = new Map();
     if (Array.isArray(value)) {
@@ -486,7 +486,7 @@
     registrationInput.disabled = false;
     rowSubmit.disabled = false;
     if (!selection.value) {
-      registrationLabel.textContent = `Ventelistedato – ${vehicleLabel}`;
+      registrationLabel.textContent = `Ventelistedato - ${vehicleLabel}`;
       registrationInput.value = formatTodayInCopenhagen();
       registrationInput.readOnly = true;
       registrationInput.placeholder = "Dags dato sættes automatisk";
@@ -494,7 +494,7 @@
       rowSubmit.textContent = "Tilmeld på venteliste";
       rowClear.hidden = true;
     } else {
-      registrationLabel.textContent = `Ventelistedato / nummerplade – ${vehicleLabel}`;
+      registrationLabel.textContent = `Ventelistedato / nummerplade - ${vehicleLabel}`;
       registrationInput.value = selection.value;
       registrationInput.readOnly = false;
       registrationInput.placeholder = "Skriv nummerpladen, når pladsen tildeles";
@@ -717,7 +717,7 @@
     renderPriceRows();
     priceSaveButton.disabled = !hasUnsavedPriceChanges;
     priceChangeState.textContent = cellarPriceMissing
-      ? "Ny prispost til kælderrum er tilføjet – husk at gemme prisbladet"
+      ? "Ny prispost til kælderrum er tilføjet - husk at gemme prisbladet"
       : "Ingen ikke-gemte prisændringer";
     priceSaveHelp.textContent = cellarPriceMissing
       ? "Prisposten “Leje af kælderrum” er tilføjet som kladde til 20 kr. pr. m² pr. måned. Klik Gem prisblad for at gøre prisen aktiv på hjemmesiden. Eksisterende priser er bevaret."

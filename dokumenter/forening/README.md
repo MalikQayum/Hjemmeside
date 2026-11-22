@@ -8,20 +8,20 @@ Denne mappe indeholder historiske og administrative dokumenter med tilknytning t
 
 | Fil | Format | Beskrivelse og historisk kontekst |
 |---|---|---|
-| `fiva-vedtaegter-2012.doc` | Microsoft Word (DOC) | Historiske vedtægter fra 2012 udarbejdet under foreningens daværende administrator, FIVA Ejendomsadministration. Dokumentet bevares i arkivet af hensyn til juridisk sporbarhed og sammenligning med ældre servitutter og rettighedsforhold. |
-| `ny-vedtaegter.pdf` | PDF-dokument | Arkiveret udkast og tidligere revideret udgave af foreningens vedtægter. |
+| `fiva-vedtaegter-2012.doc` | Microsoft Word (DOC) | Vedtægter fra 2012 for den selvstændige **Andelsvaskeriforeningen FIVA** i kælderen på Skyttegårdvej 9. Downloades direkte fra FIVA-kortet på `/kontakt/#fiva`. |
+| `ny-vedtaegter.pdf` | PDF-dokument | Arkiveret udkast og tidligere revideret udgave af ejerforeningens vedtægter. |
 
 ---
 
-## Vigtig skelnen: Gældende vedtægter vs. historisk arkiv
+## Vigtig skelnen: Gældende vedtægter vs. øvrige dokumenter
 
-- **Gældende officielle vedtægter:**
-  Foreningens juridisk gældende vedtægter ligger altid placeret under:
-  `/husorden-vedtaegter/Vedtægter.pdf`
+- **Ejerforeningens gældende officielle vedtægter:**
+  Ejerforeningens juridisk gældende vedtægter ligger placeret i roden under:
+  `/Vedtægter.pdf`
   Dette dokument indlæses og vises direkte i browseren på siden `/husorden-vedtaegter/` via PDF.js.
 
-- **Arkiverede dokumenter i denne mappe:**
-  Filerne i `dokumenter/forening/` er udelukkende historiske referencefiler. De må **ikke** præsenteres på hjemmesiden som gældende retningslinjer for beboere, ejere eller ejendomsmæglere.
+- **Dokumenter i denne mappe:**
+  `ny-vedtaegter.pdf` er udelukkende et arkiveret udkast og må **ikke** præsenteres på hjemmesiden som ejerforeningens gældende vedtægter, mens `fiva-vedtaegter-2012.doc` alene gælder for Andelsvaskeriforeningen FIVA.
 
 ---
 

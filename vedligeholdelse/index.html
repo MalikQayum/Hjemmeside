@@ -85,7 +85,7 @@
             <!-- Kolonner: Indvendig vs Udvendig ansvarsfordeling -->
             <div class="row gtr-150 contact-equal-row">
               <!-- Venstre kolonne: Indvendig vedligeholdelse (Ejer) -->
-              <div class="col-6 col-12-medium contact-col-equal">
+              <div id="indvendig" class="col-6 col-12-medium contact-col-equal">
                 <div class="contact-card-box">
                   <div>
                     <h3><span class="icon solid fa-home"></span> Indvendig vedligeholdelse (Ejer)</h3>
@@ -119,7 +119,7 @@
                         </div>
                       </li>
                       <li>
-                        <strong>Rør &amp; Forgreninger:</strong> Alle forgreninger på vand- og afløbsrør inde i lejligheden (efter tilslutningen til de lodrette forsyningsrør/faldstammer).
+                        <strong>Indvendige rør &amp; forgreninger:</strong> Alle individuelle forgreninger på vand-, varme- og afløbsrør inde i lejligheden (fra og med forgreningen efter de fælles lodrette hovedstigstrenge og faldstammer) er ejerens eget ansvar.
                         <div class="maint-action-row">
                           <a href="/kontakt/#fld" class="button small icon solid fa-address-card">Gå til kontaktkort (Finn L. &amp; Davidsen)</a>
                         </div>
@@ -137,7 +137,7 @@
               </div>
 
               <!-- Højre kolonne: Udvendig & Fælles vedligeholdelse (Foreningen) -->
-              <div class="col-6 col-12-medium contact-col-equal">
+              <div id="udvendig" class="col-6 col-12-medium contact-col-equal">
                 <div class="contact-card-box">
                   <div>
                     <h3><span class="icon solid fa-building"></span> Udvendig og fælles vedligehold (Foreningen)</h3>
@@ -157,7 +157,7 @@
                         </div>
                       </li>
                       <li>
-                        <strong>Lodrette rør &amp; Faldstammer:</strong> Hovedstigstrenge til vand og varme samt lodrette faldstammer, som betjener flere lejligheder, er ejerforeningens fælles ansvar.
+                        <strong>Lodrette rør &amp; faldstammer:</strong> Ejendommens fælles lodrette hovedstigstrenge til vand og varme samt lodrette faldstammer, som betjener flere lejligheder, frem til den individuelle forgrening til den enkelte lejlighed (jf. vedtægterne § 7, stk. 2).
                         <div>
                           <span class="maint-board-pill">
                             <span class="icon solid fa-users"></span> Bestyrelsens ansvar
@@ -193,7 +193,7 @@
 
             <!-- Sektion: Procedure for lukning af vand -->
             <div style="margin-top: 2.5em;">
-              <div class="box maint-callout-box">
+              <div id="vandlukning" class="box maint-callout-box">
                 <h2 style="margin-bottom: 0.5em;"><span class="icon solid fa-tint" style="color: #f56a6a;"></span> Procedure for lukning af vand</h2>
                 <p style="margin-bottom: 1.25em;">
                   Hvis du eller en håndværker skal udføre VVS-arbejde i din lejlighed, som kræver lukning af vandet for en streng eller hele opgangen, skal nedenstående retningslinjer følges:
@@ -225,7 +225,7 @@
                       Ved akut rørbrud eller ukontrolleret vandudstrømning skal afspærringshanen lukkes omgående. Kontakt straks <strong>FLD Døgnvagt på tlf. <a href="tel:+4570122020">70 12 20 20</a></strong> (<a href="/kontakt/#fld">se kontaktkort</a>) samt bestyrelsen (<a href="/kontakt/#bestyrelsen">se bestyrelsen</a>).
                     </p>
                     <p style="font-size: 0.9em;">
-                      Ved selvforskyldt skade dækket af ejendommens bygningsforsikring gælder en selvrisiko på <strong><span data-price-id="price-007" data-price-format="kr-dash">Indlæser pris …</span></strong> (jf. <a href="/generalforsamling/#prisblad">det gældende prisblad</a>).
+                      Ansvar og forsikringsdækning afhænger af, om skaden stammer fra fælles lodrette hovedrør/faldstammer eller lejlighedens egne indvendige forgreninger og installationer. Ved selvforskyldt skade, som er dækket under ejendommens bygningsforsikring, gælder en selvrisiko på <strong><span data-price-id="price-007" data-price-format="kr-dash">Indlæser pris …</span></strong> (jf. <a href="/generalforsamling/#prisblad">det gældende prisblad</a>).
                     </p>
                   </div>
                 </div>
@@ -244,24 +244,24 @@
                   <div class="col-4 col-12-medium">
                     <h4>1. Ejendommens bygningsforsikring</h4>
                     <p style="font-size: 0.95em; margin-bottom: 0;">
-                      Ejerforeningen har tegnet bygningsforsikring hos <strong>Protector Forsikring</strong> (<a href="/kontakt/#protector">se kontaktkort</a>). Forsikringen dækker selve bygningen, faste bygningsdele og fælles installationer, herunder f.eks. pludselige rør- og vandskader på ejendommen.
+                      Ejerforeningen har tegnet bygningsforsikring hos <strong>Protector Forsikring</strong> (<a href="/kontakt/#protector">se kontaktkort</a>). Forsikringen omfatter selve bygningen, faste bygningsdele og fælles installationer (såsom fælles lodrette hovedstigstrenge og faldstammer) i henhold til forsikringspolicens gældende vilkår. Konkret dækning afgøres altid af forsikringsselskabet ud fra skadens placering, årsag og policens betingelser - den omfatter f.eks. ikke manglende vedligeholdelse eller almindeligt slid på ejerens egne indvendige rørforgreninger, sanitet og armaturer.
                     </p>
                   </div>
 
                   <div class="col-4 col-12-medium">
                     <h4>2. Egen indboforsikring</h4>
                     <p style="font-size: 0.95em; margin-bottom: 0;">
-                      Som ejer eller lejer skal du selv have en gældende indboforsikring. Den dækker dine private ejendele i lejligheden og i eventuelle <a href="/kaelderrum/">kælderrum</a> samt eventuelle egne tilvalg for glas og sanitet.
+                      Som ejer eller lejer skal du selv have en gældende indboforsikring. Den dækker dine private ejendele/løsøre i lejligheden og i eventuelle <a href="/kaelderrum/">kælderrum</a> samt eventuelle særskilte tilvalgsdækninger i din egen police efter dit forsikringsselskabs vilkår.
                     </p>
                   </div>
 
                   <div class="col-4 col-12-medium">
                     <h4>3. Anmeldelse og selvrisiko</h4>
                     <p style="font-size: 0.95em;">
-                      Skader omfattet af bygningsforsikringen kan anmeldes via <a href="https://foreninger.deas.dk/selvbetjening/ejer/anmeld-forsikringsskade/" target="_blank" rel="noopener noreferrer"><strong>DEAS selvbetjening</strong></a> eller ved kontakt til DEAS eller bestyrelsen (<a href="/kontakt/#deas">se kontakter</a>). Se også <a href="https://protectorforsikring.dk/forsikringstager/sadan-anmelder-du-en-skade/" target="_blank" rel="noopener noreferrer">Protector Forsikrings vejledning til skadeanmeldelse</a>.
+                      Skader, der hører under bygningsforsikringen, kan anmeldes via <a href="https://foreninger.deas.dk/selvbetjening/ejer/anmeld-forsikringsskade/" target="_blank" rel="noopener noreferrer"><strong>DEAS selvbetjening</strong></a> eller ved kontakt til DEAS eller bestyrelsen (<a href="/kontakt/#deas">se kontakter</a>). Se også <a href="https://protectorforsikring.dk/forsikringstager/sadan-anmelder-du-en-skade/" target="_blank" rel="noopener noreferrer">Protector Forsikrings vejledning til skadeanmeldelse</a>.
                     </p>
                     <p style="font-size: 0.9em; margin-bottom: 0;">
-                      Ved selvforskyldt skade gælder en selvrisiko på <strong><span data-price-id="price-007" data-price-format="kr-dash">Indlæser pris …</span></strong> (jf. <a href="/generalforsamling/#prisblad">det gældende prisblad</a>).
+                      Ved selvforskyldt skade, der behandles under ejendommens bygningsforsikring, gælder en selvrisiko på <strong><span data-price-id="price-007" data-price-format="kr-dash">Indlæser pris …</span></strong> (jf. <a href="/generalforsamling/#prisblad">det gældende prisblad</a>).
                     </p>
                   </div>
                 </div>

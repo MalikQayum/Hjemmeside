@@ -17,26 +17,26 @@ Oversigt over de 9 primære aktører omkring foreningens drift, administration o
 |---|---|---|---|
 | `#bestyrelsen` | **Bestyrelsen** | Overordnet drift, husorden, generalforsamling og parkering | Send e-mail (`bestyrelse@skyttegaardvej.dk`) |
 | `#deas` | **DEAS A/S** | Ejendomsadministration, regnskab og skadeanmeldelse | Send e-mail (`SANW@deas.dk`), Ring op (`70 30 20 20`), Anmeld skade (DEAS Selvbetjening) |
-| `#protector` | **Protector Forsikring** | Bygningsforsikring (policenr. 3175850) | Vejledning til skadeanmeldelse, Besøg hjemmeside |
+| `#protector` | **Protector Forsikring** | Bygningsforsikring | Vejledning til skadeanmeldelse, Besøg hjemmeside |
 | `#ista` | **ISTA Danmark A/S** | Målere, vand- og varmeregnskab | Send e-mail (`ista@ista.dk`), Ring op (`77 32 33 34`) |
 | `#hofor` | **HOFOR** | Fjernvarme og vandforsyning | Send e-mail (`kundeservice@hofor.dk`), Ring op (`33 95 33 95`) |
 | `#fld` | **Finn L. & Davidsen A/S** | VVS, el, autoriseret håndværkerservice og døgnvagt | Send e-mail (`salg@fld.dk`), Ring op (`70 12 20 20`) |
-| `#fiva` | **FIVA Ejendomsadm.** | Foreningens tidligere administrator (historisk reference) | Send e-mail (`fiva@fiva.dk`), Download arkivoplysninger |
+| `#fiva` | **Andelsvaskeriforeningen FIVA** | Selvstændig andelsvaskeriforening i kælderen på Skyttegårdvej 9 | Send e-mail (`vaskeri@skyttegaardvej.dk`), Download vedtægter (`fiva-vedtaegter-2012.doc`) |
 | `#hebsoe` | **Hebsoe Rengøring** | Trappevask og renholdelse af fællesarealer (kun bestyrelseskontakt) | Læs om virksomheden |
 | `#dinparkering` | **DinParkering** | Parkeringskontrol og uretmæssig parkering på området | Døgnvagt opkald (`70 20 89 70`) |
 
 ### 2. Digitale platforme (`#platforme`)
 Oversigt over 9 direkte genveje til beboernes og bestyrelsens online værktøjer:
 
-1. **PHM Digital (`#phm`):** Beboerportal til opgange og drift.
-2. **DEAS Onlineadgang (`#deas-online`):** Beboeradgang til dokumenter, forbrugsopgørelser og opkrævninger.
+1. **PHM Digital (`#phm-digital`):** Ejendomsportal fra PHM Group og DEAS til dokumenter, meddelelser og opkrævninger.
+2. **DEAS Onlineadgang (`#deas-onlineadgang`):** Beboeradgang til dokumenter, forbrugsopgørelser og opkrævninger.
 3. **DanDomain (`#dandomain`):** Samlet kort med direkte adgang til Kundecenter og Webmail for foreningens domæne.
 4. **GitHub (`#github`):** Direkte login samt link til organisationen [Vigerslev-Skyttegard](https://github.com/Vigerslev-Skyttegard).
 5. **Bestyrelsens login (`#bestyrelsen-login`):** Genvej til den interne administrationsside på `/bestyrelsen/`.
 6. **DinParkering (`#dinparkering-login`):** Loginportal til udstedelse og administration af digitale parkeringstilladelser.
-7. **OneDrive (`#onedrive`):** Beboer- og bestyrelseslogin til Microsoft OneDrive for fildeling.
-8. **TTLock (`#ttlock`):** Cloud-platform til administration af elektroniske adgangslåse.
-9. **Tapo (`#tapo`):** Kameraoversigt til monitorering af udvalgte fællesområder.
+7. **OneDrive (`#onedrive-login`):** Beboer- og bestyrelseslogin til Microsoft OneDrive for fildeling.
+8. **TTLock (`#ttlock-login`):** Cloud-platform til administration af elektroniske adgangslåse.
+9. **Tapo (`#tapo-login`):** Kameraoversigt til monitorering af udvalgte fællesområder.
 
 ---
 
