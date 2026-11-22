@@ -244,15 +244,6 @@
       "answer_word_count": 43,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-21T07:41:46.707Z"
-    },
-    {
-      "question": "Hvilke døre får udskiftet låse den 10. juni 2026?",
-      "document_id": "811df0dfb6caf222",
-      "source_file": "Nyhedsbrev.docx",
-      "source_url": "/Nyhedsbrev.docx",
-      "answer_word_count": 13,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-22T07:12:32.567Z"
     }
   ]
 }
