@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-22T14:29:09.288Z",
+  "tested_at": "2026-11-22T19:53:08.548Z",
   "generated": 1,
   "approved": 0,
   "rejected": 1,
-  "total_unique_attempted": 352,
+  "total_unique_attempted": 353,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -357,15 +357,14 @@
     "Hvor mange sekunder skal et nøglekort eller en brik holdes midt på tastaturet for at aktivere låsen i det nye system?",
     "Hvor meget koster ekstra nøglekort og brikker ved tilkøb?",
     "Hvilken dato udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
-    "Hvad koster ekstra nøglekort og brikker ved tilkøb?"
+    "Hvad koster ekstra nøglekort og brikker ved tilkøb?",
+    "Hvor mange sekunder skal nøglekort eller brik holdes på tastaturet for at aktivere låsen i det nye system?"
   ],
   "approved_questions": [],
   "rejected_questions": [
     {
-      "question": "Hvad koster ekstra nøglekort og brikker ved tilkøb?",
-      "reason": "wrong_or_missing_source",
-      "expected": "Nyhedsbrev nr.8",
-      "actual": "Nøglekort & nøglebrikker | Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148"
+      "question": "Hvor mange sekunder skal nøglekort eller brik holdes på tastaturet for at aktivere låsen i det nye system?",
+      "reason": "low_question_quality"
     }
   ]
 }
