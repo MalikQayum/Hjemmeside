@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Generalforsamling i E/F Skyttegårdvej/Vigerslevvej: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad."
+      content="Generalforsamling i Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad."
     />
-    <title>Generalforsamling | E/F Skyttegårdvej/Vigerslevvej</title>
+    <title>Generalforsamling | Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="https://skyttegaardvej.dk/generalforsamling/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="da_DK" />
-    <meta property="og:site_name" content="E/F Skyttegårdvej/Vigerslevvej" />
-    <meta property="og:title" content="Generalforsamling | E/F Skyttegårdvej/Vigerslevvej" />
-    <meta property="og:description" content="Generalforsamling i E/F Skyttegårdvej/Vigerslevvej: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad." />
+    <meta property="og:site_name" content="Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148" />
+    <meta property="og:title" content="Generalforsamling | Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148" />
+    <meta property="og:description" content="Generalforsamling i Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad." />
     <meta property="og:url" content="https://skyttegaardvej.dk/generalforsamling/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Generalforsamling | E/F Skyttegårdvej/Vigerslevvej" />
-    <meta name="twitter:description" content="Generalforsamling i E/F Skyttegårdvej/Vigerslevvej: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad." />
+    <meta name="twitter:title" content="Generalforsamling | Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148" />
+    <meta name="twitter:description" content="Generalforsamling i Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148: seneste indkaldelser, referat, årsregnskab, driftsbudget og gældende prisblad." />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/contact-form.css" />
     <style>
@@ -34,6 +34,9 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
         padding: 0.5em 1em;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: break-word;
         border-radius: 4px;
         background: #ffffff;
         border: 1px solid rgba(210, 215, 217, 0.75);
@@ -50,6 +53,10 @@
         background: #ffffff;
         border: solid 1px rgba(210, 215, 217, 0.75);
         border-radius: 0.375em;
+        box-sizing: border-box;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: break-word;
         padding: 2.25em;
         margin-bottom: 2em;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -62,11 +69,15 @@
         gap: 2em;
         margin-bottom: 2em;
       }
+      .gf-card-grid > * {
+        min-width: 0;
+      }
       .gf-card-grid .gf-card {
         margin-bottom: 0;
       }
       .gf-card-header {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 0.85em;
         margin-bottom: 1.25em;
@@ -77,6 +88,7 @@
         margin: 0;
         font-size: 1.4em;
         color: #3d4449;
+        min-width: 0;
       }
       .gf-card-header .icon {
         font-size: 1.3em;
@@ -84,8 +96,11 @@
       }
       .gf-badge {
         display: inline-flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 0.35em;
+        max-width: 100%;
+        white-space: normal;
         padding: 0.25em 0.7em;
         background: #f1f5f9;
         border: 1px solid #cbd5e1;
@@ -155,6 +170,8 @@
         align-items: center;
         justify-content: space-between;
         gap: 0.75em 1.25em;
+        max-width: 100%;
+        min-width: 0;
         padding: 0.85em 1em;
         background: #f8fafc;
         border: 1px solid #e2e8f0;
@@ -163,10 +180,16 @@
       }
       .doc-item-info {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.75em;
+        flex: 1 1 180px;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .doc-item-info > div {
         flex: 1;
-        min-width: 220px;
+        min-width: 0;
+        overflow-wrap: break-word;
       }
       .doc-item-title {
         font-weight: 700;
@@ -225,6 +248,17 @@
           grid-template-columns: 1fr;
         }
       }
+      @media screen and (max-width: 600px) {
+        .gf-card {
+          padding: 1.35em;
+        }
+        .doc-item {
+          padding: 0.75em;
+        }
+        .price-amount {
+          white-space: normal;
+        }
+      }
     </style>
   </head>
 
@@ -234,7 +268,7 @@
         <div class="inner">
           <header id="header">
             <a href="/" class="logo">
-              <strong>E/F Skyttegårdvej/Vigerslevvej</strong>
+              <strong>Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148</strong>
             </a>
           </header>
 
@@ -258,7 +292,7 @@
             <div class="box" style="margin-bottom: 2.5em; border-left: 4px solid #f56a6a;">
               <h3 style="margin-bottom: 0.5em;"><span class="icon solid fa-info-circle" style="color: #f56a6a;"></span> Om Generalforsamlingen</h3>
               <p style="margin-bottom: 0.75em;">
-                Generalforsamlingen er E/F Skyttegårdvej/Vigerslevvejs øverste besluttende organ. I henhold til foreningens vedtægter (§ 14) afholdes den ordinære generalforsamling hvert år <strong>inden den 1. juni</strong>.
+                Generalforsamlingen er det øverste besluttende organ i Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148. I henhold til foreningens vedtægter (§ 14) afholdes den ordinære generalforsamling hvert år <strong>inden den 1. juni</strong>.
               </p>
               <ul style="margin-bottom: 0; font-size: 0.95em;">
                 <li><strong>Varsel:</strong> Tidspunktet bekendtgøres for medlemmerne med mindst 3 ugers skriftligt varsel.</li>

@@ -1,5 +1,5 @@
 /* =========================================================
-   Homepage - E/F Skyttegårdvej/Vigerslevvej
+   Homepage - Ejerforeningen Skyttegårdvej 1-11 Vigerslevvej 144-148
    ========================================================= */
 
 .home-columns {
@@ -189,7 +189,14 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  min-width: 0;
   padding-left: 0;
+}
+
+.waste-info-col .box ul.waste-rules-list li > div {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .waste-info-col .box ul.waste-rules-list li + li {
@@ -223,6 +230,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
+  min-width: 0;
   min-height: 0;
 }
 
@@ -231,6 +239,7 @@
   flex-direction: column;
   height: 100%;
   margin-bottom: 0;
+  min-width: 0;
   min-height: 0;
 }
 
@@ -272,6 +281,8 @@
   top: 12px;
   left: 12px;
   margin: 0;
+  max-width: calc(100% - 24px);
+  overflow-wrap: break-word;
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 4px 10px;

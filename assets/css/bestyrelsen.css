@@ -14,6 +14,10 @@
 .admin-login-card,
 .admin-editor-card,
 .admin-list-card {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 1.75em;
   border: 1px solid rgba(210, 215, 217, 0.85);
   border-radius: 0.375em;
