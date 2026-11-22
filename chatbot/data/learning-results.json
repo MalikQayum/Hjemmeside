@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-22T07:12:32.567Z",
-  "generated": 3,
-  "approved": 1,
-  "rejected": 2,
-  "total_unique_attempted": 353,
+  "tested_at": "2026-11-22T07:15:06.762Z",
+  "generated": 1,
+  "approved": 0,
+  "rejected": 1,
+  "total_unique_attempted": 354,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -358,18 +358,13 @@
     "Hvor meget koster ekstra nøglekort og brikker ved tilkøb?",
     "Hvilke dage i juni 2026 udskiftes låsene på gadedørene i det nye nøglesystem?",
     "Hvordan aktiverer man låsen med nøglekort eller brik i det nye system?",
-    "Hvilke døre får udskiftet låse den 10. juni 2026?"
+    "Hvilke døre får udskiftet låse den 10. juni 2026?",
+    "Hvilke døre får udskiftet låse den 10. juni 2026 i det nye nøglesystem?"
   ],
-  "approved_questions": [
-    "Hvilke døre får udskiftet låse den 10. juni 2026?"
-  ],
+  "approved_questions": [],
   "rejected_questions": [
     {
-      "question": "Hvilke dage i juni 2026 udskiftes låsene på gadedørene i det nye nøglesystem?",
-      "reason": "low_question_quality"
-    },
-    {
-      "question": "Hvordan aktiverer man låsen med nøglekort eller brik i det nye system?",
+      "question": "Hvilke døre får udskiftet låse den 10. juni 2026 i det nye nøglesystem?",
       "reason": "low_question_quality"
     }
   ]
