@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-23T00:38:08.151Z",
-  "generated": 1,
+  "tested_at": "2026-11-23T06:40:06.244Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 1,
+  "rejected": 0,
   "total_unique_attempted": 356,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -364,12 +364,5 @@
     "Hvem varetager den daglige ledelse af ejerforeningen og udfører generalforsamlingens beslutninger?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvem varetager den daglige ledelse af ejerforeningen og udfører generalforsamlingens beslutninger?",
-      "reason": "wrong_or_missing_source",
-      "expected": "riode, konstituerer bestyrelsen sig",
-      "actual": "Generalforsamling - referater, regnskab, budget og prisblad"
-    }
-  ]
+  "rejected_questions": []
 }
