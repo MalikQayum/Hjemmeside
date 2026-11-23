@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-23T06:40:06.244Z",
-  "generated": 0,
+  "tested_at": "2026-11-23T17:57:44.863Z",
+  "generated": 1,
   "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 356,
+  "rejected": 1,
+  "total_unique_attempted": 357,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -361,8 +361,14 @@
     "Hvor mange sekunder skal nøglekort eller brik holdes på tastaturet for at aktivere låsen i det nye system?",
     "Hvor mange sekunder skal et nøglekort eller en brik holdes på tastaturet for at aktivere låsen i det nye system?",
     "Hvilken e-mailadresse skal ejere benytte til bestilling af ekstra nøglekort og brikker?",
-    "Hvem varetager den daglige ledelse af ejerforeningen og udfører generalforsamlingens beslutninger?"
+    "Hvem varetager den daglige ledelse af ejerforeningen og udfører generalforsamlingens beslutninger?",
+    "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?"
   ],
   "approved_questions": [],
-  "rejected_questions": []
+  "rejected_questions": [
+    {
+      "question": "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+      "reason": "low_question_quality"
+    }
+  ]
 }
