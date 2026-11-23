@@ -3,24 +3,6 @@
   "description": "Automatisk godkendte spørgsmål, der peger på verificerede kildeafsnit. Regler indeholder ikke selvstændige foreningsfakta.",
   "rules": [
     {
-      "question": "Hvad siger informationen om ejerlejligheder, samt til almindeligt gældende?",
-      "document_id": "7f0efc24d520d30f",
-      "source_file": "Vedtægter.pdf",
-      "source_url": "/Vedtægter.pdf",
-      "answer_word_count": 15,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:36:45.209Z"
-    },
-    {
-      "question": "Kan du fortælle om ejerlejligheder, samt til almindeligt gældende?",
-      "document_id": "7f0efc24d520d30f",
-      "source_file": "Vedtægter.pdf",
-      "source_url": "/Vedtægter.pdf",
-      "answer_word_count": 15,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:36:45.209Z"
-    },
-    {
       "question": "Hvad gælder om Nyhedsbrev nr.8?",
       "document_id": "811df0dfb6caf222",
       "source_file": "Nyhedsbrev.docx",
@@ -197,24 +179,6 @@
       "source_file": "Husorden.pdf",
       "source_url": "/Husorden.pdf",
       "answer_word_count": 10,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvilke udendørs bygningsdele og fællesarealer har foreningen ansvaret for at vedligeholde?",
-      "document_id": "3bd759338e7fcd6f",
-      "source_file": "Vedtægter.pdf",
-      "source_url": "/Vedtægter.pdf",
-      "answer_word_count": 21,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T23:00:10.964Z"
-    },
-    {
-      "question": "Hvilke krav stilles der ved salg af en ejerlejlighed for at den kan ske frit?",
-      "document_id": "48540c54e2c56fff",
-      "source_file": "Vedtægter.pdf",
-      "source_url": "/Vedtægter.pdf",
-      "answer_word_count": 9,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-16T23:00:10.964Z"
     },
