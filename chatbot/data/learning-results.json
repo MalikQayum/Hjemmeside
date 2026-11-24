@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-23T17:57:44.863Z",
-  "generated": 1,
+  "tested_at": "2026-11-24T17:35:30.484Z",
+  "generated": 0,
   "approved": 0,
-  "rejected": 1,
+  "rejected": 0,
   "total_unique_attempted": 357,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -365,10 +365,5 @@
     "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?"
   ],
   "approved_questions": [],
-  "rejected_questions": [
-    {
-      "question": "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
-      "reason": "low_question_quality"
-    }
-  ]
+  "rejected_questions": []
 }
