@@ -352,6 +352,402 @@
       "answer_word_count": 46,
       "approved_by": "automated-source-and-answer-test",
       "approved_at": "2026-11-25T07:03:07.744Z"
+    },
+    {
+      "question": "Hvor på hjemmesiden kan jeg læse tidligere nyhedsbreve fra bestyrelsen?",
+      "document_id": "d3fcbc07ffe84752",
+      "source_file": "nyhed/index.html",
+      "source_url": "/nyhed/",
+      "answer_word_count": 28,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvad skal jeg oplyse til DinParkering, når jeg anmelder en bil, der holder ulovligt på min plads?",
+      "document_id": "37045bd9fac779f9",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg har købt ny bil – hvordan søger jeg om at komme på ventelisten til en parkeringsplads?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvem administrerer egentlig ejerforeningens parkeringspladser, og hvem står for kontrollen?",
+      "document_id": "be0f688d6378011f",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 25,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvor kan jeg slå prisen op for at leje en parkeringsplads til bil eller scooter?",
+      "document_id": "deeb133f1cca3cb4",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg har brug for mere opbevaringsplads – må jeg leje et ekstra kælderrum og eventuelt fremleje det, hvis jeg ikke bruger det hele?",
+      "document_id": "bb7952d2e44d9499",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Er prisen for et ekstra kælderrum ens for alle rum, eller afhænger den af størrelsen?",
+      "document_id": "bb7952d2e44d9499",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvordan betaler man for et nyt nøglekort, når man bestiller et ekstra via hjemmesiden?",
+      "document_id": "564eb2bb69dae7ff",
+      "source_file": "noegler/index.html",
+      "source_url": "/noegler/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg skal sælge min lejlighed – hvilken mailadresse hos DEAS skal jeg skrive til om ejerskiftet?",
+      "document_id": "3c3ba8eda7ee3966",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 36,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvad er mailadressen direkte til bestyrelsen, hvis jeg har spørgsmål om husordenen?",
+      "document_id": "3c3ba8eda7ee3966",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 36,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Der er problemer med en vaskemaskine nede i kælderen på Skyttegårdvej 9 – skal jeg skrive til bestyrelsen eller FIVA?",
+      "document_id": "efc6b3416bbeef32",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 53,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvor kan jeg logge ind og finde mine opkrævninger og foreningens dokumenter digitalt?",
+      "document_id": "5b84e32a8a111315",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 50,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvilken brik skal jeg bruge for at komme ind i skralderummet ved Vigerslevvej 148?",
+      "document_id": "f8073092ba984c45",
+      "source_file": "affald-storskrald/index.html",
+      "source_url": "/affald-storskrald/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg er ved at rive et gammelt køkken ned – må jeg sætte byggeaffaldet ind i storskraldsrummet?",
+      "document_id": "f8073092ba984c45",
+      "source_file": "affald-storskrald/index.html",
+      "source_url": "/affald-storskrald/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvad sker der, hvis en beboer sætter sit affald uden for containerne i skraldeburet?",
+      "document_id": "f8073092ba984c45",
+      "source_file": "affald-storskrald/index.html",
+      "source_url": "/affald-storskrald/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvem skal jeg give besked, hvis jeg opdager at græsslåningen eller rengøringen i opgangen ikke er blevet gjort?",
+      "document_id": "f8073092ba984c45",
+      "source_file": "affald-storskrald/index.html",
+      "source_url": "/affald-storskrald/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg kan ikke selv komme til generalforsamlingen – må jeg give en skriftlig fuldmagt til en anden?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Må min lejer møde op og stemme på generalforsamlingen i ejerforeningen?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Får vi årsregnskabet og budgetforslaget sendt ud sammen med indkaldelsen til generalforsamlingen?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvor langt tilbage kan man finde gamle referater og årsregnskaber på hjemmesiden?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvornår starter og slutter ejerforeningens regnskabsår?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg skal rejse væk i tre uger og vil udleje min lejlighed via Airbnb – skal bestyrelsen have besked, og hvad skal jeg oplyse?",
+      "document_id": "766b8c07b4dcf66e",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvad sker der, hvis en ejer korttidsudlejer sin lejlighed oftere end de tilladte 4 gange om året?",
+      "document_id": "766b8c07b4dcf66e",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Må jeg bruge min lejlighed til permanent ferieudlejning hele året rundt?",
+      "document_id": "766b8c07b4dcf66e",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Jeg har fundet en lejer til min lejlighed – hvor skal jeg sende den underskrevne udlejningsblanket hen?",
+      "document_id": "6dd751b0d16f93e6",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 74,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Koster det et gebyr at få lavet et nyt navneskilt på postkassen, når man udlejer sin lejlighed?",
+      "document_id": "6dd751b0d16f93e6",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 74,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Mit blandingsbatteri i bruseren er begyndt at dryppe – er det foreningen eller mig selv som ejer, der skal betale for reparationen?",
+      "document_id": "465ffeea80f6d77b",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 50,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Der er sprunget et vandrør under min køkkenvask efter forgreningen fra hovedstigstrengen – hvem har ansvaret for den del af røret?",
+      "document_id": "9703ea0c9cec90a6",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 53,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "En af mine radiatorer i stuen er utæt – hører radiatorer under foreningens eller ejerens vedligeholdelse?",
+      "document_id": "465ffeea80f6d77b",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 63,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Der siver vand ud fra den fælles lodrette faldstamme bag min væg på badeværelset – er det foreningens ansvar?",
+      "document_id": "465ffeea80f6d77b",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "En tagrende på bygningen er gået i stykker og drypper ned på facaden – hvem står for udvendig vedligeholdelse?",
+      "document_id": "d1c8355921a7c966",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 50,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Min håndværker skal have lukket for vandet til hele opgangen i næste uge – hvor mange dage i forvejen skal jeg hænge en seddel op?",
+      "document_id": "9703ea0c9cec90a6",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 50,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvilke oplysninger skal stå på varslingssedlen i opgangen, når vi skal lukke for vandet?",
+      "document_id": "9703ea0c9cec90a6",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 50,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Der fosser vand ud fra et sprunget rør i lejligheden lige nu – hvad gør jeg som det allerførste?",
+      "document_id": "9703ea0c9cec90a6",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 53,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Et slidt rør under min egen vask har givet vandskade på mit trægulv og mine møbler – dækker foreningens bygningsforsikring det?",
+      "document_id": "97716fde28e88baa",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 77,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Dækker min egen indboforsikring også de ting, jeg har opbevaret nede i kælderrummet?",
+      "document_id": "97716fde28e88baa",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 71,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Der har været ubudne gæster i vores kælder, fordi døren ikke var smækket – skal dørene ved kælderskakte og trappeopgange altid holdes låst?",
+      "document_id": "b62bed061a40ddc5",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 42,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Må jeg anskaffe mig en lille hund eller en indekat i lejligheden ifølge husordenen?",
+      "document_id": "7cf05b95e8d5a01a",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 12,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Min nabo spiller høj musik med kraftig bas sent om aftenen – hvad står der i husordenen om at vise hensyn?",
+      "document_id": "f857c24a7e2fd061",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 36,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Må jeg lægge brød eller fuglefoder ud til fuglene nede i gården?",
+      "document_id": "339345fc42039ac6",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 17,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvad sker der, hvis et forslag om vedtægtsændring ikke fik nok stemmer fra alle ejere, men fik 2/3 flertal blandt de fremmødte?",
+      "document_id": "d73a8018114eeb4b",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 68,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvor stort flertal kræves der, hvis foreningen vil sælge større grundarealer eller betydelige fælles bestanddele?",
+      "document_id": "a29d2a925f185c7d",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 40,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Hvor lang tids skriftligt varsel skal foreningen give mig, hvis de skal ind i min lejlighed for at lave en reparation?",
+      "document_id": "313e9aa5248035fc",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 48,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
+    },
+    {
+      "question": "Må jeg sælge min ejerlejlighed til et kollektiv, hvor der flytter flere voksne ind, end der er værelser?",
+      "document_id": "08cf5a13a5561808",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 32,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:10:15.732Z"
     }
   ]
 }
