@@ -47,17 +47,27 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Opsæt Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Installer OCR og dokumentbiblioteker
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils tesseract-ocr tesseract-ocr-dan
           python -m pip install --disable-pip-version-check pypdf python-docx
 
-      - name: Generer vidensdatabase
+      - name: Generer og berig vidensdatabase
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-4-hydrogen
         run: python scripts/chatbot/build-knowledge.py
 
-      - name: Kontrollér vidensdatabase
-        run: python scripts/chatbot/validate-knowledge.py
+      - name: Kontrollér vidensdatabase og søgemotor
+        run: |
+          python scripts/chatbot/validate-knowledge.py
+          node scripts/chatbot/test-chatbot.js
 
       - name: Commit ændringer
         shell: bash

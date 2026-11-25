@@ -34,6 +34,7 @@ Denne fil fungerer som en streng allowlist over, hvilke filer i repositoryet gen
 ```json
 {
   "include": [
+    "index.html",
     "affald-storskrald/index.html",
     "generalforsamling/index.html",
     "husorden-vedtaegter/index.html",
@@ -41,17 +42,19 @@ Denne fil fungerer som en streng allowlist over, hvilke filer i repositoryet gen
     "kontakt/index.html",
     "noegler/index.html",
     "nyhed/index.html",
+    "nyhed/Nyhedsbrev.docx",
     "parkering/index.html",
     "udlejning/index.html",
     "vedligeholdelse/index.html",
-    "husorden-vedtaegter/Husorden.pdf"
+    "Husorden.pdf",
+    "Vedtægter.pdf"
   ],
   "exclude": [
     "generalforsamling/referater/**",
     "dokumenter/forening/**"
   ],
-  "chunk_chars": 500,
-  "overlap_chars": 80
+  "chunk_chars": 1200,
+  "overlap_chars": 160
 }
 ```
 - **`include`:** Kun offentligt godkendte sider og dokumenter må medtages.
@@ -63,7 +66,7 @@ Filen vedligeholdes automatisk af træningsworkflowet `.github/workflows/train-c
 - Hver regel forbinder en specifik spørgsmålsformulering med et entydigt kilde-ID i vidensbasen (`data/knowledge.json`).
 - **Strenge godkendelseskrav:**
   - Søgemotoren skal med høj præcision udpege det korrekte kildeafsnit som første prioritet.
-  - Det genererede svar skal være kort og præcist (maksimalt 45 ord).
+  - Det genererede svar skal være klart og præcist (maksimalt 120 ord).
   - Reglerne må **aldrig** indeholde selvstændigt opfundne regler eller fakta. De peger udelukkende på kildedokumentets eksisterende tekst.
 
 ---

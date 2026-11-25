@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /* Regressionstest af chatbot-søgning og svarformatering uden browser eller npm-pakker. */
-const fs = require("node:fs");
-const path = require("node:path");
-const vm = require("node:vm");
+import fs from "node:fs";
+import path from "node:path";
+import vm from "node:vm";
+import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const jsPath = path.join(ROOT, "assets/js/chatbot.js");
 const dataPath = path.join(ROOT, "chatbot/data/knowledge.json");
