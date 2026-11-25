@@ -1,6 +1,6 @@
 # Chatbot - vidensbaseret informationsassistent
 
-Chatbotten er en statisk løsning, der hostes sammen med hjemmesiden på GitHub Pages. Besøgendes spørgsmål søges i browseren mod en genereret vidensdatabase; chatten sender ikke spørgsmål til en AI-API. Et separat GitHub Actions-workflow kan bruge Gemini til at foreslå nye spørgsmål og tester dem mod chatbotten, før de gemmes.
+Chatbotten kombinerer en hurtig kildebaseret søgemotor med valgfri server-side Gemini-integration (`/api/chatbot/query`) og fuld lokal browser-fallback på statisk hosting (GitHub Pages). To GitHub Actions-workflows opbygger henholdsvis vidensdatabasen (med struktureret paragraf-parsing og semantisk berigelse) og træner nye hverdags- og scenariespørgsmål.
 
 ## Struktur
 - `config/config.json`: central til/fra-indstilling for chatbotten på hjemmesiden.
@@ -50,7 +50,7 @@ Når husordenen eller andre kilder ændres, skal vidensdatabasen bygges igen via
 
 ## Automatisk spørgsmålstræning
 
-Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt op til 50 nye danske spørgsmål ud fra `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**. Workflowet bruger `gemini-3.5-flash-lite` som standard og falder tilbage til en lokal generator, hvis Gemini ikke kan bruges.
+Workflowet `.github/workflows/train-chatbot.yml` genererer dagligt nye naturlige danske hverdags- og scenariespørgsmål ud fra `data/knowledge.json`. Det kan også startes manuelt under **Actions → Træn chatbot med nye spørgsmål → Run workflow**. Workflowet bruger `gemini-4-hydrogen` (med automatisk fallback til `gemini-3.1-flash-lite`) og falder tilbage til en lokal Python-generator, hvis Gemini ikke kan bruges. Opbygningen af viden i `.github/workflows/update-chatbot-knowledge.yml` kan ligeledes berige nye afsnit med hverdags-søgeord via Gemini og kører automatisk både `validate-knowledge.py` og `test-chatbot.js`.
 
 ### Gemini-opsætning
 
@@ -70,7 +70,7 @@ Hvis `GEMINI_API_KEY` mangler, eller Gemini returnerer en fejl/kvotegrænse, fal
 
 - Gemini må kun generere spørgsmål ud fra de eksisterende kildeafsnit og skal angive det præcise `document_id`.
 - `train-generated-questions.js` tester hvert spørgsmål mod chatbotens faktiske søge- og svarfunktion.
-- Spørgsmålet godkendes kun, hvis søgemotoren finder det angivne kildeafsnit som bedste resultat, kilden har indhold og URL, og svaret er højst 45 ord.
+- Spørgsmålet godkendes kun, hvis søgemotoren finder det angivne kildeafsnit (eller samme kategori/sektion) som bedste resultat, kilden har indhold og URL, og svaret er højst 120 ord.
 - Godkendte spørgsmål gemmes i `config/response-rules.json`. Reglen peger kun på et eksisterende kildeafsnit; den indeholder ikke nye foreningsregler eller selvstændige fakta.
 - Chatbotten indlæser reglerne og bruger dem til at finde det rigtige kildeafsnit ved præcis samme spørgsmål.
 - Afviste spørgsmål gemmes i `data/learning-results.json`.

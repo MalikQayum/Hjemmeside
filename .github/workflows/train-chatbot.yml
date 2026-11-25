@@ -46,17 +46,17 @@ jobs:
       - name: Opsæt Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Kontrollér eksisterende chatbot
         run: |
           python scripts/chatbot/validate-knowledge.py
           node scripts/chatbot/test-chatbot.js
 
-      - name: Generér nye spørgsmål med Gemini (gratis kvote)
+      - name: Generér nye scenariespørgsmål med Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-3.5-flash-lite
+          GEMINI_MODEL: gemini-4-hydrogen
           QUESTION_BATCH_SIZE: ${{ inputs.question_batch_size || '50' }}
         run: python scripts/chatbot/generate-questions.py
 

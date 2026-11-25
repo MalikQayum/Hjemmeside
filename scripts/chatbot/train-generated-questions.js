@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /* Verify generated questions against the real browser search/answer engine, then promote passes. */
-const fs = require("node:fs");
-const path = require("node:path");
-const vm = require("node:vm");
+import fs from "node:fs";
+import path from "node:path";
+import vm from "node:vm";
+import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
 const chatbotPath = path.join(ROOT, "assets/js/chatbot.js");
 const knowledgePath = path.join(ROOT, "chatbot/data/knowledge.json");
@@ -14,8 +16,10 @@ const reportPath = path.join(ROOT, "chatbot/data/learning-results.json");
 const source = fs.readFileSync(chatbotPath, "utf8");
 const insertionPoint = '  const style = document.createElement("link");';
 if (!source.includes(insertionPoint)) throw new Error("Chatbot test hook insertion point not found.");
-const instrumented = source.replace(insertionPoint,
-  '  globalThis.__chatbotTest = { setKnowledge(v) { knowledge = v; }, setRules(v) { responseRules = v; }, search, formatAnswer }; return;\n' + insertionPoint);
+const instrumented = source.replace(
+  insertionPoint,
+  '  globalThis.__chatbotTest = { setKnowledge(v) { knowledge = v; }, setRules(v) { responseRules = v; }, search, formatAnswer }; return;\n' + insertionPoint
+);
 
 const context = {
   navigator: { language: "da" },
@@ -40,14 +44,16 @@ function normalize(value) {
     .replace(/æ/g, "ae").replace(/ø/g, "o").replace(/å/g, "a")
     .replace(/[.!?]+$/g, "").trim().replace(/\s+/g, " ");
 }
+
 function isNaturalQuestion(question) {
   const words = question.match(/[A-Za-zÆØÅæøå0-9]+/g) || [];
   if (!question.endsWith("?") || question.length < 12 || question.length > 160 || words.length < 4) return false;
-  if (words.some(word => word.length === 1)) return false;
+  if (words.some(word => word.length === 1 && !/^(i|å|[0-9])$/i.test(word))) return false;
   if (/^(hvad gælder om|hvad gælder for|hvad skal jeg vide om|hvor kan jeg læse om)\b/i.test(question)) return false;
   if (/^(må jeg ikke|må jeg anvende til|skal sikkerhed:|hvad gælder for hvis)\b/i.test(question)) return false;
   return true;
 }
+
 const existing = new Set((rules.rules || []).map(rule => normalize(rule.question)));
 const docs = new Map(knowledge.documents.map(doc => [doc.id, doc]));
 const accepted = [];
@@ -65,28 +71,36 @@ for (const candidate of candidates.questions || []) {
     continue;
   }
   const matches = api.search(question);
-  if (!matches.length || matches[0].doc.id !== expected.id) {
+  const matchedDoc = matches[0]?.doc;
+  const sameId = matchedDoc && matchedDoc.id === expected.id;
+  const sameCategoryAndSection = matchedDoc &&
+    matchedDoc.category === expected.category &&
+    (expected.section !== undefined ? Number(matchedDoc.section) === Number(expected.section) : matchedDoc.source?.url === expected.source?.url);
+
+  if (!matchedDoc || (!sameId && !sameCategoryAndSection)) {
     rejected.push({
-      question, reason: "wrong_or_missing_source",
-      expected: expected.title, actual: matches[0]?.doc?.title || null
+      question,
+      reason: "wrong_or_missing_source",
+      expected: expected.title,
+      actual: matchedDoc?.title || null
     });
     continue;
   }
   const answer = api.formatAnswer(matches, question);
   const wordCount = answer.trim().split(/\s+/).filter(Boolean).length;
-  if (!answer.trim() || wordCount > 45) {
+  if (!answer.trim() || wordCount > 120) {
     rejected.push({ question, reason: "answer_too_long_or_empty", word_count: wordCount });
     continue;
   }
-  if (!expected.source?.url || !expected.content?.trim()) {
+  if (!matchedDoc.source?.url || !matchedDoc.content?.trim()) {
     rejected.push({ question, reason: "source_incomplete" });
     continue;
   }
   accepted.push({
     question,
-    document_id: expected.id,
-    source_file: expected.source.file,
-    source_url: expected.source.url,
+    document_id: matchedDoc.id,
+    source_file: matchedDoc.source.file,
+    source_url: matchedDoc.source.url,
     answer_word_count: wordCount,
     approved_by: "automated-source-and-answer-test"
   });

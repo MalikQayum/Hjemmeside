@@ -57,33 +57,6 @@
       "approved_at": "2026-11-16T22:36:45.209Z"
     },
     {
-      "question": "Hvem administrerer ejerforeningens parkeringspladser?",
-      "document_id": "2ed69c63e8412778",
-      "source_file": "parkering/index.html",
-      "source_url": "/parkering/",
-      "answer_word_count": 25,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
-      "question": "Hvem varetager parkeringskontrollen på området?",
-      "document_id": "8a1c8ccb790860f6",
-      "source_file": "parkering/index.html",
-      "source_url": "/parkering/",
-      "answer_word_count": 20,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
-      "question": "Hvem skal jeg kontakte, hvis nogen holder på din parkeringsplads?",
-      "document_id": "8a1c8ccb790860f6",
-      "source_file": "parkering/index.html",
-      "source_url": "/parkering/",
-      "answer_word_count": 20,
-      "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-16T22:52:10.888Z"
-    },
-    {
       "question": "Må jeg opsætte udvendige antenner og loftantenner?",
       "document_id": "04f17b59d499bf79",
       "source_file": "Husorden.pdf",
@@ -183,31 +156,202 @@
       "approved_at": "2026-11-16T23:00:10.964Z"
     },
     {
-      "question": "Må jeg efterlade affald uden for containerne?",
-      "document_id": "f8073092ba984c45",
-      "source_file": "affald-storskrald/index.html",
-      "source_url": "/affald-storskrald/",
-      "answer_word_count": 26,
+      "question": "Hvor må jeg stille min cykel, knallert eller barnevogn?",
+      "document_id": "692314bd890445e2",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 46,
       "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-21T07:41:46.707Z"
+      "approved_at": "2026-11-25T07:00:05.969Z"
     },
     {
-      "question": "Må jeg benytte til erhvervsaktiviteter eller permanent ferie-/korttidsudlejning?",
-      "document_id": "115cef2bb79508c7",
-      "source_file": "udlejning/index.html",
-      "source_url": "/udlejning/",
+      "question": "Hvad skal vi gøre med låste døre for at undgå ubudne gæster?",
+      "document_id": "b62bed061a40ddc5",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
       "answer_word_count": 42,
       "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-21T07:41:46.707Z"
+      "approved_at": "2026-11-25T07:00:05.969Z"
     },
     {
-      "question": "Hvem varetager den udvendige bygningsvedligeholdelse samt ejendommens fælles forsyningslinjer og udenomsarealer: Murværk?",
-      "document_id": "d1c8355921a7c966",
+      "question": "Hvem har vedligeholdelsespligten for fælles faldstammer og hovedstigstrenge?",
+      "document_id": "97716fde28e88baa",
       "source_file": "vedligeholdelse/index.html",
       "source_url": "/vedligeholdelse/",
       "answer_word_count": 43,
       "approved_by": "automated-source-and-answer-test",
-      "approved_at": "2026-11-21T07:41:46.707Z"
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvordan anmelder jeg en skade til bygningsforsikringen hos Protector?",
+      "document_id": "97716fde28e88baa",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 71,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvor mange dage om året må jeg korttidsudleje min lejlighed via Airbnb?",
+      "document_id": "766b8c07b4dcf66e",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Skal jeg udfylde en udlejningsblanket når jeg udlejer min lejlighed?",
+      "document_id": "6dd751b0d16f93e6",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 74,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvornår skal ordinær generalforsamling senest afholdes ifølge vedtægterne?",
+      "document_id": "fca5be56986742c0",
+      "source_file": "Vedtægter.pdf",
+      "source_url": "/Vedtægter.pdf",
+      "answer_word_count": 31,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvordan får jeg en ekstra nøglebrik, eller hvad gør jeg hvis jeg mister den?",
+      "document_id": "564eb2bb69dae7ff",
+      "source_file": "noegler/index.html",
+      "source_url": "/noegler/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvordan skriver jeg mig på venteliste til et ekstra kælderrum?",
+      "document_id": "bb7952d2e44d9499",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvem varetager den daglige ejendomsadministration?",
+      "document_id": "3c3ba8eda7ee3966",
+      "source_file": "kontakt/index.html",
+      "source_url": "/kontakt/",
+      "answer_word_count": 36,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:05.969Z"
+    },
+    {
+      "question": "Hvem skal jeg kontakte, hvis en fremmed bil holder på min parkeringsplads?",
+      "document_id": "37045bd9fac779f9",
+      "source_file": "parkering/index.html",
+      "source_url": "/parkering/",
+      "answer_word_count": 20,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Er det tilladt at leje min lejlighed ud via Airbnb?",
+      "document_id": "766b8c07b4dcf66e",
+      "source_file": "udlejning/index.html",
+      "source_url": "/udlejning/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Hvad gør jeg, hvis mit kælderrum ikke er låst?",
+      "document_id": "bb7952d2e44d9499",
+      "source_file": "kaelderrum/index.html",
+      "source_url": "/kaelderrum/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Hvornår skal forslag til den ordinære generalforsamling senest være indsendt?",
+      "document_id": "c8d4296f8fc49b52",
+      "source_file": "generalforsamling/index.html",
+      "source_url": "/generalforsamling/",
+      "answer_word_count": 27,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Hvor skal jeg stille mit storskrald?",
+      "document_id": "f8073092ba984c45",
+      "source_file": "affald-storskrald/index.html",
+      "source_url": "/affald-storskrald/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Hvad gør jeg, hvis jeg har mistet min nøglebrik?",
+      "document_id": "564eb2bb69dae7ff",
+      "source_file": "noegler/index.html",
+      "source_url": "/noegler/",
+      "answer_word_count": 49,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Er det tilladt at ryge på de indendørs fællesarealer?",
+      "document_id": "73aab93e8d6fa743",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 19,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:00:45.551Z"
+    },
+    {
+      "question": "Jeg har fået en vandskade i badeværelset, hvad gør jeg?",
+      "document_id": "97716fde28e88baa",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 77,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:02:49.985Z"
+    },
+    {
+      "question": "Er det tilladt at holde hund eller kat i lejligheden?",
+      "document_id": "7cf05b95e8d5a01a",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 12,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:02:49.985Z"
+    },
+    {
+      "question": "Hvem har ansvaret for vedligeholdelse af faldstammerne i bygningen?",
+      "document_id": "465ffeea80f6d77b",
+      "source_file": "vedligeholdelse/index.html",
+      "source_url": "/vedligeholdelse/",
+      "answer_word_count": 43,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:02:49.985Z"
+    },
+    {
+      "question": "Hvordan skal jeg lufte ud for at undgå skimmelsvamp?",
+      "document_id": "265961b8d0027ed3",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 35,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:02:49.985Z"
+    },
+    {
+      "question": "Må jeg opbevare min cykel i trappeopgangen?",
+      "document_id": "692314bd890445e2",
+      "source_file": "Husorden.pdf",
+      "source_url": "/Husorden.pdf",
+      "answer_word_count": 46,
+      "approved_by": "automated-source-and-answer-test",
+      "approved_at": "2026-11-25T07:03:07.744Z"
     }
   ]
 }

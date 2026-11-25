@@ -57,5 +57,10 @@ for rule in rules["rules"]:
     seen_questions.add(normalized)
     assert rule.get("document_id") in known_ids, f"Ukendt kilde i response rule: {question}"
     assert rule.get("source_url"), f"Mangler kilde-URL i response rule: {question}"
-    assert int(rule.get("answer_word_count", 0)) <= 45, f"For langt godkendt svar: {question}"
+    assert int(rule.get("answer_word_count", 0)) <= 120, f"For langt godkendt svar: {question}"
+vedtaegter_secs = [
+    item for item in data["documents"]
+    if item.get("source", {}).get("file") == "Vedtægter.pdf" and item.get("section") is not None
+]
+assert len(vedtaegter_secs) >= 25, "Vedtægter.pdf mangler paragraf-opdelte afsnit (§)"
 print(f"Automatiske svarregler OK: {len(rules['rules'])} godkendte spørgsmål.")

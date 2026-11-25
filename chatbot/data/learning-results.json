@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-24T17:35:30.484Z",
-  "generated": 0,
-  "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 357,
+  "tested_at": "2026-11-25T07:03:07.744Z",
+  "generated": 15,
+  "approved": 1,
+  "rejected": 14,
+  "total_unique_attempted": 385,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -362,8 +362,101 @@
     "Hvor mange sekunder skal et nøglekort eller en brik holdes på tastaturet for at aktivere låsen i det nye system?",
     "Hvilken e-mailadresse skal ejere benytte til bestilling af ekstra nøglekort og brikker?",
     "Hvem varetager den daglige ledelse af ejerforeningen og udfører generalforsamlingens beslutninger?",
-    "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?"
+    "Hvilken dato i juni 2026 udskiftes låsene på dørene til opgang 1, 5, 7, 11, 144, 148 og storskralderummet?",
+    "Hvor må jeg stille min cykel, knallert eller barnevogn?",
+    "Hvad skal vi gøre med låste døre for at undgå ubudne gæster?",
+    "Hvem har vedligeholdelsespligten for fælles faldstammer og hovedstigstrenge?",
+    "Hvordan anmelder jeg en skade til bygningsforsikringen hos Protector?",
+    "Hvor mange dage om året må jeg korttidsudleje min lejlighed via Airbnb?",
+    "Skal jeg udfylde en udlejningsblanket når jeg udlejer min lejlighed?",
+    "Hvornår skal ordinær generalforsamling senest afholdes ifølge vedtægterne?",
+    "Hvornår skal forslag til generalforsamlingen indsendes til bestyrelsen?",
+    "Hvordan får jeg en ekstra nøglebrik, eller hvad gør jeg hvis jeg mister den?",
+    "Hvordan skriver jeg mig på venteliste til et ekstra kælderrum?",
+    "Hvem kontakter jeg ved akut VVS-problem eller sprunget rør?",
+    "Hvem varetager den daglige ejendomsadministration?",
+    "Hvem varetager rengøring og ejendomsservice for foreningen?",
+    "Hvem skal jeg kontakte, hvis en fremmed bil holder på min parkeringsplads?",
+    "Jeg har fået en vandskade i badeværelset, hvad gør jeg?",
+    "Er det tilladt at leje min lejlighed ud via Airbnb?",
+    "Hvor lang tid skal jeg holde min nøglebrik hen til tastaturet for at låse op?",
+    "Hvad gør jeg, hvis mit kælderrum ikke er låst?",
+    "Må jeg opbevare min cykel i trappeopgangen?",
+    "Hvornår skal forslag til den ordinære generalforsamling senest være indsendt?",
+    "Skal jeg selv male mine vinduer indvendigt, når foreningen maler dem udvendigt?",
+    "Hvor meget koster en ekstra nøglebrik?",
+    "Er det tilladt at holde hund eller kat i lejligheden?",
+    "Hvem har ansvaret for vedligeholdelse af faldstammerne i bygningen?",
+    "Hvordan skal jeg lufte ud for at undgå skimmelsvamp?",
+    "Hvor skal jeg stille mit storskrald?",
+    "Hvad gør jeg, hvis jeg har mistet min nøglebrik?",
+    "Er det tilladt at ryge på de indendørs fællesarealer?"
   ],
-  "approved_questions": [],
-  "rejected_questions": []
+  "approved_questions": [
+    "Må jeg opbevare min cykel i trappeopgangen?"
+  ],
+  "rejected_questions": [
+    {
+      "question": "Hvem skal jeg kontakte, hvis en fremmed bil holder på min parkeringsplads?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Jeg har fået en vandskade i badeværelset, hvad gør jeg?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Er det tilladt at leje min lejlighed ud via Airbnb?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvor lang tid skal jeg holde min nøglebrik hen til tastaturet for at låse op?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglekort & nøglebrikker - bestilling, priser og sikkerhed"
+    },
+    {
+      "question": "Hvad gør jeg, hvis mit kælderrum ikke er låst?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvornår skal forslag til den ordinære generalforsamling senest være indsendt?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Skal jeg selv male mine vinduer indvendigt, når foreningen maler dem udvendigt?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Vedtægter - § 27. Ejernes vedligeholdelsespligt",
+      "actual": "Vedligeholdelse - indvendig vedligeholdelse (ejers ansvar)"
+    },
+    {
+      "question": "Hvor meget koster en ekstra nøglebrik?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglekort & nøglebrikker - bestilling, priser og sikkerhed"
+    },
+    {
+      "question": "Er det tilladt at holde hund eller kat i lejligheden?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvem har ansvaret for vedligeholdelse af faldstammerne i bygningen?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvordan skal jeg lufte ud for at undgå skimmelsvamp?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvor skal jeg stille mit storskrald?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvad gør jeg, hvis jeg har mistet min nøglebrik?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Er det tilladt at ryge på de indendørs fællesarealer?",
+      "reason": "duplicate_or_empty"
+    }
+  ]
 }

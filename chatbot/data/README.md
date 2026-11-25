@@ -45,7 +45,7 @@ Vidensbasen må **aldrig** redigeres manuelt. Den opdateres altid gennem følgen
 
 1. **Tekstudtrækning (`build-knowledge.py`):**
    - Læser kilderne specificeret i `chatbot/config/knowledge-config.json`.
-   - Parser HTML og PDF (`Husorden.pdf`), splitter indholdet i logiske afsnit og danner `chatbot/data/knowledge.json`.
+   - Parser HTML, PDF (`Husorden.pdf`, `Vedtægter.pdf` §§ 1–33) og DOCX (`Nyhedsbrev.docx`), beriger med domænespecifikke søgeord (samt valgfri Gemini-tagging i Actions) og danner `chatbot/data/knowledge.json`.
    - Kommando:
      ```bash
      python scripts/chatbot/build-knowledge.py

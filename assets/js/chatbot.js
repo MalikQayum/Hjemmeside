@@ -158,22 +158,30 @@
     vandskade: ["vandskade", "vandskader", "rørskade", "rørbrud", "sprunget", "lækage", "oversvømmelse", "vandudstrømning", "fugt", "fugtskade", "utæt", "utæthed"],
     badevaerelse: ["badeværelse", "badeværelset", "bad", "toilet", "toilettet", "sanitet", "vådrum"],
     forsikring: ["forsikring", "bygningsforsikring", "indboforsikring", "protector", "selvrisiko", "skade", "skader", "skadeanmeldelse", "skadesanmeldelse", "dækning"],
+    cykelkaelder: ["cykelkælder", "cykelkælderen", "cykelkældre", "cykelrum", "cykel", "cykler", "barnevogn", "barnevogne", "knallert", "fællesarealer", "fællesejendom"],
+    sikkerhed: ["ubudne", "ubudne gæster", "fremmede", "aflåst", "låst", "kælderdøre", "opgangsdør", "sikkerhed", "spærring", "mistet brik"],
+    vinduer: ["vindue", "vinduer", "vinduesmaling", "maling af vinduer"],
+    udluftning: ["udluftning", "lufte ud", "lufte", "skimmel", "skimmelsvamp", "fugt", "fugtdannelse"],
     vedligeholdelse: [
-      "vedligehold", "vandlukning", "lukning af vand", "rørbrud", "rørskade", "vandrør", "vandskade", "vandskader",
-      "sprunget", "sprunget rør", "faldstammer", "faldstamme", "stigerør", "stigstrenge", "forgrening", "forgreninger",
-      "rørforgrening", "rørforgreninger", "vinduer", "radiator", "vvs", "fld", "ista",
-      "badeværelse", "badeværelset", "bad", "toilet", "toilettet", "vandhane", "vandhaner", "håndvask", "sanitet", "armatur",
-      "blandingsbatteri", "cisterne", "bruser", "afløb", "utæt", "drypper", "løber", "oversvømmelse", "fugt", "fugtskade",
-      "afspærringshane", "døgnvagt", "forsikring", "bygningsforsikring", "indboforsikring", "protector", "selvrisiko",
-      "skadesanmeldelse", "skadeanmeldelse"
+      "vedligehold", "vedligeholdelse", "vedligeholdelsespligt", "vandlukning", "lukning af vand", "rørbrud", "rørskade",
+      "vandrør", "vandskade", "vandskader", "sprunget", "sprunget rør", "faldstammer", "faldstamme", "stigerør", "stigstrenge",
+      "forgrening", "forgreninger", "rørforgrening", "rørforgreninger", "radiator", "vvs", "fld", "ista"
     ]
   };
 
-  const stopWords = new Set(["maa", "må", "vi", "jeg", "man", "kan", "det", "er", "der", "har", "have", "holde", "vores", "for", "med", "til", "om", "at", "en", "et", "min", "mit", "mine", "pa", "på", "af", "og", "eller", "som", "hvad", "hvem", "hvor", "hvordan", "hvorfor", "nu", "her", "hos"]);
+  const stopWords = new Set([
+    "maa", "må", "vi", "jeg", "man", "kan", "skal", "vil", "gor", "gore", "gør", "gøre", "nar", "når", "hvis",
+    "det", "den", "de", "sig", "sin", "sine", "sit", "er", "der", "har", "have", "holde", "vores",
+    "for", "med", "til", "om", "at", "en", "et", "min", "mit", "mine", "pa", "på", "af", "og",
+    "eller", "som", "hvad", "hvem", "hvor", "hvordan", "hvorfor", "nu", "her", "hos", "ved", "fra", "ud", "ind", "fa", "få"
+  ]);
   const intents = [
     { id: "husdyr", terms: ["husdyr", "dyr", "hund", "hunde", "kat", "katte", "kæledyr"], category: "husorden", section: 6 },
     { id: "fodring", terms: ["fodre", "fodring", "fugle", "katte", "fodres"], category: "husorden", section: 9 },
     { id: "stoej", terms: ["støj", "larm", "musik", "radio", "fjernsyn", "nattero", "højlydt"], category: "husorden", section: 7 },
+    { id: "sikkerhed", terms: ["ubudne gæster", "ubuden", "fremmede", "kælderdøre", "aflåst", "holdes aflåst", "sikkerhed"], category: "husorden", section: 3 },
+    { id: "cykelparkering", terms: ["hvor må jeg stille min cykel", "cykel", "cykler", "barnevogn", "barnevogne", "knallert", "knallerter", "cykelstativ", "cykelstativer", "trappeopgang", "trappeopgangen"], category: "husorden", section: 4 },
+    { id: "cykelkaelder_ejerskab", terms: ["hvem ejer cykelkælderen", "cykelkælderen", "cykelkælder", "fællesejendom"], category: "vedtaegter", section: 26 },
     { id: "parkering", terms: ["parkering", "parkeringsplads", "parkeringspladser", "p-plads", "venteliste", "dinparkering", "parkeringskontrol", "pladsnummer", "uvedkommende", "holder på min plads", "forkert parkeret"], category: "parkering" },
     { id: "vedtaegter", terms: ["vedtægter", "vedtægt"], category: "vedtaegter" },
     { id: "affald", terms: ["affald", "storskrald", "skralderum", "storskraldsrum", "miljøskab", "genbrugsplads", "affaldssortering", "farligt affald", "hebsoe", "rengøring"], category: "affald" },
@@ -270,12 +278,12 @@
       else if (doc.topic === "overview") score += 8;
     } else if (intent?.id === "affald") {
       const q = normalize(query);
-      if (doc.topic === "cleaning" && /rengoring|hebsoe|opgang|graesslaaning|vicevaert/.test(q)) score += 24;
+      if (doc.topic === "cleaning" && /rengoring|hebsoe|opgang|graesslaaning|vicevaert|ejendomsservice/.test(q)) score += 32;
       else if (doc.topic === "waste") score += 12;
     } else if (intent?.id === "generalforsamling") {
       const q = normalize(query);
       if (doc.topic === "finance" && /referat|regnskab|budget|prisblad|gebyr|takst|gf|xgf/.test(q)) score += 24;
-      else if (doc.topic === "meeting") score += 12;
+      else if (doc.topic === "meeting") score += 18;
     } else if (intent?.id === "udlejning") {
       const q = normalize(query);
       if (doc.topic === "airbnb" && /airbnb|korttid|erhverv|forbud|ma man|ikke ma/.test(q)) score += 24;
@@ -381,12 +389,19 @@
         return "Ejerforeningen har ansvaret for ejendommens fælles lodrette hovedstigstrenge til vand og varme samt lodrette faldstammer frem til den individuelle forgrening til den enkelte lejlighed (vedtægterne § 7, stk. 2). Alle individuelle indvendige rørforgreninger i lejligheden er ejerens eget ansvar (§ 7, stk. 1).";
       }
     }
+    const q = normalize(question);
+    if (/cykelkaelder|cykelrum|cykler|cykel|knallert/.test(q)) {
+      return "Cykelkældrene er en del af ejerforeningens fællesarealer (fællesejendom), som tilhører ejerforeningen – det vil sige alle lejlighedsejerne i fællesskab jf. vedtægterne § 1, stk. 2 og § 26. Cykler, knallerter og barnevogne må ifølge husordenens punkt 4 kun stilles i de dertil indrettede rum eller cykelstativer.";
+    }
+    if (/ubudn|ubuden|fremmed|gaest|mistaenkelig|indbrud|aflas|laste.*dore|lukke.*dore/.test(q)) {
+      return "Af hensyn til ejendommens sikkerhed og for at undgå ubudne gæster skal alle gadedøre, kælderdøre samt døre til loftsrum og cykelkældre altid holdes forsvarligt lukkede og låste. Luk aldrig fremmede eller ukendte personer ind i opgangen, medmindre du kender deres konkrete ærinde.";
+    }
     const excerpt = primary.content.trim();
-    // Hold standardsvaret kort: højst to sætninger og 45 ord.
-    const sentences = excerpt.split(/(?<=[.!?])\s+/).filter(Boolean).slice(0, 2);
+    // Hold standardsvaret klart og præcist (op til tre sætninger og højst 85 ord).
+    const sentences = excerpt.split(/(?<=[.!?])\s+/).filter(Boolean).slice(0, 3);
     let concise = sentences.join(" ");
     const words = concise.split(/\s+/);
-    if (words.length > 45) concise = words.slice(0, 45).join(" ").replace(/[,:;]$/, "") + "…";
+    if (words.length > 85) concise = words.slice(0, 85).join(" ").replace(/[,:;]$/, "") + "…";
     return concise;
   }
 
@@ -498,27 +513,90 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
+  let chatHistory = [];
+
+  function addThinkingIndicator() {
+    const item = document.createElement("div");
+    item.className = "acb-message acb-bot acb-thinking-item";
+    item.innerHTML = `<span class="acb-thinking-label">Tænker…</span><span class="acb-thinking-dots" aria-hidden="true"><span class="acb-thinking-dot"></span><span class="acb-thinking-dot"></span><span class="acb-thinking-dot"></span></span>`;
+    messages.appendChild(item);
+    messages.scrollTop = messages.scrollHeight;
+    return item;
+  }
+
+  function removeThinkingIndicator(item) {
+    if (item && item.parentNode) {
+      item.parentNode.removeChild(item);
+    }
+  }
+
   async function submitQuestion(question) {
     const cleanQuestion = String(question || "").trim();
     if (!cleanQuestion) return;
     addMessage("user", cleanQuestion);
     input.value = "";
 
-    // Generelle spørgsmål om selve chatbotten får korte, faste svar.
+    // Generelle faste spørgsmål om selve chatbotten
     const fixedAnswer = predefinedAnswer(cleanQuestion);
     if (fixedAnswer) {
       addMessage("bot", fixedAnswer);
+      chatHistory.push({ role: "user", text: cleanQuestion });
+      chatHistory.push({ role: "model", text: fixedAnswer });
       return;
     }
 
+    // Vis tænkeindikator mens assistenten ræsonnerer
+    const thinkingItem = addThinkingIndicator();
+
+    const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const fetchTimeout = controller ? setTimeout(() => controller.abort(), 3000) : null;
+
+    try {
+      const response = await fetch(new URL("api/chatbot/query", BASE).href, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: cleanQuestion, history: chatHistory }),
+        signal: controller ? controller.signal : undefined
+      });
+      if (fetchTimeout) clearTimeout(fetchTimeout);
+
+      if (response.ok) {
+        const data = await response.json();
+        removeThinkingIndicator(thinkingItem);
+
+        if (data && typeof data.answer === "string" && data.answer.trim()) {
+          const results = Array.isArray(data.sources) ? data.sources.map(s => ({
+            doc: {
+              title: s.title || "Kilde",
+              source: { url: s.url || "/" },
+              section: s.section || ""
+            }
+          })) : [];
+
+          addMessage("bot", data.answer, results);
+          chatHistory.push({ role: "user", text: cleanQuestion });
+          chatHistory.push({ role: "model", text: data.answer });
+          return;
+        }
+      }
+    } catch (err) {
+      if (fetchTimeout) clearTimeout(fetchTimeout);
+      console.warn("Server chatbot query fejlede/timed ud, bruger lynhurtig fallback:", err);
+    }
+
+    removeThinkingIndicator(thinkingItem);
+
+    // Lokal fallback
     await loadKnowledge();
-    // Søgningen er bevidst global: valget af emne må aldrig blokere spørgsmål om andre emner.
     const matches = search(cleanQuestion);
     if (!matches.length) {
       addMessage("bot", TEXT.noMatch);
       return;
     }
-    addMessage("bot", formatAnswer(matches, cleanQuestion), matches.slice(0, 1));
+    const answer = formatAnswer(matches, cleanQuestion);
+    addMessage("bot", answer, matches.slice(0, 1));
+    chatHistory.push({ role: "user", text: cleanQuestion });
+    chatHistory.push({ role: "model", text: answer });
   }
 
   async function loadKnowledge() {
