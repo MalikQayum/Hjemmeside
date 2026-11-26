@@ -473,3 +473,127 @@
     width: 100%;
   }
 }
+
+/* Chatbot activation administration */
+.admin-chatbot-section {
+  margin-bottom: 2.5em;
+  padding-bottom: 2em;
+  border-bottom: 2px solid rgba(210, 215, 217, 0.65);
+}
+
+.admin-chatbot-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1.25em;
+}
+
+.admin-chatbot-heading h2 {
+  margin-bottom: 0.25em;
+}
+
+.admin-chatbot-heading p {
+  margin-bottom: 0;
+}
+
+.admin-chatbot-heading .button {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.admin-chatbot-card {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 1.5em;
+  border: 1px solid rgba(210, 215, 217, 0.85);
+  border-radius: 0.375em;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.035);
+}
+
+.admin-chatbot-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.admin-chatbot-legend {
+  margin-bottom: 0.85em;
+  padding: 0;
+  color: #3d4449;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.admin-radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+}
+
+.admin-radio-option {
+  position: relative;
+  border: 1px solid rgba(210, 215, 217, 0.9);
+  border-radius: 0.375em;
+  background: #fff;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.admin-radio-option:has(input[type="radio"]:checked) {
+  border-color: #3d4449;
+  background: #f8fafc;
+}
+
+.admin-radio-option input[type="radio"] + label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.95em 1.1em 0.95em 3em;
+  color: #3d4449;
+  line-height: 1.45;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.admin-radio-option input[type="radio"] + label:before {
+  top: 1.25em;
+  left: 1.15em;
+}
+
+.admin-radio-option input[type="radio"] + label strong {
+  display: block;
+  margin-bottom: 0.2em;
+  color: #3d4449;
+  font-size: 0.98em;
+  font-weight: 700;
+}
+
+.admin-radio-option input[type="radio"] + label span {
+  display: block;
+  color: #64748b;
+  font-size: 0.88em;
+}
+
+.admin-chatbot-save-panel {
+  margin-top: 1.25em;
+}
+
+@media screen and (max-width: 736px) {
+  .admin-chatbot-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .admin-chatbot-heading .button {
+    width: 100%;
+  }
+  .admin-radio-group {
+    grid-template-columns: 1fr;
+  }
+  .admin-chatbot-card {
+    padding: 1.2em;
+  }
+}
