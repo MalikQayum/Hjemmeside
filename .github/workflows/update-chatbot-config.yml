@@ -1,0 +1,100 @@
+name: Update chatbot configuration
+run-name: Update chatbot config ${{ inputs.request_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: JSON chatbot configuration sent by the board administration page
+        required: true
+        type: string
+      request_id:
+        description: Unique identifier used by the administration page to track this save
+        required: true
+        type: string
+
+concurrency:
+  group: update-bestyrelsen-data
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update-chatbot-config:
+    name: Validate and update chatbot/config.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - name: Check out this repository
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Validate chatbot config and write the one permitted file
+        env:
+          PAYLOAD_JSON: ${{ inputs.payload }}
+          REQUEST_ID: ${{ inputs.request_id }}
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+          import re
+          from datetime import datetime
+          from pathlib import Path
+
+          request_id = os.environ.get("REQUEST_ID", "")
+          if not re.fullmatch(r"save-[A-Za-z0-9_-]{1,80}", request_id):
+              raise SystemExit("Invalid request identifier.")
+
+          raw = os.environ.get("PAYLOAD_JSON", "")
+          if not raw or len(raw) > 2000:
+              raise SystemExit("Payload is empty or exceeds the 2,000-character safety limit.")
+
+          try:
+              data = json.loads(raw)
+          except json.JSONDecodeError as exc:
+              raise SystemExit(f"Invalid JSON payload: {exc}")
+
+          if not isinstance(data, dict) or data.get("schemaVersion") != 1:
+              raise SystemExit("Unsupported chatbot config format.")
+          if set(data.keys()) != {"schemaVersion", "enabled", "updatedAt"}:
+              raise SystemExit("Unexpected top-level properties in chatbot config payload.")
+          if not isinstance(data.get("enabled"), bool):
+              raise SystemExit("enabled must be true or false.")
+
+          updated_at = data.get("updatedAt")
+          if not isinstance(updated_at, str):
+              raise SystemExit("updatedAt must be an ISO timestamp.")
+          try:
+              datetime.fromisoformat(updated_at.replace("Z", "+00:00"))
+          except ValueError:
+              raise SystemExit("updatedAt is not a valid ISO timestamp.")
+
+          normalized = {
+              "schemaVersion": 1,
+              "enabled": data["enabled"],
+              "updatedAt": updated_at,
+          }
+          destination = Path("chatbot/config.json")
+          destination.parent.mkdir(parents=True, exist_ok=True)
+          temporary = Path("chatbot/config.json.tmp")
+          temporary.write_text(json.dumps(normalized, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          temporary.replace(destination)
+          print(f"Validated chatbot config (enabled={normalized['enabled']}).")
+          PY
+
+      - name: Commit only chatbot/config.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- chatbot/config.json
+          if git diff --cached --quiet; then
+            echo "No chatbot config changes to commit."
+            exit 0
+          fi
+          git commit -m "Update chatbot configuration"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
