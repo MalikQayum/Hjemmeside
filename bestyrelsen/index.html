@@ -10,12 +10,12 @@
     />
     <meta
       name="description"
-      content="Bestyrelsens administrationsside til parkeringsventeliste, nummerplader, prisblad og kælderrum."
+      content="Bestyrelsens administrationsside til chatbot, prisblad, kælderrum og parkeringsventeliste."
     />
     <title>Bestyrelsen | Administration</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/bestyrelsen.css?v=20261121-cellar-fixed-rate-3" />
+    <link rel="stylesheet" href="/assets/css/bestyrelsen.css?v=20261126-chatbot-toggle" />
   </head>
 
   <body class="is-preload">
@@ -91,6 +91,49 @@
                 <button id="admin-logout" type="button" class="button">Log ud</button>
               </div>
             </header>
+
+            <section class="admin-chatbot-section" aria-labelledby="chatbot-admin-heading">
+              <header class="admin-chatbot-heading">
+                <div>
+                  <h2 id="chatbot-admin-heading">Chatbot - aktivering</h2>
+                  <p class="admin-muted">Vælg om chatbot-knappen “Spørg os” skal være slået til eller fra på hjemmesiden.</p>
+                </div>
+                <button id="chatbot-refresh" type="button" class="button">Genindlæs status</button>
+              </header>
+
+              <div class="admin-chatbot-card">
+                <fieldset class="admin-chatbot-fieldset">
+                  <legend class="admin-chatbot-legend">Chatbot på hjemmesiden</legend>
+                  <div class="admin-radio-group">
+                    <div class="admin-radio-option">
+                      <input id="chatbot-enabled-true" name="chatbotEnabled" type="radio" value="true" />
+                      <label for="chatbot-enabled-true">
+                        <strong>Aktiveret</strong>
+                        <span>Vis “Spørg os”-knappen og chatbotten for beboere på alle sider.</span>
+                      </label>
+                    </div>
+                    <div class="admin-radio-option">
+                      <input id="chatbot-enabled-false" name="chatbotEnabled" type="radio" value="false" />
+                      <label for="chatbot-enabled-false">
+                        <strong>Deaktiveret</strong>
+                        <span>Skjul “Spørg os”-knappen og deaktiver indlæsning af chatbotten.</span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="admin-save-panel admin-chatbot-save-panel">
+                  <div>
+                    <strong id="admin-chatbot-change-state">Ingen ikke-gemte ændringer</strong>
+                    <p id="admin-chatbot-save-help" class="admin-muted">
+                      Styrer om chatbotten vises på hjemmesiden via chatbot/config.json.
+                    </p>
+                  </div>
+                  <button id="chatbot-save" type="button" class="button primary" disabled>Gem chatbot-status</button>
+                </div>
+                <p id="admin-chatbot-status" class="admin-status" role="status" aria-live="polite"></p>
+              </div>
+            </section>
 
             <section class="admin-price-section" aria-labelledby="price-admin-heading">
               <header class="admin-price-heading">
@@ -353,6 +396,6 @@
       </main>
     </div>
 
-    <script src="/assets/js/bestyrelsen.js?v=20261121-cellar-fixed-rate-3"></script>
+    <script src="/assets/js/bestyrelsen.js?v=20261126-chatbot-toggle"></script>
   </body>
 </html>

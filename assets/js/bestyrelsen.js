@@ -8,19 +8,25 @@
   const WORKFLOW_FILE = "update-data.yml";
   const PRICE_WORKFLOW_FILE = "update-price-list.yml";
   const CELLAR_WORKFLOW_FILE = "update-cellar-rooms.yml";
+  const CHATBOT_WORKFLOW_FILE = "update-chatbot-config.yml";
   const API_VERSION = "2026-03-10";
   const SHARED_USERNAME = "bestyrelsen";
   const ALLOWED_GITHUB_LOGIN = "MalikQayum";
   const RUN_NAME_PREFIX = "Update parking data ";
   const PRICE_RUN_NAME_PREFIX = "Update price list ";
   const CELLAR_RUN_NAME_PREFIX = "Update cellar rooms ";
+  const CHATBOT_RUN_NAME_PREFIX = "Update chatbot config ";
   const API_ROOT = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`;
   const DATA_URL = `${API_ROOT}/contents/parkering/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const PRICE_DATA_URL = `${API_ROOT}/contents/generalforsamling/prisblad.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const CELLAR_DATA_URL = `${API_ROOT}/contents/kaelderrum/data.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
+  const CHATBOT_DATA_URL = `${API_ROOT}/contents/chatbot/config.json?ref=${encodeURIComponent(GITHUB_BRANCH)}`;
   const DISPATCH_URL = `${API_ROOT}/actions/workflows/${WORKFLOW_FILE}/dispatches`;
   const PRICE_DISPATCH_URL = `${API_ROOT}/actions/workflows/${PRICE_WORKFLOW_FILE}/dispatches`;
   const CELLAR_DISPATCH_URL = `${API_ROOT}/actions/workflows/${CELLAR_WORKFLOW_FILE}/dispatches`;
+  const CHATBOT_DISPATCH_URL = `${API_ROOT}/actions/workflows/${CHATBOT_WORKFLOW_FILE}/dispatches`;
+  const LOCAL_CHATBOT_CONFIG_URL = "/chatbot/config/config.json";
+  const LOCAL_CHATBOT_SAVE_URL = "/api/chatbot/config";
   const RUN_TIMEOUT_MS = 90000;
   const POLL_INTERVAL_MS = 1500;
 
@@ -71,6 +77,13 @@
   const cellarChangeState = document.getElementById("admin-cellar-change-state");
   const cellarSaveHelp = document.getElementById("admin-cellar-save-help");
   const cellarStatus = document.getElementById("admin-cellar-status");
+  const chatbotEnabledTrue = document.getElementById("chatbot-enabled-true");
+  const chatbotEnabledFalse = document.getElementById("chatbot-enabled-false");
+  const chatbotSaveButton = document.getElementById("chatbot-save");
+  const chatbotRefreshButton = document.getElementById("chatbot-refresh");
+  const chatbotChangeState = document.getElementById("admin-chatbot-change-state");
+  const chatbotSaveHelp = document.getElementById("admin-chatbot-save-help");
+  const chatbotStatus = document.getElementById("admin-chatbot-status");
 
   const ADDRESSES = Array.from(addressInput.options)
     .map((option) => option.value.trim())
@@ -123,6 +136,10 @@
   let cellarRooms = [];
   let cellarUpdatedAt = null;
   let hasUnsavedCellarChanges = false;
+  let chatbotEnabled = true;
+  let savedChatbotEnabled = true;
+  let chatbotUpdatedAt = null;
+  let hasUnsavedChatbotChanges = false;
 
   function setStatus(element, message, kind = "") {
     element.textContent = message;
@@ -310,6 +327,61 @@
     throw new Error("Workflowet er gennemført, men GitHub har endnu ikke vist de nye kælderrumsdata. Prøv at genindlæse om et øjeblik.");
   }
 
+  function isLocalPreviewHost() {
+    const host = window.location.hostname;
+    return host === "localhost" || host === "127.0.0.1" || host.endsWith(".run.app");
+  }
+
+  async function fetchPublicChatbotConfig() {
+    const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    if (!isLocalPreviewHost()) {
+      try {
+        const ghResponse = await fetch(`${CHATBOT_DATA_URL}&_=${cacheBuster}`, {
+          headers: { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": API_VERSION },
+          cache: "no-store"
+        });
+        if (ghResponse.ok) {
+          const parsed = await ghResponse.json();
+          if (parsed && typeof parsed.enabled === "boolean") {
+            return { enabled: parsed.enabled, updatedAt: parsed.updatedAt || null, source: "github" };
+          }
+        }
+      } catch (_error) {
+        // Falder tilbage til sidens lokale config.json, hvis bestyrelsen/chatbot/config.json endnu ikke findes.
+      }
+    }
+
+    const localUrl = new URL(LOCAL_CHATBOT_CONFIG_URL, window.location.origin);
+    localUrl.searchParams.set("_", cacheBuster);
+    const localResponse = await fetch(localUrl, { cache: "no-store" });
+    if (!localResponse.ok) {
+      throw new Error(`Chatbot-indstillingen kunne ikke hentes (HTTP ${localResponse.status}).`);
+    }
+    const parsed = await localResponse.json();
+    if (!parsed || typeof parsed.enabled !== "boolean") {
+      throw new Error("chatbot/config/config.json har ikke det forventede format.");
+    }
+    return { enabled: parsed.enabled, updatedAt: parsed.updatedAt || null, source: "local" };
+  }
+
+  async function fetchSavedChatbotConfig(expectedUpdatedAt) {
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const cacheBuster = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+      const response = await fetch(`${CHATBOT_DATA_URL}&_=${cacheBuster}`, {
+        headers: { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": API_VERSION },
+        cache: "no-store"
+      });
+      if (response.ok) {
+        const parsed = await response.json();
+        if (parsed && parsed.updatedAt === expectedUpdatedAt) {
+          return { enabled: parsed.enabled !== false, updatedAt: parsed.updatedAt || null, source: "github" };
+        }
+      }
+      if (attempt < 4) await sleep(800);
+    }
+    throw new Error("Workflowet er gennemført, men GitHub har endnu ikke vist den nye chatbot-indstilling. Prøv at genindlæse om et øjeblik.");
+  }
+
   async function waitForWorkflowById(runId, token) {
     const startedAt = Date.now();
     while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
@@ -449,6 +521,52 @@
     if (result && Number.isInteger(result.workflow_run_id)) return waitForCellarWorkflowById(result.workflow_run_id, token);
     if (result === null) return waitForCellarWorkflowByRequestId(requestId, token);
     throw new Error("GitHub returnerede et uventet svar på kælderrumsworkflow-anmodningen.");
+  }
+
+  async function waitForChatbotWorkflowById(runId, token) {
+    const startedAt = Date.now();
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const run = await githubRequest(`${API_ROOT}/actions/runs/${encodeURIComponent(runId)}`, token);
+      if (run.status === "completed") {
+        if (run.conclusion !== "success") throw new Error(`Chatbot-workflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen for fejlen.`);
+        return run;
+      }
+      setStatus(chatbotStatus, "GitHub opdaterer chatbot-indstillingen …");
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub accepterede chatbot-ændringen, men workflowet blev ikke færdigt inden for tidsgrænsen.");
+  }
+
+  async function waitForChatbotWorkflowByRequestId(requestId, token) {
+    const startedAt = Date.now();
+    const runsUrl = `${API_ROOT}/actions/workflows/${encodeURIComponent(CHATBOT_WORKFLOW_FILE)}/runs?branch=${encodeURIComponent(GITHUB_BRANCH)}&event=workflow_dispatch&per_page=100`;
+    const expectedTitle = `${CHATBOT_RUN_NAME_PREFIX}${requestId}`;
+    while (Date.now() - startedAt < RUN_TIMEOUT_MS) {
+      const result = await githubRequest(runsUrl, token);
+      const run = Array.isArray(result?.workflow_runs) ? result.workflow_runs.find((item) => item.display_title === expectedTitle) : null;
+      if (run) {
+        if (run.status === "completed") {
+          if (run.conclusion !== "success") throw new Error(`Chatbot-workflowet sluttede med status: ${run.conclusion || "ukendt"}. Se Actions i repositoryet bestyrelsen for fejlen.`);
+          return run;
+        }
+        setStatus(chatbotStatus, "GitHub opdaterer chatbot-indstillingen …");
+      }
+      await sleep(POLL_INTERVAL_MS);
+    }
+    throw new Error("GitHub modtog chatbot-ændringen, men workflowet blev ikke færdigt inden for tidsgrænsen.");
+  }
+
+  async function dispatchChatbotWorkflow(token, data) {
+    const payload = JSON.stringify(data);
+    const requestId = `save-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const result = await githubRequest(CHATBOT_DISPATCH_URL, token, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: GITHUB_BRANCH, inputs: { payload, request_id: requestId } })
+    });
+    if (result && Number.isInteger(result.workflow_run_id)) return waitForChatbotWorkflowById(result.workflow_run_id, token);
+    if (result === null) return waitForChatbotWorkflowByRequestId(requestId, token);
+    throw new Error("GitHub returnerede et uventet svar på chatbot-workflow-anmodningen.");
   }
 
   function formatTodayInCopenhagen() {
@@ -745,6 +863,49 @@
     setStatus(cellarStatus, "Alle 11 kælderrum er indlæst fra repositoryet bestyrelsen.", "success");
   }
 
+  function renderChatbotRadios() {
+    if (!chatbotEnabledTrue || !chatbotEnabledFalse) return;
+    chatbotEnabledTrue.checked = chatbotEnabled === true;
+    chatbotEnabledFalse.checked = chatbotEnabled === false;
+  }
+
+  function updateChatbotDirtyState() {
+    hasUnsavedChatbotChanges = chatbotEnabled !== savedChatbotEnabled;
+    if (chatbotSaveButton) chatbotSaveButton.disabled = !hasUnsavedChatbotChanges;
+    if (chatbotChangeState) {
+      chatbotChangeState.textContent = hasUnsavedChatbotChanges
+        ? "Du har ændringer i chatbot-status, som ikke er gemt"
+        : "Ingen ikke-gemte ændringer";
+    }
+    if (chatbotSaveHelp) {
+      if (hasUnsavedChatbotChanges) {
+        chatbotSaveHelp.textContent = `Ny indstilling: Chatbotten bliver ${chatbotEnabled ? "aktiveret (synlig)" : "deaktiveret (skjult)"} på hjemmesiden, når du gemmer.`;
+      } else {
+        chatbotSaveHelp.textContent = chatbotUpdatedAt
+          ? `Chatbotten er lige nu ${savedChatbotEnabled ? "aktiveret (synlig)" : "deaktiveret (skjult)"}. Senest gemt: ${new Intl.DateTimeFormat("da-DK", { dateStyle: "medium", timeStyle: "short" }).format(new Date(chatbotUpdatedAt))}.`
+          : `Chatbotten er lige nu ${savedChatbotEnabled ? "aktiveret (synlig)" : "deaktiveret (skjult)"} på hjemmesiden.`;
+      }
+    }
+  }
+
+  function applyChatbotConfig(data) {
+    savedChatbotEnabled = data.enabled !== false;
+    chatbotEnabled = savedChatbotEnabled;
+    chatbotUpdatedAt = data.updatedAt || null;
+    renderChatbotRadios();
+    updateChatbotDirtyState();
+  }
+
+  async function loadCurrentChatbotConfig() {
+    const data = await fetchPublicChatbotConfig();
+    applyChatbotConfig(data);
+    setStatus(
+      chatbotStatus,
+      `Chatbot-status er indlæst (${savedChatbotEnabled ? "Aktiveret" : "Deaktiveret"}).`,
+      "success"
+    );
+  }
+
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus(loginStatus, "Kontrollerer GitHub-adgangen …");
@@ -766,11 +927,11 @@
     try {
       const githubUser = await verifyGitHubToken(candidateToken);
       sessionToken = candidateToken;
-      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData()]);
+      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData(), loadCurrentChatbotConfig()]);
       signedInAs.textContent = `GitHub-token bekræftet for ${githubUser.login}.`;
       loginView.hidden = true;
       adminView.hidden = false;
-      setStatus(mainStatus, "Du er logget ind. Parkering, prisblad og kælderrum er indlæst.", "success");
+      setStatus(mainStatus, "Du er logget ind. Chatbot, parkering, prisblad og kælderrum er indlæst.", "success");
     } catch (error) {
       sessionToken = "";
       setStatus(loginStatus, error.message || "Login mislykkedes.", "error");
@@ -841,17 +1002,96 @@
   rowCancel.addEventListener("click", clearEditor);
 
   refreshButton.addEventListener("click", async () => {
-    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges) && !window.confirm("Dine ikke-gemte ændringer i parkering, prisblad eller kælderrum bliver kasseret. Vil du fortsætte?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges || hasUnsavedChatbotChanges) && !window.confirm("Dine ikke-gemte ændringer i chatbot, parkering, prisblad eller kælderrum bliver kasseret. Vil du fortsætte?")) return;
     refreshButton.disabled = true;
     priceRefreshButton.disabled = true;
     cellarRefreshButton.disabled = true;
-    setStatus(mainStatus, "Genindlæser parkeringsdata, prisblad og kælderrum …");
+    if (chatbotRefreshButton) chatbotRefreshButton.disabled = true;
+    setStatus(mainStatus, "Genindlæser chatbot-status, parkeringsdata, prisblad og kælderrum …");
     try {
-      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData()]);
-      setStatus(mainStatus, "Parkeringsdata, prisblad og kælderrum er genindlæst.", "success");
+      await Promise.all([loadCurrentData(), loadCurrentPriceData(), loadCurrentCellarData(), loadCurrentChatbotConfig()]);
+      setStatus(mainStatus, "Chatbot-status, parkeringsdata, prisblad og kælderrum er genindlæst.", "success");
     } catch (error) { setStatus(mainStatus, error.message || "Data kunne ikke genindlæses.", "error"); }
-    finally { refreshButton.disabled = false; priceRefreshButton.disabled = false; cellarRefreshButton.disabled = false; }
+    finally {
+      refreshButton.disabled = false;
+      priceRefreshButton.disabled = false;
+      cellarRefreshButton.disabled = false;
+      if (chatbotRefreshButton) chatbotRefreshButton.disabled = false;
+    }
   });
+
+  function onChatbotRadioChange(event) {
+    chatbotEnabled = event.target.value === "true";
+    updateChatbotDirtyState();
+    setStatus(
+      chatbotStatus,
+      hasUnsavedChatbotChanges
+        ? `Valgt: ${chatbotEnabled ? "Aktiveret" : "Deaktiveret"}. Husk at gemme ændringen.`
+        : "Chatbot-status svarer til den gemte indstilling."
+    );
+  }
+
+  if (chatbotEnabledTrue) chatbotEnabledTrue.addEventListener("change", onChatbotRadioChange);
+  if (chatbotEnabledFalse) chatbotEnabledFalse.addEventListener("change", onChatbotRadioChange);
+
+  if (chatbotRefreshButton) {
+    chatbotRefreshButton.addEventListener("click", async () => {
+      if (hasUnsavedChatbotChanges && !window.confirm("Din ikke-gemte ændring af chatbot-status bliver kasseret. Vil du fortsætte?")) return;
+      chatbotRefreshButton.disabled = true;
+      setStatus(chatbotStatus, "Genindlæser chatbot-status …");
+      try { await loadCurrentChatbotConfig(); }
+      catch (error) { setStatus(chatbotStatus, error.message || "Chatbot-status kunne ikke genindlæses.", "error"); }
+      finally { chatbotRefreshButton.disabled = false; }
+    });
+  }
+
+  if (chatbotSaveButton) {
+    chatbotSaveButton.addEventListener("click", async () => {
+      if (!sessionToken || !hasUnsavedChatbotChanges) return;
+      chatbotSaveButton.disabled = true;
+      if (chatbotRefreshButton) chatbotRefreshButton.disabled = true;
+      setStatus(chatbotStatus, "Gemmer chatbot-indstilling …");
+      const nextData = {
+        schemaVersion: 1,
+        enabled: chatbotEnabled,
+        updatedAt: new Date().toISOString()
+      };
+      try {
+        if (isLocalPreviewHost()) {
+          const localRes = await fetch(LOCAL_CHATBOT_SAVE_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ enabled: nextData.enabled })
+          });
+          if (!localRes.ok) {
+            throw new Error(`Kunne ikke gemme lokal chatbot-indstilling (HTTP ${localRes.status}).`);
+          }
+          const savedLocal = await localRes.json();
+          applyChatbotConfig({ enabled: savedLocal.enabled, updatedAt: savedLocal.updatedAt });
+          setStatus(
+            chatbotStatus,
+            `Chatbotten er nu ${savedLocal.enabled ? "aktiveret" : "deaktiveret"} i chatbot/config/config.json.`,
+            "success"
+          );
+          return;
+        }
+
+        await dispatchChatbotWorkflow(sessionToken, nextData);
+        const savedData = await fetchSavedChatbotConfig(nextData.updatedAt);
+        applyChatbotConfig(savedData);
+        setStatus(
+          chatbotStatus,
+          `Chatbot-status er gemt (${savedData.enabled ? "Aktiveret" : "Deaktiveret"}).`,
+          "success"
+        );
+      } catch (error) {
+        chatbotSaveButton.disabled = !hasUnsavedChatbotChanges;
+        setStatus(chatbotStatus, error.message || "Chatbot-indstillingen kunne ikke gemmes.", "error");
+      } finally {
+        if (chatbotRefreshButton) chatbotRefreshButton.disabled = false;
+      }
+    });
+  }
 
   cellarRefreshButton.addEventListener("click", async () => {
     if (hasUnsavedCellarChanges && !window.confirm("Dine ikke-gemte ændringer i kælderrummene bliver kasseret. Vil du fortsætte?")) return;
@@ -1030,6 +1270,10 @@
     cellarRooms = [];
     cellarUpdatedAt = null;
     hasUnsavedCellarChanges = false;
+    chatbotEnabled = true;
+    savedChatbotEnabled = true;
+    chatbotUpdatedAt = null;
+    hasUnsavedChatbotChanges = false;
     tokenInput.value = "";
     loginView.hidden = false;
     adminView.hidden = true;
@@ -1038,6 +1282,10 @@
     saveButton.disabled = true;
     priceSaveButton.disabled = true;
     cellarSaveButton.disabled = true;
+    if (chatbotSaveButton) chatbotSaveButton.disabled = true;
+    renderChatbotRadios();
+    updateChatbotDirtyState();
+    if (chatbotStatus) setStatus(chatbotStatus, "");
     clearPriceEditor();
     renderPriceRows();
     setStatus(priceStatus, "");
@@ -1051,7 +1299,7 @@
   }
 
   logoutButton.addEventListener("click", () => {
-    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges) && !window.confirm("Du har ikke-gemte ændringer i parkering, prisblad eller kælderrum. Log ud alligevel?")) return;
+    if ((hasUnsavedChanges || hasUnsavedPriceChanges || hasUnsavedCellarChanges || hasUnsavedChatbotChanges) && !window.confirm("Du har ikke-gemte ændringer i chatbot, parkering, prisblad eller kælderrum. Log ud alligevel?")) return;
     logout();
   });
 

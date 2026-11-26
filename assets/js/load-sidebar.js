@@ -6,17 +6,36 @@
     return;
   }
 
-  // Chatbotten kan slås til og fra centralt i chatbot/config/config.json.
+  // Chatbotten kan slås til og fra centralt i chatbot/config/config.json (eller via bestyrelsen-repositoryet).
   const loadChatbot = async () => {
     const configUrl = new URL("/chatbot/config/config.json", document.baseURI);
     // Undgå, at browserens cache fastholder en tidligere til/fra-indstilling.
     configUrl.searchParams.set("_", Date.now().toString());
+    const host = window.location.hostname;
+    const isLocalHost = host === "localhost" || host === "127.0.0.1" || host.endsWith(".run.app");
+
+    let resolvedConfig = null;
+    if (!isLocalHost) {
+      try {
+        const remoteUrl = `https://api.github.com/repos/Vigerslev-Skyttegard/bestyrelsen/contents/chatbot/config.json?ref=main&_=${Date.now()}`;
+        const remoteResponse = await fetch(remoteUrl, {
+          headers: { Accept: "application/vnd.github.raw+json", "X-GitHub-Api-Version": "2026-03-10" },
+          cache: "no-store"
+        });
+        if (remoteResponse.ok) {
+          resolvedConfig = await remoteResponse.json();
+        }
+      } catch (_remoteError) {
+        resolvedConfig = null;
+      }
+    }
 
     try {
-      const response = await fetch(configUrl, { cache: "no-store" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-      const config = await response.json();
+      const config = resolvedConfig || await (async () => {
+        const response = await fetch(configUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })();
       if (config.enabled === false) {
         console.info("Chatbotten er deaktiveret i chatbot/config/config.json.");
         return;

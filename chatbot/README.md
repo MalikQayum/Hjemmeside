@@ -28,7 +28,7 @@ Chatbottens synlige "Spørg os"-knap styres af `config/config.json`:
 - `true`: Chatbotten indlæses, og "Spørg os" vises på hjemmesidens sider.
 - `false`: Chatbotten indlæses ikke, og knappen vises ikke.
 
-Ret kun værdien til `true` eller `false`, og publicér ændringen på GitHub. Indstillingen hentes ved hver sideindlæsning uden almindelig browsercache, så det er ikke nødvendigt at ændre HTML eller JavaScript. Hvis filen midlertidigt ikke kan hentes, indlæses chatbotten som standard aktiv, så en netværksfejl ikke utilsigtet skjuler funktionen.
+Bestyrelsen kan også slå chatbotten til eller fra direkte med radioknapperne under **Chatbot - aktivering** på administrationssiden `/bestyrelsen/` (gemmes i `Vigerslev-Skyttegard/bestyrelsen/chatbot/config.json` i produktion og i `config/config.json` lokalt). Hvis filen midlertidigt ikke kan hentes, indlæses chatbotten som standard aktiv, så en netværksfejl ikke utilsigtet skjuler funktionen.
 
 ## Sådan finder chatbotten svar
 

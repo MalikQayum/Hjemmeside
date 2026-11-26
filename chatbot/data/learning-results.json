@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "tested_at": "2026-11-25T17:07:01.007Z",
-  "generated": 0,
-  "approved": 0,
-  "rejected": 0,
-  "total_unique_attempted": 485,
+  "tested_at": "2026-11-25T07:03:07.744Z",
+  "generated": 15,
+  "approved": 1,
+  "rejected": 14,
+  "total_unique_attempted": 385,
   "attempted_questions": [
     "Hvad gælder om Forside | E/F Skyttegårdvej/Vigerslevvej?",
     "Hvor kan jeg læse om Forside | E/F Skyttegårdvej/Vigerslevvej?",
@@ -390,108 +390,73 @@
     "Hvordan skal jeg lufte ud for at undgå skimmelsvamp?",
     "Hvor skal jeg stille mit storskrald?",
     "Hvad gør jeg, hvis jeg har mistet min nøglebrik?",
-    "Er det tilladt at ryge på de indendørs fællesarealer?",
-    "Hvor mange ejerlejligheder består foreningen i alt af?",
-    "Hvem ejer cykelkælderen og fællesrummene i ejendommen?",
-    "Hvem er vores daglige ejendomsadministrator?",
-    "Hvilken S-togsstation ligger tættest på ejendommen?",
-    "Hvor langt er der fra opgangen hen til den nærmeste dagligvarebutik?",
-    "Er der offentlig gadeparkering på Skyttegårdvej eller tidsbegrænsede zoner i nærheden?",
-    "Hvor finder jeg linket til foreningens gældende husorden og vedtægter på hjemmesiden?",
-    "Hvor på hjemmesiden kan jeg læse tidligere nyhedsbreve fra bestyrelsen?",
-    "Der holder en fremmed bil på min betalte p-plads lige nu, hvem skal jeg ringe til?",
-    "Hvad skal jeg oplyse til DinParkering, når jeg anmelder en bil, der holder ulovligt på min plads?",
-    "Jeg har købt ny bil – hvordan søger jeg om at komme på ventelisten til en parkeringsplads?",
-    "Hvem administrerer egentlig ejerforeningens parkeringspladser, og hvem står for kontrollen?",
-    "Bliver lejen for min motorcykelplads opkrævet månedligt gennem DEAS?",
-    "Hvor kan jeg slå prisen op for at leje en parkeringsplads til bil eller scooter?",
-    "Jeg har brug for mere opbevaringsplads – må jeg leje et ekstra kælderrum og eventuelt fremleje det, hvis jeg ikke bruger det hele?",
-    "Hvem betaler erstatning, hvis mine ting i det lejede kælderrum bliver ødelagt – dækker foreningen eller min egen indboforsikring?",
-    "Er prisen for et ekstra kælderrum ens for alle rum, eller afhænger den af størrelsen?",
-    "Jeg har tabt min nøglebrik et sted i Valby – hvordan får jeg spærret den med det samme, så uvedkommende ikke kan komme ind?",
-    "Må min voksne datter, der bor fast i lejligheden, selv bestille et ekstra nøglekort via kontaktformularen?",
-    "Hvordan betaler man for et nyt nøglekort, når man bestiller et ekstra via hjemmesiden?",
-    "Jeg skal sælge min lejlighed – hvilken mailadresse hos DEAS skal jeg skrive til om ejerskiftet?",
-    "Hvad er mailadressen direkte til bestyrelsen, hvis jeg har spørgsmål om husordenen?",
-    "Hvem er foreningens bygningsforsikring tegnet hos?",
-    "Skal man betale en selvrisiko, hvis man selv er skyld i en skade, som bygningsforsikringen dækker?",
-    "Jeg har spørgsmål til mit årlige varmeregnskab og aflæsning af vand – hvem skal jeg kontakte?",
-    "Der er problemer med en vaskemaskine nede i kælderen på Skyttegårdvej 9 – skal jeg skrive til bestyrelsen eller FIVA?",
-    "Vores rør lækker her søndag aften, hvilket firma er foreningens faste døgnvagt for akut VVS?",
-    "Jeg synes trappeopgangen trænger til rengøring – må jeg selv kontakte Hebsoe Rengøring direkte?",
-    "Hvem leverer fjernvarmen og drikkevandet til ejendommen?",
-    "Hvor kan jeg logge ind og finde mine opkrævninger og foreningens dokumenter digitalt?",
-    "Hvor skal jeg aflevere malingrester, gamle batterier og småt elektronik?",
-    "Hvilken brik skal jeg bruge for at komme ind i skralderummet ved Vigerslevvej 148?",
-    "Jeg er ved at rive et gammelt køkken ned – må jeg sætte byggeaffaldet ind i storskraldsrummet?",
-    "Hvad sker der, hvis en beboer sætter sit affald uden for containerne i skraldeburet?",
-    "Hvorfor må man ikke overfylde skraldecontainerne, så låget ikke kan lukkes?",
-    "Har ejerforeningen en fast vicevært ansat til at passe gården og opgangene?",
-    "Hvem skal jeg give besked, hvis jeg opdager at græsslåningen eller rengøringen i opgangen ikke er blevet gjort?",
-    "Jeg kan ikke selv komme til generalforsamlingen – må jeg give en skriftlig fuldmagt til en anden?",
-    "Må min lejer møde op og stemme på generalforsamlingen i ejerforeningen?",
-    "Får vi årsregnskabet og budgetforslaget sendt ud sammen med indkaldelsen til generalforsamlingen?",
-    "Hvor langt tilbage kan man finde gamle referater og årsregnskaber på hjemmesiden?",
-    "Hvornår starter og slutter ejerforeningens regnskabsår?",
-    "Jeg skal rejse væk i tre uger og vil udleje min lejlighed via Airbnb – skal bestyrelsen have besked, og hvad skal jeg oplyse?",
-    "Hvad sker der, hvis en ejer korttidsudlejer sin lejlighed oftere end de tilladte 4 gange om året?",
-    "Må jeg bruge min lejlighed til permanent ferieudlejning hele året rundt?",
-    "Jeg har fundet en lejer til min lejlighed – hvor skal jeg sende den underskrevne udlejningsblanket hen?",
-    "Må min nye lejer selv sætte et klistermærke med sit navn på postkassen og dørtelefonen?",
-    "Koster det et gebyr at få lavet et nyt navneskilt på postkassen, når man udlejer sin lejlighed?",
-    "Jeg bor selv i lejligheden, men har et tomt værelse – må jeg leje det enkelte værelse ud uden særlig tilladelse?",
-    "Må min lejer henvende sig direkte til DEAS eller bestyrelsen med praktiske spørgsmål?",
-    "Kan ejerforeningen tvinge mig til at opsige min lejer, hvis lejeren bliver ved med at overtræde husordenen?",
-    "Mit blandingsbatteri i bruseren er begyndt at dryppe – er det foreningen eller mig selv som ejer, der skal betale for reparationen?",
-    "Der er sprunget et vandrør under min køkkenvask efter forgreningen fra hovedstigstrengen – hvem har ansvaret for den del af røret?",
-    "Hvem skal betale for en elektriker, hvis en stikkontakt eller el-ledning inde i min lejlighed går i stykker?",
-    "En af mine radiatorer i stuen er utæt – hører radiatorer under foreningens eller ejerens vedligeholdelse?",
-    "Der siver vand ud fra den fælles lodrette faldstamme bag min væg på badeværelset – er det foreningens ansvar?",
-    "En tagrende på bygningen er gået i stykker og drypper ned på facaden – hvem står for udvendig vedligeholdelse?",
-    "Hvorfor står der kun adresse og ikke mit navn på dørtelefonen ved gadedøren?",
-    "Min håndværker skal have lukket for vandet til hele opgangen i næste uge – hvor mange dage i forvejen skal jeg hænge en seddel op?",
-    "Hvilke oplysninger skal stå på varslingssedlen i opgangen, når vi skal lukke for vandet?",
-    "Der fosser vand ud fra et sprunget rør i lejligheden lige nu – hvad gør jeg som det allerførste?",
-    "Skal jeg selv sørge for at koordinere med Finn L. & Davidsen, hvis der skal lukkes for et stigerør i opgangen?",
-    "Et slidt rør under min egen vask har givet vandskade på mit trægulv og mine møbler – dækker foreningens bygningsforsikring det?",
-    "Dækker min egen indboforsikring også de ting, jeg har opbevaret nede i kælderrummet?",
-    "Hvor ligger rummet til møbler, tæpper og andet storaffald i haven?",
-    "Må jeg sætte en parabol eller en udvendig antenne op ved min altan?",
-    "Der har været ubudne gæster i vores kælder, fordi døren ikke var smækket – skal dørene ved kælderskakte og trappeopgange altid holdes låst?",
-    "Må ungerne cykle rundt på gangstierne inde i gården?",
-    "Min nabo lader sin barnevogn stå i opgangen under trappen – er det tilladt af hensyn til brandsikkerhed?",
-    "Jeg kom til at spilde en hel spand maling på trappen i opgangen – hvem skal gøre det rent?",
-    "Må jeg anskaffe mig en lille hund eller en indekat i lejligheden ifølge husordenen?",
-    "Min nabo spiller høj musik med kraftig bas sent om aftenen – hvad står der i husordenen om at vise hensyn?",
-    "Hvor mange minutter ad gangen bør man lufte ud for at holde fugten væk fra vinduer og tapet?",
-    "Må jeg lægge brød eller fuglefoder ud til fuglene nede i gården?",
-    "Kan jeg få lov til at bruge lejligheden til andet end beboelse uden skriftlig tilladelse fra bestyrelsen?",
-    "Må man skylle bleer eller vat ud i toilettet, eller giver det tilstoppede afløb?",
-    "Mit toilet bliver ved med at løbe – kan bestyrelsen hjælpe med at anvise en VVS-installatør?",
-    "Nogen har lavet hærværk på opgangsdøren – rejser bestyrelsen erstatningskrav mod dem?",
-    "Må man ryge en smøg ude på trappeopgangen eller i kældergangen, når vejret er dårligt?",
-    "Kan bestyrelsen opkræve en ekstraordinær betaling ved pludselige uforudsete udgifter, og hvad er grænsen i procent?",
-    "Hvordan hæfter ejerne personligt og i forhold til fordelingstal for ejerforeningens forpligtelser?",
-    "Hvor stort et flertal skal der til på generalforsamlingen for at ændre vedtægterne eller godkende et altanprojekt?",
-    "Hvad sker der, hvis et forslag om vedtægtsændring ikke fik nok stemmer fra alle ejere, men fik 2/3 flertal blandt de fremmødte?",
-    "Hvor stort flertal kræves der, hvis foreningen vil sælge større grundarealer eller betydelige fælles bestanddele?",
-    "Kan flertallet på generalforsamlingen bare træffe en beslutning, der giver enkelte ejere en utilbørlig fordel på andres bekostning?",
-    "Hvor mange uger før den ordinære generalforsamling skal bestyrelsen senest sende indkaldelsen ud?",
-    "Kan man træffe en bindende beslutning om et forslag på generalforsamlingen, hvis det slet ikke var med på dagsordenen?",
-    "Hvor stor en andel af ejerne skal der til for at kræve en ekstraordinær generalforsamling indkaldt?",
-    "Hvor mange fuldmagter må man højst afgive stemme for på vegne af andre ejere på generalforsamlingen?",
-    "Skal vores dirigent på generalforsamlingen nødvendigvis være en ejer fra foreningen?",
-    "Hvor mange medlemmer sidder der i vores bestyrelse, og kan min samlever også vælges ind?",
-    "Er det bestyrelsens ansvar at sørge for snerydning på de fælles arealer?",
-    "Min ældre far er fritaget for digital post – kan han stadig få breve fra bestyrelsen på papir?",
-    "Hvem kan skrive under og forpligte ejerforeningen juridisk?",
-    "Hvis jeg sælger min lejlighed, kan jeg så få udbetalt min andel af foreningens opsparede formue?",
-    "Hvor lang tids skriftligt varsel skal foreningen give mig, hvis de skal ind i min lejlighed for at lave en reparation?",
-    "Skal min overbo stille sikkerhed, hvis et større byggearbejde kræver indgreb i min lejlighed for over 5.000 kr.?",
-    "Hvor stort et ejerpantebrev skal jeg stille som sikkerhed over for ejerforeningen som ny ejer?",
-    "Hvis jeg køber en lejlighed i foreningen efter 1. august 2026, må jeg så få tilladelse til at holde hund?",
-    "Må jeg sælge min ejerlejlighed til et kollektiv, hvor der flytter flere voksne ind, end der er værelser?"
+    "Er det tilladt at ryge på de indendørs fællesarealer?"
   ],
-  "approved_questions": [],
-  "rejected_questions": []
+  "approved_questions": [
+    "Må jeg opbevare min cykel i trappeopgangen?"
+  ],
+  "rejected_questions": [
+    {
+      "question": "Hvem skal jeg kontakte, hvis en fremmed bil holder på min parkeringsplads?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Jeg har fået en vandskade i badeværelset, hvad gør jeg?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Er det tilladt at leje min lejlighed ud via Airbnb?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvor lang tid skal jeg holde min nøglebrik hen til tastaturet for at låse op?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglekort & nøglebrikker - bestilling, priser og sikkerhed"
+    },
+    {
+      "question": "Hvad gør jeg, hvis mit kælderrum ikke er låst?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvornår skal forslag til den ordinære generalforsamling senest være indsendt?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Skal jeg selv male mine vinduer indvendigt, når foreningen maler dem udvendigt?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Vedtægter - § 27. Ejernes vedligeholdelsespligt",
+      "actual": "Vedligeholdelse - indvendig vedligeholdelse (ejers ansvar)"
+    },
+    {
+      "question": "Hvor meget koster en ekstra nøglebrik?",
+      "reason": "wrong_or_missing_source",
+      "expected": "Nyhedsbrev nr.8",
+      "actual": "Nøglekort & nøglebrikker - bestilling, priser og sikkerhed"
+    },
+    {
+      "question": "Er det tilladt at holde hund eller kat i lejligheden?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvem har ansvaret for vedligeholdelse af faldstammerne i bygningen?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvordan skal jeg lufte ud for at undgå skimmelsvamp?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvor skal jeg stille mit storskrald?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Hvad gør jeg, hvis jeg har mistet min nøglebrik?",
+      "reason": "duplicate_or_empty"
+    },
+    {
+      "question": "Er det tilladt at ryge på de indendørs fællesarealer?",
+      "reason": "duplicate_or_empty"
+    }
+  ]
 }
